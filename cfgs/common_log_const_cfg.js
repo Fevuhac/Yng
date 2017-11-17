@@ -1,0 +1,46 @@
+var	common_log_const_cfg =  {
+		LOGIN : 1,    //--登录界面
+		MODE_SELECTING : 2,    //--模式选择界面
+		GAME_FIGHTING : 3,    //--游戏战斗场景
+		STORE : 4,    //--商城充值
+		MINI_GAME : 5,    //--小游戏
+		BROKE_GAIN : 6,    //--破产领取
+		ALL : 7,    //--所有场景
+		WEAPON_UNLOCK : 8,    //--武器解锁
+		SKILL_BUY : 9,    //--技能购买
+		CHAPTER_BUY : 10,    //--场景消耗
+		GOLDFISH_GAIN : 11,    //--奖金抽取
+		DAILY_GAIN : 12,    //--日常领取
+		ACHIEVE_GAIN : 13,    //--成就领取
+		PIRATE_GAIN : 14,    //--海盗任务领取
+		FIGHT_DROP : 15,    //--捕鱼掉落
+		VIPGIFT_BUY : 16,    //--VIP礼包购买
+		TIMEGIFT_BUY : 17,    //--限时礼包
+		GOLD_BUY : 18,    //--商城金币购买
+		SKIN_BUY : 19,    //--皮肤购买
+		GOD_CHALLENGE : 20,    //--保卫女神挑战
+		GOD_UNLOCK : 21,    //--女神解锁
+		GOD_UPGRADE : 22,    //--女神升级
+		BE_STOLEND : 23,    //--被偷取
+		PET_FISH_UPGRADE : 24,    //--宠物鱼升级或者解锁
+		SYNTHESIS : 25,    //--合成
+		Pet_FISH_DROP : 26,    //--宠物鱼领取奖励
+		NUCLER_DROP : 27,    //--核弹领取奖励2
+		RMATCH_BOX : 28,    //--排位赛开宝箱
+		NUCLER_LASER : 29,    //--激光领取奖励
+		CHARTS_REWARD : 30,    //--排行榜奖励
+		ACTIVE_DRAW : 31,    //--活动抽奖
+		REWARD_PEOPLE : 32,    //--打赏奖励
+		FUND_BUY : 33,    //--翻盘基金购买
+		MONTH_SIGN_REWARD : 34,    //--月签奖励和消耗(补签消耗钻石)
+		SHARE_REWARD : 35,    //--分享奖励
+		ACTIVE_QUEST : 36,    //--活动任务
+		ACTIVE_EXCHANGE : 37,    //--活动兑换
+		ACTIVE_CHARGE : 38,    //--活动充值回馈
+		INVITE_REWARD : 39,    //--邀请好友
+		BOX_REWARD : 40,    //--开启礼盒
+		FIRST_BUY : 41,    //--首充奖励
+		CARD_REWARD : 42,    //--月卡奖励
+		ENSHRINE_REWARD : 43,    //--收藏奖励
+	};
+module.exports = common_log_const_cfg;

@@ -1,0 +1,14 @@
+{
+    "enable": true,
+    "server": {
+        "host": "127.0.0.1",
+        "port": 6379,
+        "auth":false,
+        "pwd": "123654",
+        "database": 0,
+        "prefix":""
+    },
+    "ext": {
+    }
+}
+

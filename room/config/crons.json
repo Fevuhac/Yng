@@ -1,0 +1,12 @@
+{
+  "development":{
+      "hall":[
+        {"id":1,"time":"0 0/1 * * * *", "action": "rankCron.update"}
+      ]
+  },
+  "production":{
+    "hall":[
+      {"id":1,"time":"0 0/1 * * * *", "action": "rankCron.update"}
+    ]
+  }
+}

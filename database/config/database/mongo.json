@@ -1,0 +1,19 @@
+{
+    "enable": true,
+    "server": {
+        "host": "127.0.0.1",
+        "port": 27017,
+        "auth":false,
+        "user": "root",
+        "pwd": "123654",
+        "database": "chess"
+    },
+    "ext": {
+        "reconnect": true,
+        "poolSize": 4,
+        "native_parser":false,
+        "w":1,
+        "wtimeout":10,
+        "fsync":true
+    }
+}

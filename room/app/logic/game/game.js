@@ -23,6 +23,14 @@ class Game extends Entity{
             shareData.load();
             redisClient.sub(eventType.PUMPWATER, this.onPumpwater.bind(this));
 
+            mysqlClient.start(pomelo.app.get('mysql'), function (err, connecotr) {
+                if(err){
+                    logger.error('连接mysql数据库失败:', err);
+                    return;
+                }
+                logger.error('连接mysql数据库成功:', err);
+            });
+
         }.bind(this));
     }
 

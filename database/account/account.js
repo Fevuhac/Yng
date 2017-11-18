@@ -29,7 +29,7 @@ class Account extends AccountCommit{
      * @param data
      */
     appendValue(key, data){
-        this[`_${key}`] = accountParser.parseValue(key, data[key]);
+        this[`_${key}`] = accountParser.parseValue(key, data);
     }
 
     toJSON() {

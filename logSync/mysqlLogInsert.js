@@ -18,23 +18,28 @@ class MysqlLogInsert {
      * @param cb
      */
     flush(sourceData, cb) {
+        let flag = false;
         for (let type in sourceData) {
             let datas = sourceData[type];
             if(datas.length === 0){
                 continue;
             }
-            // console.time('mysqlExec')
+            flag = true;
             let len = datas.length;
             let sqlParams = mysqlConnector.buildParam(this.sqlTemplate[type], datas);
             datas.splice(0, datas.length);
             mysqlConnector.execTransaction(sqlParams, function (err, result) {
                 if(err){
-                    console.log('批量日志类型:' + type + '写入事务提交失败,'+err);
+                    logger.error('批量日志类型:' + type + '写入事务提交失败,'+err);
                 }
-                console.log('批量日志写入成功,数量', len);
+                logger.error('批量日志写入成功,数量', len);
                 // console.timeEnd('mysqlExec')
                 utils.invokeCallback(cb, err, result);
             });
+        }
+
+        if(!flag){
+            utils.invokeCallback(cb, null);
         }
     }
 

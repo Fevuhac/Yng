@@ -1,1 +1,1 @@
-require('../rankSync/app');
+require('../playerSync/app');

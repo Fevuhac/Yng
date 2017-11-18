@@ -4,6 +4,7 @@ const redisLogInsert = require('./redisLogInsert');
 const LogSource = require('./logSource');
 const consts = require('../database/consts/consts');
 const errorCode = require('../database/consts/errorCode');
+const utils = require('../base/utils/utils');
 
 /**
  * 定时写入日志到mysql
@@ -44,8 +45,9 @@ class LogInsertTask extends Task{
      * 执行定时任务
      * @private
      */
-    _exeTask(){
+    _exeTask(cb){
         let data = this.logSource.data;
+        logger.error('--- data', data);
         this.dbInsert.flush(data, function (err, result) {
             if(err){
                 console.log('定时写入LOG失败', err);
@@ -53,6 +55,8 @@ class LogInsertTask extends Task{
             else {
                 console.log('定时写入日志成功');
             }
+            logger.error('--------------------------------- data', data);
+            utils.invokeCallback(cb, err, result);
         });
     }
 }

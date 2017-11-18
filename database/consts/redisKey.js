@@ -11,9 +11,10 @@ module.exports = {
         return redisKey.split(':')[2];
     },
 
-    getRankKey(field){
+    getRankDataKey(field){
         return `${field}${RANK_PREFIX}`;
     },
+
 
     PLATFORM_TYPE:{
         ANDROID:1,
@@ -33,6 +34,9 @@ module.exports = {
 
     UPDATED_UIDS:'updated_uids',
     FLOWER_RECEIVE_WEEKLY:'flower_receive_weekly',
+
+    RANK_DAILY_AWARD:PREFIX + 'rank_daily_award',
+    RANK_WEEK_AWARD:PREFIX + 'rank_week_award',
 
 
     //auto build base on keyTypeDef.js

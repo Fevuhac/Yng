@@ -314,6 +314,10 @@ function _genAccount(uid, data) {
 
 function _multiAsync(cmds) {
     let promise = new Promise(function (resolve, reject) {
+        if(0 == cmds.length){
+            resolve();
+            return;
+        }
         redisConnector.cmd.multi(cmds).exec(function (err, results) {
             if(err){
                 logger.error(`${this.taskId}执行_execRedisMulti玩家数据异常`, err);
@@ -321,6 +325,34 @@ function _multiAsync(cmds) {
             }
             resolve(results);
         }.bind(this));
+    });
+
+    return promise;
+}
+
+function _oneCmdAsync(cmd) {
+    let promise = new Promise(function (resolve, reject) {
+        redisConnector.cmd.multi([cmd]).exec(function (err, results) {
+            if(err){
+                logger.error(`${this.taskId}执行_execRedisMulti玩家数据异常`, err);
+                reject(err);
+            }
+            resolve(results.length > 0 ? results[0]:null);
+        }.bind(this));
+    });
+
+    return promise;
+}
+
+function _getRankLimit(key, skip, limit) {
+    let promise = new Promise(function (resolve, reject) {
+        redisConnector.cmd.zrevrange(key, skip, limit, 'WITHSCORES', function (err, results) {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve(results);
+        });
     });
 
     return promise;
@@ -341,3 +373,5 @@ module.exports.getHashValueLimit = _getHashValueLimit;
 module.exports.remSetValues = _remSetValues;
 module.exports.getSetValueLimit = _getSetValueLimit;
 module.exports.multiAsync = _multiAsync;
+module.exports.oneCmdAsync = _oneCmdAsync;
+module.exports.getRankLimit = _getRankLimit;

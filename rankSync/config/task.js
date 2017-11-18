@@ -5,12 +5,14 @@ const SUBTASK_TYPE = require('../src/consts').SUBTASK_TYPE;
 const REWARD_TYPE = require('../src/consts').REWARD_TYPE;
 
 function crossWeek() {
-    
+    let now = new Date();
+    return now.getDay() == 0;
 }
 
 
 function crossMonth() {
-
+    let now = new Date();
+    return now.getDate() == 1;
 }
 
 module.exports = {
@@ -52,33 +54,15 @@ module.exports = {
         time: '*/10,*,*,*,*,*',
         //time: '0,0,0,*,*,7', //每周日0点执行
         subTask: [
-            {redisKey: REDISKEY.MAX_WAVE, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.SOCIAL_SHARE_STATUS_2, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.FLOWER_RECEIVE_WEEKLY, type: SUBTASK_TYPE.DEL},
-
-            {redisKey: REDISKEY.RANK.BP, platforms: REDISKEY.PLATFORM_TYPE, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.RANK.GODDESS, platforms: REDISKEY.PLATFORM_TYPE, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.RANK.FLOWER, platforms: REDISKEY.PLATFORM_TYPE, type: SUBTASK_TYPE.DEL},
+            {redisKey: REDISKEY.SOCIAL_SHARE_STATUS_2, type: SUBTASK_TYPE.DEL}
         ]
     },
     //按月重置
     monthReset: {
-        enable: true,
+        enable: false,
         time: '*/10,*,*,*,*,*',
         //time: '0,0,0,1,*,*', //每月1号0点执行
-        subTask: [
-            {
-                redisKey: REDISKEY.RANK.MATCH,
-                platforms: REDISKEY.PLATFORM_TYPE,
-                type: SUBTASK_TYPE.MODIFY,
-                limit: 2000,
-                condition: function (points) {
-                    return Math.floor(740 + Math.max(points - 800, 100) * 0.6);
-                },
-                default_points: 800,
-                default_rank: 5
-            },
-        ]
+        subTask: []
     },
     //排行榜生成
     rankBuild: {
@@ -136,17 +120,53 @@ module.exports = {
         ]
     },
     //排行奖励、重置
-    rankReward:{
-        enable: false,
-        time: '*/10,*,*,*,*,*',
+    rankReward: {
+        enable: true,
+        time: '*/3,*,*,*,*,*',
         //time: '0,0,0,*,*,*', //每天0点执行
         subTask: [
-            {redisKey: REDISKEY.RANK.BP, reward:[REWARD_TYPE.DAILY, REWARD_TYPE.WEEK], reset:crossWeek},
-            {redisKey: REDISKEY.RANK.GODDESS, reward:[REWARD_TYPE.DAILY, REWARD_TYPE.WEEK], reset:crossWeek},
-            {redisKey: REDISKEY.RANK.FLOWER, reward:[REWARD_TYPE.DAILY, REWARD_TYPE.WEEK], reset:crossWeek},
-            {redisKey: REDISKEY.RANK.AQUARIUM, reward:[REWARD_TYPE.DAILY]},
-            {redisKey: REDISKEY.RANK.CHARM, reward:[REWARD_TYPE.DAILY]},
-            {redisKey: REDISKEY.RANK.MATCH, reward:[REWARD_TYPE.DAILY, REWARD_TYPE.MONTH], reset:crossMonth},
+            {
+                redisKey: REDISKEY.RANK.BP,
+                reward: [REWARD_TYPE.DAILY, REWARD_TYPE.WEEK],
+                awardType: 1,
+                limit: 500,
+                reset: crossWeek
+            },
+            {
+                redisKey: REDISKEY.RANK.GODDESS,
+                reward: [REWARD_TYPE.DAILY, REWARD_TYPE.WEEK],
+                awardType: 2,
+                limit: 500,
+                reset: crossWeek,
+                delete:[REDISKEY.MAX_WAVE]
+            },
+            {
+                redisKey: REDISKEY.RANK.FLOWER,
+                reward: [REWARD_TYPE.DAILY, REWARD_TYPE.WEEK],
+                awardType: 3,
+                limit: 500,
+                reset: crossWeek,
+                delete:[REDISKEY.FLOWER_RECEIVE_WEEKLY]
+            },
+            {redisKey: REDISKEY.RANK.AQUARIUM, reward: [REWARD_TYPE.DAILY], awardType: 3, limit: 500},
+            {redisKey: REDISKEY.RANK.CHARM, reward: [REWARD_TYPE.DAILY], awardType: 3, limit: 500},
+            {
+                redisKey: REDISKEY.RANK.MATCH,
+                reward: [REWARD_TYPE.DAILY, REWARD_TYPE.MONTH],
+                awardType: 3,
+                limit: 500,
+                newPoints: function (points) {
+                    return Math.floor(740 + Math.max(points - 800, 100) * 0.6);
+                },
+                condition:{
+                    match_season_win: 10,
+                    match_season_box:10,
+                    match_season_1st_win:5
+                },
+                default_points: 800,
+                default_rank: 5,
+                reset: crossMonth
+            },
         ]
     }
 

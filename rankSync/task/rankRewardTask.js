@@ -3,6 +3,10 @@ const async = require('async');
 const utils = require('../../base/utils/utils');
 const SUBTASK_TYPE = require('../src/consts').SUBTASK_TYPE;
 const REDISKEY = require('../../database/consts').REDISKEY;
+const RankReward =require('../src/rankReward');
+const RankReset =require('../src/rankReset');
+const MatchReward = require('../src/matchReward');
+const MatchReset = require('../src/matchReset');
 
 /**
  * 用户数据重置
@@ -10,32 +14,34 @@ const REDISKEY = require('../../database/consts').REDISKEY;
 class RankRewardTask extends Task {
     constructor(conf) {
         super(conf);
+        this._rankReward = new RankReward();
+        this._rankReset = new RankReset();
+
+        this._matchReward = new MatchReward();
+        this._matchReset = new MatchReset();
     }
 
 
-    _handleMatch(task) {
+    async _handleMatch(task) {
 
+
+        let n = new Date();
+        let d = n.getDay();
+        let month = task.reset && task.reset();
+        await this._matchReward.handle(task, month);
+        if(true || month){
+            await this._matchReset.handle(task);
+        }
     }
 
-    _handleCharm(task) {
-
+    async _handleRank(task){
+        let week = task.reset && task.reset();
+        await this._rankReward.handle(task, week);
+        if(week){
+            await this._rankReset.handle(task);
+        }
     }
 
-    _handleAquarium(task) {
-
-    }
-
-    _handleFlower(task) {
-
-    }
-
-    _handleGoddess(task) {
-
-    }
-
-    _handleBP(task) {
-
-    }
 
     //处理任务
     async _handleTask(task) {
@@ -46,30 +52,16 @@ class RankRewardTask extends Task {
                     logger.info('排位赛奖励执行完成');
                 }
                     break;
-                case REDISKEY.RANK.CHARM: {
-                    await this._handleCharm(task);
-                    logger.info('魅力值排行奖励执行完成');
-                }
-                    break;
-                case REDISKEY.RANK.AQUARIUM: {
-                    await this._handleAquarium(task);
-                    logger.info('宠物鱼总等级排行奖励执行完成');
-                }
-                    break;
-                case REDISKEY.RANK.FLOWER: {
-                    await this._handleFlower(task);
-                    logger.info('人气王排行排行奖励执行完成');
-                }
-                    break;
-                case REDISKEY.RANK.GODDESS: {
-                    await this._handleGoddess(task);
-                    logger.info('女神波数排行奖励执行完成');
-                }
-                    break;
-                case REDISKEY.RANK.BP: {
-                    await this._handleBP(task);
-                    logger.info('捕鱼积分排行奖励执行完成');
-                }
+                case REDISKEY.RANK.CHARM:
+                case REDISKEY.RANK.AQUARIUM:
+                case REDISKEY.RANK.FLOWER:
+                case REDISKEY.RANK.GODDESS:
+                case REDISKEY.RANK.BP:
+                    logger.info(`排行奖励${task.redisKey}开始执行`);
+                    await this._handleRank(task);
+                    logger.info(`排行奖励${task.redisKey}执行完成`);
+
+                default:
                     break;
             }
         }catch (err){
@@ -83,7 +75,7 @@ class RankRewardTask extends Task {
         for (let i = 0; i < tasks.length; i++) {
             await this._handleTask(tasks[i]);
         }
-        logger.info('排行榜生成完成');
+        logger.info('排行奖励执行完成');
         utils.invokeCallback(cb, null);
 
     }

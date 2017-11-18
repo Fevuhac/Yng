@@ -9,6 +9,7 @@ const SUBTASK_TYPE = require('../src/consts').SUBTASK_TYPE;
 /**
  * 用户数据重置
  */
+
 class MonthTask extends Task {
     constructor(conf) {
         super(conf);

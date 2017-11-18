@@ -59,7 +59,7 @@ class MatchReset{
                     let uid = uids[i];
 
                     if (_points > task.default_points) {
-                        _points = task.condition(_points);
+                        _points = task.newPoints(_points);
                         _rank = self._getRankIdByPoints(_points);
                     }
 
@@ -82,18 +82,18 @@ class MatchReset{
                     }
                 }
 
-                resetCmds.push(['hmset', REDISKEY.MATCH_POINTS, match_points_new]);
-                resetCmds.push(['hmset', REDISKEY.MATCH_RANK, match_ranks_new]);
-                resetCmds.push(['hmset', REDISKEY.MATCH_SEASON_COUNT, match_season_count]);
-                resetCmds.push(['hmset', REDISKEY.MATCH_SEASON_WIN, match_season_win]);
-                resetCmds.push(['hmset', REDISKEY.MATCH_SEASON_BOX, match_season_box]);
-                resetCmds.push(['hmset', REDISKEY.MATCH_SEASON_1ST_WIN, match_season_first_win]);
+                resetCmds.push(['HMSET', REDISKEY.MATCH_POINTS, match_points_new]);
+                resetCmds.push(['HMSET', REDISKEY.MATCH_RANK, match_ranks_new]);
+                resetCmds.push(['HMSET', REDISKEY.MATCH_SEASON_COUNT, match_season_count]);
+                resetCmds.push(['HMSET', REDISKEY.MATCH_SEASON_WIN, match_season_win]);
+                resetCmds.push(['HMSET', REDISKEY.MATCH_SEASON_BOX, match_season_box]);
+                resetCmds.push(['HMSET', REDISKEY.MATCH_SEASON_1ST_WIN, match_season_first_win]);
 
                 if (match_zadd_android.length > 0) {
-                    resetCmds.push(['zadd', `${REDISKEY.RANK.MATCH}:${REDISKEY.PLATFORM_TYPE.ANDROID}`, match_zadd_android]);
+                    resetCmds.push(['ZADD', `${REDISKEY.RANK.MATCH}:${REDISKEY.PLATFORM_TYPE.ANDROID}`, match_zadd_android]);
                 }
                 if (match_zadd_ios.length > 0) {
-                    resetCmds.push(['zadd', `${REDISKEY.RANK.MATCH}:${REDISKEY.PLATFORM_TYPE.IOS}`, match_zadd_ios]);
+                    resetCmds.push(['ZADD', `${REDISKEY.RANK.MATCH}:${REDISKEY.PLATFORM_TYPE.IOS}`, match_zadd_ios]);
                 }
 
                 await dbUtils.redisAccountSync.multiAsync(resetCmds);
@@ -112,10 +112,14 @@ class MatchReset{
 
     }
 
-    async reset(task) {
+    async handle(task) {
+        for(let platform of Object.values(REDISKEY.PLATFORM_TYPE)){
+            await dbUtils.redisAccountSync.oneCmdAsync(['del', `${task.redisKey}:${platform}`]);
+        }
+
         let recordUid = await this._matchResetRedis(task);
-        this._matchResetMysql(task, recordUid);
+        await this._matchResetMysql(task, recordUid);
     }
 }
 
-module.exports = new MatchReset();
+module.exports = MatchReset;

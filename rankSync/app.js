@@ -6,6 +6,7 @@ const DailyResetTask = require('./task/dailyResetTask');
 const MonthResetTask = require('./task/monthResetTask');
 const WeekResetTask = require('./task/weekResetTask');
 const RankBuildTask = require('./task/rankBuildTask');
+const RankRewardTask = require('./task/rankRewardTask');
 const task_conf = require('./config/task');
 
 class PlayerSyncApp extends Application {
@@ -44,10 +45,12 @@ class PlayerSyncApp extends Application {
         let weekTask = new WeekResetTask(task_conf.weekReset);
         let monthTask = new MonthResetTask(task_conf.monthReset);
         let rankBuildTask = new RankBuildTask(task_conf.rankBuild);
+        let rankRewardTask = new RankRewardTask(task_conf.rankReward);
         taskPool.addTask('dailyTask', dailyTask);
         taskPool.addTask('weekTask', weekTask);
         taskPool.addTask('monthTask', monthTask);
         taskPool.addTask('rankBuild', rankBuildTask);
+        taskPool.addTask('rankReward', rankRewardTask);
     }
 }
 

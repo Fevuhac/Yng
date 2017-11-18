@@ -117,7 +117,7 @@ class RankBuildTask extends Task {
     _saveRankInfo(task, platform, rankInfo){
         let promise = new Promise(function (resolve, reject) {
             console.log(JSON.stringify(rankInfo).length);
-            redisConnector.cmd.set(`${REDISKEY.getRankKey(task.redisKey)}:${platform}`, JSON.stringify(rankInfo), function (err, result) {
+            redisConnector.cmd.set(`${REDISKEY.getRankDataKey(task.redisKey)}:${platform}`, JSON.stringify(rankInfo), function (err, result) {
                 if(err){
                     logger.error(`${this.taskId}执行_saveRankInfo异常`, err);
                 }

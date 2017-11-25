@@ -25,7 +25,11 @@ class EntryCmd extends SysCmd{
                 data:{
                     token:'52_03458cd087cb11e7ba758392291a4bfa',
                     flag:0, // 0单人房 1多人房 2排位赛
-                    scene_name:'scene_mutiple_1' //准备进入的场景名
+                    scene_name:'scene_mutiple_1', //准备进入的场景名,
+                    recover:{
+                        gameId:'game-server-1',
+                        roomId:'100202'
+                    }
                 }
             },
             res:{}
@@ -45,6 +49,7 @@ class EntryCmd extends SysCmd{
             },
             res:{}
         };
+
     }
 
     initPush(){

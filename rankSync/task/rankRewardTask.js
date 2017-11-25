@@ -7,6 +7,7 @@ const RankReward =require('../src/rankReward');
 const RankReset =require('../src/rankReset');
 const MatchReward = require('../src/matchReward');
 const MatchReset = require('../src/matchReset');
+const GoddessReward = require('../src/goddessReward');
 
 /**
  * 用户数据重置
@@ -19,18 +20,26 @@ class RankRewardTask extends Task {
 
         this._matchReward = new MatchReward();
         this._matchReset = new MatchReset();
+
+        this._goddessReward = new GoddessReward();
     }
 
 
     async _handleMatch(task) {
-
-
         let n = new Date();
         let d = n.getDay();
         let month = task.reset && task.reset();
         await this._matchReward.handle(task, month);
         if(true || month){
             await this._matchReset.handle(task);
+        }
+    }
+
+    async _handleGoddess(task) {
+        let week = task.reset && task.reset();
+        await this._goddessReward.handle(task, week);
+        if(week){
+            await this._rankReset.handle(task);
         }
     }
 
@@ -52,10 +61,12 @@ class RankRewardTask extends Task {
                     logger.info('排位赛奖励执行完成');
                 }
                     break;
+                case REDISKEY.RANK.GODDESS:
+                    await this._handleGoddess(task);
+                    break;
                 case REDISKEY.RANK.CHARM:
                 case REDISKEY.RANK.AQUARIUM:
                 case REDISKEY.RANK.FLOWER:
-                case REDISKEY.RANK.GODDESS:
                 case REDISKEY.RANK.BP:
                     logger.info(`排行奖励${task.redisKey}开始执行`);
                     await this._handleRank(task);

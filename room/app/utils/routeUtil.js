@@ -11,7 +11,7 @@ routeUtil.chatRoute = function(session, msg, app, cb) {
 };
 
 routeUtil.gameRoute = function (session, msg, app, cb) {
-    cb(null, session.get('gameSid'));
+    cb(null, session.get('gameId'));
 };
 
 routeUtil.hallRoute = function (session, msg, app, cb) {

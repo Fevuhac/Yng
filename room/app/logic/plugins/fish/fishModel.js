@@ -17,6 +17,7 @@ const ALL_MERGE = GAMECFG.all_merge;
 
 const ALL_MERGE_PATH = '../../../../../cfgs/all_merge';
 const LIFE_OFFSET = 1;
+const DEBUG = 0;
 
 let fs = require("fs");
 
@@ -111,6 +112,7 @@ function FishModel (evtor) {
     this._evtor = evtor;
     this._lastStep = 0;
     this._actorData = {};
+    this._deadHistory = {}; //死亡历史,鱼潮来临时清空现有历史
     let _scenePaths = {}; //场景中已经出现的路径
 
     //查找路径是否已存在
@@ -181,12 +183,15 @@ function FishModel (evtor) {
             max = 9999;
         }
         if (!this._lastStep) {
-            this._lastStep = 0;
+            this._lastStep = {};
         }
-        let i = this._lastStep;
-        this._lastStep ++;
-        if (this._lastStep >= max) {
-            this._lastStep = 0;
+        if (!this._lastStep[name]) {
+            this._lastStep[name] = 0;
+        }
+        let i = this._lastStep[name];
+        this._lastStep[name] ++;
+        if (this._lastStep[name] >= max) {
+            this._lastStep[name] = 0;
         }
 
         for (; i < max; i++) {
@@ -369,12 +374,14 @@ function FishModel (evtor) {
         let fish = {};
         let actorArray = this._actorData;
         let nameKey = this.genNameKey(actorArray, fishName)
-        fish.name = fishName;
         fish.nameKey = nameKey;
         fish.floor = 1; //相当于几条命
-        fish.attribute = clone(FishAttribute);
         fish.goldVal = this._generateFishGold(cfg);
         actorArray[nameKey] = fish;
+
+        if (this.findDeadHistory(nameKey)) {
+            this._setDead2History(nameKey, 0);
+        }
         return fish;
     };
 
@@ -386,15 +393,52 @@ function FishModel (evtor) {
                 this.removeActorData(subFish.nameKey);
             }
         }
+        if (this._gFish) {
+            let subFishes = this._gFish[nameKey];
+            if (subFishes) {
+                for (let i = 0; i < subFishes.length; i ++) {
+                    let sfk = subFishes[i];
+                    this.removeActorData(sfk);
+                }
+            }
+            this._gFish[nameKey] = null;
+        }
         if (fish && fish.display_type == 3) {
             this._curBoosCount --;
             this._emitEvent(FishModel.EventType.EVENT_BOSS_OVER);
         }
-        fish.lifeTiker && clearTimeout(fish.lifeTiker);
+        fish && fish.lifeTiker && clearTimeout(fish.lifeTiker);
         delete this._actorData[nameKey];
-        // console.log('del = nameKey = ', nameKey)
+        this._setDead2History(nameKey, 1);
+        DEBUG && console.log('del = nameKey = ', nameKey, this.getActorTotal())
     };
 
+    //标记已死亡的鱼
+    this._setDead2History = function (fishKey, flag) {
+        this._deadHistory[fishKey] = flag;
+    };
+
+    //清空鱼的死亡历史
+    this._clearDeadHistory = function () {
+        this._deadHistory = {};
+    };
+
+    //查找该鱼是否在历史上死亡过
+    this.findDeadHistory = function (fishKey) {
+        return this._deadHistory[fishKey] === 1;
+    };
+
+    //更新鱼的生命状态
+    this.updateLifeState = function (fishKey, floor) {
+        let fish = this.getActorData(fishKey);
+        if (fish) {
+            if (floor === 0) {
+                this.removeActorData(fishKey);
+            }else{
+                fish.floor = floor;
+            }
+        }
+    };
 
     //广播到房间内所有玩家
     this._emitEvent = function (evtName, evtData) {
@@ -414,7 +458,7 @@ function FishModel (evtor) {
             if (this._tideDt >= data.during) {
                 this._tideDt = 0;
                 this._curTideCfg = null;
-                console.log("TODO: 鱼潮时间到，清空当前鱼//---");
+                DEBUG && console.log("TODO: 鱼潮时间到，清空当前鱼//---");
                 this._emitEvent(FishModel.EventType.EVENT_TIDE_OVER);
                 return false;
             }
@@ -490,7 +534,7 @@ function FishModel (evtor) {
         }else if (!isWarningTiped && this._tideDt >= warningDt) {
             this._generateRandomTide();
             this._isWarningEscapeNow = true;
-            this._emitEvent(FishModel.EventType.EVENT_ESCAPE_NOW, {data : sceneCfg.tide_warning, tideIcon: this._curTideCfg.pic, bgm: this._curTideCfg.bgm});
+            this._escapeAll({data : sceneCfg.tide_warning, tideIcon: this._curTideCfg.pic, bgm: this._curTideCfg.bgm});
             return true;
         }
         
@@ -522,7 +566,7 @@ function FishModel (evtor) {
     this._checkBasePath = function ( sceneCfg, sFishCfg, dt ) {
         let fishTotal = this.getActorTotal();
         if (fishTotal >= sceneCfg.total) {
-            // console.log("--reach to top = " + sceneCfg.total);
+            DEBUG && console.log("--reach to top = " + sceneCfg.total, fishTotal);
             return;
         }
 
@@ -573,8 +617,6 @@ function FishModel (evtor) {
         let total = this.getActorTotal();
         this._emitEvent(FishModel.EventType.EVENT_DEAD_LIFE_END, {
             data : fish.nameKey, 
-            isBigFish: (fish.goldVal >= BIG_FISH_STANDER), 
-            total: total
         });
     },
 
@@ -583,57 +625,44 @@ function FishModel (evtor) {
         isGuideFish = isGuideFish || false;
         let cfg = this.getFishCfg(groupFishKey);
         let groupFish = this._generateFishData(groupFishKey, cfg);
-        groupFish.isGuideFish = isGuideFish;
         if (!waveName) {
             waveName = groupFishKey.replace('_json', '.json');
         }
+        let subFishKeys = [];
         let data = _getPathCfg(waveName);
         let fishes = data.fishes;
         let pathName = _selectPath(cfg, pName);
         let pathData = _getPathCfg(pathName);
-
         let sub_fish = {};
-        let size = data.size; //锚点(0.5, 0.5)
-        let minX = 0; //最左侧x
-        let minY = 0; //最下侧y
-        let len = fishes.length;
-        while (len > 0 && len --) {
-            let v = fishes[len];
-            minX = Math.min(v.pos.x, minX);
-            minY = Math.min(v.pos.y, minY);
-        }
-        let offx = -size.w/2 - minX;
-        let offy = -size.h/2 - minY;
-        len = fishes.length;
-        while (len > 0 && len --) {
-            let v = fishes[len];
-            v.pos.x += offx;
-            v.pos.y += offy;
-        }
-
         len = fishes.length;
         while (len > 0 && len --) {
             let v = fishes[len];
             let fish = this._generateFishData(v.fishKey);
-            fish.sharp_scale = v.sharp_scale;
-            fish.pos = v.pos;
-            fish.isGuideFish = isGuideFish;
             sub_fish[len] = fish;
+            subFishKeys.push(fish.nameKey);
         }
-        console.log("pathName = ", pathName, groupFishKey);
+        if (!this._gFish) {
+            this._gFish = {};
+        }
+        this._gFish[groupFish.nameKey] = subFishKeys;
+
+        DEBUG && console.log("pathName = ", pathName, groupFishKey);
         let dt = genDtBySpeed(pathData, cfg.move_speed) + LIFE_OFFSET;
         groupFish.lifeDt = dt;
 
         //鱼潮鱼阵音效配置
-        let soundKey = this._curTideCfg && this._curTideCfg.sound || '';
-        let soundWdt = this._curTideCfg && this._curTideCfg.time || 0;
-        this._newFishEvent({data : groupFish, sub_fish : sub_fish, pathName : pathName, size : size, soundKey: soundKey, soundWdt: soundWdt}, 
+        this._newFishEvent({
+            data : groupFish, 
+            sub_fish : sub_fish, 
+            pathName : pathName, 
+            tide: this._curTideCfg.id
+        }, 
             FishModel.EventType.EVENT_NEW_GROUP_FISH);
         this._setLifeTiker(groupFish);
         if (func) {
             func(dt, sub_fish)
         }
-        
+
         return groupFish;
     };
 
@@ -652,16 +681,15 @@ function FishModel (evtor) {
         isGuideFish = isGuideFish || false;
         let cfg = this.getFishCfg(fishKey);
         let fish = this._generateFishData(fishKey, cfg);
+        fish.attribute = clone(FishAttribute);
+
         pathName = pathName || _selectPath(cfg);
         let pdData = _getPathCfg(pathName);
         let singleFish = fish;
-        singleFish.isPowerFired = false;
-        singleFish.isGuideFish = isGuideFish;
-
         let isBoss = cfg.display_type === 3; //boss类型
         if (isBoss) {
             if (!this.canNewBossFish()) {
-                console.log("当前boss还在，不能同时出现两个boss！");
+                DEBUG && console.log("当前boss还在，不能同时出现两个boss！");
                 return;
             }
             this._curBoosCount ++;
@@ -689,6 +717,7 @@ function FishModel (evtor) {
     this._newFishWithPath = function ( fishKey, pathKey, func ) {
         let cfg = this.getFishCfg(fishKey);
         let fish = this._generateFishData(fishKey, cfg);
+        fish.attribute = clone(FishAttribute);
         let pd = PATH_CFGS[pathKey]
         let pName = pd && pd.name_list || pathKey;
         let pathData = _getPathCfg(pName);
@@ -701,93 +730,6 @@ function FishModel (evtor) {
         this._setLifeTiker(fish);
     };
 
-    //
-    this.setFishHurted = function ( fish, hurtValue, userIdx, deadPos, wpLevel, isHurt2Dead, skinReward ){
-        if (fish.isDead) {
-            return [0, 0, null];
-        }
-        
-        if (fish.pendants) {
-            for (let i in fish.pendants) {
-                let pendant = fish.pendants[i];
-                if (pendant.floor > 0) {
-                    return this.setFishHurted ( pendant, hurtValue, userIdx, deadPos, wpLevel, isHurt2Dead, skinReward);
-                }
-            }
-        }
-
-        fish.hp = fish.hp - hurtValue;
-        if (fish.hp <= 0) {
-            fish.hp = 0;
-            let result = this.setFishDead(fish, userIdx, deadPos, wpLevel, isHurt2Dead, skinReward);
-            if (fish.floor > 0) { //还有层继续复活
-                fish.hp = fish.born_hp;
-                fish.isDead = false;
-                let cfg = this.getFishCfg(fish.name);
-                fish.goldVal = this._generateFishGold(cfg); //金币随机
-            }
-            return result;
-        }
-        this._emitEvent(FishModel.EventType.EVENT_HURT, {
-            data : fish.nameKey, 
-            userIdx: userIdx,
-            isPowerFired: fish.isPowerFired, 
-        }); //挂件不执行受伤效果
-
-        return [0, 0, null];
-    };
-
-    this.setFishDead = function ( fish, userIdx, deadPos, wpLevel, isHurt2Dead, skinReward ) {
-        if (fish.isDead) {
-            return [0, 0, null];
-        }
-        fish.floor --;
-        fish.isDead = true;
-        if (fish.parent && (typeof fish.floor == "number") && fish.floor <= 0) {//死了的話从父节点中把数据删除
-            let pendants = fish.parent.pendants;
-            for (let i in pendants) {
-                if ( pendants[i] == fish) {
-                    pendants.splice(i, 1);
-                    break;
-                }
-            }
-            pendants.length == 0 && (fish.parent.pendants = null);
-        }
-        let reward = fish.goldVal;
-        wpLevel = wpLevel || 1;
-        reward *= wpLevel;
-        reward *= skinReward;
-        reward = Math.round(reward); //注意四舍五入
-        
-        let deathSkillId = fish.death_skill_id;
-        let soundKey = fish.count_type.toString();
-        let sD = AUDIO_CFGS[soundKey];
-        if (sD) {
-            soundKey = sD.name;
-        }else{
-            soundKey = '';
-        }
-
-        this._emitEvent(FishModel.EventType.EVENT_DEAD, {
-            data : fish.nameKey, 
-            userIdx : userIdx, 
-            reward : reward, 
-            deadPos : deadPos, 
-            wpLevel: wpLevel, 
-            isBigFish: (fish.goldVal >= BIG_FISH_STANDER), 
-            displayType: fish.display_type, 
-            bodyType: fish.body_type, 
-            fishNamePic: fish.reward_fish_name_pic, 
-            isPowerFired: fish.isPowerFired, 
-            soundKey: soundKey, 
-            goldVal: fish.goldVal,
-            isHurt2Dead: isHurt2Dead,
-            fishName:fish.fishName, 
-            floor: fish.floor,
-        });
-        return [reward, fish.drop_pack_id, deathSkillId, fish.nameKey];
-    };
-
     /**
      * 通过技能召唤特殊鱼
      */
@@ -798,6 +740,7 @@ function FishModel (evtor) {
     //floor 创建挂件鱼 多少层默认为0
     this.createPendantFish  = function(fk, parent, floor) {
         let fish = this._generateFishData(fk)
+        fish.attribute = clone(FishAttribute);
         fish.floor = floor || 1;
         fish.isPendant = true;
         fish.parent = parent;
@@ -811,14 +754,6 @@ function FishModel (evtor) {
      */
     this.bossComming = function (bossData) {
         this._emitEvent(FishModel.EventType.EVENT_BOSS_COMMING, {icon: bossData.res_name, count_type: bossData.count_type});
-    };
-
-     /**
-     * 触发技能
-     */
-    this.triggerFishSkill = function(skillId, pos, func, srcFishGoldValue) {
-        let skill = SKILL_CFGS[skillId - 1];
-        this._emitEvent(FishModel.EventType.EVENT_FISH_SKILL, {skill: skill, pos: pos, callback: func, srcFishGoldValue: srcFishGoldValue});
     };
 
     //鱼技能相关------------------------------
@@ -836,6 +771,25 @@ function FishModel (evtor) {
         let fish = this.getActorData(nameKey);
         fish.attribute[key] = value;
     };
+
+    /**
+     * 所有鱼因为鱼潮而逃跑
+     */
+    this._escapeAll = function (params) {
+        let dt = params.data;
+        let self = this;
+        for (var k in this._actorData) {
+            let fish = this._actorData[k];
+            if (fish.lifeTiker && fish.lifeDt > 0) {
+                clearTimeout(fish.lifeTiker);
+                fish.lifeDt = dt;
+                fish.lifeTiker = setTimeout(function () {
+                    self._lifeEnd(this);
+                }.bind(fish), fish.lifeDt * 1000);
+            }
+        }
+        this._emitEvent(FishModel.EventType.EVENT_ESCAPE_NOW, params);
+    },
 
     /**
      * 暂定生命计时器
@@ -932,17 +886,13 @@ function FishModel (evtor) {
 FishModel.EventType = {
     EVENT_NEW_FISH      :"EVENT_NEW_FISH",			//新刷出一波
     EVENT_CLEAR_ALL     :"EVENT_CLEAR_ALL",         //清除当前屏幕所有鱼
-    EVENT_HURT          :"EVENT_HURT",              //鱼受伤
-    EVENT_DEAD          :"EVENT_DEAD",              //鱼死亡
     EVENT_ESCAPE_NOW    :"EVENT_ESCAPE_NOW",        //鱼潮来领,立即逃离
     EVENT_NEW_GROUP_FISH :"EVENT_NEW_GROUP_FISH",     //刷出组合鱼
     EVENT_BOSS_COMMING  : "EVENT_BOSS_COMMING",     //boss 来袭
-    EVENT_FISH_SKILL  : "EVENT_FISH_SKILL",     //鱼死亡触发技能
     EVENT_BOSS_OVER  : "EVENT_BOSS_OVER",     //当前所有boss已离开或死亡
     EVENT_TIDE_OVER : "EVENT_TIDE_OVER",  //鱼潮结束
     EVENT_CREATE_PENDANT: "EVENT_CREATE_PENDANT", //挂件鱼生成
     EVENT_CAST_SKILL : "EVENT_CAST_SKILL", //鱼施放技能
-    EVENT_CREATE_FISH_END : "EVENT_CREATE_FISH_END", //创建鱼结束事件
     EVENT_DEAD_LIFE_END :"EVENT_DEAD_LIFE_END",              //鱼自然死亡，即游动到终点
 };
 

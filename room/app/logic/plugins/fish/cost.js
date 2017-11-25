@@ -11,6 +11,15 @@ let MATH_ADJUST_CFG = null;
 let SKILL_CFGS = {};
 let GOD_UP_CFG = null;
 
+const DEBUG = 1;
+let log = null;
+if (DEBUG === 1) {
+    log = console.log; 
+}else if (DEBUG === 2) {
+    log = logger.info;
+}
+
+
 class Cost{
     constructor(){
         SKIN_CFGS = GAMECFG.newweapon_weapons_cfg;
@@ -130,6 +139,22 @@ class Cost{
     }
 
     /**
+     * 查找翻盘基金配置
+     */
+    getComebackCfg (foudId) {
+        if (foudId >= 0) {
+            const FUND = GAMECFG.shop_fund_cfg;
+            for (let i = 0; i < FUND.length; i ++) {
+                let fd = FUND[i];
+                if (fd.id === foudId) {
+                    return fd;
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
      * 获取有翻盘基金捕获率因子
      */
     getComebackHitRate (weaponLv, foudId) {
@@ -217,13 +242,13 @@ class Cost{
             if (!skillIds || skillIds.length == 0) {
                 return 0;
             }
-            for (var i = 0; i < data.length; i ++) {
+            for (let i = 0; i < data.length; i ++) {
                 let sk = data[i];
                 if (!sk.length < 2) {
                     continue;
                 }
                 let id = sk[0];
-                for(var j = 0; j < skillIds.length; j ++) {
+                for(let j = 0; j < skillIds.length; j ++) {
                     if (id === skillIds[j]) {
                         return sk[1];
                     }
@@ -234,10 +259,47 @@ class Cost{
     }
 
     /**
+     * 翻盘基金捕获率更新
+     * 满足条件每次减去衰减并保留四位小数
+     */
+    subComebackHitRate (weaponLv, comeback) {
+        if (!comeback) return -1;
+        let info = this.getComebackCfg(comeback.cb_id);
+        let oldComebackHitrate = comeback.hitrate || -1;
+        if (info && info.weaponlevel >= weaponLv && oldComebackHitrate > 1) {
+            let hitrate = oldComebackHitrate - info.changerate;
+            hitrate = parseFloat(hitrate.toFixed(4));
+            oldComebackHitrate = (hitrate < 1) ? 1 : hitrate;
+        }
+        return oldComebackHitrate;
+    }
+
+    /**
+     * 计算鱼被捕获
+     */
+    _calFishGot (params) {
+        let floor = params.floor;
+        floor --; //剩余死亡次数，默认初始1，特殊鱼>1;若是该值为0，则死掉，反之只是受伤；普通鱼命中则直接设为0，特殊鱼可能存在递减操作
+        floor = Math.max(0, floor);
+
+        let reward = params.goldVal;
+        reward *= params.weaponLv;
+        reward *= params.skinReward;
+        reward = Math.round(reward); 
+
+        let data = {
+            gold: reward, 
+            floor: floor,
+        }
+        return data;
+    }
+
+    /**
      * 计算碰撞与否
      */
     catchNot (params, account, fishModel) {
         if (!params) {
+            logger.error('--碰撞参数错误');
             return null;
         }
         let level = account.level;
@@ -257,10 +319,11 @@ class Cost{
         let tData = this.checkRoipctTimeStamp(roipctTime, gold, wpLvMax);
         let roiPCT = tData[0];
         let roipctTimeNew = tData[1];
-
         let pumpWater = shareData.get(dataType.PUMPWATER); //抽水系数，全服一个值：休闲周期=1,//吃分周期<1,//出分周期>1
 
         let ret = {};
+        let fishFloor = {};//鱼已被
+        let costGold = {}; //打死不存在的鱼，则补偿其消耗
         for (let bk in params) {
             let bd = params[bk];
             let skin = bd.skin;
@@ -268,11 +331,14 @@ class Cost{
             let fishes = bd.fishes;
             let skillIngIds = bd.skill_ing;            
             let vipSkillPct = vip > 0 && this.getVippingSkillPct(vip, skillIngIds) || 0;
-
             let skinReward = 1;
             let skinPct = 1; //TODO:武器星级可对皮肤捕获率加成,字段pct
             let bulletBornSkillHitrate = this.getSkillGpctValue(skillIngIds) || 1;  
             if (bulletBornSkillHitrate === 1) {
+                let SKIN = SKIN_CFGS[skin];
+                if (!SKIN) {
+                    logger.error('skin = ', skin, weaponLv);
+                }
                 const WP_POWER = SKIN_CFGS[skin].power;
                 skinPct = WP_POWER[0];
                 skinReward = WP_POWER[2];
@@ -280,19 +346,72 @@ class Cost{
                 bulletBornSkillHitrate *= (1 + vipSkillPct);
                 //TODO:武器星级可对激光捕获率加成,字段power//bulletBornSkillHitrate * (1 + wp.getWpStarData().power); //激光威力加成
             }
-            let WUP = WEAPON_UP_CFG[weaponLv];
 
+            let isPlayerPowerSkillIng = bk.indexOf('skill_') >= 0 && skin && weaponLv && skillIngIds && skillIngIds.length > 0; //玩家主动技能：核弹或激光
+            let isFishPowerSkillIng = false; //鱼死亡技能：炸弹、闪电
+            let tNames = bk.split('=');
+            if (tNames && tNames.length === 2) {
+                let sfk = tNames[1];
+                isFishPowerSkillIng = fishFloor[sfk] === 0 || fishModel.findDeadHistory(sfk);
+                isFishPowerSkillIng = isFishPowerSkillIng && (tNames[0].indexOf('fsk_') >= 0); 
+            }
+
+            //被鱼技能(炸弹或闪电)命中的，默认百分百命中
+            if (isFishPowerSkillIng) {
+                let i = fishes.length;
+                while (i > 0 && i --) {
+                    let tfish = fishes[i];
+                    let fk = tfish.nameKey;
+                    let fish = fishModel.getActorData(fk);
+                    if (!fish || fishFloor[fk] === 0) {
+                        fishes.splice(i, 1);
+                        continue;
+                    }
+                    let fireFlag = tfish.fireFlag;
+                    if (fireFlag === consts.FIRE_FLAG.LIGHTING || fireFlag === consts.FIRE_FLAG.BOMB) {
+                        let gotData = this._calFishGot({
+                            floor: fish.floor,
+                            goldVal: fish.goldVal,
+                            weaponLv: weaponLv,
+                            skinReward: skinReward,
+                        })
+                        gotData.fireFlag = fireFlag;
+                        fishFloor[fk] = gotData.floor;
+                        ret[fk] = gotData;
+                        fishes.splice(i, 1);
+                    }
+                }
+                if (fishes.length === 0) {
+                    continue;
+                }
+            }
+
+            //正常捕获率计算
+            let WUP = WEAPON_UP_CFG[weaponLv];
+            if (!WUP) {
+                logger.error('wep = ', weaponLv, WUP, skin, bk, account.id);
+            }
             let weaponspct = WUP.weaponspct * this.getComebackHitRate(weaponLv, comeback.cb_id);
 
             let fishbasepctTotal = 0; 
             let fishGoldTotal = 0;
-            for (let i = 0; i < fishes.length; i ++) {
+            let i = fishes.length;
+            while (i > 0 && i --) {
                 let tfish = fishes[i];
                 let fk = tfish.nameKey;
                 let fish = fishModel.getActorData(fk);
                 if (!fish) {
+                    //该鱼已经被销毁，但是在死亡历史上存在过(防止玩家修改上传数据刷分)，则补偿玩家消耗
+                    if (fishModel.findDeadHistory(fk)) {
+                        costGold[bk] = costGold[bk] || 0;
+                        costGold[bk] ++;
+                    }
+                    logger.error('--碰撞参数错误:该鱼不存在1 ', fk);
+                    fishes.splice(i, 1);
                     continue;
                 }
+                let temp = fk.split('__');
+                fish.name = temp[0]; 
                 let fishCfg = fishModel.getFishCfg(fish.name);
                 fishbasepctTotal += fishCfg.fishbasepct;
                 fishGoldTotal += fish.goldVal;
@@ -301,76 +420,85 @@ class Cost{
             for (let i = 0; i < fishes.length; i ++) {
                 let tfish = fishes[i];
                 let fk = tfish.nameKey;
-                let fireFlag = tfish.isPowerFired;
+                let fireFlag = tfish.fireFlag;
                 let fpos = tfish.fishPos;
-
                 let fish = fishModel.getActorData(fk);
-                if (!fish) {
+                if (fishFloor[fk] === 0) {
+                    costGold[bk] = costGold[bk] || 0;
+                    costGold[bk] ++;
                     continue;
                 }
+                const TAG = 'numberTest ---';
+                log && log(TAG + '------------fish---start----------------------------1')
 
                 let fishCfg = fishModel.getFishCfg(fish.name);
-
                 let fishbasepct = fishCfg.fishbasepct;
                 let basPCT = fishbasepct * fishCfg.mapct * weaponspct;
-                console.log('--fishbasepct = ', fishbasepct);
-                console.log('--mapct = ', fishCfg.mapct, fireFlag);
+
+                log && log(TAG + '--weaponLv = ', weaponLv);
+                log && log(TAG + '--skin = ', skin);
+                log && log(TAG + '--fish.name = ', fish.name);
+                log && log(TAG + '--fishbasepct = ', fishbasepct);
+                log && log(TAG + '--mapct = ', fishCfg.mapct, fireFlag);
 
                 let mofPCT = fishbasepct/fishbasepctTotal; 
-                let isPowerFired = (fireFlag == 2 || fireFlag == 3);//被激光或核弹打中
-                if (fishGoldTotal > 0 && isPowerFired) {
+                let isPowerFired = isPlayerPowerSkillIng && (fireFlag == consts.FIRE_FLAG.NBOMB || fireFlag == consts.FIRE_FLAG.LASER);//被激光或核弹打中
+                if (fishGoldTotal > 0 && fireFlag) {
                     mofPCT = fish.goldVal / fishGoldTotal;
                 }
-                console.log('--basPCT = ', basPCT);
-                console.log('--glaPCT = ', glaPCT);
-                console.log('--roiPCT = ', roiPCT);
-                console.log('--mofPCT = ', mofPCT);
+
+                log && log(TAG + '--basPCT = ', basPCT);
+                log && log(TAG + '--glaPCT = ', glaPCT);
+                log && log(TAG + '--roiPCT = ', roiPCT);
+                log && log(TAG + '--mofPCT = ', mofPCT);
+        
+                log && log(TAG + '--heartbeat = ', heartbeat);
+                log && log(TAG + '--pumpWater = ', pumpWater);
+                log && log(TAG + '--roipctTime = ', roipctTime);
 
                 let gpct = basPCT * glaPCT * roiPCT * mofPCT;
-                if (!isPowerFired) {
+                log && log(TAG + '--gpct = ', gpct);
+                if (!isPowerFired) {    
+                    heartbeat = Math.floor(heartbeat);
                     let rcPCT = 1 + Math.sin(heartbeat * MATH_ADJUST_CFG.PICHANGE) * Math.min((MATH_ADJUST_CFG.DIVERGE + Math.ceil(heartbeat/30) * MATH_ADJUST_CFG.DRATIO), 0.6);
+                    log && log(TAG + '--gpct = ', gpct, ' rcPCT = ', rcPCT, heartbeat);
                     gpct *= rcPCT;
                     gpct *= pumpWater; 
                 }
                 let nrPCT = gold < newcomergold ? 100 : 1;
                 gpct *= nrPCT;
-                console.log('--nrPCT = ', nrPCT, gpct);
+
+                log && log(TAG + '--nrPCT = ', nrPCT, gpct);
 
                 gpct *= bulletBornSkillHitrate;
-                console.log('--bulletBornSkillHitrate = ', bulletBornSkillHitrate, gpct);
+                log && log(TAG + '--bulletBornSkillHitrate = ', bulletBornSkillHitrate, gpct);
 
                 gpct *= (1 + vipHitrate);
-                console.log('--vipHitrate = ', vipHitrate, gpct);
+                log && log(TAG + '--vipHitrate = ', vipHitrate, gpct);
 
-                gpct *= skinPct; 
-                console.log('--skinPct = ', skinPct, gpct);
+                gpct *= skinPct;
+                log && log(TAG + '--skinPct = ', skinPct, gpct);
                 
                 let ranVal = Math.random();
-                console.log('--gpct = ',gpct, ranVal);
-                if (gpct == NaN) {
+                log && log(TAG + '--gpct = ',gpct, ranVal);
+                if (gpct === NaN) {
                     throw new Error('debug test--!');
                 }
-                //TODO:计算该鱼是否被捕获，反之受伤
-                let data = {};
-                let floor = 0; //剩余死亡次数，默认初始1，特殊鱼>1;若是该值为0，则死掉，反之只是受伤；普通鱼命中则直接设为0，特殊鱼可能存在递减操作
+                let gotData = {};        
                 if (gpct >= ranVal) {
-                    //命中
-                    let reward = fish.goldVal;
-                    reward *= weaponLv;
-                    reward *= skinReward;
-                    reward = Math.round(reward); 
-                    data = {
-                        gold: reward, 
-                        floor: floor,
-                        fireFlag: fireFlag,
-                    }
-                }else{
-                    //受伤
+                    gotData = this._calFishGot({
+                        floor: fish.floor,
+                        goldVal: fish.goldVal,
+                        weaponLv: weaponLv,
+                        skinReward: skinReward,
+                    });
+                    gotData.fireFlag = fireFlag;
+                    fishFloor[fk] = gotData.floor;
                 }
-                ret[fk] = data;
+                ret[fk] = gotData;
             } 
         }
-        return {ret: ret, roipct_time: roipctTimeNew};
+        return {ret: ret, roipct_time: roipctTimeNew, costGold: costGold};
     }
 
     /**
@@ -438,7 +566,7 @@ class Cost{
     updateHeartBeat (cost, max_level, heartbeatMinCost, heartbeat, wpEnergy) {
         let minCost = heartbeatMinCost;
         if (!minCost) {
-            var max = this.getWpLevelMax(wpEnergy);
+            let max = this.getWpLevelMax(wpEnergy);
             minCost = Math.min(max, max_level || max) * MATH_ADJUST_CFG.HRATIO;
             heartbeatMinCost = minCost;
         }
@@ -446,8 +574,12 @@ class Cost{
         heartbeat += temp;
         if (heartbeat > 180) {
             heartbeat = 1;
-            var max = this.getWpLevelMax(wpEnergy);
+            let max = this.getWpLevelMax(wpEnergy);
             heartbeatMinCost = Math.min(max, max_level || max) * MATH_ADJUST_CFG.HRATIO;
+        }else{
+            //保留六位小数
+            heartbeat = heartbeat.toFixed(6);
+            heartbeat = parseFloat(heartbeat);
         }
         return [heartbeat, heartbeatMinCost];
     }

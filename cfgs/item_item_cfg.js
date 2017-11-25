@@ -48,6 +48,18 @@ var	item_item_cfg =
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
+	'i004' : {
+		name : "item_name_i004",    //--物品名称
+		description : "item_desc_i004",    //--物品描述
+		type : 9,    //--类型
+		id : -1,    //--该类型对应id，-1无意义
+		saleprice : 0,    //--售价金币
+		dropid : "0",    //--奖励id
+		level : 0,    //--需要等级
+		icon : "dhqicon",    //--显示图标
+		lengthtype : 0,    //--有效期类型
+		lengthtime : 0,    //--有效时长
+	},
 	'i005' : {
 		name : "item_name_i005",    //--物品名称
 		description : "item_desc_i005",    //--物品描述

@@ -23,7 +23,7 @@ class Entry extends Entity{
             }
 
             if(result){
-                utils.invokeCallback(cb, null, answer.respData(result));
+                utils.invokeCallback(cb, null, answer.respData(result, msg.enc));
             }
             else {
                 utils.invokeCallback(cb, null, answer.respNoData(CONSTS.SYS_CODE.OK));

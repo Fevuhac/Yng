@@ -2439,6 +2439,141 @@ var	drop_drop_cfg =
 		item_num : 100,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
+	'i51' : {
+		item_id : "w501",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i52' : {
+		item_id : "w502",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i53' : {
+		item_id : "w503",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i54' : {
+		item_id : "w504",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i55' : {
+		item_id : "w505",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i56' : {
+		item_id : "w506",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i57' : {
+		item_id : "w507",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i58' : {
+		item_id : "w508",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i59' : {
+		item_id : "w509",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i60' : {
+		item_id : "w510",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i61' : {
+		item_id : "w511",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i62' : {
+		item_id : "w512",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i63' : {
+		item_id : "w513",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i64' : {
+		item_id : "w514",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
+	'i65' : {
+		item_id : "w515",    //--物品id
+		item_probability : [100000],    //--掉落概率
+		limit_type : 1,    //--全服限制类型
+		limit_count : [0],    //--全服限制数量
+		reset : 0,    //--概率重置类型
+		item_num : 5000,    //--物品数量
+		drop_count : 1,    //--拆分个数
+	},
 	'i2201' : {
 		item_id : "i012",    //--物品id
 		item_probability : [100000],    //--掉落概率
@@ -2904,7 +3039,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 1,    //--物品数量
+		item_num : 2,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g1105' : {
@@ -2913,7 +3048,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 1,    //--物品数量
+		item_num : 2,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g1201' : {
@@ -3174,7 +3309,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 20000,    //--物品数量
+		item_num : 16000,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g2002' : {
@@ -3543,7 +3678,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 30000,    //--物品数量
+		item_num : 20000,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g3002' : {
@@ -3615,7 +3750,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 6,    //--物品数量
+		item_num : 4,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g3102' : {
@@ -3624,7 +3759,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 6,    //--物品数量
+		item_num : 4,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g3103' : {
@@ -3633,7 +3768,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 6,    //--物品数量
+		item_num : 4,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g3104' : {
@@ -3642,7 +3777,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 3,    //--物品数量
+		item_num : 2,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g3105' : {
@@ -3651,7 +3786,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 3,    //--物品数量
+		item_num : 2,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g3201' : {
@@ -3912,7 +4047,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 40000,    //--物品数量
+		item_num : 30000,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g4002' : {
@@ -3984,7 +4119,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 8,    //--物品数量
+		item_num : 4,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g4102' : {
@@ -3993,7 +4128,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 8,    //--物品数量
+		item_num : 4,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g4103' : {
@@ -4002,7 +4137,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 8,    //--物品数量
+		item_num : 4,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g4104' : {
@@ -4011,7 +4146,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 4,    //--物品数量
+		item_num : 2,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g4105' : {
@@ -4020,7 +4155,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 4,    //--物品数量
+		item_num : 2,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'g4201' : {
@@ -5127,7 +5262,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 6,    //--物品数量
+		item_num : 5,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	't2006' : {
@@ -5136,7 +5271,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 8,    //--物品数量
+		item_num : 6,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	't3001' : {
@@ -5343,7 +5478,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 6,    //--物品数量
+		item_num : 5,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	't6006' : {
@@ -5352,7 +5487,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 8,    //--物品数量
+		item_num : 6,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	't7001' : {
@@ -5397,7 +5532,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 6,    //--物品数量
+		item_num : 5,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	't7006' : {
@@ -5406,7 +5541,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 8,    //--物品数量
+		item_num : 6,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	't8001' : {
@@ -5451,7 +5586,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 6,    //--物品数量
+		item_num : 5,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	't8006' : {
@@ -5460,7 +5595,7 @@ var	drop_drop_cfg =
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
 		reset : 0,    //--概率重置类型
-		item_num : 8,    //--物品数量
+		item_num : 6,    //--物品数量
 		drop_count : 1,    //--拆分个数
 	},
 	'S10_1' : {
@@ -8465,7 +8600,7 @@ var	drop_drop_cfg =
 		item_probability : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100000,0],    //--掉落概率
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
-		reset : 1,    //--概率重置类型
+		reset : 0,    //--概率重置类型
 		item_num : 50,    //--物品数量
 		drop_count : 50,    //--拆分个数
 	},
@@ -8474,7 +8609,7 @@ var	drop_drop_cfg =
 		item_probability : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100000,0],    //--掉落概率
 		limit_type : 1,    //--全服限制类型
 		limit_count : [0],    //--全服限制数量
-		reset : 1,    //--概率重置类型
+		reset : 0,    //--概率重置类型
 		item_num : 100,    //--物品数量
 		drop_count : 100,    //--拆分个数
 	},

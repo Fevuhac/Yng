@@ -13,5 +13,9 @@ module.exports = {
         EXP_DEFAULT:100, //默认经验值
         VIP_DEFAULT:1, //默认vip
         JOIN_TIMEOUT:60000, //单位(秒:ms)
+    },
+    PLAYER:{
+        OFFLINE_TIMEOUT:10000,//离线玩家踢出游戏超时时间，单位(秒:ms)
+        KICK_OFFLINE_CHECK_TIMEOUT:10000 //离线玩家超时踢出检查周期 单位(秒:ms)
     }
 }

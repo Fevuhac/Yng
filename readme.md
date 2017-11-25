@@ -13,6 +13,11 @@
 - apt install sysstat
 - npm install -g supervisor
 
+# 性能优化
+node --prof app.js
+
+node --prof-process isolate-000000000043B880-v8.log > processed.txt
+
 
 # node升级到v8.9.0 Latest LTS: Carbon
 - ## linux

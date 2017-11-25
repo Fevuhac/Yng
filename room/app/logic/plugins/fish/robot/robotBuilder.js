@@ -1,12 +1,18 @@
 const config = require('../config');
+const consts = require('../consts');
 const async = require('async');
 const randomName = require("chinese-random-name");
 
 class RobotBuilder {
     constructor() {
-        this._weaponLevels = Object.keys(GAMECFG.newweapon_upgrade_cfg).map(function (item) {
-            return Number(item);
-        });
+        // this._weaponLevels = Object.keys(GAMECFG.newweapon_upgrade_cfg).map(function (item) {
+        //     return Number(item);
+        // });
+
+        this._weaponLevels = Object.keys(GAMECFG.newweapon_upgrade_cfg);
+        for (let k in this._weaponLevels) {
+            this._weaponLevels[k] = parseInt(this._weaponLevels[k]);
+        }
 
         this._weaponSkins = Object.keys(GAMECFG.newweapon_weapons_cfg);
         this._roleMaxLevel = GAMECFG.player_level_cfg.length;
@@ -18,7 +24,7 @@ class RobotBuilder {
      * @returns {*}
      * @private
      */
-    _calcWeapon(level) {
+    _calcWeapon(level, minLevel) {
         let weapon = {
             level: level,
             weapon_energy:{},
@@ -26,23 +32,22 @@ class RobotBuilder {
         };
 
         let levels = Array.from(this._weaponLevels);
-        levels.push(level);
-
         levels.sort(function (a, b) {
             return a - b
         });
 
         let newLevel = level;
         for (let i = 0; i < levels.length; ++i) {
-            if (levels[i] == level) {
-                i += utils.random_int(config.ROBOT.WEAPON_LEVEL_RANDOM[0], config.ROBOT.WEAPON_LEVEL_RANDOM[1]);
+            if (levels[i] >= level) {
+                let rm = utils.random_int(config.ROBOT.WEAPON_LEVEL_RANDOM[0], config.ROBOT.WEAPON_LEVEL_RANDOM[1]);
+                i += rm;
                 i = i >= levels.length ? levels.length - 1 : i;
                 i = i < 0 ? 0 : i;
                 newLevel = levels[i];
                 break;
             }
         }
-
+        newLevel = newLevel < minLevel ? minLevel : newLevel;
         weapon.level = newLevel;
 
         let level_filter = this._weaponLevels.filter(function (item) {
@@ -52,7 +57,6 @@ class RobotBuilder {
         level_filter.forEach(function (item) {
             weapon.weapon_energy[item] = utils.random_int(100, 3000);
         });
-
         weapon.skin = this._genOwnWeaponSkin();
 
         return weapon;
@@ -64,12 +68,12 @@ class RobotBuilder {
      * @returns {*}
      * @private
      */
-    _calcRoleLevel(level) {
+    _calcRoleLevel(level, minLevel) {
         let newLevel = level;
         newLevel += utils.random_int(config.ROBOT.ROLE_LEVEL_RANDOM[0], config.ROBOT.ROLE_LEVEL_RANDOM[1]);
         newLevel = newLevel < 1 ? 1 : newLevel;
         newLevel = newLevel > this._roleMaxLevel ? this._roleMaxLevel : newLevel;
-
+        newLevel = newLevel < minLevel ? minLevel : newLevel;
         return newLevel;
     }
 
@@ -101,9 +105,12 @@ class RobotBuilder {
         return weapon_skin;
     }
 
-    _calcGold(num){
+    _calcGold(num, minNum){
         let gold = num + utils.random_int(config.ROBOT.GOLD_RANDOM[0], config.ROBOT.GOLD_RANDOM[1]) * config.ROBOT.GOLD_STEP;
         gold = gold <= 0 ? config.ROBOT.GOLD_DEFAULT : gold;
+        if (gold < minNum) {
+            gold = minNum;
+        }
         return gold;
     }
 
@@ -124,13 +131,16 @@ class RobotBuilder {
             async.waterfall([function (cb) {
                 redisClient.cmd.hlen(dbConsts.REDISKEY.FIGURE_URL, cb);
             },function (num, cb) {
-                let skip = utils.random_int(0, num - 1);
-                dbUtils.redisAccountSync.getHashValueLimit(dbConsts.REDISKEY.FIGURE_URL, skip, 1, (res, next) => {
+                let skip = utils.random_int(0, num - 2);
+
+                logger.error('----------------机器人昵称分配', 'num:', num, "skip:",skip);
+                dbUtils.redisAccountSync.getHashValueLimit(dbConsts.REDISKEY.FIGURE_URL, skip, 2, (res, next) => {
                     if (!!res && res.length > 0) {
                         let uid = res[0];
                         let figure_url = res[1];
                         info.figure_url = figure_url || info.figure_url;
-                        cb(null, uid);
+                        logger.error('----------------机器人昵称分配头像', figure_url);
+                        cb(null, res[2]);
                     }
                     else {
                         cb(1);
@@ -144,7 +154,7 @@ class RobotBuilder {
                     resolve(info);
                     return;
                 }
-
+                logger.error('----------------机器人昵称分配', account.nickname);
                 info.nickname = account.nickname || info.nickname;
                 resolve(info)
             });
@@ -155,9 +165,18 @@ class RobotBuilder {
     }
 
     async genAccount(room) {
-        let robot_Level = this._calcRoleLevel(room.avgLevel);
-        let robot_weapon = this._calcWeapon(room.avgWeaponLevel);
-        let gold = this._calcGold(room.avgGold);
+        let minLevel = 0;
+        let minGold = 0;
+        let minWeaponLevel = room.config.min_level;
+        if (room.mode == consts.GAME_MODE.MATCH) {
+            minLevel = GAMECFG.common_const_cfg.RMATCH_ROLE_LV;
+            minWeaponLevel = GAMECFG.common_const_cfg.RMATCH_OPEN_LIMIT;
+        }else{
+            minGold = room.config.needgold;
+        }
+        let robot_Level = this._calcRoleLevel(room.avgLevel, minLevel);
+        let robot_weapon = this._calcWeapon(room.avgWeaponLevel, minWeaponLevel);
+        let gold = this._calcGold(room.avgGold, minGold);
         let pearl = this._calcPearl(room.avgPearl);
         let exp = room.avgExp;
         let vip = room.avgVIP;

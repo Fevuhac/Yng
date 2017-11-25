@@ -61,6 +61,10 @@ class FishCode extends SysCode{
             code: '3012',
             desc: '无此皮肤，疑似作弊'
         };
+        this.INVALID_WP_BK = {
+            code: '3013',
+            desc: '子弹数据有误'
+        };
     }
 }
 

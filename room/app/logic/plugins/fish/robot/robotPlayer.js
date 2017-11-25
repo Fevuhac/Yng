@@ -6,22 +6,22 @@ class RobotPlayer extends Player {
     constructor(opts) {
         super(opts);
         this._joinTime = Date.now();
-        this._scene = opts.scene;
+        this._room = opts.room;
     }
 
     get joinTime(){
         return this._joinTime;
     }
 
-    get scene(){
-        return this._scene;
+    get room(){
+        return this._room;
     }
 
     //创建机器人
     static allocPlayer(data) {
         let uid = uuidv1();
         let player = new RobotPlayer({uid:uid, account: dbUtils.redisAccountSync.genAccount(uid,data.account),
-            kindId: consts.ENTITY_TYPE.ANDROID, scene:data.scene});
+            kindId: consts.ENTITY_TYPE.ROBOT, room:data.room});
         player.gameInfo = {
             gameMode: data.gameMode,
             sceneType: data.sceneType

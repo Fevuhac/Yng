@@ -130,7 +130,8 @@ module.exports = {
                 reward: [REWARD_TYPE.DAILY, REWARD_TYPE.WEEK],
                 awardType: 1,
                 limit: 500,
-                reset: crossWeek
+                reset: crossWeek,
+                delete:[REDISKEY.BP]
             },
             {
                 redisKey: REDISKEY.RANK.GODDESS,

@@ -12,15 +12,12 @@ class RankReward{
      * @param rank
      * @private
      */
-    _getWeekAward(type, rank){
-        let list = consts.RANK_WEEK_AWARD_CONFIG[type];
-        for (let i = 0; i < list.length; ++i) {
-            if (rank >= list[i].interval[0] && rank <= list[i].interval[1]) {
-                return list.reward;
-            }
+    _getWeekAward(type, cond){
+        switch(type) {
+            case consts.RANK_TYPE.GODDESS:
+                consts.getWeekAwardGoddess(cond.rank, cond.wave);
+            break;
         }
-
-        return null;
     }
 
     /**
@@ -53,29 +50,32 @@ class RankReward{
                 if(!rankData){
                     continue;
                 }
-
                 let rankInfo = JSON.parse(rankData);
-
-                let cmds = [];
-                for(let i = 0; i< rankInfo.ranks.length; i++){
-                    let award = this._getDailyAward(task.awardType, rankInfo.ranks[i].rank);
-                    cmds.push(['hset', `${REDISKEY.RANK_DAILY_AWARD}:${task.redisKey}`, rankInfo.ranks[i].uid, award]);
-                    if(week){
-                        award = this._getWeekAward(task.awardType, rankInfo.ranks[i].rank);
-                        cmds.push(['hset', `${REDISKEY.RANK_WEEK_AWARD}:${task.redisKey}`, rankInfo.ranks[i].uid, award]);
-                    }
-
-                    if(cmds.length >= task.limit){
-                        await dbUtils.redisAccountSync.multiAsync(cmds);
-                        cmds = [];
-                    }
-                }
-                await dbUtils.redisAccountSync.multiAsync(cmds);
+                this.generateChart(rankInfo, week);
 
             }catch (err){
                 logger.error(`发放奖励${task.redisKey}执行异常`, err);
             }
         }
+    }
+
+    generateChart(rankInfo, week) {
+
+        let cmds = [];
+        for (let i = 0; i < rankInfo.ranks.length; i++) {
+            let award = this._getDailyAward(task.awardType, rankInfo.ranks[i].rank);
+            cmds.push(['hset', `${REDISKEY.RANK_DAILY_AWARD}:${task.redisKey}`, rankInfo.ranks[i].uid, award]);
+            if (week) {
+                award = this._getWeekAward(task.awardType, rankInfo.ranks[i].rank);
+                cmds.push(['hset', `${REDISKEY.RANK_WEEK_AWARD}:${task.redisKey}`, rankInfo.ranks[i].uid, award]);
+            }
+
+            if (cmds.length >= task.limit) {
+                await dbUtils.redisAccountSync.multiAsync(cmds);
+                cmds = [];
+            }
+        }
+        await dbUtils.redisAccountSync.multiAsync(cmds);
     }
 }
 

@@ -53,19 +53,20 @@ class RobotController {
             let scene = item.scene;
 
             let account = await robotBuilder.genAccount(room);
-            logger.error('-----------------------account:', account);
             let player = RobotPlayer.allocPlayer({
                 gameMode: room.mode,
                 sceneType: room.sceneType,
                 account: account,
-                scene:scene
+                room:room
             });
 
-            logger.error('机器人加入房间：', player);
+            logger.error('机器人加入房间：');
             this._addPlayerEvent(player);
             this._robotPlayerMap.set(player.uid, player);
 
-            scene.robotJoin(player, room);
+            room.join(player);
+
+            // scene.robotJoin(player, room);
         }
     }
 
@@ -74,9 +75,9 @@ class RobotController {
         let uids = [];
         for(let player of this._robotPlayerMap.values()){
             if(now - player.joinTime >= config.ROBOT.JOIN_TIMEOUT){
-                player.scene.robotLeave(player.uid);
+                player.room.leave(player);
                 uids.push(player.uid);
-                logger.error('------------------------玩家超市离开', player.uid);
+                logger.error('------------------------玩家超时离开', player.uid);
             }
         }
 
@@ -97,9 +98,9 @@ class RobotController {
      * 开火
      */
     fire() {
-        for (let player of this._robotPlayerMap.values()) {
-            player.robotFire();
-        }
+        // for (let player of this._robotPlayerMap.values()) {
+        //     player.robotFire();
+        // }
     }
 
      useSkill() {

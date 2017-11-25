@@ -26,7 +26,6 @@ class LogSource{
 
         this._datas[type].push(dataArr);
 
-        logger.error('this._datas ---------', this._datas[type].length);
         return errorCode.OK;
     }
 

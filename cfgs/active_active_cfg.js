@@ -23,8 +23,8 @@ var	active_active_cfg =
 	},
 	{
 		id : 4,    //--活动ID
-		starttime : "2017/10/23&00:00:00",    //--开始时间
-		endtime : "2017/11/05&00:00:00",    //--结束时间
+		starttime : "2017/10/29&00:00:00",    //--开始时间
+		endtime : "2017/11/07&00:00:00",    //--结束时间
 		picid : "active4",    //--背景图，显示在banner中
 		name : "active_name_4",    //--备注
 	},

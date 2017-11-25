@@ -4,11 +4,20 @@ const cost = require('../cost');
 const FishCode = require('../fishCode');
 const consts = require('../consts');
 
+const DEBUG = 2;
+let log = null;
+if (DEBUG === 1) {
+    log = logger.error; 
+}else if (DEBUG === 2) {
+    log = logger.info;
+}
 
 class FishPlayer extends Player {
     constructor(opts) {
         super(opts);
         this._account = opts.account || {};
+        this._roomId = null;
+        this._connectState = CONSTS.constDef.PALYER_STATE.ONLINE;
         this._resetDIY();
 	    this._sword = 0;  //玩家战力（）
         this._skState = {}; //0准备 1进行中 2结束
@@ -21,6 +30,9 @@ class FishPlayer extends Player {
         };
         this._activeTime = Date.now();
         this._lastFireFish = null;
+        this._bkCost = {};
+        this._fireC = 0;
+        this._collisionC = 0;
     }
 
 
@@ -45,6 +57,22 @@ class FishPlayer extends Player {
             });
         });
         return promise;
+    }
+
+    set roomId(value){
+        this._roomId = value;
+    }
+
+    get roomId(){
+        return this._roomId;
+    }
+
+    set connectState(value){
+        this._connectState = value;
+    }
+
+    get connectState(){
+        return this._connectState;
     }
 
     /**
@@ -126,8 +154,6 @@ class FishPlayer extends Player {
             }
             
             let wpEng = account.weapon_energy;
-            logger.error('1 energy = ', wpEng);
-
             this.account = account;
             this._resetDIY();
 
@@ -136,8 +162,8 @@ class FishPlayer extends Player {
                 seatId: this.seatId,
                 gold: this.account.gold,
                 pearl: this.account.pearl,
-                wp_level: this.account.weapon,
-                wp_skin: this.account.weapon_skin.equip,
+                wp_level: this.DIY.weapon,
+                wp_skin: this.DIY.weapon_skin,
             }});
         }.bind(this));
     }
@@ -147,55 +173,73 @@ class FishPlayer extends Player {
      * 开炮
      */
     c_fire(data, cb){
-        logger.error('玩家开火:', this.account.nickname);
-        logger.error('玩家开火:', this.uid);
-        logger.error('玩家开火:', data);
+        this._fireC ++;
+        log && log('numberTest--玩家开火:', this.account.nickname, this._fireC);
+
         let curWpLv = this.DIY.weapon;
         let curSkin = this.DIY.weapon_skin;
-        let energy = this.DIY.weapon_energy[curWpLv]
+        let energy = this.DIY.weapon_energy[curWpLv];
         if (curSkin != data.wp_skin || curWpLv != data.wp_level || (Object.keys(this.DIY.weapon_energy).length > 0 && energy === undefined)) {
-            logger.error('curSkin = ', curSkin, data.wp_skin);
-            logger.error('curWpLv = ', curWpLv, data.wp_level );
-            logger.error('energy = ', energy);
+            log && log('curSkin = ', curSkin, data.wp_skin);
+            log && log('curWpLv = ', curWpLv, data.wp_level );
+            log && log('energy = ', energy);
             utils.invokeCallback(cb, FishCode.NOT_MATCH_WEAPON);
             return;
         }
+        let wpBk = data.wp_bk;
+        if (this._bkCost[wpBk] > 0) {
+            utils.invokeCallback(cb, FishCode.INVALID_WP_BK);
+            return;
+        }else if (this._bkCost[wpBk] === -1) {
+            this._bkCost[wpBk] = 0;
+            utils.invokeCallback(cb, null);
+            return;
+        }
+
         energy = energy || 0;
         let gainLaser = energy;
+        let newComebackHitrate = this.account.comeback.hitrate || 1;
         if(this.account.gold > 0){
             let costGold = cost.fire_gold_cost({weapon_skin:curSkin, weapon:curWpLv});
             if(costGold > this.account.gold){
                 costGold = this.account.gold; //最后一炮不足以开炮时，则默认剩余全部用完可开一次，下一次开炮则破产
             }
-
+            this._bkCost[wpBk] = costGold;
+            let saveData = {
+                level: this.account.level,
+                exp: this.account.exp,
+            };
             let gainExp = cost.fire_gain_exp({gold:costGold});
             if(gainExp > 0){
-                let oldLv = this.account.level;
-                let result = cost.reset_exp_level(this.account.level, this.account.exp, gainExp);
+                let oldLv = saveData.level;
+                let result = cost.reset_exp_level(oldLv, saveData.exp, gainExp);
                 if (!result.full) {
                     if (result.level > oldLv) {
-                        this.account.level = result.level;//升级了，数据服负责发放升级奖励
+                        saveData.level = result.level;//升级了，数据服负责发放升级奖励
                     }
-                    this.account.exp = result.exp; //注意经验是增量
+                    saveData.exp = result.exp; //注意经验是增量
                 }
             }
-
+            newComebackHitrate = cost.subComebackHitRate(curWpLv, this.account.comeback);
+            if (newComebackHitrate > 0) {
+                saveData.comeback_hitrate = newComebackHitrate;
+            }
             let heart = cost.updateHeartBeat(costGold, this._sceneCfg.max_level, this.account.heartbeat_min_cost, this.account.heartbeat, this.DIY.weapon_energy);
-            this.account.heartbeat = heart[0];
-            this.account.heartbeat_min_cost = heart[1];
-
             gainLaser = cost.fire_gain_laser({weapon_skin:curSkin, weapon: curWpLv, energy: energy});
             this.DIY.weapon_energy[curWpLv] = gainLaser;
-            this.account.weapon_energy = this.DIY.weapon_energy;
-            this.account.gold = -costGold; //TODO：金币消耗日志
-            this._save();
+            saveData.weapon_energy = this.DIY.weapon_energy;
+            saveData.gold = -costGold;
+            saveData.heartbeat = heart[0];
+            saveData.heartbeat_min_cost = heart[1];
+            this._save(saveData);
         }
         
         utils.invokeCallback(cb, null, {
             wp_laser: {wp_level: curWpLv, laser: gainLaser},
             exp: this.account.exp,
             level: this.account.level,
-            gold: this.account.gold
+            gold: this.account.gold,
+            comeback_hitrate: newComebackHitrate,
         });
 
         if(this.account.gold > 0){
@@ -206,6 +250,7 @@ class FishPlayer extends Player {
                 wp_level: curWpLv,
                 gold: this.account.gold,
                 fire_fish: data.fire_fish,
+                wp_bk: wpBk,
             }});
         }
     }
@@ -214,19 +259,50 @@ class FishPlayer extends Player {
      * 碰撞鱼捕获率判定
      */
     c_catch_fish(data, cb){
-        let tData = cost.catchNot(data.b_fishes, this.account, this.fishModel);
+        this._collisionC ++;
+        log && log('numberTest--玩家发送碰撞数据:', this.account.nickname, this._collisionC);
+
+        //校验子弹是否真的存在过 //子弹不存在，则无消耗，不能碰撞
+        let bFishes = data.b_fishes;
+        let bks = Object.keys(bFishes);
+        for (let bk in bFishes) {
+            if (!this._bkCost[bk]) {
+                log && log('numberTest--无效碰撞', bk);
+                this._bkCost[bk] = -1;//碰撞事件比开火事件先收到，视为无效碰撞，则下一次收到该开火事件时不处理
+                delete bFishes[bk];
+            }
+        }
+        let tData = cost.catchNot(bFishes, this.account, this.fishModel);
         let ret = tData.ret; 
         let gainGold = 0;
-        for (var fk in ret) {
+        for (let fk in ret) {
             let gold = ret[fk].gold;
             if (gold >= 0) {
                 gainGold += gold;
             }
         }
-        this.account.gold = gainGold; //TODO：金币获得日志
-        this.account.roipct_time = tData.roipct_time;
-        this._save();
-        logBuilder.addGoldLog(this.account.uid, gainGold, 0, this.account.gold, 0,this.account.level);
+        let fireCostBack = tData.costGold;
+        if (fireCostBack) {
+            for (let bk in fireCostBack) {
+                let fc = fireCostBack[bk];
+                logger.error('fc = ', fc, bk, this._bkCost[bk]);
+                if (this._bkCost[bk] > 0 && fc) {
+                    gainGold += this._bkCost[bk];
+                    this._bkCost[bk] = 0;
+                }
+            }
+        }
+        for (let i = 0; i < bks.length; i ++) {
+            let bk = bks[i];
+            if (this._bkCost[bk] > 0) {
+                this._bkCost[bk] = 0;
+            }
+        }
+
+        this._save({
+            gold: gainGold,
+            roipct_time: tData.roipct_time
+        });
 
         utils.invokeCallback(cb, null, {
             catch_fishes: ret,
@@ -271,15 +347,15 @@ class FishPlayer extends Player {
         }
         this._skState[skillId].flag = 0;
 
+        let saveData = {};
         let skill = this.account.skill;
         if (skill) {
             skill[skillId] = ret.skillC;
-            this.account.skill = skill;
+            saveData.skill = skill;
         }
-        let costPearl = ret.costPearl
-        console.log('costPearl = ', costPearl)
-        costPearl > 0 && (this.account.pearl = -costPearl);
-        this._save();
+        let costPearl = ret.costPearl;
+        costPearl > 0 && (saveData.pearl = -costPearl);
+        this._save(saveData);
 
         let common = {
             skill_id: skillId,
@@ -358,6 +434,9 @@ class FishPlayer extends Player {
         }
         let skillPower = null;
         if (skillId === consts.SKILL_ID.SK_LASER || skillId === consts.SKILL_ID.SK_NBOMB0 || skillId === consts.SKILL_ID.SK_NBOMB1 || skillId === consts.SKILL_ID.SK_NBOMB2) {
+            let wpBk = data.wp_bk;
+            this._bkCost[wpBk] = true;
+
             let firePoint = data.fire_point;
             skillPower = firePoint;
             this._skState[skillId].flag = 1;
@@ -366,8 +445,9 @@ class FishPlayer extends Player {
                 let curWpLv = data.wp_level;
                 let reset = 0;
                 this.DIY.weapon_energy[curWpLv] = reset;
-                this.account.weapon_energy = this.DIY.weapon_energy;
-                this._save();
+                this._save({
+                    weapon_energy: this.DIY.weapon_energy,
+                });
                 utils.invokeCallback(cb, null, {
                    wp_level: curWpLv,
                    laser: reset, 
@@ -378,6 +458,7 @@ class FishPlayer extends Player {
             this.emit(fishCmd.push.use_skill.route, {player: this, data:{
                 skill_power: skillPower,
                 skill_id: skillId,
+                wp_bk: wpBk,
             }});
         }else {
             utils.invokeCallback(cb, FishCode.INVALID_SKILL);
@@ -406,23 +487,18 @@ class FishPlayer extends Player {
                  }
              }
              if (!isExist) {
-                 logger.error('wpskin = ', wpSkin, own);
+                 log && log('wpskin = ', wpSkin, own);
                  utils.invokeCallback(cb, null);
                  return;
              }
              this.DIY.weapon_skin = wpSkin;
-             oldSkin.equip = wpSkin;
-             this.account.weapon_skin = oldSkin;
-             this._save();
          }else if (event === consts.FIGHTING_NOTIFY.WP_LEVEL) {
              let wpLv = evtData;
              let wpEng = this.account.weapon_energy;
-             if (wpEng && wpEng[wpLv] >= 0) {
+             if (wpEng && (wpEng[wpLv] >= 0 || wpLv === 1) && wpLv >= this._sceneCfg.min_level && wpLv <= this._sceneCfg.max_level) {
                  this.DIY.weapon = wpLv;
-                 this.account.weapon = wpLv;
-                 this._save();
              }else{
-                 logger.error('energy = ', wpEng, wpEng[wpLv]);
+                 log && log('energy = ', wpEng, wpEng[wpLv]);
                  utils.invokeCallback(cb, null);
                  return;
              }
@@ -483,14 +559,39 @@ class FishPlayer extends Player {
 
     /**
      * 重置diy
+     * 注意：重置的武器倍率不能超过当前场景允许的最大等级
      */
     _resetDIY () {
         let account = this.account;
+        let aw = account.weapon;
+        let weapon = this.DIY && this.DIY.weapon || 1;
+        let oldWpLv = weapon;
+        if (!this._sceneCfg) {
+            weapon = aw;
+        }else if (aw >= this._sceneCfg.min_level && aw <= this._sceneCfg.max_level) {
+            weapon = aw;
+        }
+        if (oldWpLv && weapon > oldWpLv && this.DIY && this.DIY.weapon_energy && this.DIY.weapon_energy[weapon]) {
+            weapon = oldWpLv;
+        }
         this._DIY = {
-            weapon: account.weapon,
+            weapon: weapon,
             weapon_skin: account.weapon_skin.equip,
             weapon_energy: account.weapon_energy,
         };
+
+        //注意：原始数据可能无1倍激光能量标记，此处兼容处理
+        this.DIY.weapon_energy = this.DIY.weapon_energy || {}; 
+        let wbks = Object.keys(GAMECFG.newweapon_upgrade_cfg);
+        for (let i = 0; i < wbks.length; i ++) {
+            let lv = parseInt(wbks[i]);
+            if (lv > aw) {
+                break;
+            }
+            if (!this.DIY.weapon_energy[lv]) {
+                this.DIY.weapon_energy[lv] = 0;
+            }
+        }
     }
     
     /**
@@ -516,11 +617,47 @@ class FishPlayer extends Player {
         });
     }
 
-    _save(){
-        if(this.kindId === consts.ENTITY_TYPE.PLAYER){
+    /**
+     * 将更新后的数据及时持久化
+     * 注意：
+     * 1、房间内不能直接改变武器等级和皮肤并持久化，因为武器升级和切换皮肤在数据服操作，且实际武器等级可能超过了当前房间所允许的区间
+     * 2、data所含字段必须是account含有字段，反之不会持久化
+     */
+    _save(data){
+        if(this.kindId === consts.ENTITY_TYPE.PLAYER && data && Object.keys(data).length > 0){
+            data.hasOwnProperty('gold') && (this.account.gold = data.gold);
+            data.hasOwnProperty('weapon_energy') && (this.account.weapon_energy = data.weapon_energy);
+            data.hasOwnProperty('heartbeat') && (this.account.heartbeat = data.heartbeat);
+            data.hasOwnProperty('heartbeat_min_cost') && (this.account.heartbeat_min_cost = data.heartbeat_min_cost);
+            data.hasOwnProperty('roipct_time') && (this.account.roipct_time = data.roipct_time);
+            data.hasOwnProperty('pearl') && (this.account.pearl = data.pearl);
+            data.hasOwnProperty('skill') && (this.account.skill = data.skill);
+            data.hasOwnProperty('exp') && (this.account.exp = data.exp);
+            data.hasOwnProperty('level') && (this.account.level = data.level);
+            data.hasOwnProperty('comeback_hitrate') && (this.account.comeback.hitrate = data.comeback_hitrate, this.account.comeback = this.account.comeback);
             this.account.commit();
+
+            //金币日志
+            if (data.hasOwnProperty('gold')) {
+                if (data.gold > 0) {
+                    logBuilder.addGoldLog(this.account.id, data.gold, 0, this.account.gold, GAMECFG.common_log_const_cfg.GAME_FIGHTING, this.account.level);
+                }else if (data.gold < 0) {
+                    logBuilder.addGoldLog(this.account.id, 0, -data.gold, this.account.gold, GAMECFG.common_log_const_cfg.GAME_FIGHTING, this.account.level);
+                }
+            }
+
+            //钻石日志
+            if (data.hasOwnProperty('pearl')) {
+                //todo
+            }
+
+            //技能日志
+            if (data.hasOwnProperty('skill')) {
+                //todo
+            }
         }
     }
+    
 }
 
 module.exports = FishPlayer;

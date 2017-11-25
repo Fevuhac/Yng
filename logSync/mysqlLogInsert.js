@@ -32,8 +32,7 @@ class MysqlLogInsert {
                 if(err){
                     logger.error('批量日志类型:' + type + '写入事务提交失败,'+err);
                 }
-                logger.error('批量日志写入成功,数量', len);
-                // console.timeEnd('mysqlExec')
+                logger.info('批量日志写入成功,数量', len);
                 utils.invokeCallback(cb, err, result);
             });
         }

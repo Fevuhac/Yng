@@ -12,7 +12,8 @@ var	common_mathadjust_const_cfg =  {
 		DRATIO : 1,    //--偏振系数
 		HEARTMAX : 180,    //--心跳上限
 		HRATIO : 5,    //--心跳+1需要金币系数
-		extract : 0.08,    //--抽水
+		HVALUE : 0.4,    //--心跳参数
+		extract : 0.11,    //--抽水
 		time1 : 1800,    //--重置间隔
 		addvalue : 1.15,    //--出分加成
 		time2 : 450,    //--出分时长

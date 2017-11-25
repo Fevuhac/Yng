@@ -15,4 +15,5 @@ module.exports = {
     vip_vip_cfg: require('./vip_vip_cfg'),
     newweapon_upgrade_cfg: require('./newweapon_upgrade_cfg'),
     goddess_goddessup_cfg: require('./goddess_goddessup_cfg'),
+    common_log_const_cfg: require('./common_log_const_cfg'),
 };

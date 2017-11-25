@@ -34,12 +34,20 @@ module.exports = {
         WP_LEVEL: 1,     //切换武器倍率
     },
 
+    FIRE_FLAG: {
+        NORMAL: 0, //普通命中
+        LIGHTING: 1, //鱼闪电技能命中
+        BOMB: 2, //鱼炸弹技能命中
+        NBOMB: 3,   //被核弹打中
+        LASER: 4,    //被激光打中
+    },
+
     FLUSH_EVENT: Symbol('flushFish'),
     ROOM_MAX_PLAYER: 4,
 
     ENTITY_TYPE: {
         PLAYER: 0,
-        ANDROID: 1,
+        ROBOT: 1,
     },
     PLAYER_BASE_INFO_FIELDS: [
         dbConsts.ACCOUNTKEY.NICKNAME,

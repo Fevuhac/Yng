@@ -146,6 +146,11 @@ class SysCode{
             code:'364',
             desc:'玩家不在场景中'
         };
+        
+        this.PALYER_GAME_ROOM_DISMISS = {
+            code:'365',
+            desc:'玩家游戏房间已经解散'
+        };
 
         this.ARGS_INVALID = {
             code:400,

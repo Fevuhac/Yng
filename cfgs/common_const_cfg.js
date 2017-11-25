@@ -32,5 +32,6 @@ var	common_const_cfg =  {
 		MISS_SIGN : 10,    //--补签消耗钻石
 		RMATCH_CHAT_COUNT : 6,    //--排位赛消息数量
 		HORN_CD : 1,    //--喇叭聊天间隔秒
+		WEAPONS_DRAW_COST : 10,    //--皮肤抽奖钻石
 	};
 module.exports = common_const_cfg;

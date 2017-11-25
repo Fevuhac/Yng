@@ -17,8 +17,11 @@ class Player extends Entity{
         return this._sid;
     }
 
+    set sid(value){
+        this._sid = value;
+    }
+
     send(route, msg){
-        logger.debug('-----------------send ', route, msg)
         messageService.send(route, msg, {uid: this._uid, sid: this._sid});
     }
 

@@ -35,29 +35,32 @@ class Scene {
 
     }
 
-    multiRoom(){
-        return this._searchMultiRoom();
+    multiRoom(robot){
+        return this._searchMultiRoom(robot);
     }
 
     matchRoom(){
         return this._matchRoom();
     }
 
-    robotJoin(player, room){
-        this.entities.set(player.uid, room.roomId);
-        room.join(player);
-    }
+    // robotJoin(player, room){
+    //     this.entities.set(player.uid, room.roomId);
+    //     room.join(player);
+    // }
 
-    robotLeave(uid){
-        let room = this._getRoom(uid);
-        if (!!room) {
-            room.leave(uid);
-        }
-        this.entities.delete(uid)
-    }
+    // robotLeave(uid){
+    //     let room = this._getRoom(uid);
+    //     if (!!room) {
+    //         room.leave(uid);
+    //         if (room.isDestroy()) {
+    //             room.stop();
+    //             this.roomMap.delete(room.roomId);
+    //         }
+    //     }
+    //     this.entities.delete(uid)
+    // }
 
-
-    addEntity(player) {
+    joinGame(player) {
         if (!player || !player.uid) {
             return CONSTS.SYS_CODE.ARGS_INVALID
         }
@@ -70,7 +73,8 @@ class Scene {
         return this._enterRoom(player);
     }
 
-    removeEntity(uid) {
+    leaveGame(uid) {
+        connectLogger.error('-----------------------玩家離開房間', uid)
         let room = this._getRoom(uid);
         if (!!room) {
             room.leave(uid);
@@ -80,6 +84,27 @@ class Scene {
             }
         }
         this.entities.delete(uid)
+    }
+
+    kickOfflinePlayer(){
+        let scene_uids = [];
+        for(let room of this.roomMap.values()){
+            let uids = room.kickOffline();
+            if (room.isDestroy()) {
+                room.stop();
+                this.roomMap.delete(room.roomId);
+            }
+            for(let uid of uids){
+                this.entities.delete(uid);
+                scene_uids.push(uid);
+            }
+        }
+
+        return scene_uids;
+    }
+
+    getSceneRoom(uid){
+        return this._getRoom(uid);
     }
 
     _getRoom(uid) {
@@ -142,7 +167,13 @@ class Scene {
 
     _createRoom(mode) {
         let roomId = `${this.sceneType}_${this._genRoomId()}`;
-        let room = new Room({roomId: roomId, config: this._config, mode: mode, sceneType:this.sceneType});
+        let room = new Room({
+            roomId: roomId, 
+            config: this._config, 
+            mode: mode, 
+            sceneType:this.sceneType,
+            playerMax: consts.ROOM_MAX_PLAYER,
+        });
         room.start();
 
         this.roomMap.set(roomId, room);
@@ -151,9 +182,10 @@ class Scene {
     }
 
 
-    _searchMultiRoom() {
+    _searchMultiRoom(robot) {
         for (let room of this.roomMap.values()) {
-            if (room.mode === consts.GAME_MODE.MULTI && room.playerCount() < consts.ROOM_MAX_PLAYER) {
+            if (room.mode === consts.GAME_MODE.MULTI && (room.playerCount() < consts.ROOM_MAX_PLAYER
+        || !robot && room.kickRobot())) {
                 return room;
             }
         }

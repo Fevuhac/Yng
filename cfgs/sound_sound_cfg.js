@@ -320,6 +320,16 @@ var	sound_sound_cfg =
 		group : 0,    //--cd组同一个组才受间隔影响
 		cd : 0,    //--前一个音效播完后多久才能播放
 	},
+	'fight_zp_1' : {
+		value : "sound/fight_zp_1",    //--常量值,注意单元格格式文本
+		group : 0,    //--cd组同一个组才受间隔影响
+		cd : 0,    //--前一个音效播完后多久才能播放
+	},
+	'fight_zp_2' : {
+		value : "sound/fight_zp_2",    //--常量值,注意单元格格式文本
+		group : 0,    //--cd组同一个组才受间隔影响
+		cd : 0,    //--前一个音效播完后多久才能播放
+	},
 	'goldfish_add' : {
 		value : "sound/goldfish_add",    //--常量值,注意单元格格式文本
 		group : 0,    //--cd组同一个组才受间隔影响

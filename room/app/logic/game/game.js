@@ -6,17 +6,16 @@ const shareData = require('../../cache/shareData');
 const dataType = require('../../cache/dataType');
 const eventType = require('../../consts/eventType');
 
-class Game extends Entity{
+class Game extends Entity {
     constructor() {
         super({})
         this.instances = new Map(); //服务器实例
-        this.uids = new Map(); //uid <=> 实例映射
     }
 
     start() {
         let config = pomelo.app.get('redis');
         redisClient.start(config, function (err, connector) {
-            if(err){
+            if (err) {
                 logger.error('连接redis数据库失败:', err);
                 return;
             }
@@ -24,11 +23,11 @@ class Game extends Entity{
             redisClient.sub(eventType.PUMPWATER, this.onPumpwater.bind(this));
 
             mysqlClient.start(pomelo.app.get('mysql'), function (err, connecotr) {
-                if(err){
+                if (err) {
                     logger.error('连接mysql数据库失败:', err);
                     return;
                 }
-                logger.error('连接mysql数据库成功:', err);
+                logger.info('连接mysql数据库成功');
             });
 
         }.bind(this));
@@ -39,30 +38,33 @@ class Game extends Entity{
         // pomelo.app.get('sync').flush();
     }
 
-    getScene(uid){
-        let inst = this.uids.get(uid);
-        if(!inst){
+    getScene(gameType, sceneType) {
+        let inst = this.instances.get(gameType);
+        if (!inst) {
             return;
         }
-        return inst.getScene(uid);
+        return inst.getScene(sceneType);
     }
 
     //获取玩家负载信息
-    getLoadInfo(){
+    getLoadInfo() {
         let info = [...this.instances.values()].reduce(function (prev, next) {
             let sub = next.getLoadStatistics();
             return {
-                playerCount:prev.playerCount + sub.playerCount,
-                roomCount:prev.roomCount + sub.roomCount
+                playerCount: prev.playerCount + sub.playerCount,
+                roomCount: prev.roomCount + sub.roomCount
             }
-        }, {playerCount:0, roomCount:0});
+        }, {
+            playerCount: 0,
+            roomCount: 0
+        });
 
         return info;
     }
 
-    getInstance(gameType){
+    getInstance(gameType) {
         let inst = this.instances.get(gameType);
-        if(!inst){
+        if (!inst) {
             inst = new plugins[gameType].Instance();
             this.instances.set(gameType, inst);
             inst.run();
@@ -71,38 +73,50 @@ class Game extends Entity{
     }
 
     //玩家加入
-    onPlayerJoin(data, cb){
-        if(this.uids.has(data.uid)){
-            utils.invokeCallback(cb, null)
-            return;
-        }
-
+    onPlayerJoin(data, cb) {
         let inst = this.getInstance(data.gameType);
-        inst.enterScene(data, function (err) {
-            if(!err){
-                logger.error('onPlayerJoin enter' , data.uid);
-                this.uids.set(data.uid, inst);
+        inst.enterScene(data, function (err, roomId) {
+            if (!err) {
+                logger.error('onPlayerJoin enter ok', data.uid);
             }
-            utils.invokeCallback(cb, err);
+            utils.invokeCallback(cb, err, roomId);
         }.bind(this));
     }
 
-    //玩家离开
-    onPlayerLeave(uid, cb){
-        logger.error('onPlayerLeave enter' , uid);
-        let inst = this.uids.get(uid);
-        if(!inst){
-            utils.invokeCallback(cb, null);
+    /**
+     * 玩家连接状态
+     * @param {*} data {uid,state, sid,gameType,sceneType}
+     * @param {*} cb 
+     */
+    onPlayerConnectState(data, cb) {
+        let inst = this.getInstance(data.gameType);
+        if (!inst) {
+            utils.invokeCallback(cb, CONSTS.SYS_CODE.PALYER_GAME_ROOM_DISMISS);
             return
         }
 
-        logger.error('onPlayerLeave' , uid);
-        inst.leaveScene(uid, cb);
-        this.uids.delete(uid);
+        inst.setPlayerState(data, function (err, roomId) {
+            if (err) {
+                logger.error('onPlayerConnectState error', err);
+                utils.invokeCallback(cb, err);
+                return
+            }
+            utils.invokeCallback(cb, err, roomId);
+        });
+    }
+
+    //玩家离开{uid,gameType,sceneType}
+    onPlayerLeave(data, cb) {
+        let inst = this.getInstance(data.gameType);
+        if (!inst) {
+            utils.invokeCallback(cb, null);
+            return
+        }
+        inst.leaveScene(data.uid, data.sceneType, cb);
     }
 
 
-    onPumpwater(msg){
+    onPumpwater(msg) {
         shareData.set(dataType.PUMPWATER, msg.pumpwater);
     }
 }

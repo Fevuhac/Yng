@@ -23,6 +23,7 @@ var	vip_vip_cfg =
 		gift_price1 : 10,    //--礼包原价
 		gift_price2 : 2,    //--礼包售价
 		gift_item : [["i001",1000],["i002",1]],    //--礼包内容
+		gift_free : [["i001",1000],["i002",1]],    //--每日福利
 		vip_autoattact : [],    //--vip自动开炮功能
 		description : "vip_desc_1",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
@@ -50,6 +51,7 @@ var	vip_vip_cfg =
 		gift_price1 : 110,    //--礼包原价
 		gift_price2 : 1,    //--礼包售价
 		gift_item : [["i001",50000],["i013",5]],    //--礼包内容
+		gift_free : [["i001",50000],["i013",5]],    //--每日福利
 		vip_autoattact : [],    //--vip自动开炮功能
 		description : "vip_desc_1",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
@@ -77,6 +79,7 @@ var	vip_vip_cfg =
 		gift_price1 : 300,    //--礼包原价
 		gift_price2 : 30,    //--礼包售价
 		gift_item : [["i001",100000],["i012",50]],    //--礼包内容
+		gift_free : [["i001",100000],["i012",50]],    //--每日福利
 		vip_autoattact : [],    //--vip自动开炮功能
 		description : "vip_desc_2",    //--特权说明
 		vip_picture : "vipbymz",    //--特权图片
@@ -104,6 +107,7 @@ var	vip_vip_cfg =
 		gift_price1 : 550,    //--礼包原价
 		gift_price2 : 55,    //--礼包售价
 		gift_item : [["i001",150000],["i015",5]],    //--礼包内容
+		gift_free : [["i001",150000],["i015",5]],    //--每日福利
 		vip_autoattact : [],    //--vip自动开炮功能
 		description : "vip_desc_3",    //--特权说明
 		vip_picture : "vipbgjinbi",    //--特权图片
@@ -131,6 +135,7 @@ var	vip_vip_cfg =
 		gift_price1 : 700,    //--礼包原价
 		gift_price2 : 80,    //--礼包售价
 		gift_item : [["i001",200000],["i012",100]],    //--礼包内容
+		gift_free : [["i001",200000],["i012",100]],    //--每日福利
 		vip_autoattact : [11,17,20],    //--vip自动开炮功能
 		description : "vip_desc_4",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
@@ -158,6 +163,7 @@ var	vip_vip_cfg =
 		gift_price1 : 1000,    //--礼包原价
 		gift_price2 : 120,    //--礼包售价
 		gift_item : [["i001",250000],["i015",10]],    //--礼包内容
+		gift_free : [["i001",250000],["i015",10]],    //--每日福利
 		vip_autoattact : [11,17,20],    //--vip自动开炮功能
 		description : "vip_desc_5",    //--特权说明
 		vip_picture : "vipjiujijin",    //--特权图片
@@ -185,6 +191,7 @@ var	vip_vip_cfg =
 		gift_price1 : 1400,    //--礼包原价
 		gift_price2 : 180,    //--礼包售价
 		gift_item : [["i001",500000],["i013",200]],    //--礼包内容
+		gift_free : [["i001",500000],["i013",200]],    //--每日福利
 		vip_autoattact : [11,17,20],    //--vip自动开炮功能
 		description : "vip_desc_6",    //--特权说明
 		vip_picture : "vipzsbz",    //--特权图片
@@ -212,6 +219,7 @@ var	vip_vip_cfg =
 		gift_price1 : 1750,    //--礼包原价
 		gift_price2 : 200,    //--礼包售价
 		gift_item : [["i001",500000],["i016",5]],    //--礼包内容
+		gift_free : [["i001",500000],["i016",5]],    //--每日福利
 		vip_autoattact : [11,17,20],    //--vip自动开炮功能
 		description : "vip_desc_7",    //--特权说明
 		vip_picture : "viphedanweili",    //--特权图片
@@ -239,6 +247,7 @@ var	vip_vip_cfg =
 		gift_price1 : 2100,    //--礼包原价
 		gift_price2 : 280,    //--礼包售价
 		gift_item : [["i001",1000000],["i012",200]],    //--礼包内容
+		gift_free : [["i001",1000000],["i012",200]],    //--每日福利
 		vip_autoattact : [11,17,20],    //--vip自动开炮功能
 		description : "vip_desc_8",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
@@ -266,6 +275,7 @@ var	vip_vip_cfg =
 		gift_price1 : 2700,    //--礼包原价
 		gift_price2 : 360,    //--礼包售价
 		gift_item : [["i001",1000000],["i016",10]],    //--礼包内容
+		gift_free : [["i001",1000000],["i016",10]],    //--每日福利
 		vip_autoattact : [11,17,20],    //--vip自动开炮功能
 		description : "vip_desc_9",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
@@ -293,6 +303,7 @@ var	vip_vip_cfg =
 		gift_price1 : 3500,    //--礼包原价
 		gift_price2 : 500,    //--礼包售价
 		gift_item : [["i001",1500000],["i016",10]],    //--礼包内容
+		gift_free : [["i001",1500000],["i016",10]],    //--每日福利
 		vip_autoattact : [11,17,20],    //--vip自动开炮功能
 		description : "vip_desc_10",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
@@ -320,6 +331,7 @@ var	vip_vip_cfg =
 		gift_price1 : 4000,    //--礼包原价
 		gift_price2 : 600,    //--礼包售价
 		gift_item : [["i001",2000000],["i015",20]],    //--礼包内容
+		gift_free : [["i001",2000000],["i015",20]],    //--每日福利
 		vip_autoattact : [11,17,20],    //--vip自动开炮功能
 		description : "vip_desc_11",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
@@ -347,6 +359,7 @@ var	vip_vip_cfg =
 		gift_price1 : 5000,    //--礼包原价
 		gift_price2 : 800,    //--礼包售价
 		gift_item : [["i001",3000000],["i015",20]],    //--礼包内容
+		gift_free : [["i001",3000000],["i015",20]],    //--每日福利
 		vip_autoattact : [11,17,20],    //--vip自动开炮功能
 		description : "vip_desc_12",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
@@ -374,6 +387,7 @@ var	vip_vip_cfg =
 		gift_price1 : 6100,    //--礼包原价
 		gift_price2 : 1000,    //--礼包售价
 		gift_item : [["i001",4000000],["i011",100]],    //--礼包内容
+		gift_free : [["i001",4000000],["i011",100]],    //--每日福利
 		vip_autoattact : [11,17,20],    //--vip自动开炮功能
 		description : "vip_desc_13",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
@@ -401,6 +415,7 @@ var	vip_vip_cfg =
 		gift_price1 : 8000,    //--礼包原价
 		gift_price2 : 1500,    //--礼包售价
 		gift_item : [["i001",4000000],["i017",5]],    //--礼包内容
+		gift_free : [["i001",4000000],["i017",5]],    //--每日福利
 		vip_autoattact : [11,17,20],    //--vip自动开炮功能
 		description : "vip_desc_14",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
@@ -428,6 +443,7 @@ var	vip_vip_cfg =
 		gift_price1 : 10500,    //--礼包原价
 		gift_price2 : 2000,    //--礼包售价
 		gift_item : [["i001",5000000],["i017",10]],    //--礼包内容
+		gift_free : [["i001",5000000],["i017",10]],    //--每日福利
 		vip_autoattact : [11,17,20],    //--vip自动开炮功能
 		description : "vip_desc_15",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片

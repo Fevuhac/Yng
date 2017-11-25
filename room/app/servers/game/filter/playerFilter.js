@@ -10,7 +10,7 @@ class PlayerFilter{
     }
 
     before(msg, session, next){
-        let scene = pomelo.app.game.getScene(session.uid);
+        let scene = pomelo.app.game.getScene(session.get('gameType'),session.get('sceneType'));
         if(!scene){
             next(CONSTS.SYS_CODE.PALYER_NOT_IN_SCENE);
             return;

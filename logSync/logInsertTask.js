@@ -47,15 +47,10 @@ class LogInsertTask extends Task{
      */
     _exeTask(cb){
         let data = this.logSource.data;
-        logger.error('--- data', data);
         this.dbInsert.flush(data, function (err, result) {
             if(err){
-                console.log('定时写入LOG失败', err);
+                logger.error('定时写入LOG失败', err);
             }
-            else {
-                console.log('定时写入日志成功');
-            }
-            logger.error('--------------------------------- data', data);
             utils.invokeCallback(cb, err, result);
         });
     }

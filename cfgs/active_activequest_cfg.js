@@ -917,9 +917,9 @@ var	active_activequest_cfg =
 		id : 4009,    //--任务ID
 		activeid : 4,    //--所属活动，与active_cfg对应
 		name : "activequest_name_2009",    //--任务名称
-		condition : 13,    //--条件类型，同daily表
+		condition : 11,    //--条件类型，同daily表
 		value1 : 0,    //--条件参数
-		value2 : 1,    //--条件值
+		value2 : 50000,    //--条件值
 		reward : [["i321",1],["i001",2000]],    //--物品id和个数
 		repeat : 1,    //--是否每日重复
 		showtype : 1,    //--显示分类1活动任务，2充值回馈

@@ -6,7 +6,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 0,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.915,    //--炮几率
+		weaponspct : 0.885,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -17,7 +17,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 5,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.915,    //--炮几率
+		weaponspct : 0.885,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -28,7 +28,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 6,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.915,    //--炮几率
+		weaponspct : 0.885,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -39,7 +39,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 8,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.915,    //--炮几率
+		weaponspct : 0.885,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -50,7 +50,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 10,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.915,    //--炮几率
+		weaponspct : 0.885,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -61,7 +61,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 11,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.915,    //--炮几率
+		weaponspct : 0.885,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -72,7 +72,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 12,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.915,    //--炮几率
+		weaponspct : 0.885,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -83,7 +83,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 13,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.915,    //--炮几率
+		weaponspct : 0.885,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -94,7 +94,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 14,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.915,    //--炮几率
+		weaponspct : 0.885,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -105,7 +105,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 15,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.915,    //--炮几率
+		weaponspct : 0.885,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -116,7 +116,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 16,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.915,    //--炮几率
+		weaponspct : 0.885,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -127,7 +127,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 18,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -138,7 +138,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 30,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -149,7 +149,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 35,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -160,7 +160,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 40,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -171,7 +171,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 45,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -182,7 +182,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 50,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -193,7 +193,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 55,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -204,7 +204,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 60,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -215,7 +215,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 70,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -226,7 +226,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 80,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -237,7 +237,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 100,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -248,7 +248,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 120,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -259,7 +259,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 140,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -270,7 +270,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 160,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.905,    //--炮几率
+		weaponspct : 0.875,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -281,7 +281,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 180,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -292,7 +292,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 200,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -303,7 +303,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 250,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -314,7 +314,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 300,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -325,7 +325,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 350,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -336,7 +336,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 400,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -347,7 +347,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 450,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -358,7 +358,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 500,    //--需要钻石
 		unlock_material : [],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -369,7 +369,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 300,    //--需要钻石
 		unlock_material : [["i015",1],["i501",10],["i502",10],["i503",10]],    //--解锁需要材料
 		unlock_rate : 1,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -380,7 +380,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 350,    //--需要钻石
 		unlock_material : [["i015",1],["i502",20],["i503",20],["i504",20]],    //--解锁需要材料
 		unlock_rate : 0.95,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -391,7 +391,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 400,    //--需要钻石
 		unlock_material : [["i015",1],["i503",30],["i504",30],["i505",30]],    //--解锁需要材料
 		unlock_rate : 0.9,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -402,7 +402,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 450,    //--需要钻石
 		unlock_material : [["i015",1],["i504",40],["i505",40],["i501",40]],    //--解锁需要材料
 		unlock_rate : 0.85,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -413,7 +413,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 500,    //--需要钻石
 		unlock_material : [["i015",1],["i505",50],["i501",50],["i502",50]],    //--解锁需要材料
 		unlock_rate : 0.8,    //--成功率
-		weaponspct : 0.895,    //--炮几率
+		weaponspct : 0.865,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -424,7 +424,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 550,    //--需要钻石
 		unlock_material : [["i016",1],["i501",100],["i502",100],["i503",100]],    //--解锁需要材料
 		unlock_rate : 0.79,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -435,7 +435,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 600,    //--需要钻石
 		unlock_material : [["i016",1],["i502",150],["i503",150],["i504",150]],    //--解锁需要材料
 		unlock_rate : 0.78,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -446,7 +446,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 650,    //--需要钻石
 		unlock_material : [["i016",1],["i503",200],["i504",200],["i505",200]],    //--解锁需要材料
 		unlock_rate : 0.77,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -457,7 +457,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 700,    //--需要钻石
 		unlock_material : [["i016",1],["i504",250],["i505",250],["i501",250]],    //--解锁需要材料
 		unlock_rate : 0.76,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -468,7 +468,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 750,    //--需要钻石
 		unlock_material : [["i016",1],["i505",300],["i501",300],["i502",300]],    //--解锁需要材料
 		unlock_rate : 0.75,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -479,7 +479,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 800,    //--需要钻石
 		unlock_material : [["i016",1],["i501",350],["i502",350],["i503",350]],    //--解锁需要材料
 		unlock_rate : 0.74,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -490,7 +490,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 850,    //--需要钻石
 		unlock_material : [["i017",1],["i502",400],["i503",400],["i504",400]],    //--解锁需要材料
 		unlock_rate : 0.73,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -501,7 +501,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 900,    //--需要钻石
 		unlock_material : [["i017",1],["i503",500],["i504",500],["i505",500]],    //--解锁需要材料
 		unlock_rate : 0.72,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -512,7 +512,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 950,    //--需要钻石
 		unlock_material : [["i017",1],["i504",600],["i505",600],["i501",600]],    //--解锁需要材料
 		unlock_rate : 0.71,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -523,7 +523,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1000,    //--需要钻石
 		unlock_material : [["i017",1],["i505",800],["i501",800],["i502",800]],    //--解锁需要材料
 		unlock_rate : 0.7,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -534,7 +534,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1050,    //--需要钻石
 		unlock_material : [["i017",1],["i501",1000],["i502",1000],["i503",1000]],    //--解锁需要材料
 		unlock_rate : 0.69,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -545,7 +545,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1100,    //--需要钻石
 		unlock_material : [["i017",1],["i502",1500],["i503",1500],["i505",1500]],    //--解锁需要材料
 		unlock_rate : 0.68,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -556,7 +556,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",2],["i502",1600],["i503",1600],["i505",1600]],    //--解锁需要材料
 		unlock_rate : 0.67,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -567,7 +567,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",2],["i502",1700],["i503",1700],["i505",1700]],    //--解锁需要材料
 		unlock_rate : 0.66,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -578,7 +578,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",2],["i502",1800],["i503",1800],["i505",1800]],    //--解锁需要材料
 		unlock_rate : 0.65,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -589,7 +589,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",2],["i502",1900],["i503",1900],["i505",1900]],    //--解锁需要材料
 		unlock_rate : 0.64,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -600,7 +600,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",2],["i502",2000],["i503",2000],["i505",2000]],    //--解锁需要材料
 		unlock_rate : 0.63,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -611,7 +611,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",3],["i502",2200],["i503",2200],["i505",2200]],    //--解锁需要材料
 		unlock_rate : 0.62,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -622,7 +622,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",3],["i502",2400],["i503",2400],["i505",2400]],    //--解锁需要材料
 		unlock_rate : 0.61,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -633,7 +633,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",3],["i502",2600],["i503",2600],["i505",2600]],    //--解锁需要材料
 		unlock_rate : 0.6,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -644,7 +644,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",3],["i502",2800],["i503",2800],["i505",2800]],    //--解锁需要材料
 		unlock_rate : 0.59,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -655,7 +655,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",3],["i502",3000],["i503",3000],["i505",3000]],    //--解锁需要材料
 		unlock_rate : 0.58,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -666,7 +666,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",3],["i502",3200],["i503",3200],["i505",3200]],    //--解锁需要材料
 		unlock_rate : 0.57,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -677,7 +677,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",3],["i502",3500],["i503",3500],["i505",3500]],    //--解锁需要材料
 		unlock_rate : 0.56,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -688,7 +688,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",4],["i502",4000],["i503",4000],["i505",4000]],    //--解锁需要材料
 		unlock_rate : 0.55,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -699,7 +699,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",5],["i502",4500],["i503",4500],["i505",4500]],    //--解锁需要材料
 		unlock_rate : 0.54,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -710,7 +710,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",6],["i502",5000],["i503",5000],["i505",5000]],    //--解锁需要材料
 		unlock_rate : 0.53,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -721,7 +721,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",7],["i502",5500],["i503",5500],["i505",5500]],    //--解锁需要材料
 		unlock_rate : 0.52,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量
@@ -732,7 +732,7 @@ var	newweapon_upgrade_cfg =
 		unlock_cost : 1200,    //--需要钻石
 		unlock_material : [["i017",8],["i502",6000],["i503",6000],["i505",6000]],    //--解锁需要材料
 		unlock_rate : 0.51,    //--成功率
-		weaponspct : 0.885,    //--炮几率
+		weaponspct : 0.855,    //--炮几率
 		unlock_level : 0,    //--解锁所需等级
 		needpower : 3000,    //--激光能量需求
 		addpower : 1,    //--攻击增加激光能量

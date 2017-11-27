@@ -1,8 +1,14 @@
 exports.static = true;
-exports.nunjucks = {
+// exports.nunjucks = {
+//     enable: true,
+//     package: 'egg-view-nunjucks',
+// }
+
+exports.ejs = {
     enable: true,
-    package: 'egg-view-nunjucks',
+    package: 'egg-view-ejs',
 }
+
 exports.mysql = {
     enable: true,
     package: 'egg-mysql',

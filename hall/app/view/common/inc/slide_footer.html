@@ -1,0 +1,337 @@
+<script type="text/javascript">
+function isPDF(){
+  return location.search.indexOf('print-pdf') >= 0;
+}
+function initReveal(){
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    // Optional reveal.js plugins
+    dependencies: [
+      { src: '/static/js/jquery.min.js' },
+
+      { src: '/static/js/jquery.color.js' },
+      
+      { src: '/static/module/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: '/static/module/reveal/plugin/zoom-js/zoom.js', async: true },
+      { src: '/static/module/reveal/plugin/notes/notes.js', async: true },
+
+      { src: '/static/module/reveal/plugin/prism/prism.js', condition: function() { return !!document.querySelector('pre code'); }, callback: function() { 
+        var theme = "<%=http.get('theme') || slide.theme || 'default'%>";
+        var hightLightTheme;
+
+        var hlThemeMap = {
+          black: 'twilight',
+          blood: 'twilight',
+          league: 'okaidia',
+          moon: 'twilight',
+          night: 'tomorrow',
+          simple: 'coy',
+          'print-pdf' : 'coy',
+          white: 'coy'
+        }; 
+
+        hightLightTheme = hlThemeMap[theme];
+
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        if(!hightLightTheme){
+          link.href = '/static/module/reveal/plugin/prism/themes/prism.css';
+        }else{
+          link.href = '/static/module/reveal/plugin/prism/themes/prism-' 
+            + hightLightTheme + '.css';
+        }
+        document.getElementsByTagName('head')[0].appendChild(link);
+
+        var codes = [].slice.call(document.querySelectorAll('pre code'));
+        codes.forEach(function(item){
+            item.classList.add('language-' + item.classList[0]);
+        });
+        Prism.highlightAll();
+      } },
+      
+      { src: '/static/module/reveal/plugin/chat/socket-io.js', condition: function(){ return !!document.querySelector('[data-chat]'); } },
+      { src: '/static/module/reveal/plugin/chat/qrcode.js', condition: function(){ return !!document.querySelector('[data-chat]'); } },
+      { src: '/static/module/reveal/plugin/chat/chat.js', condition: function(){ return !!document.querySelector('[data-chat]'); }, async: true },
+      
+      { src: '/static/module/reveal/plugin/js-sequence-diagrams/raphael.min.js', condition: function(){ return !!document.querySelector('.diagram') } },
+      { src: '/static/module/reveal/plugin/js-sequence-diagrams/underscore.min.js', condition: function(){ return !!document.querySelector('.diagram') } },
+      { src: '/static/module/reveal/plugin/js-sequence-diagrams/sequence-diagram.js', condition: function(){ return !!document.querySelector('.diagram') }, callback: function(){
+          $('.diagram').css({
+            display: 'inline-block',
+            padding: '1.2em'
+          });
+          $('.diagram').sequenceDiagram({theme: 'hand', 
+            fontSize: parseInt($('.diagram').css('fontSize') || 26),
+            color: $('.diagram').css('color')
+          });
+        }},
+
+      { src: '/static/module/reveal/plugin/echarts/echarts.js', condition: function() { return !!document.querySelector('[data-echart]'); }, callback: function(){'use strict'
+          // echarts 路径配置
+          require.config({
+              paths: {
+                  echarts: '/static/module/reveal/plugin/echarts'
+              }
+          });
+
+          var charts = document.querySelectorAll('[data-echart] script[type="text/template"]');
+
+          for(var i = 0; i < charts.length; i++){
+            var optionsEl = charts[i];
+            var div = document.createElement('div');
+            div.className = 'echart';
+            div.style.height = $(optionsEl).attr('data-height') || '600px';
+            $(optionsEl).after(div);
+          }
+
+          function showcharts( event ) {
+            var slide = event.currentSlide;
+
+            var initChart = slide.hasAttribute('data-echart') && !slide.hasAttribute('data-echart-loaded');
+
+            if(initChart){
+              slide.setAttribute('data-echart-loaded', 1);
+              var theme = "<%=http.get('ct')%>" || slide.getAttribute('data-echart') || 'default';
+
+              var optionsEl = slide.querySelector('script[type="text/template"]'), options;
+              if(optionsEl) options = (new Function('option', optionsEl.innerHTML.trim() + ';return option;'))();
+
+              if(options && theme){
+
+                var series = options.series;
+                var toolbox = options.toolbox;
+
+                var deps = ['echarts', 'echarts/theme/' + theme];
+                for(var i = 0; i < series.length; i++){
+                  var type = 'echarts/chart/' + series[i].type;
+                  if(deps.indexOf(type) < 0){
+                    deps.push(type);
+                  }
+                }
+
+                if(toolbox && toolbox.show){
+                  if(toolbox.feature && toolbox.feature.magicType
+                    && toolbox.feature.magicType.show){
+                    var magicTypes = toolbox.feature.magicType.type;
+                    if(magicTypes && magicTypes.length){
+                      for(var i = 0; i < magicTypes.length; i++){
+                        var type = 'echarts/chart/' + magicTypes[i];
+                        if(deps.indexOf(type) < 0){
+                          deps.push(type);
+                        }                        
+                      }
+                    }
+                  }
+                }
+                
+                require(deps, function(ec, theme){
+                    function resetColor(obj, path, color){
+                      var ns = path.split('.');
+                      var root = obj;
+
+                      for(var i = 0; i < ns.length - 1; i++){
+                        var key = ns[i];
+
+                        root[key] = root[key] || {};
+                        root = root[key];
+                      }
+
+                      root[ns[i]] = color;
+                    }
+                    
+                    var div = slide.querySelector('.echart');
+
+                    if(theme){
+                      var color = $(slide).attr('data-background') 
+                          || $(slide).css('background-color');
+
+                      color = $.Color(color);
+                      color = $.Color(255 - color.red(), 255 - color.green(), 255 - color.blue());
+                      color = color.toRgbaString();
+
+                      //adjust text & colors for theme
+                      theme.textStyle = theme.textStyle || {};
+                      theme.textStyle.fontSize = 14;
+
+                      resetColor(theme, 'title.textStyle.color', color);
+                      resetColor(theme, 'legend.textStyle.color', color);
+                      resetColor(theme, 'polar.name.textStyle.color', color);
+                      resetColor(theme, 'valueAxis.axisLabel.textStyle.color', color);
+                      resetColor(theme, 'categoryAxis.axisLabel.textStyle.color', color);
+                      resetColor(theme, 'gauge.title.textStyle.color', color);
+                    }
+
+                    var myChart = ec.init(div, theme); 
+
+                    // 为echarts对象加载数据 
+                    setTimeout(function(){
+                      myChart.setOption(options); 
+                    }, 100);
+
+                  });
+              }
+            }
+          } 
+          
+          Reveal.addEventListener('ready', showcharts); 
+          Reveal.addEventListener('slidechanged', showcharts);  
+          
+          if(isPDF()){
+            Reveal.addEventListener('ready', function(event){
+              //{currentSlide: 
+              var slides = document.querySelectorAll('.slide section');
+              for(var i = 0; i < slides.length; i++){
+                showcharts({currentSlide: slides[i]});
+              }
+            }); 
+          }   
+      } }, 
+    ]
+  });
+}
+
+(function(){
+
+  function loadScript( url, callback ) {
+
+    var head = document.querySelector( 'head' );
+    var script = document.createElement( 'script' );
+    script.type = 'text/javascript';
+    script.src = url;
+
+    // Wrapper for callback to make sure it only fires once
+    var finish = function() {
+      if( typeof callback === 'function' ) {
+        callback.call();
+        callback = null;
+      }
+    }
+
+    script.onload = finish;
+
+    // IE
+    script.onreadystatechange = function() {
+      if ( this.readyState === 'loaded' ) {
+        finish();
+      }
+    }
+
+    // Normal browsers
+    head.appendChild( script );
+
+  }
+
+  var contentEl = document.querySelector('[type="text/x-slide"]');
+  if(!contentEl){
+    alert('没有要分享的内容！');
+    return;
+  }
+  var content = decodeURIComponent(contentEl.innerHTML);
+  var slides = content.split(/^---/img);
+
+  for(var i = 0; i < slides.length; i++){
+    var slide = slides[i];
+    var matches = slide.match(/^\@(.+)/img);
+    var dataTag = [];
+
+    if(matches){
+      var isHTML = false;
+      for(var m = 0; m < matches.length; m++){
+        var match = matches[m];
+        var tags = match.slice(1).split(/\s*,\s*/g);
+
+        for(var j = 0; j < tags.length; j++){
+          var tag = tags[j];
+          if(tag === 'html'){
+            isHTML = true;
+            continue;
+          } else if(tag.indexOf(':') >= 0){
+            tag = tag.replace(':', '="') + '"';
+            if(!isPDF() && tag.indexOf('stage') == 0){
+              tag = tag.replace(/^stage/, 'background');
+            }
+            dataTag.push('data-' + tag);
+          }else{
+            dataTag.push('data-' + tag);
+          }
+        }
+
+        slide = slide.replace(match, '');
+      }
+      if(!isHTML && dataTag.indexOf('data-template') < 0){
+        dataTag.push('data-markdown', 'data-template');
+      }
+    }else{
+      dataTag.push('data-markdown', 'data-template');
+    }
+
+    slide = slide.replace(/^\\---/mg, '---');
+
+    var parsed = '<section ' + dataTag.join(' ') + '>';
+
+    if(dataTag.indexOf('data-template') >= 0){
+      parsed += '<script type="text/template">' + slide + '<'+'\/script>';
+    }else{
+      parsed += slide;
+    }
+
+    parsed += '</section>';
+
+    slides[i] = parsed;
+  }
+
+  if(/\$\$[\s\S]*?\$\$/m.test(content) 
+    || /\\\[[\s\S]*?\\\]/m.test(content)
+    || /\\\([\s\S]*?\\\)/m.test(content)){
+    //Load mathjax
+    Reveal.addEventListener( 'ready', function(){
+      loadScript('/static/module/mathjax/MathJax.js?config=TeX-AMS_HTML-full', function(){
+        MathJax.Hub.Config({
+          messageStyle: 'none',
+          tex2jax: {
+            //inlineMath: [['$','$'],['\\(','\\)']] ,
+            skipTags: ['script','noscript','style','textarea','pre']
+          },
+          skipStartupTypeset: true
+        });
+        console.log(MathJax);
+
+        // Typeset followed by an immediate reveal.js layout since
+        // the typesetting process could affect slide height
+        MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub ] );
+        MathJax.Hub.Queue( Reveal.layout );
+
+        // Reprocess equations in slides when they turn visible
+        Reveal.addEventListener( 'slidechanged', function( event ) {
+
+          MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub, event.currentSlide ] );
+
+        } );
+      });  
+    });
+  }
+
+  var container = document.getElementById('main');
+  container.innerHTML = slides.join('');
+
+  setTimeout(function(){
+    if(document.querySelector('math') && navigator.userAgent.indexOf('Firefox') < 0){
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = '//developer.cdn.mozilla.net/static/styles/libs/mathml.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    initReveal();
+  });
+})();
+
+</script>
+<script src="/static/module/reveal/plugin/markdown/marked.js"></script>
+<script src="/static/module/reveal/plugin/markdown/markdown.js"></script>
+</html>

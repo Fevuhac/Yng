@@ -13,10 +13,17 @@ export default (appInfo: EggAppConfig) => {
         '/favicon.ico': fs.readFileSync(path.join(appInfo.baseDir, 'app/public/favicon.png')),
     };
 
+    // config.view = {
+    //     defaultViewEngine: 'nunjucks',
+    //     mapping: {
+    //         '.tpl': 'nunjucks',
+    //     },
+    // };
+
     config.view = {
-        defaultViewEngine: 'nunjucks',
+        defaultViewEngine: 'ejs',
         mapping: {
-            '.tpl': 'nunjucks',
+            '.html': 'ejs',
         },
     };
 
@@ -45,7 +52,7 @@ export default (appInfo: EggAppConfig) => {
             host:'127.0.0.1',
             port:'3306',
             user:'root',
-            password:'root',
+            password:'linyng',
             database:'fishjoy',
         },
         app:true,
@@ -63,6 +70,11 @@ export default (appInfo: EggAppConfig) => {
 
     config.i18n ={
         defaultLocale: 'en_US',
+    }
+
+    config.static = {
+        prefix:'/',
+        dir:[path.join(appInfo.baseDir, 'app/public')]
     }
 
     return {...config, ...defaultConfig};

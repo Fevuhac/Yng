@@ -1,0 +1,250 @@
+<%include inc/header.html%>
+<script>
+(function(){
+  var siderbar = document.getElementById('sidebar');
+  var lis = siderbar.getElementsByTagName('li');
+  lis[1].className = 'active';
+})();
+</script>
+<style>
+  table td.center {
+    text-align: center;
+  }
+  table td i.fa {
+    margin-right: 8px;
+    font-size: 14px;
+  }
+  #save_state{
+    margin: 0;
+    display: none;
+  }
+  #slide_content {
+    visibility: hidden;
+    height: 290px;
+  }
+  #file_uploader, #file{
+    display: none;
+  }
+  #file_uploader_progress {
+    height: 10px;
+    display: none;
+  }
+</style>
+
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="tip-bottom">Edit Slideshare</a> </div>
+    <h1>Edit Slideshare</h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <div id="save_state" class="alert alert-info"></div>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-content nopadding">
+            <form id='save_form' action="/admin/slide/save" method="post" class="form-horizontal">
+              <input id="sid" name="sid" type="hidden" value="<%=slide_data.id || ''%>"/>
+              <div class="control-group">
+                <label class="control-label">Title :</label>
+                <div class="controls">
+                  <input id="title" name="title" required type="text" value="<%=slide_data.title||''%>"/>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Theme :</label>
+                <div class="controls">
+                  <select id="theme" name="theme">
+                    <option value="beige">beige</option>
+                    <option value="black" selected>black</option>
+                    <option value="blood">blood</option>
+                    <option value="league">league</option>
+                    <option value="moon">moon</option>
+                    <option value="night">night</option>
+                    <option value="serif">serif</option>
+                    <option value="simple">simple</option>
+                    <option value="sky">sky</option>
+                    <option value="solarized">solarized</option>
+                    <option value="white">white</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control-group">
+                <textarea id="slide_content" name="slide_content"><%-slide_data.content||''%></textarea>
+                <input id="file" accept="image/*;capture=camera" capture="camera" name="file" type="file"></input>
+              </div>
+              <div class="form-actions">
+                <div class="btn-wrapper">
+                  <button id="file_uploader" type="button" class="btn btn-warning">Insert Image</button>
+                  <a href="javascript:;" target="matrix-preview" id="preview" class="btn btn-primary">Preview</a>
+                  <button type="submit" class="btn btn-success">Save</button>
+                  <a href="javascript:;" target="matrix-preview" id="print" class="btn btn-info">Print</a>
+                  <div id="file_uploader_progress" class="progress progress-mini active progress-striped">
+                    <div style="width: 100%;" class="bar"></div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--end-main-container-part-->
+<link rel="stylesheet" href="/static/module/codemirror/lib/codemirror.css">
+<script src="/static/module/codemirror/lib/codemirror.js"></script>
+<script src="/static/module/codemirror/addon/edit/continuelist.js"></script>
+<script src="/static/module/codemirror/mode/css/css.js"></script>
+<script src="/static/module/codemirror/mode/xml/xml.js"></script>
+<script src="/static/module/codemirror/mode/markdown/markdown.js"></script>
+<script>
+var editor = CodeMirror.fromTextArea(document.getElementById("slide_content"), {
+  mode: 'markdown',
+  lineNumbers: true,
+  lineWrapping: true,
+  theme: "default",
+  extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
+});
+if(window.FormData){
+  $('#file_uploader').show();
+  $('#file_uploader').click(function(){
+    $('#file').click();
+  });
+  $('#file').on('change', function(evt){
+      var fileInput = evt.target;
+      var file = fileInput.files[0];
+      if(!file) return false;
+      
+      var data = new FormData();
+      data.append('file', file);
+
+      $('#file_uploader_progress>div').css('background-color', '');
+      $('#file_uploader_progress').show();
+
+      $.ajax({
+        url: '/admin/file/upload',
+        type: "POST",
+        data: data,
+        processData: false,  
+        contentType: false,   
+        success: function(res){
+          if(!res.error && res.url){
+            $('#file_uploader_progress>div').css('background-color', '#9bdf14');
+            setTimeout(function(){
+              $('#file_uploader_progress').hide();
+            }, 100);
+            editor.replaceSelection('<img src="'+res.url+'"/>');
+          }else{
+            $('#file_uploader_progress>div').css('background-color', '#ee5f5b');
+            $('#save_state').addClass('alert-error').removeClass('alert-info');
+            $('#save_state').html('upload image error.');
+            $('#save_state').show();          
+          }
+        },
+        error: function(res){
+          $('#file_uploader_progress>div').css('background-color', '#ee5f5b');
+          $('#save_state').addClass('alert-error').removeClass('alert-info');
+          $('#save_state').html('upload image error.');
+          $('#save_state').show();  
+        }
+      });
+  });
+}
+</script>
+<%include inc/footer.html%>
+<script>
+(function(){'use strict'
+  $('#theme').val("<%=slide_data.theme || 'black'%>");
+
+  function updatePreview(){
+    var content = editor.getValue() || $("#slide_content").val() || $("#title").val() || '# Untitled Slideshare';
+    if(content){
+      localStorage.setItem('slide_content', content);
+      return true;
+    }
+  }
+
+  var autosave_timer;
+
+  editor.on('change', function(){
+    //autosave
+    if(!autosave_timer){
+      autosave_timer = setTimeout(function(){
+        $('#save_form').submit();
+      }, 120000);
+    }
+  });
+
+  function getCurrentPage() {
+    var textPos = editor.getRange({line:0, ch:0}, editor.getCursor());
+
+    return textPos
+          .split(/[\r\n]/g)
+          .filter(function(text) { return /^\-{3,}$/.test(text) })
+          .length;
+  }
+
+  $(document).on("keydown", function(e) {
+    if( String.fromCharCode(e.keyCode) === 'M' && (e.ctrlKey || e.metaKey) ) {
+      $("#preview")[0].click();
+      e.preventDefault();
+    }else if ( String.fromCharCode(e.keyCode) === 'S' && (e.ctrlKey || e.metaKey)){
+      $('#save_form').submit();
+      e.preventDefault();
+    }else if ( String.fromCharCode(e.keyCode) === 'P' && (e.ctrlKey || e.metaKey)){
+      $("#print")[0].click();
+      e.preventDefault();
+    }
+  });
+
+  $('#preview').on('click', function(e){
+    e.target.href = '/admin/slide/preview?theme=' + $('#theme').val()+'&_t='+ (new Date).getTime() +'#/'+getCurrentPage();
+    return updatePreview();
+  });
+
+  $('#print').on('click', function(e){
+    e.target.href = '/admin/slide/preview?theme=print-pdf&_t='+ (new Date).getTime() +'#/'+getCurrentPage();
+    return updatePreview();
+  });
+
+  $('#save_form').submit(function(){
+    clearTimeout(autosave_timer);
+    autosave_timer = null;
+    updatePreview();
+
+    $('#slide_content').val(editor.getValue() || 'Untitled Slide');
+
+    $.ajax({
+      type:'POST',
+      url:'/admin/slide/save',
+      data:$(this).serialize(),
+      success: function(res){
+        if(!res.err){
+          if(res.id){
+            $('#sid').val(res.id);
+          }
+          $('#save_state').removeClass('alert-error').addClass('alert-info');
+          $('#save_state').html('Saved at ' + (new Date()).toLocaleString());
+          $('#save_state').show();
+        }else{
+          $('#save_state').removeClass('alert-info').addClass('alert-error');
+          $('#save_state').html(res.err);
+          $('#save_state').show();
+        }
+      },
+      error: function(){
+        $('#save_state').removeClass('alert-info').addClass('alert-error');
+        $('#save_state').html(res.err);
+        $('#save_state').show();
+      }
+    });
+    return false;
+  });
+})();
+</script>
+
+</body>
+</html>

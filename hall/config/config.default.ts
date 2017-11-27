@@ -1,15 +1,18 @@
 'use strict';
 import { EggAppConfig } from 'egg';
+import defaultConfig from './defaultConfig';
 import * as fs from 'fs';
 import * as path from 'path';
-import defaultConfig from './defaultConfig';
 
 export default (appInfo: EggAppConfig) => {
+    
     const config: any = {};
     config.keys = appInfo.name + '123456';
+
     config.siteFile = {
         '/favicon.ico': fs.readFileSync(path.join(appInfo.baseDir, 'app/public/favicon.png')),
     };
+
     config.view = {
         defaultViewEngine: 'nunjucks',
         mapping: {
@@ -18,13 +21,24 @@ export default (appInfo: EggAppConfig) => {
     };
 
     config.middleware = [
-        'uppercase'
+        'errorHandler',
+        'decryptBody',
+        'cryptBody'
     ];
 
     config.logger ={
         level:'DEBUG',
         consoleLevel: 'DEBUG',
     }
+
+    config.security = {
+        xframe: {
+          enable: false,
+        },
+        csrf:{
+            enable:false,
+        }
+      };
 
     config.mysql = {
         client:{
@@ -47,5 +61,9 @@ export default (appInfo: EggAppConfig) => {
         password: 'root',
     }
 
-    return { ...config, ...defaultConfig };
+    config.i18n ={
+        defaultLocale: 'en_US',
+    }
+
+    return {...config, ...defaultConfig};
 }

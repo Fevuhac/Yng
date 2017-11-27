@@ -1,12 +1,12 @@
 import { Context, Service } from 'egg';
 
-export class User extends Service {
+class User extends Service {
     constructor(ctx: Context) {
         super(ctx);
     }
 
     getConfig() {
-        return this.app.config.facebook;
+        // return this.app.config.facebook;
     }
 
     public async login(openid: string, api: string, opts?: object) {

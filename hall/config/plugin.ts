@@ -4,7 +4,7 @@ exports.nunjucks = {
     package: 'egg-view-nunjucks',
 }
 exports.mysql = {
-    enable: false,
+    enable: true,
     package: 'egg-mysql',
 }
 

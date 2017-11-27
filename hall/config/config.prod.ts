@@ -17,9 +17,5 @@ export default (appInfo: EggAppConfig) => {
         },
     };
 
-    config.middleware = [
-        'uppercase'
-    ];
-
     return { ...config, ...defaultConfig };
 }

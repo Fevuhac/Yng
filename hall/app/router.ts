@@ -1,9 +1,9 @@
 import { Application } from 'egg';
-import user from './router/user';
-import news from './router/news';
+// import user from './router/user';
+import admin from './router/admin';
 export default (app:Application)=>{
-    user(app);
-    news(app);
+    // user(app);
+    admin(app);
 }
 
 // module.exports = app => {

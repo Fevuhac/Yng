@@ -1,27 +1,10 @@
-export class DefaultConfig{
-    login_platform = {
-        facebook:0,
-        wanba:1,
-        qq:2,
-        wechat:3
-    };
+import errorCode from './errorCode';
 
-    facebook:{
-        serverUrl:''
-    }
+export class DefaultConfig{
+    ErrorCode = errorCode;
 };
 
-exports.middleware=[
-    'uppercase'
-];
-
-exports.robot={
-    ua:[
-        /Baiduspider/i,
-    ]
-}
-
-export default new DefaultConfig();
+export default new DefaultConfig;
 
 declare module 'egg'{
     export interface Application{

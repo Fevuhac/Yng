@@ -1,6 +1,8 @@
 import user from './user';
+import admin from './admin';
 declare module 'egg'{
     export interface IService{
-        user:User
+        user:User;
+        admin:Admin;
     }
 }

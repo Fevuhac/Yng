@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Matrix Login</title>
+    <title><%= title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -86,14 +86,6 @@
     
     <div class="main">
     <div class="container">
-      <%if(http.headers.referer === 'http://slide.h5jun.com/admin/user'){%>
-      <div class="flash-container">
-        <div class="flash-alert">
-          Invalid login or password.
-        </div>
-      </div>
-      <%}%>
-
       <div class="row">
         <div class="span7">
           <h1>Matrix Slideshare Lab</h1>
@@ -103,14 +95,14 @@
         </div>
 
         <div class="span5">
-          <form class="form-signin" action="user/login" method="post">
-            <h2 class="form-signin-heading">Please sign in</h2>
-            <input id="username" name="username" type="text" class="input-block-level" required placeholder="User name">
-            <input id="passwd" name="passwd" type="password" class="input-block-level" required placeholder="Password">
-            <label class="checkbox" style="display:none">
-              <input id="remember" name="remember" type="checkbox" value="1"> Remember me
+          <form class="form-signin" action="login" method="post">
+            <h2 class="form-signin-heading"><%=login_title %></h2>
+            <input id="username" name="username" type="text" class="input-block-level" required placeholder=<%= login_username_text_tip%>>
+            <input id="passwd" name="passwd" type="password" class="input-block-level" required placeholder=<%= login_password_text_tip%>>
+            <label class="checkbox">
+              <input id="remember" name="remember" type="checkbox" value="1"> <%= login_remember_me_chekbox%>
             </label>
-            <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+            <button class="btn btn-large btn-primary" type="submit"><%= login_btn_txt %></button>
           </form>
         </div>
       </div>

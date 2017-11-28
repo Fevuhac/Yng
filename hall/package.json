@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "dev": "egg-bin dev",
+    "start": "egg-scripts start --daemon",
+    "stop": "egg-scripts stop",
     "test": "egg-bin test",
     "clean": "rimraf app/**/*.{js,map} test/**/*.{js,map} config/**/*.{js,map}",
     "migrate:new": "egg-sequelize migration:create",
     "migrate:up": "egg-sequelize db:migrate",
     "migrate:down": "egg-sequelize db:migrate:undo"
   },
+  
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -20,6 +23,7 @@
     "egg-sequelize": "^3.1.0",
     "egg-view-ejs": "^2.0.0",
     "egg-view-nunjucks": "^2.1.4",
+    "egg-scripts": "^2.2.0",
     "moment": "^2.19.2",
     "mysql2": "^1.5.1",
     "tslib": "^1.8.0"

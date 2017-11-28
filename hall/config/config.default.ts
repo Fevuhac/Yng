@@ -25,6 +25,10 @@ export default (appInfo: EggAppConfig) => {
         mapping: {
             '.html': 'ejs',
         },
+        root: [
+            path.join(appInfo.baseDir, 'app/view'),
+            path.join(appInfo.baseDir, 'path/to/another'),
+          ].join(',')
     };
 
     config.middleware = [

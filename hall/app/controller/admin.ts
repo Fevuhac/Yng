@@ -18,7 +18,7 @@ export default class AdminController extends Controller {
     let body: any = ctx.request.body;
     let { result,errorCode, data } = await this.service.admin.login(body.user, body.pwd);
     if (result) {
-      await this.ctx.render('admin/index_demo.html', {data: data});
+      await this.ctx.render('admin/index_index.html', {data: data});
       // ctx.body = {
       //   enc: true,
       //   data: data

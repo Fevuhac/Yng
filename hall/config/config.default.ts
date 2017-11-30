@@ -13,24 +13,6 @@ export default (appInfo: EggAppConfig) => {
         '/favicon.ico': fs.readFileSync(path.join(appInfo.baseDir, 'app/public/favicon.png')),
     };
 
-    // config.view = {
-    //     defaultViewEngine: 'nunjucks',
-    //     mapping: {
-    //         '.tpl': 'nunjucks',
-    //     },
-    // };
-
-    config.view = {
-        defaultViewEngine: 'ejs',
-        mapping: {
-            '.html': 'ejs',
-        },
-        root: [
-            path.join(appInfo.baseDir, 'app/view'),
-            path.join(appInfo.baseDir, 'path/to/another'),
-          ].join(',')
-    };
-
     config.middleware = [
         'errorHandler',
         'decryptBody',
@@ -76,9 +58,31 @@ export default (appInfo: EggAppConfig) => {
         defaultLocale: 'en_US',
     }
 
+    config.view = {
+        defaultViewEngine: 'nunjucks',
+        mapping: {
+            '.tpl': 'nunjucks',
+        },
+        root: [
+            path.join(appInfo.baseDir, 'app/view'),
+            path.join(appInfo.baseDir, 'view'),
+          ].join(',')
+    };
+
+    // config.view = {
+    //     defaultViewEngine: 'ejs',
+    //     mapping: {
+    //         '.html': 'ejs',
+    //     },
+    //     root: [
+    //         path.join(appInfo.baseDir, 'app/view'),
+    //         path.join(appInfo.baseDir, 'path/to/another'),
+    //       ].join(',')
+    // };
+
     config.static = {
         prefix:'/',
-        dir:[path.join(appInfo.baseDir, 'app/public')]
+        dir:[path.join(appInfo.baseDir, 'public')]
     }
 
     return {...config, ...defaultConfig};

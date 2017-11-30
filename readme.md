@@ -47,10 +47,16 @@ https://github.com/guo-yu/koa-guide
 http://eggjs.org/zh-cn/intro/index.html
 ```
 
+
 # 开发工具
 - ## webstorm
 - ## visual studio code
 	### 插件
+- ## curl:
+```
+curl -l -H "Content-type: application/json" -X POST -d '{"aes":false,"data":{"token":"3747_03458cd087cb11e7ba758392291a4bfa","payChannel":1003,"payData":{"cardCode":"93474901263928","cardSerial":"36330400022121","cardType":"vnp"}}}'  "http://127.0.0.1:1337/data_api/buy"
+```
+
 ```
 Git History:提交历史及版本对比
 ESLint: 代码检测

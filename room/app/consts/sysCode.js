@@ -82,7 +82,7 @@ class SysCode{
             code:352,
             desc:'玩家不存在'
         };
-
+        
         this.PLAYER_CREATE_FAILED = {
             code:353,
             desc:'重复登录'
@@ -143,13 +143,18 @@ class SysCode{
         };
 
         this.PALYER_NOT_IN_SCENE = {
-            code:'364',
+            code:364,
             desc:'玩家不在场景中'
         };
         
         this.PALYER_GAME_ROOM_DISMISS = {
-            code:'365',
+            code:365,
             desc:'玩家游戏房间已经解散'
+        };
+
+        this.ROBOT_NOT_EXIST = {
+            code:366,
+            desc:'某人已离开'
         };
 
         this.ARGS_INVALID = {

@@ -1,0 +1,39 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_weapon %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_weapon %>
+      </p>
+    </header>
+    <div class="panel-body">
+      
+      <form>
+
+        <div class="form-group mb-lg">
+          <label>炮台等级，从1开始</label>
+          <input id="input-weapon-level" name="level" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>炮台升级方式(0-经验, 1-珍珠, 2-VIP)</label>
+          <input id="input-weapon-type" name="type" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>VIP炮台ID数组</label>
+          <input id="input-weapon-vip" name="vip_weapon_id" type="text" class="form-control input-lg" />
+        </div>
+      </form>
+      <button id="btn-add-weapon-log" type="submit" class="btn btn-primary hidden-xs">发送武器记录</button>
+      
+    </div>
+  </section>
+</div>

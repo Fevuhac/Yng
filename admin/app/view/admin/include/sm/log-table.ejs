@@ -1,0 +1,76 @@
+﻿            <div class="col-md-12">
+              <section class="panel">
+                <header class="panel-heading">
+                  <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+                    <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+                  </div>
+
+                  <h2 class="panel-title">
+                    <%= txt_title_table %>
+                    </h2>
+                  <p class="panel-subtitle">
+                    <%= txt_content_table %>
+                    </p>
+                </header>
+                <div class="panel-body">
+
+                  <div id="pay_stat">
+                    <div>
+                      付费总量<div id="pay_sum"></div>
+                    </div>
+                    <div>
+                      付费总人数<div id="pay_user_count"></div>
+                    </div>
+                  </div>
+
+                  <table style="width: 100%;" class="table-striped table-bordered" id="log-table">
+                    <tr>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        支付时间
+                      </th>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        平台渠道
+                      </th>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        游戏ID
+                      </th>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        平台ID
+                      </th>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        游戏订单号
+                      </th>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        平台订单号
+                      </th>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        商品ID
+                      </th>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        商品价格
+                      </th>
+                    </tr>
+                    <tr id="fake-data">
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">log_date</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">new_account</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">user_count</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">pay_count</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">pay_sum</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">ftpc</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">fdpc</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">fdpc</td>
+                    </tr>
+                  </table>
+                  
+                </div>
+              </section>
+            </div>

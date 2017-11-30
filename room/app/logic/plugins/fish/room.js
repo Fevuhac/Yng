@@ -1,10 +1,11 @@
 const pomelo = require('pomelo')
 const fishCmd = require('./fishCmd');
 const consts = require('./consts');
-const cost = require('./cost');
+const Cost = require('./gamePlay/cost');
 const config = require('./config');
 const FishModel = require('./fishModel');
 const EventEmitter = require('events').EventEmitter;
+const configReader = require('./configReader');
 
 class Room {
     constructor(opts) {
@@ -14,8 +15,7 @@ class Room {
         this._sceneType = opts.sceneType;
         this._evtor = new EventEmitter();
 
-        let fishModel = new FishModel(this._evtor);
-        fishModel.init(this._sceneType);
+        let fishModel = new FishModel(this._evtor, this._sceneType);
         this._fishModel = fishModel;
 
         this._flushFishTimer = -1;
@@ -174,7 +174,7 @@ class Room {
     }
 
     stop() {
-        logger.error('玩家離開');
+        logger.error('玩家离开');
         for (let player of this.playerMap.values()) {
             this._clearPlayerResource(player);
             this.playerMap.delete(player.uid);
@@ -187,13 +187,30 @@ class Room {
         this._evtor = null;
     }
 
+    _genPlayerProcolInfo(player){
+        return {
+            id: player.uid,
+            seatId: player.seatId,
+            nickname: player.account.nickname,
+            wp_skin: player.DIY.weapon_skin,
+            wp_level: player.DIY.weapon,
+            wp_energy: player.DIY.weapon_energy,
+            gold: player.account.gold,
+            pearl: player.account.pearl,
+            figure_url: player.account.figure_url,
+            kindId: player.kindId,
+            skill: player.account.skill,
+            cData:player.getContinueData(),
+        };
+    }
+
     /**
      * 玩家加入房间
      * @param player
      */
     join(player) {
         if(this.playerMap.has(player.uid)){
-            logger.error('玩家已經在房間中',player.uid);
+            logger.error('玩家已经在房间内',player.uid);
             return;
         }
 
@@ -216,19 +233,7 @@ class Room {
         let players = [];
         for (let v of this.playerMap.values()) {
             logger.error('  v.uid = ', v.uid);
-            players.push({
-                id: v.uid,
-                seatId: v.seatId,
-                nickname: v.account.nickname,
-                wp_skin: v.DIY.weapon_skin,
-                wp_level: v.DIY.weapon,
-                wp_energy: v.DIY.weapon_energy,
-                gold: v.account.gold,
-                pearl: v.account.pearl,
-                figure_url: v.account.figure_url,
-                kindId: v.kindId,
-                skill: v.account.skill,
-            })
+            players.push(this._genPlayerProcolInfo(v))
         }
         logger.error('room 玩家加入', player.account.nickname, '-----', player.uid, player.seatId);
         this._broadcast(fishCmd.push.enter_room.route, players);
@@ -289,17 +294,28 @@ class Room {
             player.updateActiveTime();
 
             if(CONSTS.constDef.PALYER_STATE.OFFLINE == state){
-                logger.error('-----------玩家網路斷開:', uid);
+                logger.error('-----------玩家网络断开:', uid);
                 this._removeChannel(player);
             }
             else{
                 player.sid = sid;
                 this._addChannel(player);
+
+                let players = [];
+                for (let v of this.playerMap.values()) {
+                    players.push(this._genPlayerProcolInfo(v))
+                }
+                player.send(fishCmd.push.enter_room.route, players);
             }
+
+            this._broadcast(fishCmd.push.playerState.route,{
+                state:state,
+                uid:uid
+            });
 
             return true;
         }
-
+        logger.error('------not found-----玩家网络断开:', uid);
         return false;
     }
 
@@ -396,7 +412,7 @@ class Room {
             let data = event.data;
             for (let fk in data.catch_fishes) {
                 let ret = data.catch_fishes[fk];
-                this._fishModel.updateLifeState(fk, ret.floor);
+                ret && ret.floor >= 0 && this._fishModel.updateLifeState(fk, ret.floor);
             }
             this._broadcast(fishCmd.push.catch_fish.route, data);
         }.bind(this));
@@ -451,7 +467,7 @@ class Room {
      * 上一个玩家正在使用冰冻，下一个玩家有开始使用，则重置冰冻为当前玩家冰冻技能持续时间
      */
     pauseWithSkillIce(skillId, allOverDoneFunc) {
-        let skillCfg = cost.getSkillCfg(skillId);
+        let skillCfg = configReader.getValue('skill_skill_cfg', skillId);
         let dt = skillCfg.skill_duration;
         this._clearSkillIceTicker();
         this._skillIceTicker = setTimeout(function () {

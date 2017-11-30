@@ -1,0 +1,37 @@
+﻿<div class="col-md-12">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        查询设置
+      </h2>
+      <p class="panel-subtitle">
+        设置一些通用的查询参数如时间范围等
+      </p>
+    </header>
+    <div class="panel-body">
+      
+      <!-- content start -->
+		<div class="form-group">
+			<label class="col-md-3 control-label">时间范围</label>
+			<div class="col-md-6">
+				<div class="input-daterange input-group" data-plugin-datepicker>
+					<span class="input-group-addon">
+						<i class="fa fa-calendar"></i>
+					</span>
+					<input type="text" class="form-control" name="start_date" id ="start-date">
+					<span class="input-group-addon">to</span>
+					<input type="text" class="form-control" name="end_date" id ="end-date">
+				</div>
+			</div>
+      <button id="btn-query" type="submit" class="btn btn-primary hidden-xs">查询</button>
+		</div>
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

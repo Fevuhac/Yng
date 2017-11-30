@@ -850,6 +850,12 @@ class AccountCommit{
     get city() {
         return this._value('city');
     }
+    set playerCatchRate(value){
+        this._modify('playerCatchRate', value);
+    }
+    get playerCatchRate(){
+        return this._value('playerCatchRate');
+    }
 
 }
 

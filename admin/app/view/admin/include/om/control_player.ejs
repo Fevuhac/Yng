@@ -1,0 +1,71 @@
+<div class="col-md-6">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_control_player %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_control_player %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- content start -->
+
+      <div>
+        <label>玩家UID</label>
+        <input id="input-uid" name="txt" type="text" class="form-control input-lg" />
+        <button id="btn_query_player">查询</button>
+      </div>
+
+      <table border="2" bordercolor="#000000" style="width: 100%;" id="query-table-orders">
+        <tr>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            项目
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            值
+            </th>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center">玩家名称</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="nickname"><b></b></td>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center">充值额度</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="playerRecharge"><b></b></td>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center">已提现额度</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="playerCash"><b></b></td>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center">持有金币</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="gold"><b></b></td>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center">盈亏</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="profit"><b></b></td>
+        </tr>
+      </table>
+      <div>修正捕获率</div>
+        <div id="containerSliderPlayer" class="mt-lg mb-lg slider-primary" 
+            data-plugin-slider data-plugin-options='{ "value": 100, "range": false, "min":50, "max": 150 }' 
+            data-plugin-slider-output="#listenSliderPlayer">
+            <input id="listenSliderPlayer" type="hidden" value="100" />
+        </div>
+        <p class="output_player">当前值: <b>100</b>%</p>
+        <button id="btn_change_rate_player">提交</button>
+
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

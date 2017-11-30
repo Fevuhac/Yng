@@ -1,0 +1,77 @@
+<div class="col-md-6">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_control_pool %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_control_pool %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- content start -->
+
+      <div>
+        <p class="refresh_jackpot"><button id="btn_refresh_jackpot">刷新</button>剩余<b>60</b>秒</p>
+      </div>
+
+      <table border="2" bordercolor="#000000" style="width: 100%;" id="query-table-orders">
+        <tr>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            项目
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            值
+            </th>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center">已充值额度</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="recharge"><b></b></td>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center">已提取额度</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="cash"><b></b></td>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center">玩家持有金币</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="totalGold"><b></b></td>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center">新玩家分配金币</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="give"><b></b></td>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center">奖池</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="bonusPool"><b></b></td>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center">抽水</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="pump"><b></b></td>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center">预警平衡系数</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="warning_number"><b></b></td>
+        </tr>
+      </table>
+      <div>全服命中修正</div>
+        <div id="containerSliderJackpot" class="mt-lg mb-lg slider-primary"
+            data-plugin-slider data-plugin-options='{ "value": 100, "range": false, "min":50, "max": 150 }'
+            data-plugin-slider-output="#listenSliderJackpot">
+            <input id="listenSliderJackpot" type="hidden" value="100" />
+        </div>
+        <p class="output_jackpot">当前值: <b>100</b>%</p>
+        <button id="btn_change_rate_jackpot">提交</button>
+
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

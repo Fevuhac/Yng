@@ -1,0 +1,62 @@
+﻿<div class="col-md-4">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_active_cdkey %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_active_cdkey %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- content start -->
+      <!-- 兑换码生成 start -->
+      <form id="cdkey-generator">
+        <div class="col-md-12 form-group mb-lg">
+          <label>选择活动</label>
+          <select id="input-active-action-id" class="form-control input-lg mb-md">
+            <% action_list.forEach(function(action){ %>
+              <option value ="<%= action.id %>">
+                <%= action.description %>
+              </option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>两位字符的活动码前缀</label>
+          <input id="input-active-cdkey-prefix" name="prefix" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>生成兑换码数量</label>
+          <input id="input-active-cdkey-num" name="num" type="text" class="form-control input-lg" />
+        </div>
+      </form>
+      <button id="btn-generate-cdkey" class="btn btn-primary hidden-xs">一键生成兑换码</button>
+      <!-- 兑换码生成 end -->
+
+      <!-- 兑换码列表查询 start -->
+      <button id="btn-show-cdkey-list" class="btn btn-primary hidden-xs">显示兑换码列表</button>
+      <!-- 兑换码列表查询 end -->
+
+      <!-- 单个兑换码查询 start -->
+      <form id="cdkey-detail">
+        <div class="col-md-12 form-group mb-lg">
+          <label>输入需要查询的CD-KEY</label>
+          <input id="input-active-cdkey" name="cdkey" type="text" class="form-control input-lg" />
+        </div>
+      </form>
+      <button id="btn-show-cdkey-detail" class="btn btn-primary hidden-xs">查询</button>
+      <!-- 单个兑换码查询 end -->
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

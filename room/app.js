@@ -7,6 +7,7 @@ require('./app/utils/globals');
 const routeUtil = require('./app/utils/routeUtil');
 const decryptFilter = require('./app/servers/common/decryptFilter');
 const playerFilter = require('./app/servers/game/filter/playerFilter');
+const redisClient = require('./app/utils/import_db').redisClient;
 
 
 /**
@@ -33,9 +34,8 @@ const configure = function () {
     app.loadConfig('redis', path.join(app.getBase(), '../database/config/database/redis.json'));
     app.loadConfig('mysql', path.join(app.getBase(), '../database/config/database/mysql.json'));
     
-    
     app.set('errorHandler', function (err, msg, resp, session, next) {
-        logger.error('-------errorHandler happend ---->' + err);
+        logger.error('-------errorHandler happend ---->', err);
         session.__session__.__socket__.socket.close();
         next();
     });
@@ -170,11 +170,11 @@ const configure = function () {
     });
 
     // 负载均衡服务器配置
-    app.configure('production|development', 'data', function () {
-        global.logger = require('pomelo-logger').getLogger('data');
+    app.configure('production|development', 'dataSync', function () {
+        global.logger = require('pomelo-logger').getLogger('dataSync');
 
-        app.dataCenter = require('./app/logic/data/dataCenter');
-        app.dataCenter.start();
+        app.dataSync = require('./app/logic/dataSync/dataSync');
+        app.dataSync.start();
 
         // todo deprecated
         app.beforeStopHook(function () {

@@ -11,440 +11,440 @@ var	vip_vip_cfg =
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_01",    //--聊天底板
 		chatcolor : "#2571b1",    //--聊天颜色
-		vip_giveItem : 0,    //--开启赠送道具
+		vip_giveItem : 0,    //--开启赠送
 		vip_expadd : 0,    //--开炮经验提高
 		vip_specialskill : 0,    //--10元翻盘基金
 		vip_hitrate : 0,    //--捕鱼命中提高
 		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 1,    //--女神付费次数
 		vip_gold_buy : 5,    //--购买金币次数
-		vip_alms_value : 5000,    //--领救济金金额
+		vip_alms_value : 1000,    //--领救济金金额
 		vip_alms_times : 3,    //--领救济金次数
-		gift_price1 : 10,    //--礼包原价
-		gift_price2 : 2,    //--礼包售价
-		gift_item : [["i001",1000],["i002",1]],    //--礼包内容
-		gift_free : [["i001",1000],["i002",1]],    //--每日福利
-		vip_autoattact : [],    //--vip自动开炮功能
+		gift_price1 : 4000,    //--礼包原价
+		gift_price2 : 800,    //--礼包售价
+		gift_item : [["i002",20],["i012",2],["i006",1]],    //--礼包内容
+		gift_free : [["i002",2],["i012",1]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_1",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 1,    //--vip等级
-		vip_unlock : 10,    //--需要充值RMB
+		vip_unlock : 60000,    //--需要充值RMB
 		vip_dailyGold : 0,    //--补足金币
 		friend : 15,    //--游戏好友上限
-		vip_dailyDiamond : 0,    //--补足钻石
+		vip_dailyDiamond : 20,    //--补足钻石
 		drawtimes : 12,    //--每日金币抽奖次数
 		charm : 300,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_02",    //--聊天底板
 		chatcolor : "#f8df40",    //--聊天颜色
-		vip_giveItem : 0,    //--开启赠送道具
+		vip_giveItem : 0,    //--开启赠送
 		vip_expadd : 0.01,    //--开炮经验提高
 		vip_specialskill : 0,    //--10元翻盘基金
 		vip_hitrate : 0,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.01]],    //--vip技能概率强化
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 2,    //--女神付费次数
 		vip_gold_buy : 10,    //--购买金币次数
-		vip_alms_value : 10000,    //--领救济金金额
+		vip_alms_value : 1000,    //--领救济金金额
 		vip_alms_times : 4,    //--领救济金次数
-		gift_price1 : 110,    //--礼包原价
-		gift_price2 : 1,    //--礼包售价
-		gift_item : [["i001",50000],["i013",5]],    //--礼包内容
-		gift_free : [["i001",50000],["i013",5]],    //--每日福利
-		vip_autoattact : [],    //--vip自动开炮功能
+		gift_price1 : 9000,    //--礼包原价
+		gift_price2 : 1800,    //--礼包售价
+		gift_item : [["i002",50],["i012",5],["i013",1],["i006",1]],    //--礼包内容
+		gift_free : [["i002",3],["i012",1]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_1",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 2,    //--vip等级
-		vip_unlock : 30,    //--需要充值RMB
+		vip_unlock : 180000,    //--需要充值RMB
 		vip_dailyGold : 0,    //--补足金币
 		friend : 20,    //--游戏好友上限
-		vip_dailyDiamond : 0,    //--补足钻石
+		vip_dailyDiamond : 30,    //--补足钻石
 		drawtimes : 18,    //--每日金币抽奖次数
 		charm : 600,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_02",    //--聊天底板
 		chatcolor : "#f8df40",    //--聊天颜色
-		vip_giveItem : 0,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.02,    //--开炮经验提高
 		vip_specialskill : 0,    //--10元翻盘基金
-		vip_hitrate : 0.003,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.01]],    //--vip技能概率强化
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 3,    //--女神付费次数
 		vip_gold_buy : 15,    //--购买金币次数
-		vip_alms_value : 15000,    //--领救济金金额
+		vip_alms_value : 1000,    //--领救济金金额
 		vip_alms_times : 4,    //--领救济金次数
-		gift_price1 : 300,    //--礼包原价
-		gift_price2 : 30,    //--礼包售价
-		gift_item : [["i001",100000],["i012",50]],    //--礼包内容
-		gift_free : [["i001",100000],["i012",50]],    //--每日福利
-		vip_autoattact : [],    //--vip自动开炮功能
+		gift_price1 : 14500,    //--礼包原价
+		gift_price2 : 2900,    //--礼包售价
+		gift_item : [["i002",100],["i012",5],["i400",1],["i006",1]],    //--礼包内容
+		gift_free : [["i002",4],["i012",1]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_2",    //--特权说明
-		vip_picture : "vipbymz",    //--特权图片
+		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 3,    //--vip等级
-		vip_unlock : 60,    //--需要充值RMB
-		vip_dailyGold : 20000,    //--补足金币
+		vip_unlock : 300000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 25,    //--游戏好友上限
-		vip_dailyDiamond : 0,    //--补足钻石
+		vip_dailyDiamond : 40,    //--补足钻石
 		drawtimes : 24,    //--每日金币抽奖次数
 		charm : 1000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_02",    //--聊天底板
 		chatcolor : "#f8df40",    //--聊天颜色
-		vip_giveItem : 0,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.03,    //--开炮经验提高
 		vip_specialskill : 0,    //--10元翻盘基金
-		vip_hitrate : 0.003,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.02]],    //--vip技能概率强化
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 4,    //--女神付费次数
 		vip_gold_buy : 20,    //--购买金币次数
-		vip_alms_value : 20000,    //--领救济金金额
+		vip_alms_value : 1000,    //--领救济金金额
 		vip_alms_times : 5,    //--领救济金次数
-		gift_price1 : 550,    //--礼包原价
-		gift_price2 : 55,    //--礼包售价
-		gift_item : [["i001",150000],["i015",5]],    //--礼包内容
-		gift_free : [["i001",150000],["i015",5]],    //--每日福利
-		vip_autoattact : [],    //--vip自动开炮功能
+		gift_price1 : 45000,    //--礼包原价
+		gift_price2 : 25000,    //--礼包售价
+		gift_item : [["i002",150],["i013",5],["i011",5],["i015",1]],    //--礼包内容
+		gift_free : [["i002",4],["i012",1],["i011",1]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_3",    //--特权说明
-		vip_picture : "vipbgjinbi",    //--特权图片
+		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 4,    //--vip等级
-		vip_unlock : 100,    //--需要充值RMB
-		vip_dailyGold : 40000,    //--补足金币
+		vip_unlock : 600000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 30,    //--游戏好友上限
-		vip_dailyDiamond : 0,    //--补足钻石
+		vip_dailyDiamond : 50,    //--补足钻石
 		drawtimes : 32,    //--每日金币抽奖次数
 		charm : 2000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_03",    //--聊天底板
 		chatcolor : "#d2f5bb",    //--聊天颜色
-		vip_giveItem : 1,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.04,    //--开炮经验提高
 		vip_specialskill : 0,    //--10元翻盘基金
-		vip_hitrate : 0.003,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.03]],    //--vip技能概率强化
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 5,    //--女神付费次数
 		vip_gold_buy : 30,    //--购买金币次数
-		vip_alms_value : 25000,    //--领救济金金额
+		vip_alms_value : 1500,    //--领救济金金额
 		vip_alms_times : 5,    //--领救济金次数
-		gift_price1 : 700,    //--礼包原价
-		gift_price2 : 80,    //--礼包售价
-		gift_item : [["i001",200000],["i012",100]],    //--礼包内容
-		gift_free : [["i001",200000],["i012",100]],    //--每日福利
-		vip_autoattact : [11,17,20],    //--vip自动开炮功能
+		gift_price1 : 50000,    //--礼包原价
+		gift_price2 : 25000,    //--礼包售价
+		gift_item : [["i002",200],["i012",5],["i013",5],["i015",1]],    //--礼包内容
+		gift_free : [["i002",5],["i012",1],["i011",1]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_4",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 5,    //--vip等级
-		vip_unlock : 200,    //--需要充值RMB
-		vip_dailyGold : 60000,    //--补足金币
+		vip_unlock : 1200000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 35,    //--游戏好友上限
-		vip_dailyDiamond : 0,    //--补足钻石
+		vip_dailyDiamond : 60,    //--补足钻石
 		drawtimes : 38,    //--每日金币抽奖次数
 		charm : 3000,    //--魅力值
-		vip_miniGameAdd : [[0,0.02]],    //--小游戏加成
+		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_03",    //--聊天底板
 		chatcolor : "#d2f5bb",    //--聊天颜色
-		vip_giveItem : 1,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.05,    //--开炮经验提高
-		vip_specialskill : 1,    //--10元翻盘基金
-		vip_hitrate : 0.006,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.04]],    //--vip技能概率强化
+		vip_specialskill : 0,    //--10元翻盘基金
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 6,    //--女神付费次数
 		vip_gold_buy : 40,    //--购买金币次数
-		vip_alms_value : 30000,    //--领救济金金额
+		vip_alms_value : 1500,    //--领救济金金额
 		vip_alms_times : 6,    //--领救济金次数
-		gift_price1 : 1000,    //--礼包原价
-		gift_price2 : 120,    //--礼包售价
-		gift_item : [["i001",250000],["i015",10]],    //--礼包内容
-		gift_free : [["i001",250000],["i015",10]],    //--每日福利
-		vip_autoattact : [11,17,20],    //--vip自动开炮功能
+		gift_price1 : 80000,    //--礼包原价
+		gift_price2 : 50000,    //--礼包售价
+		gift_item : [["i002",250],["i013",5],["i011",5],["i015",2]],    //--礼包内容
+		gift_free : [["i002",5],["i012",1],["i011",1],["i013",1]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_5",    //--特权说明
-		vip_picture : "vipjiujijin",    //--特权图片
+		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 6,    //--vip等级
-		vip_unlock : 400,    //--需要充值RMB
-		vip_dailyGold : 80000,    //--补足金币
+		vip_unlock : 2100000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 40,    //--游戏好友上限
-		vip_dailyDiamond : 20,    //--补足钻石
+		vip_dailyDiamond : 70,    //--补足钻石
 		drawtimes : 44,    //--每日金币抽奖次数
 		charm : 4000,    //--魅力值
-		vip_miniGameAdd : [[0,0.04]],    //--小游戏加成
+		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_04",    //--聊天底板
 		chatcolor : "#ffb655",    //--聊天颜色
-		vip_giveItem : 1,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.06,    //--开炮经验提高
-		vip_specialskill : 1,    //--10元翻盘基金
-		vip_hitrate : 0.006,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.05]],    //--vip技能概率强化
+		vip_specialskill : 0,    //--10元翻盘基金
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 7,    //--女神付费次数
 		vip_gold_buy : 60,    //--购买金币次数
-		vip_alms_value : 35000,    //--领救济金金额
+		vip_alms_value : 2000,    //--领救济金金额
 		vip_alms_times : 6,    //--领救济金次数
-		gift_price1 : 1400,    //--礼包原价
-		gift_price2 : 180,    //--礼包售价
-		gift_item : [["i001",500000],["i013",200]],    //--礼包内容
-		gift_free : [["i001",500000],["i013",200]],    //--每日福利
-		vip_autoattact : [11,17,20],    //--vip自动开炮功能
+		gift_price1 : 85000,    //--礼包原价
+		gift_price2 : 50000,    //--礼包售价
+		gift_item : [["i002",300],["i012",5],["i011",5],["i015",2]],    //--礼包内容
+		gift_free : [["i002",6],["i012",1],["i011",1],["i013",1]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_6",    //--特权说明
-		vip_picture : "vipzsbz",    //--特权图片
+		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 7,    //--vip等级
-		vip_unlock : 700,    //--需要充值RMB
-		vip_dailyGold : 100000,    //--补足金币
+		vip_unlock : 3000000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 45,    //--游戏好友上限
-		vip_dailyDiamond : 30,    //--补足钻石
+		vip_dailyDiamond : 80,    //--补足钻石
 		drawtimes : 50,    //--每日金币抽奖次数
 		charm : 7000,    //--魅力值
-		vip_miniGameAdd : [[0,0.06]],    //--小游戏加成
+		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_04",    //--聊天底板
 		chatcolor : "#ffb655",    //--聊天颜色
-		vip_giveItem : 1,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.07,    //--开炮经验提高
-		vip_specialskill : 1,    //--10元翻盘基金
-		vip_hitrate : 0.006,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.05],[8,0.01]],    //--vip技能概率强化
+		vip_specialskill : 0,    //--10元翻盘基金
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 8,    //--女神付费次数
 		vip_gold_buy : 80,    //--购买金币次数
-		vip_alms_value : 40000,    //--领救济金金额
+		vip_alms_value : 2000,    //--领救济金金额
 		vip_alms_times : 7,    //--领救济金次数
-		gift_price1 : 1750,    //--礼包原价
-		gift_price2 : 200,    //--礼包售价
-		gift_item : [["i001",500000],["i016",5]],    //--礼包内容
-		gift_free : [["i001",500000],["i016",5]],    //--每日福利
-		vip_autoattact : [11,17,20],    //--vip自动开炮功能
+		gift_price1 : 122500,    //--礼包原价
+		gift_price2 : 75000,    //--礼包售价
+		gift_item : [["i002",400],["i013",5],["i015",3],["i400",5]],    //--礼包内容
+		gift_free : [["i002",7],["i012",1],["i011",1],["i013",1]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_7",    //--特权说明
-		vip_picture : "viphedanweili",    //--特权图片
+		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 8,    //--vip等级
-		vip_unlock : 1000,    //--需要充值RMB
-		vip_dailyGold : 150000,    //--补足金币
+		vip_unlock : 6000000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 50,    //--游戏好友上限
-		vip_dailyDiamond : 40,    //--补足钻石
+		vip_dailyDiamond : 90,    //--补足钻石
 		drawtimes : 60,    //--每日金币抽奖次数
 		charm : 10000,    //--魅力值
-		vip_miniGameAdd : [[0,0.06],[1,0.02]],    //--小游戏加成
+		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_05",    //--聊天底板
 		chatcolor : "#655b09",    //--聊天颜色
-		vip_giveItem : 1,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.08,    //--开炮经验提高
-		vip_specialskill : 1,    //--10元翻盘基金
-		vip_hitrate : 0.009,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.05],[8,0.02]],    //--vip技能概率强化
+		vip_specialskill : 0,    //--10元翻盘基金
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 9,    //--女神付费次数
 		vip_gold_buy : 100,    //--购买金币次数
-		vip_alms_value : 45000,    //--领救济金金额
+		vip_alms_value : 2500,    //--领救济金金额
 		vip_alms_times : 7,    //--领救济金次数
-		gift_price1 : 2100,    //--礼包原价
-		gift_price2 : 280,    //--礼包售价
-		gift_item : [["i001",1000000],["i012",200]],    //--礼包内容
-		gift_free : [["i001",1000000],["i012",200]],    //--每日福利
-		vip_autoattact : [11,17,20],    //--vip自动开炮功能
+		gift_price1 : 142500,    //--礼包原价
+		gift_price2 : 75000,    //--礼包售价
+		gift_item : [["i002",600],["i012",5],["i015",3],["i006",5]],    //--礼包内容
+		gift_free : [["i002",8],["i012",1],["i011",1],["i013",1]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_8",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 9,    //--vip等级
-		vip_unlock : 2000,    //--需要充值RMB
-		vip_dailyGold : 200000,    //--补足金币
+		vip_unlock : 12000000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 55,    //--游戏好友上限
-		vip_dailyDiamond : 50,    //--补足钻石
+		vip_dailyDiamond : 100,    //--补足钻石
 		drawtimes : 70,    //--每日金币抽奖次数
 		charm : 20000,    //--魅力值
-		vip_miniGameAdd : [[0,0.06],[1,0.04]],    //--小游戏加成
+		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_05",    //--聊天底板
 		chatcolor : "#655b09",    //--聊天颜色
-		vip_giveItem : 1,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.09,    //--开炮经验提高
-		vip_specialskill : 1,    //--10元翻盘基金
-		vip_hitrate : 0.009,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.05],[8,0.02],[9,0.01]],    //--vip技能概率强化
+		vip_specialskill : 0,    //--10元翻盘基金
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 10,    //--女神付费次数
 		vip_gold_buy : 150,    //--购买金币次数
-		vip_alms_value : 50000,    //--领救济金金额
+		vip_alms_value : 2500,    //--领救济金金额
 		vip_alms_times : 8,    //--领救济金次数
-		gift_price1 : 2700,    //--礼包原价
-		gift_price2 : 360,    //--礼包售价
-		gift_item : [["i001",1000000],["i016",10]],    //--礼包内容
-		gift_free : [["i001",1000000],["i016",10]],    //--每日福利
-		vip_autoattact : [11,17,20],    //--vip自动开炮功能
+		gift_price1 : 190000,    //--礼包原价
+		gift_price2 : 100000,    //--礼包售价
+		gift_item : [["i002",800],["i013",10],["i011",10],["i015",4]],    //--礼包内容
+		gift_free : [["i002",8],["i012",2],["i011",2],["i013",2]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_9",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 10,    //--vip等级
-		vip_unlock : 4000,    //--需要充值RMB
-		vip_dailyGold : 250000,    //--补足金币
+		vip_unlock : 21000000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 60,    //--游戏好友上限
-		vip_dailyDiamond : 60,    //--补足钻石
+		vip_dailyDiamond : 110,    //--补足钻石
 		drawtimes : 80,    //--每日金币抽奖次数
 		charm : 40000,    //--魅力值
-		vip_miniGameAdd : [[0,0.06],[1,0.04],[2,0.02]],    //--小游戏加成
+		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_06",    //--聊天底板
 		chatcolor : "#b6580b",    //--聊天颜色
-		vip_giveItem : 1,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.1,    //--开炮经验提高
-		vip_specialskill : 1,    //--10元翻盘基金
-		vip_hitrate : 0.009,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.05],[8,0.02],[9,0.02]],    //--vip技能概率强化
+		vip_specialskill : 0,    //--10元翻盘基金
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 11,    //--女神付费次数
 		vip_gold_buy : 200,    //--购买金币次数
-		vip_alms_value : 55000,    //--领救济金金额
+		vip_alms_value : 3000,    //--领救济金金额
 		vip_alms_times : 8,    //--领救济金次数
-		gift_price1 : 3500,    //--礼包原价
-		gift_price2 : 500,    //--礼包售价
-		gift_item : [["i001",1500000],["i016",10]],    //--礼包内容
-		gift_free : [["i001",1500000],["i016",10]],    //--每日福利
-		vip_autoattact : [11,17,20],    //--vip自动开炮功能
+		gift_price1 : 215000,    //--礼包原价
+		gift_price2 : 100000,    //--礼包售价
+		gift_item : [["i002",1000],["i012",10],["i015",4],["i400",10]],    //--礼包内容
+		gift_free : [["i002",10],["i012",2],["i011",2],["i013",2]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_10",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 11,    //--vip等级
-		vip_unlock : 7000,    //--需要充值RMB
-		vip_dailyGold : 300000,    //--补足金币
+		vip_unlock : 30000000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 65,    //--游戏好友上限
-		vip_dailyDiamond : 70,    //--补足钻石
+		vip_dailyDiamond : 120,    //--补足钻石
 		drawtimes : 90,    //--每日金币抽奖次数
 		charm : 60000,    //--魅力值
-		vip_miniGameAdd : [[0,0.06],[1,0.06],[2,0.02]],    //--小游戏加成
+		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_06",    //--聊天底板
 		chatcolor : "#b6580b",    //--聊天颜色
-		vip_giveItem : 1,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.11,    //--开炮经验提高
-		vip_specialskill : 1,    //--10元翻盘基金
-		vip_hitrate : 0.012,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.05],[8,0.03],[9,0.02]],    //--vip技能概率强化
+		vip_specialskill : 0,    //--10元翻盘基金
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 12,    //--女神付费次数
 		vip_gold_buy : 300,    //--购买金币次数
-		vip_alms_value : 60000,    //--领救济金金额
+		vip_alms_value : 3000,    //--领救济金金额
 		vip_alms_times : 9,    //--领救济金次数
-		gift_price1 : 4000,    //--礼包原价
-		gift_price2 : 600,    //--礼包售价
-		gift_item : [["i001",2000000],["i015",20]],    //--礼包内容
-		gift_free : [["i001",2000000],["i015",20]],    //--每日福利
-		vip_autoattact : [11,17,20],    //--vip自动开炮功能
+		gift_price1 : 275000,    //--礼包原价
+		gift_price2 : 125000,    //--礼包售价
+		gift_item : [["i002",1200],["i011",20],["i015",5],["i006",20]],    //--礼包内容
+		gift_free : [["i002",12],["i012",2],["i011",2],["i013",2]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_11",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 12,    //--vip等级
-		vip_unlock : 10000,    //--需要充值RMB
-		vip_dailyGold : 350000,    //--补足金币
+		vip_unlock : 60000000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 70,    //--游戏好友上限
-		vip_dailyDiamond : 80,    //--补足钻石
+		vip_dailyDiamond : 130,    //--补足钻石
 		drawtimes : 100,    //--每日金币抽奖次数
 		charm : 80000,    //--魅力值
-		vip_miniGameAdd : [[0,0.06],[1,0.06],[2,0.04]],    //--小游戏加成
+		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_07",    //--聊天底板
 		chatcolor : "#20242e",    //--聊天颜色
-		vip_giveItem : 1,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.12,    //--开炮经验提高
-		vip_specialskill : 1,    //--10元翻盘基金
-		vip_hitrate : 0.012,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.05],[8,0.03],[9,0.03]],    //--vip技能概率强化
+		vip_specialskill : 0,    //--10元翻盘基金
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 13,    //--女神付费次数
 		vip_gold_buy : 400,    //--购买金币次数
-		vip_alms_value : 65000,    //--领救济金金额
+		vip_alms_value : 3500,    //--领救济金金额
 		vip_alms_times : 9,    //--领救济金次数
-		gift_price1 : 5000,    //--礼包原价
-		gift_price2 : 800,    //--礼包售价
-		gift_item : [["i001",3000000],["i015",20]],    //--礼包内容
-		gift_free : [["i001",3000000],["i015",20]],    //--每日福利
-		vip_autoattact : [11,17,20],    //--vip自动开炮功能
+		gift_price1 : 285000,    //--礼包原价
+		gift_price2 : 125000,    //--礼包售价
+		gift_item : [["i002",1400],["i012",20],["i013",20],["i015",5]],    //--礼包内容
+		gift_free : [["i002",14],["i012",2],["i011",2],["i013",2]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_12",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 13,    //--vip等级
-		vip_unlock : 20000,    //--需要充值RMB
-		vip_dailyGold : 400000,    //--补足金币
+		vip_unlock : 120000000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 75,    //--游戏好友上限
-		vip_dailyDiamond : 90,    //--补足钻石
+		vip_dailyDiamond : 140,    //--补足钻石
 		drawtimes : 150,    //--每日金币抽奖次数
 		charm : 100000,    //--魅力值
-		vip_miniGameAdd : [[0,0.06],[1,0.06],[2,0.06]],    //--小游戏加成
+		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_07",    //--聊天底板
 		chatcolor : "#20242e",    //--聊天颜色
-		vip_giveItem : 1,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.13,    //--开炮经验提高
-		vip_specialskill : 1,    //--10元翻盘基金
-		vip_hitrate : 0.012,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.05],[8,0.04],[9,0.03]],    //--vip技能概率强化
+		vip_specialskill : 0,    //--10元翻盘基金
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 14,    //--女神付费次数
 		vip_gold_buy : 600,    //--购买金币次数
-		vip_alms_value : 70000,    //--领救济金金额
+		vip_alms_value : 3500,    //--领救济金金额
 		vip_alms_times : 10,    //--领救济金次数
-		gift_price1 : 6100,    //--礼包原价
-		gift_price2 : 1000,    //--礼包售价
-		gift_item : [["i001",4000000],["i011",100]],    //--礼包内容
-		gift_free : [["i001",4000000],["i011",100]],    //--每日福利
-		vip_autoattact : [11,17,20],    //--vip自动开炮功能
+		gift_price1 : 350000,    //--礼包原价
+		gift_price2 : 150000,    //--礼包售价
+		gift_item : [["i002",1600],["i015",6],["i400",20],["i006",20]],    //--礼包内容
+		gift_free : [["i002",14],["i012",3],["i011",3],["i013",3]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_13",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 14,    //--vip等级
-		vip_unlock : 50000,    //--需要充值RMB
-		vip_dailyGold : 500000,    //--补足金币
+		vip_unlock : 210000000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 80,    //--游戏好友上限
-		vip_dailyDiamond : 100,    //--补足钻石
+		vip_dailyDiamond : 150,    //--补足钻石
 		drawtimes : 200,    //--每日金币抽奖次数
 		charm : 150000,    //--魅力值
-		vip_miniGameAdd : [[0,0.06],[1,0.06],[2,0.06]],    //--小游戏加成
+		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_07",    //--聊天底板
 		chatcolor : "#20242e",    //--聊天颜色
-		vip_giveItem : 1,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.14,    //--开炮经验提高
-		vip_specialskill : 1,    //--10元翻盘基金
-		vip_hitrate : 0.015,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.05],[8,0.04],[9,0.04]],    //--vip技能概率强化
+		vip_specialskill : 0,    //--10元翻盘基金
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 15,    //--女神付费次数
 		vip_gold_buy : 800,    //--购买金币次数
-		vip_alms_value : 75000,    //--领救济金金额
+		vip_alms_value : 4000,    //--领救济金金额
 		vip_alms_times : 10,    //--领救济金次数
-		gift_price1 : 8000,    //--礼包原价
-		gift_price2 : 1500,    //--礼包售价
-		gift_item : [["i001",4000000],["i017",5]],    //--礼包内容
-		gift_free : [["i001",4000000],["i017",5]],    //--每日福利
-		vip_autoattact : [11,17,20],    //--vip自动开炮功能
+		gift_price1 : 380000,    //--礼包原价
+		gift_price2 : 150000,    //--礼包售价
+		gift_item : [["i002",2000],["i012",30],["i011",30],["i015",6]],    //--礼包内容
+		gift_free : [["i002",16],["i012",3],["i011",3],["i013",3]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_14",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
 	},
 	{
 		vip_level : 15,    //--vip等级
-		vip_unlock : 100000,    //--需要充值RMB
-		vip_dailyGold : 600000,    //--补足金币
+		vip_unlock : 300000000,    //--需要充值RMB
+		vip_dailyGold : 0,    //--补足金币
 		friend : 85,    //--游戏好友上限
-		vip_dailyDiamond : 120,    //--补足钻石
+		vip_dailyDiamond : 160,    //--补足钻石
 		drawtimes : 300,    //--每日金币抽奖次数
 		charm : 200000,    //--魅力值
-		vip_miniGameAdd : [[0,0.06],[1,0.06],[2,0.06]],    //--小游戏加成
+		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_07",    //--聊天底板
 		chatcolor : "#20242e",    //--聊天颜色
-		vip_giveItem : 1,    //--开启赠送道具
+		vip_giveItem : 1,    //--开启赠送
 		vip_expadd : 0.15,    //--开炮经验提高
-		vip_specialskill : 1,    //--10元翻盘基金
-		vip_hitrate : 0.015,    //--捕鱼命中提高
-		vip_skillAddition : [[4,0.05],[8,0.05],[9,0.05]],    //--vip技能概率强化
+		vip_specialskill : 0,    //--10元翻盘基金
+		vip_hitrate : 0,    //--捕鱼命中提高
+		vip_skillAddition : [],    //--vip技能概率强化
 		goddessbuy : 16,    //--女神付费次数
 		vip_gold_buy : 1000,    //--购买金币次数
-		vip_alms_value : 80000,    //--领救济金金额
+		vip_alms_value : 5000,    //--领救济金金额
 		vip_alms_times : 15,    //--领救济金次数
-		gift_price1 : 10500,    //--礼包原价
-		gift_price2 : 2000,    //--礼包售价
-		gift_item : [["i001",5000000],["i017",10]],    //--礼包内容
-		gift_free : [["i001",5000000],["i017",10]],    //--每日福利
-		vip_autoattact : [11,17,20],    //--vip自动开炮功能
+		gift_price1 : 525000,    //--礼包原价
+		gift_price2 : 200000,    //--礼包售价
+		gift_item : [["i002",2500],["i013",50],["i015",8],["i006",50]],    //--礼包内容
+		gift_free : [["i002",18],["i012",3],["i011",3],["i013",3]],    //--每日福利
+		vip_autoattact : [],    //--自动开炮
 		description : "vip_desc_15",    //--特权说明
 		vip_picture : "viplibao",    //--特权图片
 	},

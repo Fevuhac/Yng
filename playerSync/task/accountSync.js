@@ -1,7 +1,7 @@
 const async = require('async');
 const dbUtils = require('../../database/').dbUtils;
 const Task = require('../../base/task/task');
-const REDISKEY = require('../../database/consts').REDISKEY;
+const redisKey = require('../../database/consts').REDISKEY;
 const utils = require('../../base/utils/utils');
 
 const testUIds = require('../test_ids_1');
@@ -39,7 +39,7 @@ class AccountSync extends Task {
         super(conf);
     }
 
-    _sync(syncCount, uids, finish) {
+    async _sync(syncCount, uids, finish) {
         let subUids = uids.slice(syncCount, syncCount + this.taskConf.writeLimit);
         if (subUids.length === 0) {
             logger.info('redis数据同步到mysql成功');
@@ -49,26 +49,27 @@ class AccountSync extends Task {
 
         let self = this;
         let synced = syncCount + this.taskConf.writeLimit;
+         console.time('----------------redis');
+         console.log('-------------subUids', subUids.length);
         async.mapSeries(subUids, function (uid, cb) {
             dbUtils.redisAccountSync.getAccount(uid, function (err, account) {
-                //TODO:linyng test
-                // account.gold = 10;
-                // account.commit();
-                //TODO:linyng test end
                 cb(err, account)
             });
         }, function (err, accounts) {
             if (err) {
                 logger.error('获取account信息失败');
             }
+            console.timeEnd('----------------redis');
 
+            console.time('----------------mysql');
             let account_filter = dbUtils.redisAccountSync.Util.filterInvalidAccount(accounts);
             if (account_filter.length > 0) {
+                console.log('-------------account_filter', account_filter.length);
                 dbUtils.mysqlAccountSync.setAccount(account_filter, function (err, results) {
                     if (err) {
                         logger.error('redis数据同步到mysql存在异常，请注意检查数据', err);
                     }
-
+                    console.timeEnd('----------------mysql');
                     self._sync(synced, uids, finish);
                 });
             }
@@ -85,25 +86,14 @@ class AccountSync extends Task {
      * @private
      */
     _exeTask(cb) {
-        // dbUtils.redisAccountSync.getAccount(918, function (err, account) {
-        //     account.gold = 1000;
-        //     account.commit();
-        // });
         logger.info('---玩家数据同步开始');
         console.time('accountSync');
         let self = this;
-        dbUtils.redisAccountSync.getSetValueLimit(REDISKEY.UPDATED_UIDS, 0, this.taskConf.readLimit, (res, next) => {
+        dbUtils.redisAccountSync.getSetValueLimit(redisKey.getKey(redisKey.UPDATED_UIDS), 0, this.taskConf.readLimit, (res, next) => {
             if (!!res && res.length > 0) {
-                // deletePlatform();
-                // return;
                 let uids = dbUtils.redisAccountSync.Util.parseHashKey(res);
-                dbUtils.redisAccountSync.remSetValues(REDISKEY.UPDATED_UIDS, uids, function (err, results) {
-                    //TODO:by linyng
-                    uids = uids.filter(function(uid){
-                        return checkTestUids(uid)
-                    });
-
-                    logger.error('--------------uids', uids);
+                dbUtils.redisAccountSync.remSetValues(redisKey.getKey(redisKey.UPDATED_UIDS), uids, function (err, results) {
+                    logger.error('--------------uids', uids.length);
 
                     self._sync(0, uids, function () {
                         logger.info('next -------');

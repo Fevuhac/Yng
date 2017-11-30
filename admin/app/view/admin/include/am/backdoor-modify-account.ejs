@@ -1,0 +1,59 @@
+<div class="col-md-12">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_modify_account %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_modify_account %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- Form1 -->
+      <form id="modify-account">
+        <div class="col-md-12 form-group mb-lg">
+          <label>玩家ID</label>
+          <input id="input-modify-uid" name="uid" type="text" class="form-control input-lg" value="" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>修改字段名(gold,pearl,weapon,level,exp,goddess,nuclear,card,rmb,vip)</label>
+          <!-- <input id="input-modify-field" name="field" type="text" class="form-control input-lg" value="" /> -->
+          <!-- 使用下拉列表 -->
+          <select name="field" id="input-modify-field"> 
+            <option value="gold">gold</option> 
+            <option value="pearl">pearl</option> 
+            <option value="weapon">weapon</option> 
+            <option value="weapon_skin">weapon_skin</option> 
+            <option value="level">level</option> 
+            <option value="exp">exp</option> 
+            <option value="goddess">goddess</option> 
+            <option value="nuclear">nuclear</option> 
+            <option value="card">card</option> 
+            <option value="get_card">get_card</option> 
+            <option value="vip">vip</option> 
+            <option value="rmb">rmb</option> 
+            
+            <option value="goddess_free">goddess_free</option> 
+            <option value="goddess_ctimes">goddess_ctimes</option> 
+            <option value="goddess_crossover">goddess_crossover</option> 
+            <option value="goddess_ongoing">goddess_ongoing</option> 
+          </select> 
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>修改值</label>
+          <input id="input-modify-value" name="value" type="text" class="form-control input-lg" value="" />
+        </div>
+      </form>
+      <button id="btn-modify-udata" class="btn btn-primary hidden-xs">修改玩家数据</button>
+ 
+    </div>
+  </section>
+</div>

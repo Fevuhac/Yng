@@ -1,0 +1,56 @@
+﻿<div class="col-md-12">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_mail_set %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_mail_set %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- content start -->
+
+      <form id="mail-setting">
+        <div class="col-md-12 form-group mb-lg">
+          <label>邮件标题</label>
+          <input id="input-mail-title" name="title" type="text" class="form-control input-lg" value="测试邮件标题1" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>邮件内容</label>
+          <input id="input-mail-content" name="content" type="text" class="form-control input-lg" value="测试邮件内容1" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>邮件奖励</label>
+          <input id="input-mail-reward" name="reward" type="text" class="form-control input-lg" value='[["i001",1],["i002",2]]' />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>玩家ID列表</label>
+          <input id="input-player-list" name="player_list" type="text" class="form-control input-lg" value='1000,1001' />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>邮件类型</label>
+          <select id="input-mail-type" class="form-control input-lg mb-md">
+            <option value ="1">系统邮件</option>
+            <option value ="2">排行榜邮件</option>
+            <option value ="3">补偿邮件(使用玩家ID列表指定发送的玩家)</option>
+          </select>
+        </div>
+      </form>
+      <button id="btn-set-mail" class="btn btn-primary hidden-xs">设置邮件信息</button>
+
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

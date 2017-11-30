@@ -1,0 +1,83 @@
+<div class="col-md-12">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_change_cfgs %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_change_cfgs %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- content start -->
+
+        <div>
+          <label>实物兑换开关</label>
+          <div class="switch switch-large">
+            <input id="toggle-cik" type="checkbox" checked />
+          </div>
+        </div>
+
+        <table border="2" bordercolor="#000000" style="width: 100%;" id="query-table">
+        <tr>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            ID
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;"
+                colspan="2">
+            配置ID
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;"
+                colspan="2">
+            描述
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            值
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;"
+                colspan="4">
+            增减库存
+            </th>
+        </tr>
+        <tr id="fake-data-change-list">
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">oid</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">cid</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">
+                <button>修改</button>
+            </td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">desc</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">
+                <button>修改</button>
+            </td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">value</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">
+                <button class="btn btn-default" type="button">-</button>
+            </td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">
+                <input type="text" class="form-control col-xs-2" value="0">
+            </td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">
+                <button class="btn btn-default" type="button">+</button>
+            </td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">
+                <button>修改</button>
+            </td>
+        </tr>
+        </table>
+
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

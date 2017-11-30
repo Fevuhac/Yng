@@ -223,6 +223,19 @@ class FishCmd extends SysCmd {
         };
 
 
+        this.push.playerState = {
+            route: 's_playerState',
+            msg: {
+                enc: 'aes',
+                data: {
+                    state:0, //0：online, 1:offline
+                    uid:12022
+                }
+            },
+            res:{}
+        };
+
+
         /**
          * 多人房广播他人开炮
          * @type {{route: string, msg: {enc: string, data: {wp_skin: number, seatId: number, fire_point: {x: number, y: number}, gold: number}}}}

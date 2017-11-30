@@ -34,7 +34,7 @@ class RobotController {
             player.c_catch_fish(data, cb);
         }
         else {
-            utils.invokeCallback(cb, CONSTS.SYS_CODE.PLAYER_NOT_EXIST);
+            utils.invokeCallback(cb, CONSTS.SYS_CODE.ROBOT_NOT_EXIST);
         }
     }
 
@@ -75,7 +75,7 @@ class RobotController {
         let uids = [];
         for(let player of this._robotPlayerMap.values()){
             if(now - player.joinTime >= config.ROBOT.JOIN_TIMEOUT){
-                player.room.leave(player);
+                player.room.leave(player.uid);
                 uids.push(player.uid);
                 logger.error('------------------------玩家超时离开', player.uid);
             }
@@ -98,9 +98,9 @@ class RobotController {
      * 开火
      */
     fire() {
-        // for (let player of this._robotPlayerMap.values()) {
-        //     player.robotFire();
-        // }
+        for (let player of this._robotPlayerMap.values()) {
+            player.robotFire();
+        }
     }
 
      useSkill() {

@@ -12,12 +12,16 @@ class RankBuildTask extends Task {
     }
 
     _getRank(task, platform, skip, limit) {
+        /* yxl */console.log(`_getRank()------------------------------`);
         let promise = new Promise(function (resolve, reject) {
+            /* yxl */console.log(`skip:${skip}, limit:${limit}`);
             redisConnector.cmd.zrevrange(`${task.redisKey}:${platform}`, skip, limit, 'WITHSCORES', function (err, results) {
                 if (err) {
+                    /* yxl */console.log('err:', err);
                     reject(err);
                     return;
                 }
+                /* yxl */console.log('resolve(results):', results);
                 resolve(results);
             });
         });
@@ -32,7 +36,9 @@ class RankBuildTask extends Task {
                     resolve(player);
                     return;
                 }
-                player.ext = account.toJSON();
+                /* yxl */console.log('_getPlayerExInfoByMysql - account:', account);
+                // player.ext = account.toJSON();
+                player.ext = account;
                 resolve();
             });
 
@@ -42,12 +48,14 @@ class RankBuildTask extends Task {
 
     async _getPlayerExInfoByRedis(task, player){
         try {
-            let account = dbUtils.redisAccountSync.getAccountAsync(player.uid, task.ext);
+            let account = await dbUtils.redisAccountSync.getAccountAsync(player.uid, task.ext);
+            /* yxl */console.log('account:', account);
             if(account){
                 player.ext = account.toJSON();
                 return null;
             }
         }catch (err){
+            /* yxl */console.log('err:', err);
             logger.error(`${this.taskId}执行_getPlayerExInfoByRedis玩家数据异常uid:`, player.uid);
         }
         return player;
@@ -129,6 +137,7 @@ class RankBuildTask extends Task {
     }
 
     async _build(task) {
+        /* yxl */ console.log('_build() --- ');
         for(let platform of Object.values(REDISKEY.PLATFORM_TYPE)){
             let result =await this._getRankInfo(task, platform);
             await this._saveRankInfo(task, platform, result);

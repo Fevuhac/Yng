@@ -1,0 +1,39 @@
+<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_reset %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_reset %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <div class="col-md-12 form-group mb-lg">
+        <label>需要对指定玩家重置数据时请填写下面的字段</label>
+        <input id="input-reset-account-id" name="id_list" type="text" class="form-control input-lg" value="1,2" />
+      </div>
+
+      <div class="col-md-12 form-group mb-lg">
+        <label>玩家每日重置的数据有...</label>
+      </div>
+      <div class="col-md-12 form-group mb-lg">
+        <button id="btn-reset-daily" class="btn btn-primary hidden-xs">重置每日数据</button>
+      </div>
+
+      <div class="col-md-12 form-group mb-lg">
+        <label>玩家每周重置的数据有...</label>
+      </div>
+      <div class="col-md-12 form-group mb-lg">
+        <button id="btn-reset-weekly" class="btn btn-primary hidden-xs">重置每周数据</button>
+      </div>
+      
+    </div>
+  </section>
+</div>

@@ -1,0 +1,39 @@
+<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_tester %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_tester %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <div class="col-md-12 form-group mb-lg">
+        <label>测试uid</label>
+        <input id="input-tester-uid" name="uid" type="text" class="form-control input-lg" value="2888" />
+      </div>
+      <div class="col-md-12 form-group mb-lg">
+        <label>权限(0为普通玩家,1为开发者,2为测试人员)</label>
+        <input id="input-tester-auth" name="test" type="text" class="form-control input-lg" value="0" />
+      </div>
+
+      <div class="col-md-12 form-group mb-lg">
+        <button id="btn-account-forbidden" class="btn btn-primary hidden-xs">账号禁止</button>
+        <button id="btn-account-ban" class="btn btn-primary hidden-xs">玩家封号</button>
+        <button id="btn-account-auth" class="btn btn-primary hidden-xs">权限设置</button>
+        <button id="btn-account-match-on" class="btn btn-primary hidden-xs">排位赛开启</button>
+        <button id="btn-account-match-off" class="btn btn-primary hidden-xs">排位赛关闭</button>
+        <button id="btn-account-cik-on" class="btn btn-primary hidden-xs">实物兑换开启</button>
+        <button id="btn-account-cik-off" class="btn btn-primary hidden-xs">实物兑换关闭</button>
+      </div>
+      
+    </div>
+  </section>
+</div>

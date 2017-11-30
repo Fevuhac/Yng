@@ -1,6 +1,7 @@
 const pomelo = require('pomelo');
 const pomeloAdmin = require('pomelo-admin');
 const plugins = require('../plugins');
+const configReader = require('../../config/configReader');
 
 class LoadManager {
     constructor() {
@@ -55,7 +56,7 @@ class LoadManager {
                 logger.info('--------------gameInfo:',err, data);
             }.bind(this));
 
-        }.bind(this), sysDefaultConfg.loadTimeout);
+        }.bind(this), configReader.sysConfig.BALANCE_PERIOD);
     }
 
     stop() {

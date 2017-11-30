@@ -18,7 +18,7 @@ var	goldfish_goldlevel_cfg =
 	{
 		goldlevel : 4,    //--抽奖等级
 		goldfishcount : 10,    //--奖金鱼数量
-		goldcount : 300000,    //--奖金数量
+		goldcount : 250000,    //--奖金数量
 	},
 	{
 		goldlevel : 5,    //--抽奖等级
@@ -28,7 +28,7 @@ var	goldfish_goldlevel_cfg =
 	{
 		goldlevel : 6,    //--抽奖等级
 		goldfishcount : 10,    //--奖金鱼数量
-		goldcount : 1500000,    //--奖金数量
+		goldcount : 2000000,    //--奖金数量
 	},
 ];
 module.exports = goldfish_goldlevel_cfg;

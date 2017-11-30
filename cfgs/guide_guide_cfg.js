@@ -72,8 +72,8 @@ var	guide_guide_cfg =
 	},
 	{
 		id : 15,    //--顺序
-		type : 1,    //--类型
-		descriptions : [{"focus":1}, {"focus":1}],    //--引导描述,[描述文本key, align对齐方式，无则居中(0居中，1顶端居中), hole引导圈(0则无)，hole_size引导圈范围（[屏宽百分比，屏高百分比]）]
+		type : 2,    //--类型
+		descriptions : [{"tip":"str_guide_18_0","align": 1,"focus":1,"dt": 2}, {"tip":"str_guide_19_0","align": 1,"focus":1,"dt": 2}],    //--引导描述,[描述文本key, align对齐方式，无则居中(0居中，1顶端居中), hole引导圈(0则无)，hole_size引导圈范围（[屏宽百分比，屏高百分比]）]
 	},
 	{
 		id : 16,    //--顺序

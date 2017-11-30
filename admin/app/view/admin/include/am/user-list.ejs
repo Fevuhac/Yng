@@ -1,0 +1,62 @@
+﻿<div class="col-md-9">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_user_list %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_user_list %>
+        </p>
+    </header>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped mb-none">
+          <thead>
+            <tr>
+              <th>
+                <%= txt_th_user_name %>
+              </th>
+              <th>
+                <%= txt_th_user_role %>
+              </th>
+              <th>
+                <%= txt_th_user_id %>
+              </th>
+              <th>
+                <%= txt_th_edit_user %>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i = 0; i < user_list.length; i++) { %>
+            <tr>
+              <td>
+                <input name="page" type="text" class="form-control input-xs editable-value"  value="<%= user_list[i]['uname'] %>" />
+              </td>
+              <td>
+                <input name="level" type="text" class="form-control input-xs editable-value"  value="<%= user_list[i]['role'] %>"  />
+              </td>
+              <td>
+                <input name="level" type="text" class="form-control input-xs editable-value"  value="<%= user_list[i]['id'] %>"  />
+              </td>
+              <td width="100">
+                <button class="btn btn-primary btn-xs hidden-xs btn-user-edit">修改</button>
+                <% if (user_list[i]["valid"]) { %>
+                <button class="btn btn-primary btn-xs hidden-xs btn-user-delete">禁止</button>
+                <% } else {%>
+                <button class="btn btn-primary btn-xs hidden-xs btn-user-valid">激活</button>
+                <% }%>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

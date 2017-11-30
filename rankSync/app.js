@@ -1,4 +1,5 @@
 const LogHelper = require('../base/logHelper');
+const mysqlConf = require('./config/mysql.json');
 const redisConf = require('./config/redis.json');
 const taskPool = require('../base/task').taskPool;
 const Application = require('../base/application');
@@ -13,6 +14,7 @@ class PlayerSyncApp extends Application {
     constructor() {
         super({
             db: {
+                mysql: mysqlConf,
                 redis: redisConf
             }
         });

@@ -74,7 +74,6 @@ class Scene {
     }
 
     leaveGame(uid) {
-        connectLogger.error('-----------------------玩家離開房間', uid)
         let room = this._getRoom(uid);
         if (!!room) {
             room.leave(uid);

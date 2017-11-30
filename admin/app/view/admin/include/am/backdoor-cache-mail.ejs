@@ -1,0 +1,34 @@
+﻿<div class="col-md-12">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_cache_mail %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_cache_mail %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- Form1 -->
+      <form id="mail-setting">
+        <div class="col-md-12 form-group mb-lg">
+          <label>最小邮件ID</label>
+          <input id="input-min-mail-id" name="min" type="text" class="form-control input-lg" value="" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>最大邮件ID</label>
+          <input id="input-max-mail-id" name="max" type="text" class="form-control input-lg" value="" />
+        </div>
+      </form>
+      <button id="btn-get-cm" class="btn btn-primary hidden-xs">获取内存中的邮件信息</button>
+      
+    </div>
+  </section>
+</div>

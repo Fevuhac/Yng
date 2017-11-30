@@ -1,0 +1,62 @@
+<div class="col-md-6">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_control_loss_chart %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_control_loss_chart %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- content start -->
+
+      <div>
+        <button id="btn_query_loss">更新</button>
+      </div>
+
+      <table border="2" bordercolor="#000000" style="width: 100%;" id="query-table-orders">
+        <tr>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            UID
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            玩家名称
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            已充值额度
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            已提现额度
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            持有金币
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            盈亏
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            捕获率
+            </th>
+        </tr>
+        <tr id="placeHolderLoss"></tr>
+      </table>
+
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

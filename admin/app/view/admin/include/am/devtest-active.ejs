@@ -1,0 +1,47 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_active %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_active %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- Form -->
+      <button id="btn-show-me-activity-quest" class="btn btn-primary hidden-xs">获取活动任务</button>
+      <button id="btn-show-me-activity-charge" class="btn btn-primary hidden-xs">获取充值回馈</button>
+      <button id="btn-show-me-activity-exchange" class="btn btn-primary hidden-xs">获取限时兑换</button>
+
+      <div>
+        <h4>活动数据块</h4>
+      </div>
+      <textarea id="active-info" style="width:400px;height:80px;" >这里查看活动数据</textarea>
+      
+      <div>
+        <h4>活动列表(表格形式显示活动信息)</h4>
+      </div>
+      <div id="active-list"></div>
+
+      <div>
+        <h4>活动进度测试</h4>
+      </div>
+      
+      <form id="form-active-step">
+        <div class="form-group mb-lg">
+          <label>更新一条活动数据</label>
+          <input id="input-update-active" name="active" type="text" class="form-control input-lg" value='{"2":{"9":1}}' />
+        </div>
+      </form>
+      <button id="btn-update-active" class="btn btn-primary hidden-xs">更新</button>
+      
+    </div>
+  </section>
+</div>

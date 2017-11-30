@@ -135,5 +135,6 @@ module.exports = {
     "NEED_INSERT": "need_insert",
     "NEED_UPDATE": "need_update",
     "ONLINE_TIME": "online_time",
-    "VIP_FILL_THIS_TIME": "vip_fill_this_time"
+    "VIP_FILL_THIS_TIME": "vip_fill_this_time",
+    "PLAYERCATCHRATE":"playerCatchRate",
 }

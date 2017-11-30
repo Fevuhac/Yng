@@ -1,0 +1,30 @@
+﻿<div class="col-md-6">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_update_cfg %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_update_cfg %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- content start -->
+      <form name="upload-profile" id="upload-profile" method="post" enctype="multipart/form-data" action="/admin_api/upload_cfg">
+        <div class="form-group mb-lg">
+          <label>请选择要上传的文件</label>
+          <input type="file" name="file" />
+          <input type="submit" value="提交" />
+        </div>
+      </form>
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

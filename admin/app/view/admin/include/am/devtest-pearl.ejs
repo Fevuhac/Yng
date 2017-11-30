@@ -1,0 +1,34 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_pearl %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_pearl %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <form id="add-pearl-log">
+
+        <div class="form-group mb-lg">
+          <label>当前珍珠总数</label>
+          <input id="input-pearl-total" name="total" type="text" class="form-control input-lg account-pearl" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>组数据([{"gain":20,"cost":0,"scene":3}])</label>
+          <input id="input-pearl-data" name="group" type="text" class="form-control input-lg" />
+        </div>
+      </form>
+      <button id="btn-add-pearl-log" type="submit" class="btn btn-primary hidden-xs">发送记录</button>
+      
+    </div>
+  </section>
+</div>

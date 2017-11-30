@@ -260,7 +260,7 @@ $(document).ready(function() {
 				var route = "connector.entryHandler.c_enter_room";
 				pomelo.request(route, {
 					data:{
-                        token: '918_03458cd087cb11e7ba758392291a4bfa',
+                        token: '3747_03458cd087cb11e7ba758392291a4bfa',
                         // token: '358_03458cd087cb11e7ba758392291a4bfa',
                         flag:1, // 多人房标记true，默认单人房false
                         scene_name:'scene_mutiple_1' //准备进入的场景名

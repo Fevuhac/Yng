@@ -44,7 +44,10 @@ class RankReward{
      * @returns {Promise}
      */
     async handle(task, week){
+        // console.log('handle');
         for(let platform of Object.values(REDISKEY.PLATFORM_TYPE)){
+            /* yxl */ console.log(`platform:${platform}`);
+            /* yxl */ console.log(`${REDISKEY.getRankDataKey(task.redisKey)}:${platform}`);
             try{
                 let rankData = await dbUtils.redisAccountSync.oneCmdAsync(['get', `${REDISKEY.getRankDataKey(task.redisKey)}:${platform}`]);
                 if(!rankData){
@@ -59,15 +62,16 @@ class RankReward{
         }
     }
 
-    generateChart(rankInfo, week) {
+    async generateChart(rankInfo, week) {
+        /* yxl */ console.log('1111111111111111111111RankReward.generateChart');
 
         let cmds = [];
-        for (let i = 0; i < rankInfo.ranks.length; i++) {
-            let award = this._getDailyAward(task.awardType, rankInfo.ranks[i].rank);
-            cmds.push(['hset', `${REDISKEY.RANK_DAILY_AWARD}:${task.redisKey}`, rankInfo.ranks[i].uid, award]);
+        for (let uid in rankInfo.ranks) {
+            let award = this._getDailyAward(task.awardType, rankInfo.ranks[uid]);
+            cmds.push(['hset', `${REDISKEY.RANK_DAILY_AWARD}:${task.redisKey}`, uid, award]);
             if (week) {
-                award = this._getWeekAward(task.awardType, rankInfo.ranks[i].rank);
-                cmds.push(['hset', `${REDISKEY.RANK_WEEK_AWARD}:${task.redisKey}`, rankInfo.ranks[i].uid, award]);
+                award = this._getWeekAward(task.awardType, rankInfo.ranks[uid]);
+                cmds.push(['hset', `${REDISKEY.RANK_WEEK_AWARD}:${task.redisKey}`, uid, award]);
             }
 
             if (cmds.length >= task.limit) {

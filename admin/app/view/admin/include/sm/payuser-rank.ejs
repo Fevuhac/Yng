@@ -1,0 +1,66 @@
+<div class="col-md-12">
+    <section class="panel">
+    <header class="panel-heading">
+        <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+        </div>
+
+        <h2 class="panel-title">
+        <%= txt_title_payuser_rank %>
+        </h2>
+        <p class="panel-subtitle">
+        <%= txt_content_payuser_rank %>
+        </p>
+    </header>
+    <div class="panel-body" id="panel-pay-user">
+        <button id="btn-get-payuser-rank" class="btn btn-primary hidden-xs">获取付费排行榜</button>
+
+        <div id="payuser-rank-table-div">
+            <table style="width: 100%;" class="table-striped table-bordered" id="payuser-rank-table">
+                <tr>
+                    <th class="cell-padding cell-align-center cell-head"
+                        style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                    玩家游戏ID
+                    </th>
+                    <th class="cell-padding cell-align-center cell-head"
+                        style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                    玩家渠道ID
+                    </th>
+                    <th class="cell-padding cell-align-center cell-head"
+                        style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                    玩家昵称
+                    </th>
+                    <th class="cell-padding cell-align-center cell-head"
+                        style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                    玩家游戏等级
+                    </th>
+                    <th class="cell-padding cell-align-center cell-head"
+                        style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                    玩家rmb
+                    </th>
+                    <th class="cell-padding cell-align-center cell-head"
+                        style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                    玩家VIP等级
+                    </th>
+                    <th class="cell-padding cell-align-center cell-head"
+                        style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                    付费次数
+                    </th>
+                    <th class="cell-padding cell-align-center cell-head"
+                        style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                    付费金额
+                    </th>
+                </tr>
+                <tr id="fake-data-payuser-rank">
+                    <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">uid</td>
+                    <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">cid</td>
+                    <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">nickname</td>
+                    <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">total_count</td>
+                    <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">total_money</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </section>
+</div>

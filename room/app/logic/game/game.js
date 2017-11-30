@@ -1,10 +1,9 @@
 const pomelo = require('pomelo');
 const plugins = require('../plugins');
-const event = require('../base/event');
 const Entity = require('../base/entity');
-const shareData = require('../../cache/shareData');
-const dataType = require('../../cache/dataType');
-const eventType = require('../../consts/eventType');
+const cacheRunner = require('../../cache/runner');
+const redisClient = require('../../utils/import_db').redisClient;
+const mysqlClient = require('../../utils/import_db').mysqlClient;
 
 class Game extends Entity {
     constructor() {
@@ -19,8 +18,7 @@ class Game extends Entity {
                 logger.error('连接redis数据库失败:', err);
                 return;
             }
-            shareData.load();
-            redisClient.sub(eventType.PUMPWATER, this.onPumpwater.bind(this));
+            cacheRunner.start();
 
             mysqlClient.start(pomelo.app.get('mysql'), function (err, connecotr) {
                 if (err) {
@@ -91,6 +89,7 @@ class Game extends Entity {
     onPlayerConnectState(data, cb) {
         let inst = this.getInstance(data.gameType);
         if (!inst) {
+            logger.error('onPlayerConnectState data - ', data);
             utils.invokeCallback(cb, CONSTS.SYS_CODE.PALYER_GAME_ROOM_DISMISS);
             return
         }

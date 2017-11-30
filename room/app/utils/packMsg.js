@@ -1,4 +1,5 @@
 const CryptoJS = require("crypto-js");
+const configReader = require('../config/configReader');
 
 function packMsg(data, enc) {
 
@@ -11,7 +12,7 @@ function packMsg(data, enc) {
     if(_enc === 'aes'){
     // if(0){
         try {
-            let encrypt_data = CryptoJS.AES.encrypt(JSON.stringify(data), sysDefaultConfg.dataDecryptKey);
+            let encrypt_data = CryptoJS.AES.encrypt(JSON.stringify(data), configReader.sysConfig.KEYS);
             msg.data = encodeURIComponent(encrypt_data);  
         } catch (error) {
             logger.error('packMsg exction --- ', error);

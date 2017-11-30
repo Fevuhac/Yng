@@ -1,0 +1,59 @@
+<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_msgboard %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_msgboard %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- Form1 -->
+      <form id="msgboard-test">
+        <div class="col-md-12 form-group mb-lg">
+          <label>留言内容</label>
+          <input id="input-msg-text" name="text" type="text" class="form-control input-lg" value="TEST" />
+        </div>
+        <div class="col-md-4 form-group mb-lg">
+          <label>时间戳</label>
+          <input id="input-msg-timestamp" name="text" type="text" class="form-control input-lg" value="2017-07-07 12:00:00" />
+        </div>
+        <div class="col-md-4 form-group mb-lg">
+          <label>请求条数</label>
+          <input id="input-msg-query-count" name="text" type="text" class="form-control input-lg" value="2" />
+        </div>
+        <div class="col-md-4 form-group mb-lg">
+          <label>是否需要最热门4条</label>
+          <input id="input-msg-need-hot4" name="text" type="text" class="form-control input-lg" value="0" />
+        </div>
+      </form>
+      <button id="btn-send-msg" class="btn btn-primary hidden-xs">留言</button>
+      <button id="btn-query-msg" class="btn btn-primary hidden-xs">拉取列表</button>
+
+      <!-- Form2 -->
+      <form id="msgboard-info">
+        <div class="col-md-12 form-group mb-lg">
+          <label>留言ID(mid)</label>
+          <input id="input-msg-del-mid" name="text" type="text" class="form-control input-lg" value="10" />
+        </div>
+      </form>
+      <button id="btn-del-msg" class="btn btn-primary hidden-xs">删除留言</button>
+
+      <!-- Form3 -->
+      <form id="msgboard-info">
+        <div class="col-md-12 form-group mb-lg">
+          <label>玩家UID</label>
+          <input id="input-msg-userinfo-uid" name="text" type="text" class="form-control input-lg" value="28" />
+        </div>
+      </form>
+      <button id="btn-send-msg" class="btn btn-primary hidden-xs">获取缓存用户数据条数</button>
+      
+    </div>
+  </section>

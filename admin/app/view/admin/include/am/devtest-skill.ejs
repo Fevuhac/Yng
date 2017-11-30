@@ -1,0 +1,28 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_skill %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_skill %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <form>
+        <div class="form-group mb-lg">
+          <label>技能数据([{"id":1, "gain":2, "cost":1, "total":10}, {"id":2, "gain":3, "cost":0, "total":8}])</label>
+          <input id="input-skill-data" name="skill_data" type="text" class="form-control input-lg" />
+        </div>
+      </form>
+      <button id="btn-add-skill-log" type="submit" class="btn btn-primary hidden-xs">发送技能记录</button>
+      
+    </div>
+  </section>
+</div>

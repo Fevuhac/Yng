@@ -9,7 +9,7 @@ var	skill_skill_cfg =
 		skill_sound : "skill_1",    //--技能音效
 		skill_duration : 5,    //--技能时间
 		skill_range : 0,    //--释放范围
-		cost : 3,    //--价格
+		cost : 500,    //--价格
 		ratio : 1,    //--倍率
 		hitrate : 1,    //--命中系数
 		skill_immune : [5],    //--免疫列表,对应display_type
@@ -25,7 +25,7 @@ var	skill_skill_cfg =
 		skill_sound : "skill_2",    //--技能音效
 		skill_duration : 10,    //--技能时间
 		skill_range : 0,    //--释放范围
-		cost : 3,    //--价格
+		cost : 500,    //--价格
 		ratio : 1,    //--倍率
 		hitrate : 1,    //--命中系数
 		skill_immune : [],    //--免疫列表,对应display_type
@@ -41,7 +41,7 @@ var	skill_skill_cfg =
 		skill_sound : "skill_3",    //--技能音效
 		skill_duration : 1,    //--技能时间
 		skill_range : 0,    //--释放范围
-		cost : 3,    //--价格
+		cost : 500,    //--价格
 		ratio : 1,    //--倍率
 		hitrate : 1,    //--命中系数
 		skill_immune : [],    //--免疫列表,对应display_type
@@ -59,7 +59,7 @@ var	skill_skill_cfg =
 		skill_range : 0,    //--释放范围
 		cost : 0,    //--价格
 		ratio : 1,    //--倍率
-		hitrate : 100,    //--命中系数
+		hitrate : 80,    //--命中系数
 		skill_immune : [2],    //--免疫列表,对应display_type
 		skill_unlock : 0,    //--需要等级
 		summon_type : 0,    //--召唤物
@@ -73,8 +73,8 @@ var	skill_skill_cfg =
 		skill_sound : "skill_8",    //--技能音效
 		skill_duration : 2,    //--技能时间
 		skill_range : 200,    //--释放范围
-		cost : 50,    //--价格
-		ratio : 400,    //--倍率
+		cost : 25000,    //--价格
+		ratio : 190,    //--倍率
 		hitrate : 125,    //--命中系数
 		skill_immune : [2],    //--免疫列表,对应display_type
 		skill_unlock : 0,    //--需要等级
@@ -89,8 +89,8 @@ var	skill_skill_cfg =
 		skill_sound : "skill_8",    //--技能音效
 		skill_duration : 2,    //--技能时间
 		skill_range : 250,    //--释放范围
-		cost : 150,    //--价格
-		ratio : 1000,    //--倍率
+		cost : 75000,    //--价格
+		ratio : 475,    //--倍率
 		hitrate : 150,    //--命中系数
 		skill_immune : [2],    //--免疫列表,对应display_type
 		skill_unlock : 0,    //--需要等级
@@ -105,8 +105,8 @@ var	skill_skill_cfg =
 		skill_sound : "skill_8",    //--技能音效
 		skill_duration : 2,    //--技能时间
 		skill_range : 300,    //--释放范围
-		cost : 500,    //--价格
-		ratio : 2500,    //--倍率
+		cost : 250000,    //--价格
+		ratio : 1150,    //--倍率
 		hitrate : 200,    //--命中系数
 		skill_immune : [2],    //--免疫列表,对应display_type
 		skill_unlock : 0,    //--需要等级

@@ -3,6 +3,7 @@
  */
 
 const CryptoJS = require("crypto-js");
+const configReader = require('../../config/configReader');
 
 class DecryptFilter{
     constructor(){
@@ -10,7 +11,7 @@ class DecryptFilter{
 
     before(msg, session, next){
         if(msg.enc){
-            let bytes = CryptoJS.AES.decrypt(decodeURIComponent(msg.data), sysDefaultConfg.dataDecryptKey);
+            let bytes = CryptoJS.AES.decrypt(decodeURIComponent(msg.data), configReader.sysConfig.KEYS);
             let data = bytes.toString(CryptoJS.enc.Utf8);
             try {
                 msg.data = JSON.parse(data);

@@ -73,3 +73,6 @@ process.on('uncaughtException', function (err) {
     console.error("【" + new Date() + "】uncaughtException:", err);
     console.error("stack:", err.stack);
 });
+
+
+// redis-cli -h 10.66.232.136 -a crs-cwxtb7al:pwd1234@^@

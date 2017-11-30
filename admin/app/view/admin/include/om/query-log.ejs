@@ -1,0 +1,196 @@
+<div class="col-md-12">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_query_log %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_query_log %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- content start -->
+
+      <!-- 查询按钮 -->
+      <div class="col-md-12 form-group mb-lg">
+            <button id="btn-query-log" class="btn btn-primary hidden-xs">点我查询</button>
+      </div>
+
+      <!-- 玩家UID -->
+      <div class="col-md-3 form-group mb-lg">
+        <label>玩家UID</label>
+        <input id="input-uid" name="txt" type="text" class="form-control input-lg" />
+      </div>
+
+      <!-- 查询类型选择(下拉框) -->
+      <div class="col-md-3 form-group mb-lg">
+        <label>查询类型选择</label><br>
+        <select id="input-type" name="input-type"> 
+          <option value="1">金币日志</option>
+          <option value="2">钻石日志</option>
+          <option value="3">倍率日志</option>
+          <option value="4">技能日志</option>
+        </select>
+      </div>
+
+      <!-- 显示列表 -->
+
+      <table style="width: 100%;" class="table-striped table-bordered" id="gold-log">
+        <tr>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            日志ID
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            日志时间
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            获取
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            消耗
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            存量
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            场景
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            玩家等级
+          </th>
+        </tr>
+        <tr id="fake-data-query-log-gold">
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">id</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">log_at</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">gain</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">cost</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">total</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">scene</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">level</td>
+        </tr>
+      </table>
+
+      <table style="width: 100%;" class="table-striped table-bordered" id="skill-log">
+        <tr>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            日志ID
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            日志时间
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            技能ID
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            获取
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            消耗
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            存量
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            说明
+          </th>
+        </tr>
+        <tr id="fake-data-query-log-skill">
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">id</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">log_at</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">skill_id</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">gain</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">cost</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">total</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">comment</td>
+        </tr>
+      </table>
+
+      <table style="width: 100%;" class="table-striped table-bordered" id="pearl-log">
+        <tr>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            日志ID
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            日志时间
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            获取
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            消耗
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            存量
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            场景
+          </th>
+        </tr>
+        <tr id="fake-data-query-log-pearl">
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">id</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">log_at</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">gain</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">cost</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">total</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">scene</td>
+        </tr>
+      </table>
+
+      <table style="width: 100%;" class="table-striped table-bordered" id="weapon-log">
+        <tr>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            日志ID
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            日志时间
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            当前等级
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            升级跨度
+          </th>
+        </tr>
+        <tr id="fake-data-query-log-weapon">
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">id</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">log_at</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">level</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">level_up</td>
+        </tr>
+      </table>
+
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

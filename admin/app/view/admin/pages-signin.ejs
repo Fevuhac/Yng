@@ -1,0 +1,54 @@
+﻿<!doctype html>
+<html class="fixed">
+	<head>
+		<% include include/head.ejs %>
+	</head>
+	<body>
+		<!-- start: page -->
+		<section class="body-sign">
+			<div class="center-sign">
+				<a href="/admin/pages-signin.html" class="logo pull-left">
+					<img src="/assets/images/logo.png" height="60" alt="Fishjoy Admin" />
+				</a>
+
+				<div class="panel panel-sign">
+					<div class="panel-title-sign mt-xl text-right">
+						<h2 class="title text-uppercase text-weight-bold m-none"><i class="fa fa-user mr-xs"></i></h2>
+					</div>
+					<div class="panel-body">
+
+            <!-- Form -->
+            <form id="form-signup-nickname-account " action="/login" method="post">
+              <div class="form-group mb-lg">
+                <label id="label_uname">输入用户名</label>
+                <input id="input-username" name="username" type="text" class="form-control input-lg" />
+              </div>
+
+              <div class="form-group mb-lg">
+                <label id="label_pwd">输入密码</label>
+                <input id="input-password" name="password" type="password" class="form-control input-lg" />
+							</div>
+							<div class="form-group mb-lg">
+								<select id="lan_selector" name="lan" class="form-control input-lg mb-md">
+									<option value="zh-CN">中文</option>
+									<option value="en-US">English</option>
+									<option value="vi-VN">Tiếng Việt</option>
+								</select>
+							</div>
+							<button id="btn-signin" type="submit" class="btn btn-primary hidden-xs">登录</button>
+            </form>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end: page -->
+    <% include include/script.ejs %>
+
+    <!-- Page Related -->
+      <% include include/admin_script.ejs %>
+		<script src="/javascript/admin/pages_signin.js"></script>
+		<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+	</body>
+</html>

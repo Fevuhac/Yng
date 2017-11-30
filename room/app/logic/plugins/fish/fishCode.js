@@ -65,6 +65,11 @@ class FishCode extends SysCode{
             code: '3013',
             desc: '子弹数据有误'
         };
+
+        this.INVALID_WP_FIRE = {
+            code: '3014',
+            desc: '开炮太频繁了，疑似作弊'
+        };
     }
 }
 

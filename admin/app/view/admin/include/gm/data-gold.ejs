@@ -1,0 +1,87 @@
+﻿            <div class="col-md-12">
+              <section class="panel">
+                <header class="panel-heading">
+                  <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+                    <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+                  </div>
+
+                  <h2 class="panel-title">
+                    <%= txt_title_data_gold %>
+                  </h2>
+                  <p class="panel-subtitle">
+                    <%= txt_content_data_gold %>
+                  </p>
+                </header>
+                <div class="panel-body">
+                  <div id="area-button" class="col-md-12">
+                  <button id="btn-query-gold" class="btn btn-primary hidden-xs">获取金币数据</button>
+                  </div>
+
+                  <!-- 按日期分类的数据表(显示输入的日期所有天的数据) -->
+                  <div id="div-date-list" class="col-md-8">
+
+        <table style="width: 100%;" class="table-striped table-bordered" id="table-date-list">
+            <tr>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                日期
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                活跃玩家
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                消耗金币总量
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                产出金币总量
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                最终金币存量
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                选择分类
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                操作
+                </th>
+            </tr>
+            <tr id="fake-table-date-list">
+            </tr>
+        </table>
+
+                  </div>
+
+                  <!-- 按类别分类的数据表(显示选中的那天) -->
+                  <div id="div-categery-list" class="col-md-4">
+
+        <table style="width: 100%;" class="table-striped table-bordered" id="table-categery-list">
+            <tr>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                类别
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                消耗金币总量
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                产出金币总量
+                </th>
+            </tr>
+            <tr id="fake-table-categery-list">
+            </tr>
+        </table>
+
+                  </div>
+
+                </div>
+              </section>
+            </div>

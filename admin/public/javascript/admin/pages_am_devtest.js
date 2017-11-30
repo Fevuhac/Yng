@@ -1,0 +1,25 @@
+﻿//调用
+$(document).ready(function () {
+    $("#menuitem_am_devtest").addClass("nav-active");
+    setSignup();
+    setSignin();
+    setAccount();
+    setGold();
+    setPearl();
+    setSkill();
+    setWeapon();
+    setShop();
+    setCDKey();
+    setCfg();
+    setBind();
+    setChangePassword();
+    setSdk();
+    setPay();
+    setOrder();
+    setUpdateAccount();
+    setRanking();
+    setUpdateAi();
+    setActive();
+    setMail();
+    setMsgBoard();
+});

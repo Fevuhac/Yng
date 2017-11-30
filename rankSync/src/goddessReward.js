@@ -7,29 +7,37 @@ class GoddessReward extends RankReward{
     }
 
     async handle(task, week){
+        /* yxl */ console.log('handle');
         super.handle(task, week);
     }
 
     _getUids(rankInfo) {
         let uids = [];
-        for (let i = 0; i < rankInfo.ranks.length; i++) {
-            uids.push(rankInfo.ranks[i].uid);
+        for (let uid in rankInfo.ranks) {
+            uids.push(uid);
         }
         return uids;
     }
 
-    generateChart(rankInfo) {
+    async generateChart(rankInfo, week) {
+        /* yxl */ console.log('2222222222222222222222222222rankInfo:', rankInfo);
+        /* yxl */ console.log('GoddessReward.generateChart');
         let uids = this._getUids(rankInfo);
+        if (uids.length == 0) {
+            return;
+        }
 
-        let maxWaves = await dbUtils.redisAccountSync.oneCmdAsync(['hmget', `${REDISKEY.MAX_WAVE}`]);
+        let maxWaves = await dbUtils.redisAccountSync.oneCmdAsync(['hmget', `${REDISKEY.MAX_WAVE}`, uids]);
+
+        /* yxl */ console.log('maxWaves', maxWaves);
 
         let cmds = [];
-        for (let i = 0; i < rankInfo.ranks.length; i++) {
-            let award = this._getDailyAward(task.awardType, rankInfo.ranks[i].rank);
-            cmds.push(['hset', `${REDISKEY.RANK_DAILY_AWARD}:${task.redisKey}`, rankInfo.ranks[i].uid, award]);
+        for (let uid in rankInfo.ranks) {
+            let award = this._getDailyAward(task.awardType, rankInfo.ranks[uid]);
+            cmds.push(['hset', `${REDISKEY.RANK_DAILY_AWARD}:${task.redisKey}`, uid, award]);
             if (week) {
-                award = this._getWeekAward(task.awardType, {rank:rankInfo.ranks[i].rank, wave:maxWaves[i]});
-                cmds.push(['hset', `${REDISKEY.RANK_WEEK_AWARD}:${task.redisKey}`, rankInfo.ranks[i].uid, award]);
+                award = this._getWeekAward(task.awardType, {rank:rankInfo.ranks[uid], wave:maxWaves[i]});
+                cmds.push(['hset', `${REDISKEY.RANK_WEEK_AWARD}:${task.redisKey}`, uid, award]);
             }
 
             if (cmds.length >= task.limit) {

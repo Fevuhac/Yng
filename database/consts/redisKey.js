@@ -3,25 +3,40 @@ const RANK_PREFIX = ':result';
 // RANK_RESULT_PREFIX:'result:',
 
 module.exports = {
-    getKey:function (field) {
-      return `${PREFIX}${field}`;
+    getKey: function (field) {
+        return `${PREFIX}${field}`;
     },
-    
-    getMysqlKey:function (redisKey) {
+
+    getMysqlKey: function (redisKey) {
         return redisKey.split(':')[2];
     },
 
-    getRankDataKey(field){
+    getRankDataKey(field) {
         return `${field}${RANK_PREFIX}`;
     },
 
 
-    PLATFORM_TYPE:{
-        ANDROID:1,
-        IOS:2
+    PLATFORM_TYPE: {
+        ANDROID: 1,
+        IOS: 2
     },
 
-    RANK:{
+    DATA_EVENT_SYNC:{
+        PLATFORM_CATCHRATE:'data_event_sync_platform_catchrate', //平台捕获率
+        PLAYER_CATCHRATE:'data_event_sync_player_catchRate', //玩家捕获率变化通知
+    },
+
+    PLATFORM_DATA: {
+        PUMPWATER: 'fishjoy:room:pumpwater', //系统收益率平衡，默认为1
+        PLATFORM_CATCHRATE: 'fishjoy:room:platformCatchRate', //捕鱼捕获率平台控制，默认为1
+        BONUSPOOL: 'fishjoy:platfrom:bonusPool', //奖池
+        PUMPPOOL: 'fishjoy:platfrom:pumpPool', //抽水池
+        PLATFORM_RECHARGE: 'fishjoy:platfrom:recharge', //平台充值总金额
+        PLATFORM_CASH: 'fishjoy:platfrom:cash', //平台兑现总额度
+        PLATFORM_GIVE: 'fishjoy:platfrom:give', //平台赠送金币总量
+    },
+
+    RANK: {
         // GOLD: "rank:gold", //金币排行
         // ACHIEVE: "rank:achieve", //成就排行
         GODDESS: "rank:goddess", //女神波数排行(每周重置、每天奖励、周奖励)
@@ -30,14 +45,20 @@ module.exports = {
         MATCH: "rank:match", //排位赛胜点（每月重置，月、天奖励、并继承上赛季的一些战绩：Math.floor(740 + Math.max(points - 800, 100) * 0.6)）
         AQUARIUM: "rank:aquarium", //宠物鱼总等级排行（10000名以内天奖励）
         CHARM: "rank:charm", //魅力值排行{10000名以内天奖励}
+        GAIN:"rank:gain",//盈排行榜
+        LOSS:"rank:loss",//亏排行榜
     },
 
-    UPDATED_UIDS:'updated_uids',
-    FLOWER_RECEIVE_WEEKLY:'flower_receive_weekly',
+    UPDATED_UIDS: 'updated_uids',
+    FLOWER_RECEIVE_WEEKLY: 'flower_receive_weekly',
 
-    RANK_DAILY_AWARD:PREFIX + 'rank_daily_award',
-    RANK_WEEK_AWARD:PREFIX + 'rank_week_award',
+    RANK_DAILY_AWARD: PREFIX + 'rank_daily_award',
+    RANK_WEEK_AWARD: PREFIX + 'rank_week_award',
 
+
+    "PLAYER_CATCHRATE": PREFIX + "player_catchRate", //玩家捕获率
+    "RECHARGE": PREFIX + "recharge", //玩家充值总额度
+    "CASH": PREFIX + "cash", //玩家兑现总额度
 
     //auto build base on keyTypeDef.js
     "ID": PREFIX + "id",

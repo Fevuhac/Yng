@@ -1,4 +1,5 @@
 const CryptoJS = require("crypto-js");
+const configReader = require('../config/configReader');
 
 function ResponseNoData(result) {
     let res = {};
@@ -17,7 +18,7 @@ function ResponseData(data,enc) {
     res.result = CONSTS.SYS_CODE.OK;
     if(enc){
         res.msg.enc = enc;
-        let encrypt_data = CryptoJS.AES.encrypt(JSON.stringify(data), sysDefaultConfg.dataDecryptKey);
+        let encrypt_data = CryptoJS.AES.encrypt(JSON.stringify(data), configReader.sysConfig.KEYS);
         res.msg.data = encodeURIComponent(encrypt_data);
     }
     else {

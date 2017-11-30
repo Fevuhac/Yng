@@ -1,0 +1,60 @@
+            <div class="col-md-12">
+              <section class="panel">
+                <header class="panel-heading">
+                  <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+                    <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+                  </div>
+
+                  <h2 class="panel-title">
+                    <%= txt_title_card_user_list %>
+                  </h2>
+                  <p class="panel-subtitle">
+                    <%= txt_content_card_user_list %>
+                    </p>
+                </header>
+                <div class="panel-body" id="panel-card-user-list">
+                  <button id="btn-get-carduser-list" class="btn btn-primary hidden-xs">获取月卡用户列表</button>
+
+                  <table style="width: 100%;" class="table-striped table-bordered" id="table_card_user_list">
+                    <tr>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        月卡开始时间
+                      </th>
+
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        用户ID
+                      </th>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        用户昵称
+                      </th>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        月卡等级(普通,土豪)
+                      </th>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        用户所在服务器ID
+                      </th>
+                      <th class="cell-padding cell-align-center cell-head"
+                          style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                        月卡当前状态
+                      </th>
+                    </tr>
+                    <tr id="fake-data-carduser-list">
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">start_date</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">end_date</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">uid</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">nickname</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">card_type</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">sid</td>
+                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">card_stat</td>
+                    </tr>
+                  </table>
+                  
+                </div>
+              </section>
+            </div>

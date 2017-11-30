@@ -1,0 +1,42 @@
+﻿<div class="col-md-12">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_setting %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_setting %>
+        </p>
+    </header>
+    <div class="panel-body">
+      
+      <form>
+        <img src="http://thirdapp2.qlogo.cn/qzopenapp/2eaee6da8ea3be0241f83d686689bbc4b8d30b870d605acb467c0906b3c2cc2b/50"/>
+        <div class="col-md-6 form-group mb-lg">
+          <label>选择连接地址</label>
+          <select id="select-url" class="form-control input-lg mb-md">
+            <option>..</option>
+            <option>http://192.169.7.180</option>
+            <option>http://192.169.7.180/dev</option>
+            <option>http://192.168.35.242:1337</option>
+            <option>http://106.75.95.208:3389</option>
+            <option>http://buyu.triumbest.net</option>
+          </select>
+        </div>
+        <div class="col-md-6 form-group mb-lg">
+          <label>选择是否加密</label>
+          <div class="checkbox-custom checkbox-default">
+            <input type="checkbox" checked="" id="checkboxAes">
+            <label for="checkboxAes">Use AES</label>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </section>
+</div>

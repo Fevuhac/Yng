@@ -1,0 +1,72 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_mail %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_mail %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- Form1 -->
+      <form id="mail-setting">
+        <div class="col-md-12 form-group mb-lg">
+          <label>邮件标题</label>
+          <input id="input-mail-title" name="title" type="text" class="form-control input-lg" value="测试邮件标题1" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>邮件内容</label>
+          <input id="input-mail-content" name="content" type="text" class="form-control input-lg" value="测试邮件内容1" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>邮件奖励</label>
+          <input id="input-mail-reward" name="reward" type="text" class="form-control input-lg" value='[["i001",1],["i002",2]]' />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>邮件类型</label>
+          <select id="input-mail-type" class="form-control input-lg mb-md">
+            <option value ="1">系统邮件</option>
+            <option value ="2">玩家邮件</option>
+          </select>
+        </div>
+      </form>
+      <button id="btn-set-mail" class="btn btn-primary hidden-xs">设置邮件信息</button>
+      <button id="btn-get-mail" class="btn btn-primary hidden-xs">获取邮件信息</button>
+      
+      <!-- Form2 -->
+      <form id="mail-list">
+        <div class="col-md-12 form-group mb-lg">
+          <label>id(客户端传回最大邮件ID，返回邮件ID应大于此值)</label>
+          <input id="input-max-mail-id" name="id" type="text" class="form-control input-lg" value="0" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>num(客户端请求的最大邮件数量)</label>
+          <input id="input-mail-num" name="num" type="text" class="form-control input-lg" value="10" />
+        </div>
+      </form>
+      <button id="btn-set-mail" class="btn btn-primary hidden-xs">获取邮件列表</button>
+    
+      <!-- Form3 -->
+      <form id="read-mail">
+        <div class="col-md-12 form-group mb-lg">
+          <label>id(客户端传回邮件ID，领取对应奖励并删除该邮件)</label>
+          <select id="input-read-mail-id" class="form-control input-lg mb-md">
+          </select>
+        </div>
+      </form>
+      <button id="btn-read-mail" class="btn btn-primary hidden-xs">领取邮件奖励</button>
+      
+    </div>
+  </section>
+</div>

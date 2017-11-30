@@ -22,7 +22,7 @@ class Player extends Entity{
     }
 
     send(route, msg){
-        messageService.send(route, msg, {uid: this._uid, sid: this._sid});
+        messageService.send(route, packMsg(msg), {uid: this._uid, sid: this._sid});
     }
 
 }

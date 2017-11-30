@@ -2,6 +2,8 @@ const config = require('../config');
 const consts = require('../consts');
 const async = require('async');
 const randomName = require("chinese-random-name");
+const redisClient = require('../../../../utils/import_db').redisClient;
+const redisAccountSync = require('../../../../utils/import_utils').redisAccountSync;
 
 class RobotBuilder {
     constructor() {
@@ -134,7 +136,7 @@ class RobotBuilder {
                 let skip = utils.random_int(0, num - 2);
 
                 logger.error('----------------机器人昵称分配', 'num:', num, "skip:",skip);
-                dbUtils.redisAccountSync.getHashValueLimit(dbConsts.REDISKEY.FIGURE_URL, skip, 2, (res, next) => {
+                redisAccountSync.getHashValueLimit(dbConsts.REDISKEY.FIGURE_URL, skip, 2, (res, next) => {
                     if (!!res && res.length > 0) {
                         let uid = res[0];
                         let figure_url = res[1];
@@ -148,7 +150,7 @@ class RobotBuilder {
                 });
 
             },function (uid, cb) {
-                dbUtils.redisAccountSync.getAccount(uid, [dbConsts.ACCOUNTKEY.NICKNAME], cb);
+                redisAccountSync.getAccount(uid, [dbConsts.ACCOUNTKEY.NICKNAME], cb);
             }], function (err, account) {
                 if(err){
                     resolve(info);

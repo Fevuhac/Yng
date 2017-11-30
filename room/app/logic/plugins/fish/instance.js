@@ -2,7 +2,11 @@ const Scene = require('./scene');
 const Player = require('./entity/player');
 const Entry = require('./entry');
 const robotController = require('./robot/robotController');
-const config = require('./config')
+const config = require('./config');
+const VietnamCost = require('./gamePlay/vietnamCost');
+const Cost = require('./gamePlay/cost');
+const sharedHelper = require('./sharedHelper');
+
 class Instance {
     constructor() {
         this.scenes = new Map();
@@ -23,6 +27,8 @@ class Instance {
             this._kickOfflineTimer = setInterval(this.kick_offline_player.bind(this), config.PLAYER.KICK_OFFLINE_CHECK_TIMEOUT);
         }
 
+        this.loadGamePlay();
+
     }
 
     stop() {
@@ -31,6 +37,19 @@ class Instance {
             this._vacancyQueryTimer = null;
         }
         robotController.stop();
+    }
+
+    loadGamePlay(){
+        switch (sysConfig.PUB){
+            case sysConfig.GAMEPLAY.VIETNAM:
+                sharedHelper.cost = new VietnamCost();
+                break;
+            case sysConfig.GAMEPLAY.CHINA:
+                sharedHelper.cost = new Cost();
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -122,13 +141,15 @@ class Instance {
         }
         let scene = this.scenes.get(data.sceneType);
         if (!scene) {
-            utils.invokeCallback(cb, null)
+            logger.error('setPlayerState data - ', data);
+            utils.invokeCallback(cb, CONSTS.SYS_CODE.PALYER_GAME_ROOM_DISMISS)
             return
         }
         let room = scene.getSceneRoom(data.uid)
         if(!!room && room.setPlayerState(data.uid, data.state, data.sid)){
             utils.invokeCallback(cb, null, room.roomId);
         }else{
+            logger.error('setPlayerState dat222a - ', data, room);
             utils.invokeCallback(cb, CONSTS.SYS_CODE.PALYER_GAME_ROOM_DISMISS);
         }
     }

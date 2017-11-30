@@ -87,7 +87,7 @@ class Connector {
                             // console.log(sql, param);
                             if (err) {
                                 connection.rollback(function () {
-                                    console.log("事务失败，" + sql_param + "，ERROR：" + err);
+                                    console.log("事务失败，", sql_param, " ERROR：", err);
                                     connection.release();
                                     // throw err;
                                 });
@@ -109,9 +109,9 @@ class Connector {
                     } else {
                         connection.commit(function (err, info) {
                             if (err) {
-                                console.log("执行事务失败，" + err);
+                                console.log("执行事务失败，", err);
                                 connection.rollback(function (err) {
-                                    console.log("transaction error: " + err);
+                                    console.log("transaction error: ", err);
                                     connection.release();
                                     return callback(err, null);
                                 });

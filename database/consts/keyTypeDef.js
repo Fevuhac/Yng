@@ -71,12 +71,12 @@ exports.AccountDef = {
     "gold": {
         "def": 1000,
         "type": "number",
-        "inc":true
+        "inc": true
     },
     "pearl": {
         "def": 0,
         "type": "number",
-        "inc":true
+        "inc": true
     },
     "weapon": {
         "def": 1,
@@ -157,7 +157,7 @@ exports.AccountDef = {
     "exp": {
         "def": 0,
         "type": "number",
-        "inc":true
+        "inc": true
     },
     "level": {
         "def": 1,
@@ -418,9 +418,21 @@ exports.AccountDef = {
         "def": "",
         "type": "string"
     },
-    "game_friend":{
+    "game_friend": {
         "def": [],
         "type": "object"
+    },
+    "playerCatchRate": {
+        "def": 1,
+        "type": "number"
+    },
+    "recharge": {
+        "def": 0,
+        "type": "number"
+    },
+    "cash": {
+        "def": 0,
+        "type": "number"
     }
 };
 

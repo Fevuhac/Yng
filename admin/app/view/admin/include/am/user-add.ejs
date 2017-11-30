@@ -1,0 +1,46 @@
+﻿<div class="col-md-3">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_user_add %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_user_add %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <form id="add-shop-log">
+
+        <div class="form-group mb-lg">
+          <label>用户名</label>
+          <input id="input-user-name" name="user_name" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>输入密码</label>
+          <input id="input-user-pwd" name="user_pwd" type="password" class="form-control input-lg" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>密码确认</label>
+          <input id="input-user-pwd-confirm" name="user_pwd_confirm" type="password" class="form-control input-lg" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>用户角色</label>
+          <input id="input-user-role" name="user_role" type="text" class="form-control input-lg" />
+        </div>
+
+      </form>
+
+      <button id="btn-add-user" type="submit" class="btn btn-primary hidden-xs">添加用户</button>
+      
+    </div>
+  </section>
+</div>

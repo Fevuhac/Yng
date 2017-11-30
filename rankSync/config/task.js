@@ -66,7 +66,7 @@ module.exports = {
     },
     //排行榜生成
     rankBuild: {
-        enable: false,
+        enable: true,
         time: '*/5,*,*,*,*,*',
         subTask: [
             {
@@ -117,12 +117,28 @@ module.exports = {
                 showDetail: 100,
                 ext: [ACCOUNTKEY.NICKNAME, ACCOUNTKEY.FIGURE_URL, ACCOUNTKEY.SEX]
             },
+            {
+                redisKey: REDISKEY.RANK.GAIN,
+                originScore: null,
+                range: 10000,
+                limit: 1000,
+                showDetail: 100,
+                ext: [ACCOUNTKEY.NICKNAME, ACCOUNTKEY.FIGURE_URL, ACCOUNTKEY.SEX]
+            },
+            {
+                redisKey: REDISKEY.RANK.LOSS,
+                originScore: null,
+                range: 10000,
+                limit: 1000,
+                showDetail: 100,
+                ext: [ACCOUNTKEY.NICKNAME, ACCOUNTKEY.FIGURE_URL, ACCOUNTKEY.SEX]
+            }
         ]
     },
     //排行奖励、重置
     rankReward: {
-        enable: true,
-        time: '*/3,*,*,*,*,*',
+        enable: false,
+        time: '0,*/1,*,*,*,*',
         //time: '0,0,0,*,*,*', //每天0点执行
         subTask: [
             {

@@ -205,7 +205,7 @@ function _getAccount(uid, fields, cb) {
 
 function _getAccountAsync(uid, fields) {
     let promise = new Promise(function (resolve, reject) {
-        _getAccount(uid, fields, function (err, result) {
+        _getAccount(uid, fields,function (err,result) {
             if(err){
                 reject(err);
             }

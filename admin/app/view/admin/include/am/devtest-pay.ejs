@@ -1,0 +1,72 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_pay %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_pay %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+
+      <!-- 白鹭支付模拟 -->
+      <form>
+        <div class="col-md-12 form-group mb-lg">
+          <label>orderId</label>
+          <input id="input-pay-order-id" name="orderId" type="text" class="form-control input-lg" value="1" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>id</label>
+          <input id="input-pay-id" name="id" type="text" class="form-control input-lg" value="1" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>money</label>
+          <input id="input-pay-money" name="money" type="text" class="form-control input-lg" value="1" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>time</label>
+          <input id="input-pay-time" name="time" type="text" class="form-control input-lg" value="1" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>serverId</label>
+          <input id="input-pay-server-id" name="serverId" type="text" class="form-control input-lg" value="1" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>goodsId</label>
+          <input id="input-pay-goods-id" name="goodsId" type="text" class="form-control input-lg" value="1" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>goodsNumber</label>
+          <input id="input-pay-goods-number" name="goodsNumber" type="text" class="form-control input-lg" value="1" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>ext</label>
+          <input id="input-pay-ext" name="ext" type="text" class="form-control input-lg" value='{"game_order_id":"201611070000000012"}' />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>sign</label>
+          <input id="input-pay-sign" name="sign" type="text" class="form-control input-lg" value="123456" />
+        </div>
+      </form>
+
+      <button id="btn-simulate-egret-pay" class="btn btn-primary hidden-xs">支付</button>
+      <button id="btn-simulate-egret-pay-callback" class="btn btn-primary hidden-xs">回调</button>
+      
+    </div>
+  </section>
+</div>

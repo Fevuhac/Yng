@@ -1,4 +1,6 @@
 const pomelo = require('pomelo');
+const redisClient = require('../../utils/import_db').redisClient;
+const redisAccountSync = require('../../utils/import_utils').redisAccountSync;
 
 class Auth {
     constructor() {
@@ -34,7 +36,7 @@ class Auth {
 
     authenticate(token, cb){
         let uid = this._getUidByToken(token);
-        dbUtils.redisAccountSync.accountCheck(uid, function (err, platform) {
+        redisAccountSync.accountCheck(uid, function (err, platform) {
             if(!!err && err === 500){
                 utils.invokeCallback(cb, CONSTS.SYS_CODE.DB_ERROR);
                 return;

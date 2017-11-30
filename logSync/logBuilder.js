@@ -18,7 +18,7 @@ class LogBuilder {
     }
 
     _genNow() {
-        return moment(new Date()).format('YYYY-MM-DD hh:mm:ss'); //坑爹：注意此处格式化，否则数据库可能写入失败
+        return moment(new Date()).format('YYYY-MM-DD HH:mm:ss'); //坑爹：注意此处格式化，否则数据库可能写入失败
     }
 
     /**

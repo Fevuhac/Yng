@@ -1,3 +1,5 @@
+const ACCOUNTKEY = require('../../../utils/import_def').ACCOUNTKEY;
+
 module.exports = {
     GAME_MODE: {
         SINGLE: 0, //单人模式
@@ -6,10 +8,10 @@ module.exports = {
         GODDESS: 3 //保卫女神
     },
     SKILL_ID: {
-        SK_FREEZ: 1,     //冰冻技能,与表对应，可能不连续，下同
-        SK_AIM: 2,      //锁定自动瞄准技能
-        SK_CALL: 3,      //召唤技能
-        SK_LASER: 4,     //激光
+        SK_FREEZ: 1, //冰冻技能,与表对应，可能不连续，下同
+        SK_AIM: 2, //锁定自动瞄准技能
+        SK_CALL: 3, //召唤技能
+        SK_LASER: 4, //激光
         SK_NBOMB0: 8, //青铜弹头
         SK_NBOMB1: 9, //白银弹头
         SK_NBOMB2: 10, //黄金弹头
@@ -30,16 +32,16 @@ module.exports = {
     },
 
     FIGHTING_NOTIFY: {
-        WP_SKIN: 0,      //切换武器皮肤
-        WP_LEVEL: 1,     //切换武器倍率
+        WP_SKIN: 0, //切换武器皮肤
+        WP_LEVEL: 1, //切换武器倍率
     },
 
     FIRE_FLAG: {
         NORMAL: 0, //普通命中
         LIGHTING: 1, //鱼闪电技能命中
         BOMB: 2, //鱼炸弹技能命中
-        NBOMB: 3,   //被核弹打中
-        LASER: 4,    //被激光打中
+        NBOMB: 3, //被核弹打中
+        LASER: 4, //被激光打中
     },
 
     FLUSH_EVENT: Symbol('flushFish'),
@@ -49,21 +51,24 @@ module.exports = {
         PLAYER: 0,
         ROBOT: 1,
     },
+
     PLAYER_BASE_INFO_FIELDS: [
-        dbConsts.ACCOUNTKEY.NICKNAME,
-        dbConsts.ACCOUNTKEY.LEVEL,
-        dbConsts.ACCOUNTKEY.WEAPON,
-        dbConsts.ACCOUNTKEY.WEAPON_SKIN,
-        dbConsts.ACCOUNTKEY.GOLD,
-        dbConsts.ACCOUNTKEY.PEARL,
-        dbConsts.ACCOUNTKEY.VIP,
-        dbConsts.ACCOUNTKEY.COMEBACK,
-        dbConsts.ACCOUNTKEY.WEAPON_ENERGY,
-        dbConsts.ACCOUNTKEY.HEARTBEAT,
-        dbConsts.ACCOUNTKEY.ROIPCT_TIME,
-        dbConsts.ACCOUNTKEY.SKILL,
-        dbConsts.ACCOUNTKEY.EXP,
-        dbConsts.ACCOUNTKEY.FIGURE_URL,
+        ACCOUNTKEY.NICKNAME,
+        ACCOUNTKEY.LEVEL,
+        ACCOUNTKEY.WEAPON,
+        ACCOUNTKEY.WEAPON_SKIN,
+        ACCOUNTKEY.GOLD,
+        ACCOUNTKEY.PEARL,
+        ACCOUNTKEY.VIP,
+        ACCOUNTKEY.COMEBACK,
+        ACCOUNTKEY.WEAPON_ENERGY,
+        ACCOUNTKEY.HEARTBEAT,
+        ACCOUNTKEY.ROIPCT_TIME,
+        ACCOUNTKEY.SKILL,
+        ACCOUNTKEY.EXP,
+        ACCOUNTKEY.FIGURE_URL,
+        ACCOUNTKEY.BONUS,
+        ACCOUNTKEY.PLAYERCATCHRATE
     ],
 
 };

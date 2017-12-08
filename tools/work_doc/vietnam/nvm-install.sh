@@ -1,9 +1,9 @@
 #!/usr/bin/expect
 
-# 安装
+# 部署nvm
 
 if {$argc<3} {
-puts stderr "Usage: $argv0 host user passwd node_version"
+puts stderr "Usage: $argv0 host user passwd"
 exit 1
 }
 
@@ -20,11 +20,7 @@ expect {
 }
 
 expect "*]#"
-send "sudo -s\r"
-send "cd /home/\r"
-send "mkdir -p fishjoy\r"
-send "cd fishjoy\r"
-send "npm install --production\r"
-expect "*]#"
-send "exit\r"
+send "curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash\r"
+expect '*]#'
 # interact
+send "exit\r"

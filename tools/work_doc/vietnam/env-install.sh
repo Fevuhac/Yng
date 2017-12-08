@@ -1,9 +1,9 @@
 #!/usr/bin/expect
 
-# 部署nvm
+# 安装运行环境
 
 if {$argc<3} {
-puts stderr "Usage: $argv0 host user passwd "
+puts stderr "Usage: $argv0 host user passwd install_path"
 exit 1
 }
 
@@ -19,8 +19,12 @@ expect {
 "*password:" { send "$password\r" }
 }
 
-expect "*#"
-send "curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash\r"
+expect "*]#"
+send "npm install forever -g\r"
 expect '*]#'
-send "exit\r"
+send "npm install pomelo -g\r"
+expect '*]#'
+send "yum -y install sysstat\r"
+expect '*]#'
+# interact
 send "exit\r"

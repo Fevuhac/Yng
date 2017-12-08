@@ -1,11 +1,11 @@
 #!/usr/bin/expect
 
-#noscp.sh
-#无密码拷贝文件
-# ./noscp.sh 本地文件 远程路径 远程用户密码
+#scp.sh
+#远程拷贝文件
+# ./scp.sh 本地文件 远程路径 远程用户密码
  
 if {$argc<4} {
-puts stderr "Usage: $argv0 localfile remotefile user passwd "
+puts stderr "Usage: $argv0 localfile remotefile user password "
 exit 1
 }
  

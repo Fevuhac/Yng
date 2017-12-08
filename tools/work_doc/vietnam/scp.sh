@@ -23,4 +23,5 @@ expect {
 "*password:" { send "$password\r" }
 }
  
-expect eof
+expect '*]#'
+send "exit\r"

@@ -3,7 +3,7 @@
 # 安装
 
 if {$argc<3} {
-puts stderr "Usage: $argv0 host user passwd node_version"
+puts stderr "Usage: $argv0 host user passwd"
 exit 1
 }
 
@@ -21,9 +21,7 @@ expect {
 
 expect "*]#"
 send "sudo -s\r"
-send "cd /home/\r"
-send "mkdir -p fishjoy\r"
-send "cd fishjoy\r"
+send "cd /home/fishjoy\r"
 send "npm install --production\r"
 expect "*]#"
 send "exit\r"

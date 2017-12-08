@@ -16,17 +16,17 @@ var	fish_fish_cfg =
 		pendant : ["bossfx_100"],    //--挂件，目前是鱼数组
 		pendant_param : [[0,-40,1.1]],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [300,900],    //--刷新频率秒
+		in_interval : [200,400],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 8,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [100,400],    //--分值
 		drop_pack_id : "dly",    //--掉落包id组
 		move_speed : 20,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.004,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'haima_boss' : {
@@ -45,17 +45,17 @@ var	fish_fish_cfg =
 		pendant : ["bossfx_100"],    //--挂件，目前是鱼数组
 		pendant_param : [[0,-40,1.1]],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [900,1200],    //--刷新频率秒
+		in_interval : [400,600],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 8,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [50,250],    //--分值
 		drop_pack_id : "hm",    //--掉落包id组
 		move_speed : 20,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.006667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'baoxiangyu' : {
@@ -78,13 +78,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 223,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [16],    //--初始技能
 		born_hp : 1,    //--初始血量
 		gold_point : 1,    //--分值
 		drop_pack_id : "bxy",    //--掉落包id组
 		move_speed : 400,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'dabaisha_jj' : {
@@ -103,17 +103,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [45,90],    //--刷新频率秒
+		in_interval : [35,60],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 4,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,100],    //--分值
 		drop_pack_id : "jjdbs",    //--掉落包id组
 		move_speed : 49,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.018182,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'sanshengyu_jj' : {
@@ -132,17 +132,17 @@ var	fish_fish_cfg =
 		pendant : ["hetun_huang_gj", "baoshiyu_lan_gj", "baoshiyu_lan_gj"],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [40,80],    //--刷新频率秒
+		in_interval : [30,40],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 4,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,80],    //--分值
 		drop_pack_id : "p3",    //--掉落包id组
 		move_speed : 49,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.022222,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'moguiyu_lan' : {
@@ -161,17 +161,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1.2,    //--体型缩放
-		in_interval : [15,30],    //--刷新频率秒
+		in_interval : [15,20],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,60],    //--分值
 		drop_pack_id : "mgyl",    //--掉落包id组
 		move_speed : 46,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'shuangshengyu_jj' : {
@@ -190,17 +190,17 @@ var	fish_fish_cfg =
 		pendant : ["baoshiyu_zi_gj", "baoshiyu_zi_gj"],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [35,60],    //--刷新频率秒
+		in_interval : [25,40],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,60],    //--分值
 		drop_pack_id : "p2",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'dabaisha' : {
@@ -219,17 +219,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [12,18],    //--刷新频率秒
+		in_interval : [10,16],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,40],    //--分值
 		drop_pack_id : "dbs",    //--掉落包id组
 		move_speed : 49,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'shuimu_jj' : {
@@ -248,17 +248,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [25,50],    //--刷新频率秒
+		in_interval : [20,35],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,40],    //--分值
 		drop_pack_id : "jjsm",    //--掉落包id组
 		move_speed : 49,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'haitun' : {
@@ -283,11 +283,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,40],    //--分值
 		drop_pack_id : "ht",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'cheqiyu_jj' : {
@@ -306,17 +306,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [20,40],    //--刷新频率秒
+		in_interval : [15,25],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,30],    //--分值
 		drop_pack_id : "jjcqy",    //--掉落包id组
 		move_speed : 46,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'shuimu' : {
@@ -341,11 +341,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,20],    //--分值
 		drop_pack_id : "sm",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'baofangfu_lan' : {
@@ -370,11 +370,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "bffl",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'haigui' : {
@@ -394,16 +394,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
 		in_interval : [5,9],    //--刷新频率秒
-		in_percent : [33,33,34],    //--条数概率
+		in_percent : [50,50],    //--条数概率
 		in_path : 1,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "hg",    //--掉落包id组
 		move_speed : 62,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'jianyu' : {
@@ -423,16 +423,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
 		in_interval : [4,7],    //--刷新频率秒
-		in_percent : [33,33,34],    //--条数概率
+		in_percent : [50,50],    //--条数概率
 		in_path : 6,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "jy",    //--掉落包id组
 		move_speed : 59,    //--移动速度
 		escape_speed : 118,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'baozhay' : {
@@ -451,17 +451,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [40,80],    //--刷新频率秒
+		in_interval : [40,60],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 1,    //--路径ID
-		death_skill_id : [],    //--死亡技能
+		death_skill_id : [2],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
 		gold_point : 1,    //--分值
 		drop_pack_id : "bzy",    //--掉落包id组
 		move_speed : 64,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 1000,    //--鱼基本概率
+		fishbasepct : 0.1,    //--鱼基本概率
 		mapct : 0.25,    //--修正参数A
 	},
 	'dianman' : {
@@ -480,17 +480,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [40,80],    //--刷新频率秒
+		in_interval : [40,60],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 8,    //--路径ID
-		death_skill_id : [],    //--死亡技能
+		death_skill_id : [1],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
 		gold_point : 1,    //--分值
 		drop_pack_id : "dm",    //--掉落包id组
 		move_speed : 59,    //--移动速度
 		escape_speed : 118,    //--逃跑速度
-		fishbasepct : 1000,    //--鱼基本概率
+		fishbasepct : 0.1,    //--鱼基本概率
 		mapct : 0.2,    //--修正参数A
 	},
 	'jiaodie_huang' : {
@@ -515,11 +515,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "jdh",    //--掉落包id组
 		move_speed : 73,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'baoshiyu_lan' : {
@@ -539,16 +539,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 0.75,    //--体型缩放
 		in_interval : [3,5],    //--刷新频率秒
-		in_percent : [25,25,25,25],    //--条数概率
+		in_percent : [33,33,34],    //--条数概率
 		in_path : 1,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "bsyl",    //--掉落包id组
 		move_speed : 62,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'duanhuibiyu_huang' : {
@@ -568,16 +568,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 0.9,    //--体型缩放
 		in_interval : [3,5],    //--刷新频率秒
-		in_percent : [25,25,25,25],    //--条数概率
+		in_percent : [33,33,34],    //--条数概率
 		in_path : 0,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "dhbyh",    //--掉落包id组
 		move_speed : 66,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'xiaochouyu_huang' : {
@@ -597,16 +597,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 0.9,    //--体型缩放
 		in_interval : [2,3],    //--刷新频率秒
-		in_percent : [20,20,20,20,20],    //--条数概率
+		in_percent : [25,25,25,25],    //--条数概率
 		in_path : 6,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "xcyh",    //--掉落包id组
 		move_speed : 81,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'shuijingyu' : {
@@ -626,16 +626,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 0.9,    //--体型缩放
 		in_interval : [2,3],    //--刷新频率秒
-		in_percent : [20,20,20,20,20],    //--条数概率
+		in_percent : [25,25,25,25],    //--条数概率
 		in_path : 0,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "sjy",    //--掉落包id组
 		move_speed : 73,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'jinqiangyu' : {
@@ -655,7 +655,7 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
 		in_interval : [1,2],    //--刷新频率秒
-		in_percent : [5,10,15,25,25,20],    //--条数概率
+		in_percent : [35,25,20,15,5],    //--条数概率
 		in_path : 0,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
@@ -664,7 +664,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "jqy",    //--掉落包id组
 		move_speed : 81,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'meirenyu_boss' : {
@@ -683,17 +683,17 @@ var	fish_fish_cfg =
 		pendant : ["bossfx_100"],    //--挂件，目前是鱼数组
 		pendant_param : [[0,-50,1.1]],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [300,900],    //--刷新频率秒
+		in_interval : [300,400],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 8,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [100,500],    //--分值
 		drop_pack_id : "mry",    //--掉落包id组
 		move_speed : 20,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.003333,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'haigui_jj' : {
@@ -712,17 +712,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 0.8,    //--体型缩放
-		in_interval : [60,120],    //--刷新频率秒
+		in_interval : [45,70],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [20,140],    //--分值
 		drop_pack_id : "jjhg",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.0125,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'chuitousha' : {
@@ -741,17 +741,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [20,40],    //--刷新频率秒
+		in_interval : [20,30],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,100],    //--分值
 		drop_pack_id : "cts",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.018182,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'haitun_jj' : {
@@ -770,17 +770,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [35,70],    //--刷新频率秒
+		in_interval : [25,40],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,60],    //--分值
 		drop_pack_id : "jjht",    //--掉落包id组
 		move_speed : 46,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'dinianyu_zi' : {
@@ -800,16 +800,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
 		in_interval : [5,9],    //--刷新频率秒
-		in_percent : [33,33,34],    //--条数概率
+		in_percent : [50,50],    //--条数概率
 		in_path : 1,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "dnyz",    //--掉落包id组
 		move_speed : 64,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'diaoyu' : {
@@ -829,16 +829,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
 		in_interval : [4,7],    //--刷新频率秒
-		in_percent : [33,33,34],    //--条数概率
+		in_percent : [50,50],    //--条数概率
 		in_path : 1,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "dy",    //--掉落包id组
 		move_speed : 59,    //--移动速度
 		escape_speed : 118,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'hetun_huang' : {
@@ -863,11 +863,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "hth",    //--掉落包id组
 		move_speed : 66,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'jiaodie_lan' : {
@@ -892,11 +892,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "jdl",    //--掉落包id组
 		move_speed : 73,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'baoshiyu_zi' : {
@@ -916,16 +916,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 0.75,    //--体型缩放
 		in_interval : [3,5],    //--刷新频率秒
-		in_percent : [25,25,25,25],    //--条数概率
+		in_percent : [33,33,34],    //--条数概率
 		in_path : 1,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "bsyz",    //--掉落包id组
 		move_speed : 62,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'duanhuibiyu_lan' : {
@@ -945,16 +945,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 0.9,    //--体型缩放
 		in_interval : [3,5],    //--刷新频率秒
-		in_percent : [25,25,25,25],    //--条数概率
+		in_percent : [33,33,34],    //--条数概率
 		in_path : 0,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "dhbyl",    //--掉落包id组
 		move_speed : 66,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'feicuiyu' : {
@@ -974,16 +974,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 0.9,    //--体型缩放
 		in_interval : [2,3],    //--刷新频率秒
-		in_percent : [20,20,20,20,20],    //--条数概率
+		in_percent : [25,25,25,25],    //--条数概率
 		in_path : 0,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "fcy",    //--掉落包id组
 		move_speed : 73,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'caomeiyu' : {
@@ -1003,7 +1003,7 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
 		in_interval : [1,2],    //--刷新频率秒
-		in_percent : [5,10,15,25,25,20],    //--条数概率
+		in_percent : [35,25,20,15,5],    //--条数概率
 		in_path : 0,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
@@ -1012,7 +1012,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "cmy",    //--掉落包id组
 		move_speed : 81,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'huafeiyu1' : {
@@ -1037,11 +1037,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 100,    //--分值
 		drop_pack_id : "huafeiyu1",    //--掉落包id组
 		move_speed : 80,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.01,    //--鱼基本概率
 		mapct : 0.9,    //--修正参数A
 	},
 	'huafeiyu2' : {
@@ -1066,11 +1066,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 100,    //--分值
 		drop_pack_id : "huafeiyu2",    //--掉落包id组
 		move_speed : 80,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.01,    //--鱼基本概率
 		mapct : 0.9,    //--修正参数A
 	},
 	'huafeiyu3' : {
@@ -1095,11 +1095,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 100,    //--分值
 		drop_pack_id : "huafeiyu3",    //--掉落包id组
 		move_speed : 80,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.01,    //--鱼基本概率
 		mapct : 0.9,    //--修正参数A
 	},
 	'huafeiyu4' : {
@@ -1124,11 +1124,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 100,    //--分值
 		drop_pack_id : "huafeiyu4",    //--掉落包id组
 		move_speed : 80,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.01,    //--鱼基本概率
 		mapct : 0.9,    //--修正参数A
 	},
 	'zhangyu_boss' : {
@@ -1147,17 +1147,17 @@ var	fish_fish_cfg =
 		pendant : ["bossfx_100"],    //--挂件，目前是鱼数组
 		pendant_param : [[0,-40,1.1]],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [300,900],    //--刷新频率秒
+		in_interval : [300,400],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 7,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [100,600],    //--分值
 		drop_pack_id : "zy",    //--掉落包id组
 		move_speed : 20,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.002857,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'moguiyu_jj' : {
@@ -1176,17 +1176,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [60,120],    //--刷新频率秒
+		in_interval : [50,80],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [20,140],    //--分值
 		drop_pack_id : "jjmgy_s",    //--掉落包id组
 		move_speed : 42,    //--移动速度
 		escape_speed : 84,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.0125,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'suolianyu_jj' : {
@@ -1205,17 +1205,17 @@ var	fish_fish_cfg =
 		pendant : ["baoshiyu_lan_gj", "baoshiyu_lan_gj", "baoshiyu_lan_gj", "baoshiyu_lan_gj"],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [50,100],    //--刷新频率秒
+		in_interval : [40,60],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [20,120],    //--分值
 		drop_pack_id : "p4_s",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.014286,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'hujing' : {
@@ -1234,17 +1234,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1.2,    //--体型缩放
-		in_interval : [25,50],    //--刷新频率秒
+		in_interval : [20,30],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [20,120],    //--分值
 		drop_pack_id : "hj",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.014286,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'moguiyu_hong' : {
@@ -1263,17 +1263,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1.2,    //--体型缩放
-		in_interval : [15,30],    //--刷新频率秒
+		in_interval : [15,20],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,60],    //--分值
 		drop_pack_id : "mgyh",    //--掉落包id组
 		move_speed : 46,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'pipashuyu' : {
@@ -1293,16 +1293,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
 		in_interval : [9,14],    //--刷新频率秒
-		in_percent : [50,50],    //--条数概率
+		in_percent : [100],    //--条数概率
 		in_path : 1,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,30],    //--分值
 		drop_pack_id : "ppsy",    //--掉落包id组
 		move_speed : 64,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'shuimu_lan' : {
@@ -1327,11 +1327,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,20],    //--分值
 		drop_pack_id : "sml",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'baofangfu_zi' : {
@@ -1356,11 +1356,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "bffz",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'hetun_lan' : {
@@ -1385,11 +1385,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "htl",    //--掉落包id组
 		move_speed : 66,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'xiaochouyu_lan' : {
@@ -1409,16 +1409,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 0.9,    //--体型缩放
 		in_interval : [2,3],    //--刷新频率秒
-		in_percent : [20,20,20,20,20],    //--条数概率
+		in_percent : [25,25,25,25],    //--条数概率
 		in_path : 6,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "xcyl",    //--掉落包id组
 		move_speed : 81,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'cheqiyu' : {
@@ -1438,16 +1438,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
 		in_interval : [2,3],    //--刷新频率秒
-		in_percent : [20,20,20,20,20],    //--条数概率
+		in_percent : [25,25,25,25],    //--条数概率
 		in_path : 0,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "cqy",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'longgui_boss' : {
@@ -1466,17 +1466,17 @@ var	fish_fish_cfg =
 		pendant : ["bossfx_100"],    //--挂件，目前是鱼数组
 		pendant_param : [[0,-50,1.1]],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [300,900],    //--刷新频率秒
+		in_interval : [300,400],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 7,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [100,800],    //--分值
 		drop_pack_id : "lg",    //--掉落包id组
 		move_speed : 20,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.002222,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'hujing_jj' : {
@@ -1495,17 +1495,17 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1.2,    //--体型缩放
-		in_interval : [80,160],    //--刷新频率秒
+		in_interval : [60,100],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [50,200],    //--分值
 		drop_pack_id : "jjhj_c",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 80,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.008,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'dapanyu_jj' : {
@@ -1524,17 +1524,17 @@ var	fish_fish_cfg =
 		pendant : ["chuitousha_gj", "hetun_huang_gj", "hetun_huang_gj", "hetun_huang_gj", "hetun_huang_gj"],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [70,140],    //--刷新频率秒
+		in_interval : [55,90],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [40,160],    //--分值
 		drop_pack_id : "p5_c",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 84,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.01,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'dinianyu_lan' : {
@@ -1554,16 +1554,16 @@ var	fish_fish_cfg =
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
 		in_interval : [5,9],    //--刷新频率秒
-		in_percent : [33,33,34],    //--条数概率
+		in_percent : [50,50],    //--条数概率
 		in_path : 1,    //--路径ID
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "dnyl",    //--掉落包id组
 		move_speed : 64,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.95,    //--修正参数A
 	},
 	'hetun_huang_gj' : {
@@ -1588,11 +1588,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "hth",    //--掉落包id组
 		move_speed : 66,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'baoshiyu_lan_gj' : {
@@ -1617,11 +1617,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "bsyl",    //--掉落包id组
 		move_speed : 62,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'baoshiyu_zi_gj' : {
@@ -1646,11 +1646,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "bsyz",    //--掉落包id组
 		move_speed : 62,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'chuitousha_gj' : {
@@ -1675,11 +1675,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 60,    //--分值
 		drop_pack_id : "cts",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.016667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'shuijingyu_10' : {
@@ -1704,11 +1704,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "sjy",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'dabaisha_10' : {
@@ -1733,11 +1733,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 30,    //--分值
 		drop_pack_id : "dbs",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.033333,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'xiaochouyu_huang_10' : {
@@ -1762,11 +1762,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "xcyh",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'hujing_10' : {
@@ -1791,11 +1791,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 80,    //--分值
 		drop_pack_id : "hj",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.0125,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'hetun_huang_10' : {
@@ -1820,11 +1820,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "hth",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'jiaodie_huang_10' : {
@@ -1849,11 +1849,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "jdh",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'moguiyu_lan_10' : {
@@ -1878,11 +1878,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 40,    //--分值
 		drop_pack_id : "mgyl",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.025,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'chuitousha_10' : {
@@ -1907,11 +1907,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 60,    //--分值
 		drop_pack_id : "cts",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.016667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'caomeiyu_10' : {
@@ -1940,7 +1940,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "cmy",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'shuimu_10' : {
@@ -1965,11 +1965,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 10,    //--分值
 		drop_pack_id : "sm",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.1,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'haigui_10' : {
@@ -1994,11 +1994,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "hg",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'baoshiyu_lan_10' : {
@@ -2023,11 +2023,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "bsyl",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'duanhuibiyu_huang_10' : {
@@ -2052,11 +2052,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "dhbyh",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'baofangfu_lan_10' : {
@@ -2081,11 +2081,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 10,    //--分值
 		drop_pack_id : "bffl",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.1,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'jinqiangyu_10' : {
@@ -2114,7 +2114,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "jqy",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'dianman_10' : {
@@ -2136,14 +2136,14 @@ var	fish_fish_cfg =
 		in_interval : [9999],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 300,    //--路径ID
-		death_skill_id : [],    //--死亡技能
+		death_skill_id : [1],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "dm",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 118,    //--逃跑速度
-		fishbasepct : 1000,    //--鱼基本概率
+		fishbasepct : 0.02,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'haitun_10' : {
@@ -2168,11 +2168,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "ht",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'haigui_jj_10' : {
@@ -2197,11 +2197,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 100,    //--分值
 		drop_pack_id : "jjhg",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.01,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'denglongyu_boss_10' : {
@@ -2226,11 +2226,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 200,    //--分值
 		drop_pack_id : "dly",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.005,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'meirenyu_boss_10' : {
@@ -2255,11 +2255,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 250,    //--分值
 		drop_pack_id : "mry",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.004,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'dinianyu_lan_10' : {
@@ -2284,11 +2284,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "dnyl",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'pipashuyu_10' : {
@@ -2313,11 +2313,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "ppsy",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'diaoyu_10' : {
@@ -2342,11 +2342,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "dy",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 118,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'cheqiyu_10' : {
@@ -2371,11 +2371,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "cqy",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'jianyu_10' : {
@@ -2400,11 +2400,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "jy",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 118,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'zhangyu_boss_10' : {
@@ -2429,11 +2429,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 250,    //--分值
 		drop_pack_id : "mry",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.004,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'longgui_boss_10' : {
@@ -2458,11 +2458,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 800,    //--分值
 		drop_pack_id : "godboss12",    //--掉落包id组
 		move_speed : 47,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.00125,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'haima_boss_10' : {
@@ -2487,11 +2487,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 900,    //--分值
 		drop_pack_id : "godboss13",    //--掉落包id组
 		move_speed : 60,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.001111,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'jinqiangyu_9' : {
@@ -2520,7 +2520,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "jqy",    //--掉落包id组
 		move_speed : 200,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'caomeiyu_9' : {
@@ -2549,7 +2549,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "cmy",    //--掉落包id组
 		move_speed : 200,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuijingyu_9' : {
@@ -2574,11 +2574,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "sjy",    //--掉落包id组
 		move_speed : 192,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'xiaochouyu_huang_9' : {
@@ -2603,11 +2603,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "xcyh",    //--掉落包id组
 		move_speed : 192,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'cheqiyu_9' : {
@@ -2632,11 +2632,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "cqy",    //--掉落包id组
 		move_speed : 185,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'feicuiyu_9' : {
@@ -2661,11 +2661,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "fcy",    //--掉落包id组
 		move_speed : 185,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'xiaochouyu_lan_9' : {
@@ -2690,11 +2690,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "xcyl",    //--掉落包id组
 		move_speed : 178,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'duanhuibiyu_huang_9' : {
@@ -2719,11 +2719,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "dhbyh",    //--掉落包id组
 		move_speed : 178,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'baoshiyu_lan_9' : {
@@ -2748,11 +2748,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "bsyl",    //--掉落包id组
 		move_speed : 171,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'duanhuibiyu_lan_9' : {
@@ -2777,11 +2777,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "dhbyl",    //--掉落包id组
 		move_speed : 171,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'baoshiyu_zi_9' : {
@@ -2806,11 +2806,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "bsyz",    //--掉落包id组
 		move_speed : 166,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'jiaodie_huang_9' : {
@@ -2835,11 +2835,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "jdh",    //--掉落包id组
 		move_speed : 166,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'hetun_huang_9' : {
@@ -2864,11 +2864,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "hth",    //--掉落包id组
 		move_speed : 160,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'jiaodie_lan_9' : {
@@ -2893,11 +2893,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "jdl",    //--掉落包id组
 		move_speed : 160,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'hetun_lan_9' : {
@@ -2922,11 +2922,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "htl",    //--掉落包id组
 		move_speed : 155,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'diaoyu_9' : {
@@ -2951,11 +2951,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "dy",    //--掉落包id组
 		move_speed : 155,    //--移动速度
 		escape_speed : 118,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'jianyu_9' : {
@@ -2980,11 +2980,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "jy",    //--掉落包id组
 		move_speed : 150,    //--移动速度
 		escape_speed : 118,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dinianyu_lan_9' : {
@@ -3009,11 +3009,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "dnyl",    //--掉落包id组
 		move_speed : 150,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'haigui_9' : {
@@ -3038,11 +3038,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "hg",    //--掉落包id组
 		move_speed : 145,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dinianyu_zi_9' : {
@@ -3067,11 +3067,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "dnyz",    //--掉落包id组
 		move_speed : 145,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuimu_9' : {
@@ -3096,11 +3096,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "sm",    //--掉落包id组
 		move_speed : 141,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'baofangfu_lan_9' : {
@@ -3125,11 +3125,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "bffl",    //--掉落包id组
 		move_speed : 141,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuimu_lan_9' : {
@@ -3154,11 +3154,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "sml",    //--掉落包id组
 		move_speed : 137,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'baofangfu_zi_9' : {
@@ -3183,11 +3183,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "bffz",    //--掉落包id组
 		move_speed : 137,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'cheqiyu_jj_9' : {
@@ -3212,11 +3212,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "jjcqy",    //--掉落包id组
 		move_speed : 133,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'pipashuyu_9' : {
@@ -3241,11 +3241,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "ppsy",    //--掉落包id组
 		move_speed : 133,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'haitun_9' : {
@@ -3270,11 +3270,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "ht",    //--掉落包id组
 		move_speed : 130,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuimu_jj_9' : {
@@ -3299,11 +3299,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "jjsm",    //--掉落包id组
 		move_speed : 130,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'dabaisha_9' : {
@@ -3328,11 +3328,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "dbs",    //--掉落包id组
 		move_speed : 126,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'haitun_jj_9' : {
@@ -3357,11 +3357,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 25,    //--分值
 		drop_pack_id : "jjht",    //--掉落包id组
 		move_speed : 126,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'moguiyu_lan_9' : {
@@ -3386,11 +3386,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 25,    //--分值
 		drop_pack_id : "mgyl",    //--掉落包id组
 		move_speed : 123,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'moguiyu_hong_9' : {
@@ -3415,11 +3415,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 25,    //--分值
 		drop_pack_id : "mgyh",    //--掉落包id组
 		move_speed : 123,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dabaisha_jj_9' : {
@@ -3444,11 +3444,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 35,    //--分值
 		drop_pack_id : "jjdbs",    //--掉落包id组
 		move_speed : 120,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'chuitousha_9' : {
@@ -3473,11 +3473,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 35,    //--分值
 		drop_pack_id : "cts",    //--掉落包id组
 		move_speed : 120,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'hujing_9' : {
@@ -3502,11 +3502,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 50,    //--分值
 		drop_pack_id : "hj",    //--掉落包id组
 		move_speed : 117,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.02,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'moguiyu_jj_9' : {
@@ -3531,11 +3531,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 60,    //--分值
 		drop_pack_id : "jjmgy",    //--掉落包id组
 		move_speed : 117,    //--移动速度
 		escape_speed : 84,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.016667,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'jinqiangyu_9_2' : {
@@ -3564,7 +3564,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "jqy",    //--掉落包id组
 		move_speed : 100,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'caomeiyu_9_2' : {
@@ -3593,7 +3593,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "cmy",    //--掉落包id组
 		move_speed : 100,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuijingyu_9_2' : {
@@ -3618,11 +3618,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "sjy",    //--掉落包id组
 		move_speed : 96,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'xiaochouyu_huang_9_2' : {
@@ -3647,11 +3647,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "xcyh",    //--掉落包id组
 		move_speed : 96,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'cheqiyu_9_2' : {
@@ -3676,11 +3676,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "cqy",    //--掉落包id组
 		move_speed : 93,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'feicuiyu_9_2' : {
@@ -3705,11 +3705,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "fcy",    //--掉落包id组
 		move_speed : 93,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'xiaochouyu_lan_9_2' : {
@@ -3734,11 +3734,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "xcyl",    //--掉落包id组
 		move_speed : 89,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'duanhuibiyu_huang_9_2' : {
@@ -3763,11 +3763,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "dhbyh",    //--掉落包id组
 		move_speed : 89,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'baoshiyu_lan_9_2' : {
@@ -3792,11 +3792,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "bsyl",    //--掉落包id组
 		move_speed : 86,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'duanhuibiyu_lan_9_2' : {
@@ -3821,11 +3821,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "dhbyl",    //--掉落包id组
 		move_speed : 86,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'baoshiyu_zi_9_2' : {
@@ -3850,11 +3850,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "bsyz",    //--掉落包id组
 		move_speed : 83,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'jiaodie_huang_9_2' : {
@@ -3879,11 +3879,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "jdh",    //--掉落包id组
 		move_speed : 83,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'hetun_huang_9_2' : {
@@ -3908,11 +3908,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "hth",    //--掉落包id组
 		move_speed : 80,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'jiaodie_lan_9_2' : {
@@ -3937,11 +3937,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "jdl",    //--掉落包id组
 		move_speed : 80,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'hetun_lan_9_2' : {
@@ -3966,11 +3966,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "htl",    //--掉落包id组
 		move_speed : 78,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'diaoyu_9_2' : {
@@ -3995,11 +3995,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "dy",    //--掉落包id组
 		move_speed : 78,    //--移动速度
 		escape_speed : 118,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'jianyu_9_2' : {
@@ -4024,11 +4024,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "jy",    //--掉落包id组
 		move_speed : 75,    //--移动速度
 		escape_speed : 118,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dinianyu_lan_9_2' : {
@@ -4053,11 +4053,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "dnyl",    //--掉落包id组
 		move_speed : 75,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'haigui_9_2' : {
@@ -4082,11 +4082,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "hg",    //--掉落包id组
 		move_speed : 73,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dinianyu_zi_9_2' : {
@@ -4111,11 +4111,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "dnyz",    //--掉落包id组
 		move_speed : 73,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuimu_9_2' : {
@@ -4140,11 +4140,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "sm",    //--掉落包id组
 		move_speed : 71,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'baofangfu_lan_9_2' : {
@@ -4169,11 +4169,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "bffl",    //--掉落包id组
 		move_speed : 71,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuimu_lan_9_2' : {
@@ -4198,11 +4198,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "sml",    //--掉落包id组
 		move_speed : 69,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'baofangfu_zi_9_2' : {
@@ -4227,11 +4227,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "bffz",    //--掉落包id组
 		move_speed : 69,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'cheqiyu_jj_9_2' : {
@@ -4256,11 +4256,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "jjcqy",    //--掉落包id组
 		move_speed : 67,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'pipashuyu_9_2' : {
@@ -4285,11 +4285,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "ppsy",    //--掉落包id组
 		move_speed : 67,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'haitun_9_2' : {
@@ -4314,11 +4314,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "ht",    //--掉落包id组
 		move_speed : 65,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuimu_jj_9_2' : {
@@ -4343,11 +4343,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "jjsm",    //--掉落包id组
 		move_speed : 65,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'dabaisha_9_2' : {
@@ -4372,11 +4372,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "dbs",    //--掉落包id组
 		move_speed : 63,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'haitun_jj_9_2' : {
@@ -4401,11 +4401,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 25,    //--分值
 		drop_pack_id : "jjht",    //--掉落包id组
 		move_speed : 63,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'moguiyu_lan_9_2' : {
@@ -4430,11 +4430,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 25,    //--分值
 		drop_pack_id : "mgyl",    //--掉落包id组
 		move_speed : 62,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'moguiyu_hong_9_2' : {
@@ -4459,11 +4459,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 25,    //--分值
 		drop_pack_id : "mgyh",    //--掉落包id组
 		move_speed : 62,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dabaisha_jj_9_2' : {
@@ -4488,11 +4488,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 35,    //--分值
 		drop_pack_id : "jjdbs",    //--掉落包id组
 		move_speed : 60,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'chuitousha_9_2' : {
@@ -4517,11 +4517,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 35,    //--分值
 		drop_pack_id : "cts",    //--掉落包id组
 		move_speed : 60,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'hujing_9_2' : {
@@ -4546,11 +4546,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 50,    //--分值
 		drop_pack_id : "hj",    //--掉落包id组
 		move_speed : 59,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.02,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'moguiyu_jj_9_2' : {
@@ -4575,11 +4575,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 60,    //--分值
 		drop_pack_id : "jjmgy",    //--掉落包id组
 		move_speed : 59,    //--移动速度
 		escape_speed : 84,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.016667,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'jinqiangyu_9_3' : {
@@ -4608,7 +4608,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "jqy",    //--掉落包id组
 		move_speed : 67,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'caomeiyu_9_3' : {
@@ -4637,7 +4637,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "cmy",    //--掉落包id组
 		move_speed : 67,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuijingyu_9_3' : {
@@ -4662,11 +4662,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "sjy",    //--掉落包id组
 		move_speed : 64,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'xiaochouyu_huang_9_3' : {
@@ -4691,11 +4691,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "xcyh",    //--掉落包id组
 		move_speed : 64,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'cheqiyu_9_3' : {
@@ -4720,11 +4720,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "cqy",    //--掉落包id组
 		move_speed : 62,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'feicuiyu_9_3' : {
@@ -4749,11 +4749,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "fcy",    //--掉落包id组
 		move_speed : 62,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'xiaochouyu_lan_9_3' : {
@@ -4778,11 +4778,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "xcyl",    //--掉落包id组
 		move_speed : 59,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'duanhuibiyu_huang_9_3' : {
@@ -4807,11 +4807,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "dhbyh",    //--掉落包id组
 		move_speed : 59,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'baoshiyu_lan_9_3' : {
@@ -4836,11 +4836,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "bsyl",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'duanhuibiyu_lan_9_3' : {
@@ -4865,11 +4865,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "dhbyl",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'baoshiyu_zi_9_3' : {
@@ -4894,11 +4894,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "bsyz",    //--掉落包id组
 		move_speed : 55,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'jiaodie_huang_9_3' : {
@@ -4923,11 +4923,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "jdh",    //--掉落包id组
 		move_speed : 55,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'hetun_huang_9_3' : {
@@ -4952,11 +4952,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "hth",    //--掉落包id组
 		move_speed : 53,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'jiaodie_lan_9_3' : {
@@ -4981,11 +4981,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "jdl",    //--掉落包id组
 		move_speed : 53,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'hetun_lan_9_3' : {
@@ -5010,11 +5010,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "htl",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'diaoyu_9_3' : {
@@ -5039,11 +5039,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "dy",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 118,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'jianyu_9_3' : {
@@ -5068,11 +5068,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "jy",    //--掉落包id组
 		move_speed : 50,    //--移动速度
 		escape_speed : 118,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dinianyu_lan_9_3' : {
@@ -5097,11 +5097,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "dnyl",    //--掉落包id组
 		move_speed : 50,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'haigui_9_3' : {
@@ -5126,11 +5126,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "hg",    //--掉落包id组
 		move_speed : 48,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dinianyu_zi_9_3' : {
@@ -5155,11 +5155,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "dnyz",    //--掉落包id组
 		move_speed : 48,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuimu_9_3' : {
@@ -5184,11 +5184,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "sm",    //--掉落包id组
 		move_speed : 47,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'baofangfu_lan_9_3' : {
@@ -5213,11 +5213,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "bffl",    //--掉落包id组
 		move_speed : 47,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuimu_lan_9_3' : {
@@ -5242,11 +5242,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "sml",    //--掉落包id组
 		move_speed : 46,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'baofangfu_zi_9_3' : {
@@ -5271,11 +5271,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 8,    //--分值
 		drop_pack_id : "bffz",    //--掉落包id组
 		move_speed : 46,    //--移动速度
 		escape_speed : 114,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'cheqiyu_jj_9_3' : {
@@ -5300,11 +5300,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "jjcqy",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'pipashuyu_9_3' : {
@@ -5329,11 +5329,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "ppsy",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'haitun_9_3' : {
@@ -5358,11 +5358,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "ht",    //--掉落包id组
 		move_speed : 43,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuimu_jj_9_3' : {
@@ -5387,11 +5387,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "jjsm",    //--掉落包id组
 		move_speed : 43,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'dabaisha_9_3' : {
@@ -5416,11 +5416,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "dbs",    //--掉落包id组
 		move_speed : 42,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'haitun_jj_9_3' : {
@@ -5445,11 +5445,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 25,    //--分值
 		drop_pack_id : "jjht",    //--掉落包id组
 		move_speed : 42,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'moguiyu_lan_9_3' : {
@@ -5474,11 +5474,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 25,    //--分值
 		drop_pack_id : "mgyl",    //--掉落包id组
 		move_speed : 41,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'moguiyu_hong_9_3' : {
@@ -5503,11 +5503,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 25,    //--分值
 		drop_pack_id : "mgyh",    //--掉落包id组
 		move_speed : 41,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dabaisha_jj_9_3' : {
@@ -5532,11 +5532,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 35,    //--分值
 		drop_pack_id : "jjdbs",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'chuitousha_9_3' : {
@@ -5561,11 +5561,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 35,    //--分值
 		drop_pack_id : "cts",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'hujing_9_3' : {
@@ -5590,11 +5590,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 50,    //--分值
 		drop_pack_id : "hj",    //--掉落包id组
 		move_speed : 39,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.02,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'moguiyu_jj_9_3' : {
@@ -5619,11 +5619,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 60,    //--分值
 		drop_pack_id : "jjmgy",    //--掉落包id组
 		move_speed : 39,    //--移动速度
 		escape_speed : 84,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.016667,    //--鱼基本概率
 		mapct : 0.9702,    //--修正参数A
 	},
 	'shuangshengyu_jj_9_1' : {
@@ -5648,11 +5648,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "p2",    //--掉落包id组
 		move_speed : 67,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuangshengyu_jj_9_2' : {
@@ -5677,11 +5677,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "p2",    //--掉落包id组
 		move_speed : 64,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuangshengyu_jj_9_3' : {
@@ -5706,11 +5706,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 25,    //--分值
 		drop_pack_id : "p2",    //--掉落包id组
 		move_speed : 62,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuangshengyu_jj_9_4' : {
@@ -5735,11 +5735,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 30,    //--分值
 		drop_pack_id : "p2",    //--掉落包id组
 		move_speed : 59,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.033333,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuangshengyu_jj_9_5' : {
@@ -5764,11 +5764,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 35,    //--分值
 		drop_pack_id : "p2",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'shuangshengyu_jj_9_6' : {
@@ -5793,11 +5793,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 40,    //--分值
 		drop_pack_id : "p2",    //--掉落包id组
 		move_speed : 55,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.025,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'sanshengyu_jj_9_1' : {
@@ -5822,11 +5822,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 30,    //--分值
 		drop_pack_id : "p3",    //--掉落包id组
 		move_speed : 53,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.033333,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'sanshengyu_jj_9_2' : {
@@ -5851,11 +5851,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 35,    //--分值
 		drop_pack_id : "p3",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'sanshengyu_jj_9_3' : {
@@ -5880,11 +5880,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 35,    //--分值
 		drop_pack_id : "p3",    //--掉落包id组
 		move_speed : 50,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'sanshengyu_jj_9_4' : {
@@ -5909,11 +5909,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 40,    //--分值
 		drop_pack_id : "p3",    //--掉落包id组
 		move_speed : 48,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.025,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'sanshengyu_jj_9_5' : {
@@ -5938,11 +5938,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 40,    //--分值
 		drop_pack_id : "p3",    //--掉落包id组
 		move_speed : 47,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.025,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'suolianyu_jj_9_1' : {
@@ -5967,11 +5967,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 45,    //--分值
 		drop_pack_id : "p4",    //--掉落包id组
 		move_speed : 46,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.022222,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'suolianyu_jj_9_2' : {
@@ -5996,11 +5996,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 45,    //--分值
 		drop_pack_id : "p4",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.022222,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'suolianyu_jj_9_3' : {
@@ -6025,11 +6025,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 55,    //--分值
 		drop_pack_id : "p4",    //--掉落包id组
 		move_speed : 43,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.018182,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dapanyu_jj_9_1' : {
@@ -6054,11 +6054,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 55,    //--分值
 		drop_pack_id : "p5",    //--掉落包id组
 		move_speed : 42,    //--移动速度
 		escape_speed : 84,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.018182,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dapanyu_jj_9_2' : {
@@ -6083,11 +6083,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 70,    //--分值
 		drop_pack_id : "p5",    //--掉落包id组
 		move_speed : 41,    //--移动速度
 		escape_speed : 84,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.014286,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dapanyu_jj_9_3' : {
@@ -6112,11 +6112,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 70,    //--分值
 		drop_pack_id : "p5",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 84,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.014286,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'dapanyu_jj_9_4' : {
@@ -6141,11 +6141,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 80,    //--分值
 		drop_pack_id : "p5",    //--掉落包id组
 		move_speed : 39,    //--移动速度
 		escape_speed : 84,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.0125,    //--鱼基本概率
 		mapct : 0.98,    //--修正参数A
 	},
 	'haima_boss_91' : {
@@ -6168,13 +6168,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 200,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [7],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 200,    //--分值
 		drop_pack_id : "godboss1",    //--掉落包id组
 		move_speed : 45,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.005,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'denglongyu_boss_91' : {
@@ -6197,13 +6197,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 200,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [8],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 300,    //--分值
 		drop_pack_id : "godboss2",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.003333,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'baoxiangyu_boss_91' : {
@@ -6226,13 +6226,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 223,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [11],    //--初始技能
 		born_hp : 1,    //--初始血量
 		gold_point : 1,    //--分值
 		drop_pack_id : "godboss3",    //--掉落包id组
 		move_speed : 500,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 9.8,    //--修正参数A
 	},
 	'meirenyu_boss_91' : {
@@ -6255,13 +6255,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 230,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [5],    //--初始技能
 		born_hp : 100,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 250,    //--分值
 		drop_pack_id : "godboss4",    //--掉落包id组
 		move_speed : 43,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.004,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'zhangyu_boss_91' : {
@@ -6284,13 +6284,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 200,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [10],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 350,    //--分值
 		drop_pack_id : "godboss5",    //--掉落包id组
 		move_speed : 43,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.002857,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'longgui_boss_91' : {
@@ -6313,13 +6313,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 200,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [4],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 400,    //--分值
 		drop_pack_id : "godboss6",    //--掉落包id组
 		move_speed : 42,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.0025,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'haima_boss_92' : {
@@ -6342,13 +6342,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 200,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [7],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 450,    //--分值
 		drop_pack_id : "godboss7",    //--掉落包id组
 		move_speed : 48,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.002222,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'denglongyu_boss_92' : {
@@ -6371,13 +6371,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 200,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [8],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 500,    //--分值
 		drop_pack_id : "godboss8",    //--掉落包id组
 		move_speed : 47,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.002,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'baoxiangyu_boss_92' : {
@@ -6400,13 +6400,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 223,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [12],    //--初始技能
 		born_hp : 1,    //--初始血量
 		gold_point : 1,    //--分值
 		drop_pack_id : "godboss9",    //--掉落包id组
 		move_speed : 450,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 9.8,    //--修正参数A
 	},
 	'meirenyu_boss_92' : {
@@ -6429,13 +6429,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 230,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [14],    //--初始技能
 		born_hp : 200,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 500,    //--分值
 		drop_pack_id : "godboss10",    //--掉落包id组
 		move_speed : 46,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.002,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'zhangyu_boss_92' : {
@@ -6458,13 +6458,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 200,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [10],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 800,    //--分值
 		drop_pack_id : "godboss11",    //--掉落包id组
 		move_speed : 46,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.00125,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'longgui_boss_92' : {
@@ -6487,13 +6487,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 200,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [4],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 900,    //--分值
 		drop_pack_id : "godboss12",    //--掉落包id组
 		move_speed : 45,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.001111,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'haima_boss_93' : {
@@ -6516,13 +6516,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 200,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [7],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 1000,    //--分值
 		drop_pack_id : "godboss13",    //--掉落包id组
 		move_speed : 51,    //--移动速度
 		escape_speed : 128,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.001,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'denglongyu_boss_93' : {
@@ -6545,13 +6545,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 200,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [8],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 1100,    //--分值
 		drop_pack_id : "godboss14",    //--掉落包id组
 		move_speed : 51,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.000909,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'baoxiangyu_boss_93' : {
@@ -6574,13 +6574,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 223,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [13],    //--初始技能
 		born_hp : 1,    //--初始血量
 		gold_point : 1,    //--分值
 		drop_pack_id : "godboss15",    //--掉落包id组
 		move_speed : 400,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 9.8,    //--修正参数A
 	},
 	'meirenyu_boss_93' : {
@@ -6603,13 +6603,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 230,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [15],    //--初始技能
 		born_hp : 500,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 1000,    //--分值
 		drop_pack_id : "godboss16",    //--掉落包id组
 		move_speed : 49,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.001,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'zhangyu_boss_93' : {
@@ -6632,13 +6632,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 200,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [10],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 1600,    //--分值
 		drop_pack_id : "godboss17",    //--掉落包id组
 		move_speed : 49,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.000625,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'longgui_boss_93' : {
@@ -6661,13 +6661,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 200,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [4],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 1800,    //--分值
 		drop_pack_id : "godboss18",    //--掉落包id组
 		move_speed : 48,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.000556,    //--鱼基本概率
 		mapct : 0.9898,    //--修正参数A
 	},
 	'yuanpanyu_1' : {
@@ -6692,11 +6692,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 10,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.1,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'yuanpanyu_2' : {
@@ -6721,11 +6721,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 15,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'yuanpanyu_3' : {
@@ -6750,11 +6750,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'yuanpanyu_4' : {
@@ -6779,11 +6779,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 25,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'yuanpanyu_5' : {
@@ -6808,11 +6808,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 30,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.033333,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'yuanpanyu_6' : {
@@ -6837,11 +6837,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 35,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'yuanpanyu_7' : {
@@ -6866,11 +6866,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 40,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.025,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'yuanpanyu_8' : {
@@ -6895,11 +6895,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 50,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.02,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'yuanpanyu_9' : {
@@ -6924,11 +6924,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 60,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.016667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'yuanpanyu_10' : {
@@ -6953,11 +6953,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 80,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.0125,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'hudun' : {
@@ -6980,13 +6980,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [6],    //--初始技能
 		born_hp : 100,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 100,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.01,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'baozang' : {
@@ -7011,11 +7011,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 2,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [1,4],    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.4,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'shou' : {
@@ -7038,13 +7038,13 @@ var	fish_fish_cfg =
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
-		birth_skill_id : [],    //--初始技能
+		birth_skill_id : [9],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [2,6],    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 500,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 4,    //--修正参数A
 	},
 	'fantan' : {
@@ -7069,11 +7069,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'fish1' : {
@@ -7098,11 +7098,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "htl",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'fish2' : {
@@ -7127,11 +7127,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "htl",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'fish3' : {
@@ -7156,11 +7156,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "htl",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'fish4' : {
@@ -7185,11 +7185,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "htl",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'hujing_jj_zh' : {
@@ -7214,11 +7214,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [50,150],    //--分值
 		drop_pack_id : "jjhj",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 80,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.01,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'dapanyu_jj_zh' : {
@@ -7243,11 +7243,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [40,120],    //--分值
 		drop_pack_id : "p5",    //--掉落包id组
 		move_speed : 42,    //--移动速度
 		escape_speed : 84,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.0125,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'moguiyu_jj_zh' : {
@@ -7272,11 +7272,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [20,100],    //--分值
 		drop_pack_id : "jjmgy",    //--掉落包id组
 		move_speed : 42,    //--移动速度
 		escape_speed : 84,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.016667,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'haigui_jj_zh' : {
@@ -7301,11 +7301,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [20,100],    //--分值
 		drop_pack_id : "jjhg",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.016667,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'suolianyu_jj_zh' : {
@@ -7330,11 +7330,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [20,80],    //--分值
 		drop_pack_id : "p4",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 88,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.02,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'sanshengyu_jj_zh' : {
@@ -7359,11 +7359,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,60],    //--分值
 		drop_pack_id : "p3",    //--掉落包id组
 		move_speed : 49,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.028571,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'haitun_jj_zh' : {
@@ -7388,11 +7388,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,40],    //--分值
 		drop_pack_id : "jjht",    //--掉落包id组
 		move_speed : 46,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'shuangshengyu_jj_zh' : {
@@ -7417,11 +7417,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,40],    //--分值
 		drop_pack_id : "p2",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.04,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'shuimu_jj_zh' : {
@@ -7446,11 +7446,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,30],    //--分值
 		drop_pack_id : "jjsm",    //--掉落包id组
 		move_speed : 49,    //--移动速度
 		escape_speed : 98,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'cheqiyu_jj_zh' : {
@@ -7475,11 +7475,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [10,20],    //--分值
 		drop_pack_id : "jjcqy",    //--掉落包id组
 		move_speed : 46,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 1.01,    //--修正参数A
 	},
 	'guide_small' : {
@@ -7508,7 +7508,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "drop",    //--掉落包id组
 		move_speed : 100,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 0.784,    //--修正参数A
 	},
 	'guide_small1' : {
@@ -7537,7 +7537,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "drop",    //--掉落包id组
 		move_speed : 100,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 0.5,    //--修正参数A
 	},
 	'guide_big' : {
@@ -7562,11 +7562,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 100,    //--分值
 		drop_pack_id : "drop",    //--掉落包id组
 		move_speed : 100,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.01,    //--鱼基本概率
 		mapct : 13,    //--修正参数A
 	},
 	'guide_wave_json' : {
@@ -7595,7 +7595,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "drop",    //--掉落包id组
 		move_speed : 100,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'xiaochouyu_huang_yc' : {
@@ -7620,11 +7620,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "xcyh",    //--掉落包id组
 		move_speed : 81,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'feicuiyu_yc' : {
@@ -7649,11 +7649,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "fcy",    //--掉落包id组
 		move_speed : 73,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'caomeiyu_yc' : {
@@ -7682,7 +7682,7 @@ var	fish_fish_cfg =
 		drop_pack_id : "cmy",    //--掉落包id组
 		move_speed : 81,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 1,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'baoshiyu_zi_yc' : {
@@ -7707,11 +7707,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 4,    //--分值
 		drop_pack_id : "bsyz",    //--掉落包id组
 		move_speed : 62,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.25,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'hudie_json' : {
@@ -7736,11 +7736,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 100,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'yuanpansd_yc' : {
@@ -7762,14 +7762,14 @@ var	fish_fish_cfg =
 		in_interval : [12,24],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 0,    //--路径ID
-		death_skill_id : [],    //--死亡技能
+		death_skill_id : [2],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 66,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 1000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.222222222222222,    //--修正参数A
 	},
 	'yuanpanyu_yc' : {
@@ -7794,11 +7794,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 7,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.142857,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'car_json' : {
@@ -7823,11 +7823,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 100,    //--移动速度
 		escape_speed : 60,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'fish_json' : {
@@ -7852,11 +7852,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 100,    //--移动速度
 		escape_speed : 60,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'elephant_json' : {
@@ -7881,11 +7881,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 100,    //--移动速度
 		escape_speed : 60,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'footmarkd_json' : {
@@ -7910,11 +7910,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 100,    //--移动速度
 		escape_speed : 60,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'footmarku_json' : {
@@ -7939,11 +7939,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 100,    //--移动速度
 		escape_speed : 60,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'bu_json' : {
@@ -7968,11 +7968,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 60,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'lao_json' : {
@@ -7997,11 +7997,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 60,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'ji_json' : {
@@ -8026,11 +8026,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 6,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 60,    //--移动速度
 		escape_speed : 40,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.166667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'hetun_shandian_yc' : {
@@ -8052,14 +8052,14 @@ var	fish_fish_cfg =
 		in_interval : [40,60],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 1,    //--路径ID
-		death_skill_id : [],    //--死亡技能
+		death_skill_id : [2],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 66,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 1000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.25,    //--修正参数A
 	},
 	'hetun_shandian1_yc' : {
@@ -8081,14 +8081,14 @@ var	fish_fish_cfg =
 		in_interval : [40,60],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 1,    //--路径ID
-		death_skill_id : [],    //--死亡技能
+		death_skill_id : [2],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 66,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 1000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.2,    //--修正参数A
 	},
 	'hetun_hong_yc' : {
@@ -8113,11 +8113,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "htl",    //--掉落包id组
 		move_speed : 66,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'feicuiyu_shandian_yc' : {
@@ -8139,14 +8139,14 @@ var	fish_fish_cfg =
 		in_interval : [40,60],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 1,    //--路径ID
-		death_skill_id : [],    //--死亡技能
+		death_skill_id : [2],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 73,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 1000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.285714285714286,    //--修正参数A
 	},
 	'jinqiangyu_yc' : {
@@ -8171,11 +8171,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "jqy",    //--掉落包id组
 		move_speed : 81,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'jinqiangyu_shandian_yc' : {
@@ -8197,14 +8197,14 @@ var	fish_fish_cfg =
 		in_interval : [40,60],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 1,    //--路径ID
-		death_skill_id : [],    //--死亡技能
+		death_skill_id : [2],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "jqy",    //--掉落包id组
 		move_speed : 81,    //--移动速度
 		escape_speed : 162,    //--逃跑速度
-		fishbasepct : 1000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 0.285714285714286,    //--修正参数A
 	},
 	'jiaodie_huang_yc' : {
@@ -8229,11 +8229,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "jdh",    //--掉落包id组
 		move_speed : 73,    //--移动速度
 		escape_speed : 146,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'hetun_huang_yc' : {
@@ -8258,11 +8258,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 2,    //--分值
 		drop_pack_id : "hth",    //--掉落包id组
 		move_speed : 66,    //--移动速度
 		escape_speed : 132,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.5,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'baoshiyu_lan_yc' : {
@@ -8287,11 +8287,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 5,    //--分值
 		drop_pack_id : "bsyl",    //--掉落包id组
 		move_speed : 62,    //--移动速度
 		escape_speed : 124,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.2,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'haitun_jj_yc' : {
@@ -8316,11 +8316,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : [5,25],    //--分值
 		drop_pack_id : "ht",    //--掉落包id组
 		move_speed : 46,    //--移动速度
 		escape_speed : 92,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.066667,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'shandian_100' : {
@@ -8345,11 +8345,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 1000,    //--鱼基本概率
+		fishbasepct : 0.005,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'shandian_60' : {
@@ -8374,11 +8374,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'bossfx_100' : {
@@ -8403,11 +8403,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 52,    //--移动速度
 		escape_speed : 104,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_10zhen_hujing_json' : {
@@ -8432,11 +8432,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_10zhen_mgy_json' : {
@@ -8461,11 +8461,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_10zhen_ppsy_json' : {
@@ -8490,11 +8490,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_16zhen_jjhaitun_json' : {
@@ -8519,11 +8519,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_a10_json' : {
@@ -8548,11 +8548,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 33,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_a2_json' : {
@@ -8577,11 +8577,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 63,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_a6_json' : {
@@ -8606,11 +8606,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_a9_json' : {
@@ -8635,11 +8635,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 37,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_apple1_json' : {
@@ -8664,11 +8664,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_apple2_json' : {
@@ -8693,11 +8693,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 38,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_apple3_json' : {
@@ -8722,11 +8722,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 37,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_apple4_json' : {
@@ -8751,11 +8751,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_bagua1_json' : {
@@ -8780,11 +8780,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 63,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_bagua10_json' : {
@@ -8809,11 +8809,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_bagua2_json' : {
@@ -8838,11 +8838,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_bagua3_json' : {
@@ -8867,11 +8867,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_bagua6_json' : {
@@ -8896,11 +8896,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 33,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_bagua8_json' : {
@@ -8925,11 +8925,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 33,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_car1_json' : {
@@ -8954,11 +8954,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 33,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_car2_json' : {
@@ -8983,11 +8983,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_car3_json' : {
@@ -9012,11 +9012,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 33,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_car4_json' : {
@@ -9041,11 +9041,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 33,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_chidouren1_json' : {
@@ -9070,11 +9070,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 63,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_chidouren2_json' : {
@@ -9099,11 +9099,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_chidouren3_json' : {
@@ -9128,11 +9128,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 37,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_chidouren4_json' : {
@@ -9157,11 +9157,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 30,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_chidouren5_json' : {
@@ -9186,11 +9186,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 16,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_chidouren6_json' : {
@@ -9215,11 +9215,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 37,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_chidouren7_json' : {
@@ -9244,11 +9244,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_chidouren8_json' : {
@@ -9273,11 +9273,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_elephant1_json' : {
@@ -9302,11 +9302,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_elephant2_json' : {
@@ -9331,11 +9331,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 21,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_fish1_json' : {
@@ -9360,11 +9360,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 63,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_fish2_json' : {
@@ -9389,11 +9389,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_fish3_json' : {
@@ -9418,11 +9418,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 48,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_fish6_json' : {
@@ -9447,11 +9447,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_footmarkd_json' : {
@@ -9476,11 +9476,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 50,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_footmarkd2_json' : {
@@ -9505,11 +9505,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_footmarkd3_json' : {
@@ -9534,11 +9534,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_footmarku_json' : {
@@ -9563,11 +9563,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 63,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_footmarku2_json' : {
@@ -9592,11 +9592,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 50,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_footmarku3_json' : {
@@ -9621,11 +9621,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 23,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_heart_1_json' : {
@@ -9650,11 +9650,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 63,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_heart_2_json' : {
@@ -9679,11 +9679,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 34,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_heart_3_json' : {
@@ -9708,11 +9708,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_heart_4_json' : {
@@ -9737,11 +9737,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_heart_5_json' : {
@@ -9766,11 +9766,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 35,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_heart_6_json' : {
@@ -9795,11 +9795,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 37,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_huan_hg_json' : {
@@ -9824,11 +9824,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 44,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_huan_ht1_json' : {
@@ -9853,11 +9853,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 50,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_huan_mgy_json' : {
@@ -9882,11 +9882,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 31,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_huan_mgy2_json' : {
@@ -9911,11 +9911,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 28,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_huan_yuan3_json' : {
@@ -9940,11 +9940,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 33,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_huan_yuan4_json' : {
@@ -9969,11 +9969,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 31,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_jiong1_json' : {
@@ -9998,11 +9998,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_jiong2_json' : {
@@ -10027,11 +10027,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 30,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_jiong3_json' : {
@@ -10056,11 +10056,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 30,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_jiong4_json' : {
@@ -10085,11 +10085,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 25,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_jiong5_json' : {
@@ -10114,11 +10114,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 26,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_kaochuan1_json' : {
@@ -10143,11 +10143,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 50,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_kaochuan2_json' : {
@@ -10172,11 +10172,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_nacui1_json' : {
@@ -10201,11 +10201,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 37,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_nacui3_json' : {
@@ -10230,11 +10230,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 48,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_nacui4_json' : {
@@ -10259,11 +10259,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_nacui5_json' : {
@@ -10288,11 +10288,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 29,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_nacui6_json' : {
@@ -10317,11 +10317,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_nacui7_json' : {
@@ -10346,11 +10346,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 33,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_xuanfeng1_json' : {
@@ -10375,11 +10375,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 50,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_xuanfeng2_json' : {
@@ -10404,11 +10404,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 30,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_xuanfeng5_json' : {
@@ -10433,11 +10433,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 21,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_xuanfeng6_json' : {
@@ -10462,11 +10462,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 40,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_xuanfeng7_json' : {
@@ -10491,11 +10491,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_xuanfeng8_json' : {
@@ -10520,11 +10520,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_yutou1_json' : {
@@ -10549,11 +10549,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 70,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_yutou2_json' : {
@@ -10578,11 +10578,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 63,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_yutou4_json' : {
@@ -10607,11 +10607,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 57,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 	'g_yutou9_json' : {
@@ -10636,11 +10636,11 @@ var	fish_fish_cfg =
 		death_skill_id : [],    //--死亡技能
 		birth_skill_id : [],    //--初始技能
 		born_hp : 1,    //--初始血量
-		gold_point : 1,    //--分值
+		gold_point : 20,    //--分值
 		drop_pack_id : "drop1",    //--掉落包id组
 		move_speed : 36,    //--移动速度
 		escape_speed : 134,    //--逃跑速度
-		fishbasepct : 10000,    //--鱼基本概率
+		fishbasepct : 0.05,    //--鱼基本概率
 		mapct : 1,    //--修正参数A
 	},
 };

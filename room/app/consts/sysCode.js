@@ -63,7 +63,7 @@ class SysCode{
         };
 
         this.SERVER_DEPLOY_ERROR ={
-            code:306,
+            code:307,
             desc:'服务器部署错误'
         };
 
@@ -155,6 +155,11 @@ class SysCode{
         this.ROBOT_NOT_EXIST = {
             code:366,
             desc:'某人已离开'
+        };
+
+        this.PLAYER_GAMEING = {
+            code:367,
+            desc:'玩家已经在游戏房间'
         };
 
         this.ARGS_INVALID = {

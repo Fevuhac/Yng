@@ -58,6 +58,12 @@ class Entry {
         })
     }
 
+    /**
+     * 加入游戏房间
+     * @param {*} msg 
+     * @param {*} session 
+     * @param {*} cb 
+     */
     onEnterGame(msg, session, cb) {
         console.log(msg);
         let token = msg.data.token;
@@ -127,7 +133,13 @@ class Entry {
             });
         });
     }
-    // {uid,gameType,sceneType}
+    
+    /**
+     * 离开游戏房间
+     * @param {*} msg 
+     * @param {*} session 
+     * @param {*} cb 
+     */
     onLeaveGame(msg, session, cb) {
         logger.info(`用户[${session.uid}]主动退出房间`);
         let uid = session.uid;
@@ -139,6 +151,26 @@ class Entry {
             logger.info(`用户[${uid}]退出游戏服务`, session.get('gameId'));
             utils.invokeCallback(cb, null, answer.respNoData(CONSTS.SYS_CODE.OK));
         });
+    }
+
+    /**
+     * 比赛报名
+     * @param {*} msg 
+     * @param {*} session 
+     * @param {*} cb 
+     */
+    onEnroll(msg, session, cb){
+
+    }
+
+    /**
+     * 撤销报名
+     * @param {*} msg 
+     * @param {*} session 
+     * @param {*} cb 
+     */
+    onRevoke(msg, session, cb){
+
     }
 
     _playerOffline(session, reason) {

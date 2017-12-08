@@ -140,6 +140,7 @@ function _setAccountAsync(id, data) {
  * @param cb
  */
 function _getAccount(uid, fields, cb) {
+    console.log('=============================>');
     if (!uid) {
         utils.invokeCallback(cb, '参数错误');
         return;

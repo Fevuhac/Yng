@@ -26,6 +26,38 @@ class Room {
         for (let i = 0; i < opts.playerMax; i++) {
             this._seatState[i] = 0;
         }
+        this._robotJoinTimestamp = 0;
+    }
+
+    /**
+     * 机器人是否可以加入
+     */
+    isRobotJoinEnabled () {
+        let tc = this.getEmptiyCount();
+        if (tc === 0) {
+            return false;
+        }
+        let tick = 8 * Math.pow(3, tc) * (1.5 - Math.random());
+        let now = new Date().getTime();
+        //logger.error('robot tick = ', tick, tc, now - this._robotJoinTimestamp, now, this._robotJoinTimestamp);
+        if (now - this._robotJoinTimestamp >= tick * 1000) {
+          //  logger.error('---can join---')
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 房间空位数量
+     */
+    getEmptiyCount() {
+        let tc = 0;
+        for (let k in this._seatState) {
+            if (this._seatState[k] === 0) {
+                tc ++;
+            }
+        }
+        return tc;
     }
 
     /**
@@ -185,6 +217,11 @@ class Room {
         clearInterval(this._flushFishTimer);
         this._evtor.removeListener(consts.FLUSH_EVENT, this.onFlushFish.bind(this));
         this._evtor = null;
+
+        if(this.channel){
+            this.channel.destroy();
+            this.channel = null;
+        }
     }
 
     _genPlayerProcolInfo(player){
@@ -237,6 +274,10 @@ class Room {
         }
         logger.error('room 玩家加入', player.account.nickname, '-----', player.uid, player.seatId);
         this._broadcast(fishCmd.push.enter_room.route, players);
+
+        let isRobot = !player.isRealPlayer();
+        //logger.error('isRealPlayer = ', isRobot)
+        isRobot && (this._robotJoinTimestamp = new Date().getTime());
     }
 
     /**
@@ -246,20 +287,12 @@ class Room {
     leave(uid) {
         let player = this.playerMap.get(uid);
         if (!!player) {
+            player.save();
             this._clearPlayerResource(player);
             this.playerMap.delete(uid);
         }
 
     }
-
-    /**
-     * 踢出指定玩家
-     * @param {*} uid 
-     */
-    kickPlayer(uid) {
-
-    }
-
 
     kickRobot(){
         for (let player of this.playerMap.values()) {
@@ -276,16 +309,16 @@ class Room {
         let now = Date.now();
         let uids = [];
         for (let player of this.playerMap.values()) {
-            if (consts.ENTITY_TYPE.PLAYER == player.kindId && player.connectState == CONSTS.constDef.PALYER_STATE.OFFLINE &&
+            if (consts.ENTITY_TYPE.PLAYER == player.kindId &&
                 (now - player.activeTime > config.PLAYER.OFFLINE_TIMEOUT)) {
-                    this._clearPlayerResource(player);
-                    this.playerMap.delete(player.uid);
+                    this.leave(player.uid);
                     logger.error('玩家离线时间超时，被踢出游戏房间', player.uid);
                     uids.push(player.uid);
             }
         }
         return uids;
     }
+
 
     setPlayerState(uid, state, sid) {
         let player = this.playerMap.get(uid);

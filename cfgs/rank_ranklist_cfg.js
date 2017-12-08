@@ -99,49 +99,49 @@ var	rank_ranklist_cfg =
 	{
 		type : 3,    //--排名类型
 		interval : [1,1],    //--排名区间
-		reward : [["i015",1],["i003",300]],    //--奖励
+		reward : [["i002",16],["i240",12]],    //--奖励
 		description : "rank_reward_tip1",    //--奖励说明文字
 	},
 	{
 		type : 3,    //--排名类型
 		interval : [2,2],    //--排名区间
-		reward : [["i015",1],["i003",150]],    //--奖励
+		reward : [["i002",14],["i240",10]],    //--奖励
 		description : "rank_reward_tip2",    //--奖励说明文字
 	},
 	{
 		type : 3,    //--排名类型
 		interval : [3,3],    //--排名区间
-		reward : [["i015",1],["i003",90]],    //--奖励
+		reward : [["i002",12],["i240",8]],    //--奖励
 		description : "rank_reward_tip3",    //--奖励说明文字
 	},
 	{
 		type : 3,    //--排名类型
 		interval : [4,10],    //--排名区间
-		reward : [["i001",40000],["i003",36]],    //--奖励
+		reward : [["i002",10],["i240",6]],    //--奖励
 		description : "rank_reward_tip4",    //--奖励说明文字
 	},
 	{
 		type : 3,    //--排名类型
 		interval : [11,30],    //--排名区间
-		reward : [["i001",30000],["i003",18]],    //--奖励
+		reward : [["i002",8],["i240",5]],    //--奖励
 		description : "rank_reward_tip5",    //--奖励说明文字
 	},
 	{
 		type : 3,    //--排名类型
 		interval : [31,100],    //--排名区间
-		reward : [["i001",20000],["i240",3]],    //--奖励
+		reward : [["i002",6],["i240",4]],    //--奖励
 		description : "rank_reward_tip6",    //--奖励说明文字
 	},
 	{
 		type : 3,    //--排名类型
 		interval : [101,1000],    //--排名区间
-		reward : [["i001",10000],["i240",2]],    //--奖励
+		reward : [["i002",4],["i240",2]],    //--奖励
 		description : "rank_reward_tip7",    //--奖励说明文字
 	},
 	{
 		type : 3,    //--排名类型
 		interval : [1001,10000],    //--排名区间
-		reward : [["i001",5000]],    //--奖励
+		reward : [["i240",1]],    //--奖励
 		description : "rank_reward_tip8",    //--奖励说明文字
 	},
 	{
@@ -375,13 +375,13 @@ var	rank_ranklist_cfg =
 	{
 		type : 8,    //--排名类型
 		interval : [101,1000],    //--排名区间
-		reward : [["i400",1]],    //--奖励
+		reward : [["i400",1],["i006",1]],    //--奖励
 		description : "rank_reward_tip7",    //--奖励说明文字
 	},
 	{
 		type : 8,    //--排名类型
 		interval : [1001,10000],    //--排名区间
-		reward : [["i001",5000]],    //--奖励
+		reward : [["i400",1]],    //--奖励
 		description : "rank_reward_tip8",    //--奖励说明文字
 	},
 ];

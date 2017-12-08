@@ -49,7 +49,7 @@ exports.default = function (app) {
     //fishjoy:recharge; //平台充值总额度
     //fishjoy:cash; //平台兑现总额度
     //fishjoy:give; //平台赠送金币总量
-    //pair:uid:playerCatchRate; //玩家捕获率
+    //pair:uid:player_catch_rate; //玩家捕获率
     //pair:uid:recharge; //玩家充值总额度
     //pair:uid:cash; //玩家兑现总额度
     app.config.coreMiddleware.unshift('report');

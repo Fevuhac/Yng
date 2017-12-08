@@ -21,7 +21,11 @@ class AccountParser {
         }
 
         switch (typeInfo.type) {
+            case 'float':
             case 'number':{
+                if(value.toString == undefined){
+                    logger.error('---------serializeValue-------',key, value,);
+                }
                 serialVal = value.toString();
             }
                 break;
@@ -58,6 +62,9 @@ class AccountParser {
      * @returns {null}
      */
     parseValue(key, value, isDefault) {
+        if(key == 'cash'){
+            console.log('aaaaaa');
+        }
 
         isDefault = isDefault || true;
         let serialVal = null;
@@ -72,6 +79,7 @@ class AccountParser {
         }
 
         switch (typeInfo.type) {
+            case 'float':
             case 'number': {
                 if (isNaN(Number(value))) {
                     serialVal = 0;

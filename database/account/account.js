@@ -3,10 +3,14 @@ const AccountCommit = require('./accountCommit');
 const accountConf = require('./accountConf');
 const REDISKEY = require('../consts').REDISKEY;
 const accountParser = require('./accountParser');
+const EventHandler = require('./eventHandler');
+const ACCOUNT_EVENT_TYPE = require('../consts/consts').ACCOUNT_EVENT_TYPE;
+const ACCOUNT_EVENT_NAME = require('../consts/consts').ACCOUNT_EVENT_NAME;
 
-class Account extends AccountCommit{
+class Account extends AccountCommit {
     constructor(id) {
         super(id);
+        this.eventHandler = new EventHandler();
     }
 
     /**
@@ -15,9 +19,9 @@ class Account extends AccountCommit{
      * @param data
      * @returns {Account}
      */
-    static parse(uid, data){
+    static parse(uid, data) {
         let account = new Account(uid);
-        for(let key in data){
+        for (let key in data) {
             account.appendValue(key, data[key]);
         }
         return account;
@@ -28,7 +32,7 @@ class Account extends AccountCommit{
      * @param key
      * @param data
      */
-    appendValue(key, data){
+    appendValue(key, data) {
         this[`_${key}`] = accountParser.parseValue(key, data);
     }
 
@@ -46,7 +50,12 @@ class Account extends AccountCommit{
         let typeInfo = accountConf.getFieldDef(key);
         let cmd = 'HSET';
         if (typeInfo.inc === true) {
-            cmd = 'HINCRBY'
+            if (typeInfo.type == 'float') {
+                cmd = 'HINCRBYFLOAT'
+            } else {
+                cmd = 'HINCRBY'
+            }
+
         }
         return cmd;
     }
@@ -57,6 +66,8 @@ class Account extends AccountCommit{
         if (fields.length === 0) return;
 
         let cmds = [];
+
+        this.eventHandler.listenKey(fields, this);
 
         fields.forEach(function (key) {
             cmds.push([Account.getCmd(key[0]), REDISKEY.getKey(key[0]), this.id, accountParser.serializeValue(key[0], key[1])]);
@@ -70,7 +81,9 @@ class Account extends AccountCommit{
                 return;
             }
 
-            redisConnector.cmd.sadd(REDISKEY.UPDATED_UIDS, this.id);
+            this.eventHandler.addEvent(ACCOUNT_EVENT_TYPE.DATA_SYNC, this);
+
+            this.eventHandler.exec();
 
             utils.invokeCallback(cb, null, result);
         }.bind(this));

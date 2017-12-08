@@ -2,7 +2,8 @@
     console.log("POST到网页" + target);
 
     var params = { token: sessionStorage.getItem('user_token') };
-    var url = getBaseUrl() + "/admin/" + target;
+    // var url = getBaseUrl() + "/admin/" + target;
+    var url = getBaseUrl() + "/" + target;
     
     console.log('url: ', url);
     console.log('params: ', params);

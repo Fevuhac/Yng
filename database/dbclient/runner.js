@@ -22,6 +22,7 @@ module.exports.connectDB = function(dbTypes,dbCfg, cb){
                             cb(err);
                             return;
                         }
+
                         dbClients.push(redis);
                         cb();
                     });

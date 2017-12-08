@@ -8,6 +8,20 @@ class SysCmd {
      * 初始化请求接口定义
      */
     initReq() {
+        /**
+         * 心跳协议
+         * @type {{}}
+         */
+        this.req.heartbeat = {
+            route: 'game.fishHandler.c_heartbeat',
+            msg: {
+                enc: 'aes',
+                data: {
+                }
+            },
+            res: {}
+        };
+
     }
 
     /**

@@ -1,7 +1,6 @@
 const redis = require('redis');
 const utils = require('../../../base/utils/utils');
 
-
 class Connector{
     constructor(){
         this.cmd_client = null;

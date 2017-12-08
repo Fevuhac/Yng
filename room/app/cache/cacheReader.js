@@ -18,7 +18,12 @@ class CacheReader{
 
     //读取平台奖金池
     get bonuspool(){
-        return cache.get(redisKey.PLATFORM_DATA.BONUSPOOL);
+        return cache.get(redisKey.PLATFORM_DATA.BONUS_POOL);
+    }
+
+    //读取平台抽水池
+    get pumppool(){
+        return cache.get(redisKey.PLATFORM_DATA.PUMP_POOL);
     }
 
     

@@ -1,5 +1,6 @@
 ﻿//调用
 $(document).ready(function () {
+    $("#menu_statistics").addClass("nav-expanded nav-active");
     $("#menuitem_log").addClass("nav-active");
     
     $('#pay_stat').hide();
@@ -178,7 +179,7 @@ function getPayLogData(fn, start_date, end_date) {
     $.ajax({
         url: "../admin_api/get_paylog_data",
         type: "post",
-        data: { data: JSON.stringify(dataPara) },
+        data: { data: dataPara },
         success: fn
     });
 }

@@ -12,6 +12,29 @@ exp.broadcast = function (route, msg, uids) {
     });
 };
 
-exp.send = function (route, msg, uid) {
-  exp.broadcast(route, msg, [uid]);
+/**
+ * 点对点或者一对多通信
+ * @param {*} route 
+ * @param {*} msg 
+ * @param {*} uid 
+ * {
+ * uid:100,
+ * sid:'connector-server-1'
+ * }
+ * or 
+ * [
+ * {
+ * uid:200,
+ * sid:'connector-server-1'
+ * }
+ * ]
+ */
+exp.send = function (route, msg, uids) {
+  if(uids instanceof Array){
+    exp.broadcast(route, msg, uids);
+  }
+  else{
+    exp.broadcast(route, msg, [uids]);
+  }
+
 };

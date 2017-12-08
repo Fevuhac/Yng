@@ -20,32 +20,33 @@ module.exports = {
     dailyReset: {
         enable: false,
         time: '*/10,*,*,*,*,*',
-        //time: '0,0,0,*,*,*', //每天0点执行
+        // time: '0,0,0,*,*,*', //每天0点执行
         subTask: [
-            {redisKey: REDISKEY.FIRST_LOGIN, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.DAY_REWARD, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.VIP_DAILY_FILL, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.BROKE_TIMES, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.LEVEL_MISSION, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.MISSION_DAILY_RESET, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.HEARTBEAT, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.HEARTBEAT_MIN_COST, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.GOLD_SHOPPING, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.DROP_RESET, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.COMEBACK, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.ACTIVE_DAILY_RESET, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.ACTIVE_STAT_RESET, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.FREE_DRAW, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.TOTAL_DRAW, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.GET_CARD, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.GODDESS_CTIMES, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.SOCIAL_SHARE_STATUS_1, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.SOCIAL_INVITE_DAILY_STATE, type: SUBTASK_TYPE.DEL},
-            {redisKey: REDISKEY.DAY_REWARD_ADV, type: SUBTASK_TYPE.DEL},
+            {redisKey: REDISKEY.PLATFORM_DATA.TODAY_PLATFORM_CASH, type: SUBTASK_TYPE.DEL}, //平台玩家每日兑现重置
 
-            {redisKey: REDISKEY.TOKEN, type: SUBTASK_TYPE.MODIFY, limit: 1000, value: 'daily_reset'},
-            {redisKey: REDISKEY.GODDESS_FREE, type: SUBTASK_TYPE.MODIFY, limit: 1000, value: 1},
-            {redisKey: REDISKEY.GODDESS_CROSSOVER, type: SUBTASK_TYPE.MODIFY, limit: 1000, value: 1},
+            // {redisKey: REDISKEY.FIRST_LOGIN, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.DAY_REWARD, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.VIP_DAILY_FILL, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.BROKE_TIMES, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.LEVEL_MISSION, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.MISSION_DAILY_RESET, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.HEARTBEAT, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.HEARTBEAT_MIN_COST, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.GOLD_SHOPPING, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.DROP_RESET, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.COMEBACK, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.ACTIVE_DAILY_RESET, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.ACTIVE_STAT_RESET, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.FREE_DRAW, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.TOTAL_DRAW, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.GET_CARD, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.GODDESS_CTIMES, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.SOCIAL_SHARE_STATUS_1, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.SOCIAL_INVITE_DAILY_STATE, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.DAY_REWARD_ADV, type: SUBTASK_TYPE.DEL},
+            // {redisKey: REDISKEY.TOKEN, type: SUBTASK_TYPE.MODIFY, limit: 1000, value: 'daily_reset'},
+            // {redisKey: REDISKEY.GODDESS_FREE, type: SUBTASK_TYPE.MODIFY, limit: 1000, value: 1},
+            // {redisKey: REDISKEY.GODDESS_CROSSOVER, type: SUBTASK_TYPE.MODIFY, limit: 1000, value: 1},
         ]
     },
     //按周重置
@@ -117,22 +118,22 @@ module.exports = {
                 showDetail: 100,
                 ext: [ACCOUNTKEY.NICKNAME, ACCOUNTKEY.FIGURE_URL, ACCOUNTKEY.SEX]
             },
-            {
-                redisKey: REDISKEY.RANK.GAIN,
-                originScore: null,
-                range: 10000,
-                limit: 1000,
-                showDetail: 100,
-                ext: [ACCOUNTKEY.NICKNAME, ACCOUNTKEY.FIGURE_URL, ACCOUNTKEY.SEX]
-            },
-            {
-                redisKey: REDISKEY.RANK.LOSS,
-                originScore: null,
-                range: 10000,
-                limit: 1000,
-                showDetail: 100,
-                ext: [ACCOUNTKEY.NICKNAME, ACCOUNTKEY.FIGURE_URL, ACCOUNTKEY.SEX]
-            }
+            // {
+            //     redisKey: REDISKEY.RANK.GAIN,
+            //     originScore: null,
+            //     range: 10000,
+            //     limit: 1000,
+            //     showDetail: 100,
+            //     ext: [ACCOUNTKEY.NICKNAME, ACCOUNTKEY.FIGURE_URL, ACCOUNTKEY.SEX]
+            // },
+            // {
+            //     redisKey: REDISKEY.RANK.LOSS,
+            //     originScore: null,
+            //     range: 10000,
+            //     limit: 1000,
+            //     showDetail: 100,
+            //     ext: [ACCOUNTKEY.NICKNAME, ACCOUNTKEY.FIGURE_URL, ACCOUNTKEY.SEX]
+            // }
         ]
     },
     //排行奖励、重置

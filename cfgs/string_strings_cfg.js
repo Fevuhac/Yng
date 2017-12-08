@@ -277,7 +277,7 @@ var	string_strings_cfg =
 		cn : "Đã nhận",    //--越南
 	},
 	'str_achieve_tip' : {
-		cn : "Điểm thành tựu hiện có: %d",    //--越南
+		cn : "Thành tích: %d",    //--越南
 	},
 	'str_scene_limit1' : {
 		cn : "%d lần ~%d lần ",    //--越南
@@ -328,7 +328,7 @@ var	string_strings_cfg =
 		cn : "Đang Kích Quang!, Không thể Khóa!",    //--越南
 	},
 	'str_getGold_by_diamond' : {
-		cn : "Chúc mừng, dùng %d K.C, mua %s Vàng!",    //--越南
+		cn : "Chúc mừng, dùng %d Vàng, mua %s K.C!",    //--越南
 	},
 	'str_skill_failed_tip' : {
 		cn : "Kỹ năng này đang tiến hành, xin đừng lo lắng!",    //--越南
@@ -2833,7 +2833,7 @@ var	string_strings_cfg =
 		cn : "Cá Nóc Điên ",    //--越南
 	},
 	'item_name_i200' : {
-		cn : "Phiếu đổi quà 1M ",    //--越南
+		cn : "Phiếu đổi quà 1000",    //--越南
 	},
 	'item_name_i210' : {
 		cn : "Thẻ Vàng 10K ",    //--越南
@@ -4414,16 +4414,16 @@ var	string_strings_cfg =
 		cn : "Không cần chỉ vẫn biết dùng Kích Quang! Nhưng Tân thủ tạm thời không thể dùng! ",    //--越南
 	},
 	'str_guide_over_1' : {
-		cn : "Phiếu 1M Vàng ",    //--越南
+		cn : "Phiếu đổi quà 1000",    //--越南
 	},
 	'str_guide_over_2' : {
-		cn : "Phiếu 100K Vàng ",    //--越南
+		cn : "Phiếu đổi quà 100",    //--越南
 	},
 	'str_reward_plate_ing' : {
 		cn : "Đừng lo lắng, đang tiến hành rút thăm!",    //--越南
 	},
 	'str_pearl_not_enough2' : {
-		cn : "K.C không đủ, nạp thêm?",    //--越南
+		cn : "Vàng không đủ, nạp thêm?",    //--越南
 	},
 	'str_buy_times_not_enough' : {
 		cn : "Số lần không đủ, thử Mua 1 lần xem!",    //--越南
@@ -4606,10 +4606,10 @@ var	string_strings_cfg =
 		cn : "Đang út thăm, xin đừng tắt!",    //--越南
 	},
 	'str_skill_cost' : {
-		cn : "Tiêu phí %d K.C, thả【%s】",    //--越南
+		cn : "Tiêu phí %d Vàng, thả【%s】",    //--越南
 	},
 	'str_launch_sure' : {
-		cn : "Tiêu hao %sK.C có thể mở kỹ năng này, ok chứ ?",    //--越南
+		cn : "Tiêu hao %sVàng có thể mở kỹ năng này, ok chứ ?",    //--越南
 	},
 	'exchange_remain_count' : {
 		cn : "Còn lại ",    //--越南
@@ -5206,7 +5206,7 @@ var	string_strings_cfg =
 		cn : "Điện thoại CSKH: 18755756572 QQ：800170942",    //--越南
 	},
 	'msg_pearl_temp_laba' : {
-		cn : "%s không đủ, tiêu hao %d K.C để mua?",    //--越南
+		cn : "%s không đủ, tiêu hao %d Vàng để mua?",    //--越南
 	},
 	'msg_pearl_temp_laba_1' : {
 		cn : "K.C không đủ để mua %s, nạp thêm nào!",    //--越南
@@ -5350,13 +5350,13 @@ var	string_strings_cfg =
 		cn : "Đã mua  ",    //--越南
 	},
 	'shop_vn_tips1' : {
-		cn : "De nap Gold bang the Viettel\nBan phai nhap vao so seri va ma the:",    //--越南
+		cn : "Đế nạp gold bắng thẻ viettel Viettel\nBạn phải nhận vào sổ seri và mã thẻ:",    //--越南
 	},
 	'shop_vn_tips2' : {
-		cn : "De nap Gold bang the Mobifone\nBan phai nhap vao so seri va ma the:",    //--越南
+		cn : "Đế nạp gold bắng thẻ viettel Mobifone\nBạn phải nhận vào sổ seri và mã thẻ:",    //--越南
 	},
 	'shop_vn_tips3' : {
-		cn : "De nap Gold bang the Vinaphone\nBan phai nhap vao so seri va ma the:",    //--越南
+		cn : "Đế nạp gold bắng thẻ viettel Vinaphone\nBạn phải nhận vào sổ seri và mã thẻ:",    //--越南
 	},
 	'shop_vn_tips4' : {
 		cn : "WU.卡号和密码不能为空！",    //--越南
@@ -5548,7 +5548,7 @@ var	string_strings_cfg =
 		cn : "Cùng 1 tin nhắn không thể like nhiều lần!",    //--越南
 	},
 	'tip_1059' : {
-		cn : "K.C không đủ, nạp thêm?",    //--越南
+		cn : "Vàng không đủ, nạp thêm?",    //--越南
 	},
 	'tip_1060' : {
 		cn : "Thanh toán SDK, xác nhận muốn mua?",    //--越南
@@ -5882,6 +5882,9 @@ var	string_strings_cfg =
 	},
 	'MIX_GOLD_NOT_ENOUGH' : {
 		cn : "Vàng để hợp thành không đủ ",    //--越南
+	},
+	'CIK_GOLD_NOT_ENOUGH' : {
+		cn : "Sau khi nhắc đến 35 nghìn vàng không thể thấp hơn còn lại hiện đang",    //--越南
 	},
 	'CIK_TOKEN_NOT_ENOUGH' : {
 		cn : "Phiếu đổi không đủ ",    //--越南

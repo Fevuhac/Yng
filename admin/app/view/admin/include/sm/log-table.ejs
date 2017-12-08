@@ -7,20 +7,20 @@
                   </div>
 
                   <h2 class="panel-title">
-                    <%= txt_title_table %>
+                    <%= txt_title_table_pay %>
                     </h2>
                   <p class="panel-subtitle">
-                    <%= txt_content_table %>
+                    <%= txt_content_table_pay %>
                     </p>
                 </header>
                 <div class="panel-body">
 
                   <div id="pay_stat">
                     <div>
-                      付费总量<div id="pay_sum"></div>
+                      <%= txt_total_rechage_money %><div id="pay_sum"></div>
                     </div>
                     <div>
-                      付费总人数<div id="pay_user_count"></div>
+                      <%= txt_total_rechage_player %><div id="pay_user_count"></div>
                     </div>
                   </div>
 
@@ -28,47 +28,38 @@
                     <tr>
                       <th class="cell-padding cell-align-center cell-head"
                           style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                        支付时间
+                          <%= txt_pay_time %>
                       </th>
                       <th class="cell-padding cell-align-center cell-head"
                           style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                        平台渠道
+                          <%= txt_platform %>
                       </th>
                       <th class="cell-padding cell-align-center cell-head"
                           style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                        游戏ID
+                          <%= txt_game_id %>
                       </th>
                       <th class="cell-padding cell-align-center cell-head"
                           style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                        平台ID
+                          <%= txt_platform_id %>
                       </th>
                       <th class="cell-padding cell-align-center cell-head"
                           style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                        游戏订单号
+                          <%= txt_game_order_id %>
                       </th>
                       <th class="cell-padding cell-align-center cell-head"
                           style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                        平台订单号
+                          <%= txt_platform_order_id %>
                       </th>
                       <th class="cell-padding cell-align-center cell-head"
                           style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                        商品ID
+                          <%= txt_item_id %>
                       </th>
                       <th class="cell-padding cell-align-center cell-head"
                           style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                        商品价格
+                          <%= txt_item_price %>
                       </th>
                     </tr>
-                    <tr id="fake-data">
-                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">log_date</td>
-                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">new_account</td>
-                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">user_count</td>
-                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">pay_count</td>
-                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">pay_sum</td>
-                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">ftpc</td>
-                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">fdpc</td>
-                      <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">fdpc</td>
-                    </tr>
+                    <tr id="fake-data"></tr>
                   </table>
                   
                 </div>

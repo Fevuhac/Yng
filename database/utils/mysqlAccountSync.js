@@ -315,9 +315,15 @@ function _resultList(table, fields) {
     if (fields.rank_in_friends) sql += ',a.`rank_in_friends`  ';
     if (fields.over_me_friends) sql += ',a.`over_me_friends`  ';
     if (fields.last_online_time) sql += ',a.`last_online_time`  ';
+    if (fields.recharge) sql += ',a.`recharge`  ';
+    if (fields.cash) sql += ',a.`cash`  ';
+    if (fields.cost) sql += ',a.`cost`  ';
+    if (fields.bonus_pool) sql += ',a.`bonus_pool`  ';
+    if (fields.pump_pool) sql += ',a.`pump_pool`  ';
+    if (fields.gain_loss) sql += ',a.`gain_loss`  ';
 
     // if(fields=={} || fields.id) sql += 'i.`web_url` AS figure_url, ';
-    if (fields.figure_url) sql += ",i.`web_url` AS figure_url ";
+    // if (fields.figure_url) sql += ",i.`web_url` AS figure_url ";
 
     if (fields.month_sign) sql += ',asign.`month_sign` AS month_sign ';
     if (fields.sid) sql += ',server.`sid` AS sid ';
@@ -377,7 +383,7 @@ function _resultList(table, fields) {
     sql += 'FROM `tbl_account` a ';
     if (table.tbl_account_sign) sql += 'LEFT JOIN `tbl_account_sign` asign ON a.id=asign.id ';
     if (table.tbl_account_server) sql += 'LEFT JOIN `tbl_account_server` server ON a.id=server.uid ';
-    if (table.tbl_img) sql += 'LEFT JOIN `tbl_img` i ON a.figure=i.id ';
+    // if (table.tbl_img) sql += 'LEFT JOIN `tbl_img` i ON a.figure=i.id ';
     if (table.tbl_switch) sql += 'LEFT JOIN `tbl_switch` s ON a.id=s.id ';
     if (table.tbl_goddess) sql += 'LEFT JOIN `tbl_goddess` g ON a.id=g.id ';
     if (table.tbl_aquarium) sql += 'LEFT JOIN `tbl_aquarium` aq ON a.id=aq.id ';

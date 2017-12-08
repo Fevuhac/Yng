@@ -10,6 +10,7 @@ const PROFIT_TYPE = {
 var time = new Date().getTime();
 //调用
 $(document).ready(function () {
+    $("#menu_operation").addClass("nav-expanded nav-active");
     $("#menuitem_om_control").addClass("nav-active");
 
     // 进入时查询, 然后定时查询修改数据
@@ -69,22 +70,49 @@ function changeRate(type) {
         if (!uid) return;
         params.uid = uid;
         params.rate = $('.output_player b').text();
+        params.personalGpctOut = _getPersonalGpctOut();
     }
     else if (CHANGE_RATE_TYPE.JACKPOT == type) {
         params.rate = $('.output_jackpot b').text();
+        params.globalGpctOut = _getGlobalGpctOut();
     }
     console.log(params);
 
     $.ajax({
         url: getBaseUrl() + "/admin_api/change_rate",
         type: "post",
-        data: { data: JSON.stringify(params) },
+        data: { data: params },
         success: succ
     });
     function succ(res) {
         console.log(res);
     }
 }
+
+/**
+ * 获取全服捕获率修正过期参数
+ */
+function _getGlobalGpctOut() {
+    var timeout = $('#input-timeout').val();
+    if (!timeout) {
+        alert('请输入合适的正数');
+        return 0;
+    }
+    return timeout;
+}
+
+/**
+ * 获取个人捕获率修正过期参数
+ */
+function _getPersonalGpctOut() {
+    var gold = $('#input-gold').val();
+    if (!gold) {
+        alert('请输入非0整数');
+        return 0;
+    }
+    return gold;
+}
+
 
 function _getUid() {
     var uid = $('#input-uid').val();
@@ -103,7 +131,7 @@ function queryJackpot() {
     $.ajax({
         url: getBaseUrl() + "/admin_api/query_jackpot",
         type: "post",
-        data: { data: JSON.stringify(params) },
+        data: { data: params },
         success: succ
     });
     function succ(res) {
@@ -115,15 +143,39 @@ function queryJackpot() {
         $("#give b").replaceWith('<b>' + data.give + '</b>');
         $("#bonusPool b").replaceWith('<b>' + data.bonusPool + '</b>');
         $("#pump b").replaceWith('<b>' + data.pump + '</b>');
+        if (data.globalGpctOut > 0) {
+            $("#input-timeout").val(data.globalGpctOut);
+        }else{
+            $("#input-timeout").val(0);
+        }
 
-        var warning_number = 1;
-        $("#warning_number b").replaceWith('<b>' + warning_number + '</b>');
+        var warning = data.warning;
+        if (data.warning < 0.95) {
+            warning = '<font color="red">' + warning + '</font>';
+        }
+        else if (data.warning >= 0.95 && data.warning < 1) {
+            warning = '<font color="orange">' + warning + '</font>';
+        }
+        $("#warning b").replaceWith('<b>' + warning + '</b>');
 
         var rate = data.platformCatchRate * 100;
         $('.output_jackpot b').text( rate );
         // 修改滑块进度的正确方法
         var sliderLength = rate - 50;
         $('#containerSliderJackpot .ui-slider-handle').css('left',''+sliderLength+'%');
+
+        if (data.warning < 1) {
+            setTimeout(function() {
+                let warnInfo = {
+                    title: data.warning_title,
+                    text: data.warning_msg,
+                }
+                if (data.warning < 0.95) {
+                    warnInfo.type = 'error';
+                }
+                new PNotify(warnInfo);
+            }, 50);
+        }
     }
 }
 
@@ -137,7 +189,7 @@ function queryPlayer() {
     $.ajax({
         url: getBaseUrl() + "/admin_api/query_player",
         type: "post",
-        data: { data: JSON.stringify(params) },
+        data: { data: params },
         success: succ
     });
     function succ(res) {
@@ -148,10 +200,10 @@ function queryPlayer() {
         $("#playerCash b").replaceWith('<b>' + data.cash + '</b>');
         $("#gold b").replaceWith('<b>' + data.gold + '</b>');
 
-        var profit = data.cash + data.gold - data.recharge;
-        $("#profit b").replaceWith('<b>' + profit + '</b>');
+        // var profit = data.cash + data.gold - data.recharge;
+        $("#profit b").replaceWith('<b>' + data.gain_loss + '</b>');
 
-        var rate = data.playerCatchRate * 100;
+        var rate = data.player_catch_rate * 100;
         $('.output_player b').text( rate );
 
         // 修改滑块进度的正确方法
@@ -163,25 +215,21 @@ function queryPlayer() {
 function queryProfit() {
     queryProfitOrLoss(PROFIT_TYPE.PROFIT, succ);
     function succ(res) {
-        console.log(res);
         var data = res.data;
+        console.log(data);
         var html = "";
+        html += '<tr id="placeHolderProfit"></tr>';
         for (let i = 0; i < data.length; i++) {
             var td1 = '<td style="border: solid thin #000000" class="cell-padding cell-align-center">';
             var td2 = '</td>';
-            if (i == 0) {
-                html += '<tr id="placeHolderProfit">';
-            }
-            else {
-                html += '<tr class="removeOldProfit">';
-            }
+            html += '<tr class="removeOldProfit">';
             html += td1 + data[i].uid + td2;
             html += td1 + data[i].nickname + td2;
             html += td1 + data[i].recharge + td2;
             html += td1 + data[i].cash + td2;
             html += td1 + data[i].gold + td2;
             html += td1 + data[i].profit + td2;
-            html += td1 + data[i].playerCatchRate + td2;
+            html += td1 + data[i].player_catch_rate + td2;
             html += '</tr>';
         }
         $(".removeOldProfit").remove();
@@ -195,22 +243,18 @@ function queryLoss() {
         console.log(res);
         var data = res.data;
         var html = "";
+        html += '<tr id="placeHolderLoss"></tr>';
         for (let i = 0; i < data.length; i++) {
             var td1 = '<td style="border: solid thin #000000" class="cell-padding cell-align-center">';
             var td2 = '</td>';
-            if (i == 0) {
-                html += '<tr id="placeHolderLoss">';
-            }
-            else {
-                html += '<tr class="removeOldLoss">';
-            }
+            html += '<tr class="removeOldLoss">';
             html += td1 + data[i].uid + td2;
             html += td1 + data[i].nickname + td2;
             html += td1 + data[i].recharge + td2;
             html += td1 + data[i].cash + td2;
             html += td1 + data[i].gold + td2;
             html += td1 + data[i].profit + td2;
-            html += td1 + data[i].playerCatchRate + td2;
+            html += td1 + data[i].player_catch_rate + td2;
             html += '</tr>';
         }
         $(".removeOldLoss").remove();
@@ -223,7 +267,7 @@ function queryProfitOrLoss(type, succ) {
     $.ajax({
         url: getBaseUrl() + "/admin_api/query_profit",
         type: "post",
-        data: { data: JSON.stringify(params) },
+        data: { data: params },
         success: succ
     });
 }

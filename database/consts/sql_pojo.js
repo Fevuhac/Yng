@@ -898,7 +898,48 @@ exports.fields = {
         "type": "string",
         "table": "tbl_account",
         "name": "city"
-    }
+    },
+    "recharge": {
+        "def": 0,
+        "type": "number",
+        "table": "tbl_account",
+        "name": "recharge",
+        "inc": true
+    },
+    "cash": {
+        "def": 0,
+        "type": "number",
+        "table": "tbl_account",
+        "name": "cash",
+        "inc": true
+    },
+    "cost": {
+        "def": 0,
+        "type": "number",
+        "table": "tbl_account",
+        "name": "cost",
+        "inc": true
+    },
+    "bonus_pool": {
+        "def": 0,
+        "type": "float",
+        "table": "tbl_account",
+        "name": "bonus_pool",
+        "inc": true
+    },
+    "pump_pool": {
+        "def": 0,
+        "type": "float",
+        "table": "tbl_account",
+        "name": "pump_pool",
+        "inc": true
+    },
+    "gain_loss": {
+        "def": 0,
+        "table": "tbl_account",
+        "name": "gain_loss",
+        "type": "float"
+    },
 };
 
 
@@ -1434,7 +1475,42 @@ exports.tbl_account = {
         "def": "",
         "type": "string",
         "name": "city"
-    }
+    },
+    "recharge": {
+        "def": 0,
+        "type": "number",
+        "name": "recharge",
+        "inc": true
+    },
+    "cash": {
+        "def": 0,
+        "type": "number",
+        "name": "cash",
+        "inc": true
+    },
+    "cost": {
+        "def": 0,
+        "type": "number",
+        "name": "cost",
+        "inc": true
+    },
+    "bonus_pool": {
+        "def": 0,
+        "type": "float",
+        "name": "bonus_pool",
+        "inc": true
+    },
+    "pump_pool": {
+        "def": 0,
+        "type": "float",
+        "name": "pump_pool",
+        "inc": true
+    },
+    "gain_loss": {
+        "def": 0,
+        "name": "gain_loss",
+        "type": "float"
+    },
 };
 exports.tbl_img = {
     "figure": {

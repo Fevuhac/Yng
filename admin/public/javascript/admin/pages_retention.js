@@ -1,5 +1,6 @@
 ﻿//调用
 $(document).ready(function () {
+    $("#menu_statistics").addClass("nav-expanded nav-active");
     $("#menuitem_retention").addClass("nav-active");
     setRetention();
     setDateSelector();
@@ -30,6 +31,7 @@ function setRetention() {
             console.log(data.err);
             return;
         }
+        console.log('data:', data);
         fillTable(data.data);
     });
 }
@@ -65,7 +67,7 @@ function getRetentionData(fn, start_date, end_date) {
     $.ajax({
         url: "../admin_api/get_retention_data",
         type: "post",
-        data: { data: JSON.stringify(dataPara) },
+        data: { data: dataPara },
         success: fn
     });
 }

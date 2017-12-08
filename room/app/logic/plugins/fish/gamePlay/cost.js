@@ -9,7 +9,7 @@ const cacheReader = require('../../../../cache/cacheReader');
 const consts = require('../consts');
 
 const TAG = 'numberTest ---';
-const DEBUG = 0;
+const DEBUG = 1;
 
 class Cost {
     constructor() {
@@ -349,7 +349,7 @@ class Cost {
         let fishbasepct = fishCfg.fishbasepct;
         let basPCT = fishbasepct * fishCfg.mapct * weaponspct;
         
-        let log = this.log;
+        let log = params.isReal && this.log || null;
         log && log(TAG + '------------fish---start----------------------------1')
         log && log(TAG + '--fishbasepct = ', fishbasepct);
         log && log(TAG + '--mapct = ', fishCfg.mapct, fireFlag);
@@ -404,17 +404,38 @@ class Cost {
     _isCaughtByGpct (params) {
         let gpct = this._calGpct(params);
         let ranVal = Math.random();
-        
-        let log = this.log;
+        let log = params.isReal && this.log || null;
         log && log(TAG + '--gpct = ', gpct, ranVal);
         return gpct >= ranVal;
+    }
+
+    /**
+     * 解析子弹数据
+     */
+    parseBulletKey (bk) {
+        let ts = bk.split('_');
+        let data = {
+            uIdx: parseInt(ts[0]),
+            skin: parseInt(ts[1]),
+            wpLv: parseInt(ts[2]),
+            bIdx: parseInt(ts[3]),
+        };
+        let tl = ts.length;
+        if (tl === 5) {
+            data.skillId = parseInt(ts[4]);
+        }else if (tl > 5 && bk.indexOf('_=') > 0) {
+            data.fishSkill = ts[4];
+            ts = bk.split('_=');
+            data.sfk = ts[1];
+        }
+        return data;
     }
 
     /**
      * 计算碰撞与否
      * TODO：多平台
      */
-    catchNot(params, account, fishModel, bFishGold) {
+    catchNot(params, account, fishModel, isReal, bFishGold) {
         bFishGold = bFishGold || {};
         let level = account.level;
         let vip = account.vip;
@@ -434,19 +455,21 @@ class Cost {
         let roiPCT = tData[0];
         let roipctTimeNew = tData[1];
         let pumpWater = this.getPumpWater();
-        let playerCatchRate = account.playerCatchRate || 1;
+        let player_catch_rate = account.player_catch_rate || 1;
 
         let ret = {};
         let fishFloor = {};//鱼已被
         let costGold = {}; //打死不存在的鱼，则补偿其消耗
         for (let bk in params) {
             let bd = params[bk];
-            let skin = bd.skin;
-            let weaponLv = bd.level;
             let fishes = bd.fishes;
             if (fishes.length === 0) {
                 continue;
             }
+            let td = this.parseBulletKey(bk);
+            let skin = td.skin;
+            let weaponLv = td.wpLv;
+            let rewardLv = weaponLv; //奖励倍数
             let skillIngIds = bd.skill_ing;
             let vipSkillPct = vip > 0 && this.getVippingSkillPct(vip, skillIngIds) || 0;
             let skinReward = 1;
@@ -468,33 +491,28 @@ class Cost {
             let isPlayerPowerSkillIng = false;//玩家主动技能：核弹或激光
             let isFishPowerSkillIng = false; //鱼死亡技能：炸弹、闪电
             let fireFlag = consts.FIRE_FLAG.NORMAL;
-            if (bk.indexOf('=') > 0) {
-                let tt = bk.split('=');
-                if (tt.length === 2) {
-                    let sfk = tt[1];
-                    isFishPowerSkillIng = fishFloor[sfk] === 0 || fishModel.findDeadHistory(sfk);
-                    let skillId = tt[0];
-                    if (skillId === 'fsk_lighting') {
-                        fireFlag = consts.FIRE_FLAG.LIGHTING;
-                    } else if (skillId === 'fsk_bomb') {
-                        fireFlag = consts.FIRE_FLAG.BOMB;
-                    } else {
-                        isFishPowerSkillIng = false;
-                    }
+            if (td.fishSkill && td.sfk) {
+                let sfk = td.sfk
+                isFishPowerSkillIng = fishFloor[sfk] === 0 || fishModel.findDeadHistory(sfk);
+                let skillId = td.fishSkill;
+                if (skillId === 'lighting') {
+                    fireFlag = consts.FIRE_FLAG.LIGHTING;
+                } else if (skillId === 'bomb') {
+                    fireFlag = consts.FIRE_FLAG.BOMB;
+                } else {
+                    isFishPowerSkillIng = false;
                 }
-            } else if (bk.indexOf('skill_') > 0) {
-                let tt = bk.split('_');
-                let skillId = 0;
-                if (tt.length === 4) {
-                    isPlayerPowerSkillIng = skin && weaponLv && skillIngIds && skillIngIds.length > 0;
-                    skillId = parseInt(tt[2]);
-                    if (skillId === consts.SKILL_ID.SK_LASER) {
-                        fireFlag = consts.FIRE_FLAG.LASER;
-                    } else if (skillId == consts.SKILL_ID.SK_NBOMB0 || skillId == consts.SKILL_ID.SK_NBOMB1 || skillId == consts.SKILL_ID.SK_NBOMB2) {
-                        fireFlag = consts.FIRE_FLAG.NBOMB;
-                    } else {
-                        isPlayerPowerSkillIng = false;
-                    }
+            } else if (td.skillId > 0) {
+                let skillId = td.skillId;
+                const CFG = this._getSkillCfg(skillId);
+                rewardLv = CFG.ratio;//当有激光或核弹时，参与计算的倍率应当为技能倍率
+                isPlayerPowerSkillIng = skin && weaponLv && skillIngIds && skillIngIds.length > 0;
+                if (skillId === consts.SKILL_ID.SK_LASER) {
+                    fireFlag = consts.FIRE_FLAG.LASER;
+                } else if (skillId == consts.SKILL_ID.SK_NBOMB0 || skillId == consts.SKILL_ID.SK_NBOMB1 || skillId == consts.SKILL_ID.SK_NBOMB2) {
+                    fireFlag = consts.FIRE_FLAG.NBOMB;
+                } else {
+                    isPlayerPowerSkillIng = false;
                 }
             }
 
@@ -513,7 +531,7 @@ class Cost {
                         let gotData = this._calFishGot({
                             floor: fish.floor,
                             goldVal: fish.goldVal,
-                            weaponLv: weaponLv,
+                            weaponLv: rewardLv,
                             skinReward: skinReward,
                             fishRewad: bGold[fk],
                         });
@@ -587,14 +605,15 @@ class Cost {
                     vipHitrate: vipHitrate,
                     skinPct: skinPct,
                     gold: gold,
-                    playerCatchRate: playerCatchRate,
+                    player_catch_rate: player_catch_rate,
+                    isReal: isReal,
                 });
                 let gotData = {};
                 if (isCaught) {
                     gotData = this._calFishGot({
                         floor: fish.floor,
                         goldVal: fish.goldVal,
-                        weaponLv: weaponLv,
+                        weaponLv: rewardLv,
                         skinReward: skinReward,
                         fishRewad: bGold[fk],
                     });

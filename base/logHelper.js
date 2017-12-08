@@ -6,7 +6,7 @@ class LogHelper{
             appenders: {
                 file: {
                     type: 'file',
-                    filename: './logs/playerSync.log',
+                    filename: `./logs/${module}.log`,
                     maxLogSize: 1024*1024,
                     backups:50
                 },

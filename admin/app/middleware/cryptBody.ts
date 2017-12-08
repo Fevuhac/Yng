@@ -27,7 +27,7 @@ export default () => {
                     });
                 }
             } else {
-                if (body.error && body.error.code) {
+                if (body.code && body.error.code) {
                     ctx.body.error.desc = ctx.__(body.error.code.toString())
                 }
             }

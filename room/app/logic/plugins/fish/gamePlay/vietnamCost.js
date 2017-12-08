@@ -46,10 +46,10 @@ class VietnamCost extends Cost{
     _calGpct (params) {
         let gpct = super._calGpct(params);
 
-        let personal = params.playerCatchRate;
+        let personal = params.player_catch_rate;
         gpct *= personal;
     
-        let log = this.log;
+        let log = params.isReal && this.log || null;
         log && log(TAG + '------------个人修正 = ', personal, gpct);
 
         let gl = this.getGlobalByGM();
@@ -66,13 +66,13 @@ class VietnamCost extends Cost{
      * 如果大于，则直接认为无法命中
      * 如果小于等于，才进入命中计算
      */
-    catchNot(params, account, fishModel, bFishGold) {
+    catchNot(params, account, fishModel, isReal, bFishGold) {
         let ret = {};
         let rewardPool = this.getRewardPool();
         
-        let log = this.log;
+        let log = isReal && this.log || null;
         log && log(TAG + '------------奖池筛选---start----------------------------1')
-        log && log(TAG + '------------当前奖池 = ',rewardPool)
+        log && log(TAG + '------------当前奖池 = ',rewardPool, ' 当前抽水池 = ', cacheReader.pumppool);
 
         let vip = account.vip;
         bFishGold = bFishGold || {};
@@ -83,9 +83,16 @@ class VietnamCost extends Cost{
             if (fishLen === 0) {
                 continue;
             }
-            let skin = bd.skin;
-            let weaponLv = bd.level;
+            let td = this.parseBulletKey(bk);
+            let skin = td.skin;
+            let weaponLv = td.wpLv;
             let skillIngIds = bd.skill_ing;
+            let rewardLv = weaponLv;
+            if (td.skillId > 0) {
+                const CFG = this._getSkillCfg(td.skillId);
+                rewardLv = CFG.ratio;//当有激光或核弹时，参与计算的倍率应当为技能倍率
+            }
+
             let skinReward = 1;
             let bulletBornSkillHitrate = this.getSkillGpctValue(skillIngIds) || 1;
             if (bulletBornSkillHitrate === 1) {
@@ -108,7 +115,7 @@ class VietnamCost extends Cost{
                 }
                 let fishRewad = this._calFishReward({
                     goldVal: fish.goldVal,
-                    weaponLv: weaponLv,
+                    weaponLv: rewardLv,
                     skinReward: skinReward,
                 });
                 if (fishRewad > rewardPool) {
@@ -126,7 +133,7 @@ class VietnamCost extends Cost{
                 continue;
             }
         }
-        let  superRes = super.catchNot(params, account, fishModel, bFishGold);
+        let  superRes = super.catchNot(params, account, fishModel, isReal, bFishGold);
         for (let k in ret) {
             superRes.ret[k] = ret[k];
         }

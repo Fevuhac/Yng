@@ -50,6 +50,9 @@ class RobotController {
 
         for(let item of rooms){
             let room = item.room;
+            if (!room.isRobotJoinEnabled()) {
+                continue;
+            }
             let scene = item.scene;
 
             let account = await robotBuilder.genAccount(room);
@@ -73,8 +76,9 @@ class RobotController {
     _checkTimeout(){
         let now = Date.now();
         let uids = [];
+        let rVal = Math.floor(Math.random()*300) * 1000 + config.ROBOT.JOIN_TIMEOUT;
         for(let player of this._robotPlayerMap.values()){
-            if(now - player.joinTime >= config.ROBOT.JOIN_TIMEOUT){
+            if(now - player.joinTime >= rVal){
                 player.room.leave(player.uid);
                 uids.push(player.uid);
                 logger.error('------------------------玩家超时离开', player.uid);

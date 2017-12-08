@@ -93,7 +93,7 @@ const configure = function () {
 
         // route configures
         // app.route('chat', routeUtil.chatRoute);
-        // app.route('game', routeUtil.gameRoute);
+        app.route('game', routeUtil.gameRoute);
     });
 
     // gate configuration

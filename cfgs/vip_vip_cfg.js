@@ -76,7 +76,7 @@ var	vip_vip_cfg =
 		vip_gold_buy : 15,    //--购买金币次数
 		vip_alms_value : 1000,    //--领救济金金额
 		vip_alms_times : 4,    //--领救济金次数
-		gift_price1 : 14500,    //--礼包原价
+		gift_price1 : 15000,    //--礼包原价
 		gift_price2 : 2900,    //--礼包售价
 		gift_item : [["i002",100],["i012",5],["i400",1],["i006",1]],    //--礼包内容
 		gift_free : [["i002",4],["i012",1]],    //--每日福利
@@ -216,7 +216,7 @@ var	vip_vip_cfg =
 		vip_gold_buy : 80,    //--购买金币次数
 		vip_alms_value : 2000,    //--领救济金金额
 		vip_alms_times : 7,    //--领救济金次数
-		gift_price1 : 122500,    //--礼包原价
+		gift_price1 : 120000,    //--礼包原价
 		gift_price2 : 75000,    //--礼包售价
 		gift_item : [["i002",400],["i013",5],["i015",3],["i400",5]],    //--礼包内容
 		gift_free : [["i002",7],["i012",1],["i011",1],["i013",1]],    //--每日福利
@@ -244,7 +244,7 @@ var	vip_vip_cfg =
 		vip_gold_buy : 100,    //--购买金币次数
 		vip_alms_value : 2500,    //--领救济金金额
 		vip_alms_times : 7,    //--领救济金次数
-		gift_price1 : 142500,    //--礼包原价
+		gift_price1 : 140000,    //--礼包原价
 		gift_price2 : 75000,    //--礼包售价
 		gift_item : [["i002",600],["i012",5],["i015",3],["i006",5]],    //--礼包内容
 		gift_free : [["i002",8],["i012",1],["i011",1],["i013",1]],    //--每日福利

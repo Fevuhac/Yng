@@ -3,6 +3,8 @@
  * TODO: 表过于臃肿，待拆分:女神数据，凡是单个字段
  */
 
+ const player_users_cfg = require('../../cfgs/player_users_cfg');
+
 exports.AccountDef = {
     "id": {
         "def": 0,
@@ -69,7 +71,7 @@ exports.AccountDef = {
         "type": "string"
     },
     "gold": {
-        "def": 1000,
+        "def": player_users_cfg[0].gold,
         "type": "number",
         "inc": true
     },
@@ -422,20 +424,48 @@ exports.AccountDef = {
         "def": [],
         "type": "object"
     },
-    "playerCatchRate": {
+    "player_catch_rate": {
         "def": 1,
         "type": "number"
     },
     "recharge": {
         "def": 0,
-        "type": "number"
+        "type": "number",
+        "inc": true
     },
     "cash": {
         "def": 0,
+        "type": "number",
+        "inc": true
+    },
+    "cost": {
+        "def": 0,
+        "type": "number",
+        "inc": true
+    },
+    "bonus_pool": {
+        "def": 0,
+        "type": "float",
+        "inc": true
+    },
+    "pump_pool": {
+        "def": 0,
+        "type": "float",
+        "inc": true
+    },
+    "gain_loss": {
+        "def": 0,
+        "type": "float"
+    },
+    "gain_loss_limit": {
+        "def": 0,
         "type": "number"
+    },
+    "gain_loss_snapshot": {
+        "def": 0,
+        "type": "float"
     }
 };
-
 
 exports.ChannelDef = {
 

@@ -68,7 +68,7 @@ export default (appInfo: EggAppConfig) => {
         client:{
             host:'127.0.0.1',
             port:'6379',
-            password:'show_me_your_pwd',
+            password:'',
             db: 0,
         },
         app:true,

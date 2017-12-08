@@ -27,7 +27,7 @@ var	common_log_const_cfg =  {
 		Pet_FISH_DROP : 26,    //--宠物鱼领取奖励
 		NUCLER_DROP : 27,    //--核弹领取奖励2
 		RMATCH_BOX : 28,    //--排位赛开宝箱
-		NUCLER_LASER : 29,    //--激光领取奖励
+		NUCLER_LASER : 29,    //--激光领取奖励激光领取奖励
 		CHARTS_REWARD : 30,    //--排行榜奖励
 		ACTIVE_DRAW : 31,    //--活动抽奖
 		REWARD_PEOPLE : 32,    //--打赏奖励
@@ -46,5 +46,7 @@ var	common_log_const_cfg =  {
 		SELL : 45,    //--出售物品获取金币
 		USE : 46,    //--使用物品获取金币
 		MAIL : 47,    //--邮件领取
+		NUCLER_COST : 49,    //--核弹消耗
+		ACTIVE_COST : 50,    //--抽奖消耗
 	};
 module.exports = common_log_const_cfg;

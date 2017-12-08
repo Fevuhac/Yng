@@ -1,5 +1,6 @@
 ﻿//调用
 $(document).ready(function () {
+    $("#menu_statistics").addClass("nav-expanded nav-active");
     $("#menuitem_active").addClass("nav-active");
     
     getActiveData(function (data) {
@@ -66,7 +67,7 @@ function getActiveData(fn, start_date, end_date) {
     $.ajax({
         url: "../admin_api/get_active_data",
         type: "post",
-        data: { data: JSON.stringify(dataPara) },
+        data: { data: dataPara },
         success: fn
     });
 }
@@ -78,13 +79,11 @@ function genChartLogCountData(new_account) {
         element: 'flot-bars-log-count',
         data: new_account,
         xkey: 'y',
-        //ykeys: ['a'],
-        //labels: ['登录次数'],
-        ykeys: ['a', 'b'],
-        labels: ['临时账户', '昵称账户'],
+        ykeys: ['a'],
+        labels: ['login'],
         hideHover: true,
         stacked: true,
-        barColors: ['#0088cc', '#2baab1']
+        barColors: ['#0088cc']
     });
 }
 
@@ -95,13 +94,11 @@ function genChartAccountCountData(account_count) {
         element: 'flot-bars-account-count',
         data: account_count,
         xkey: 'y',
-        //ykeys: ['a'],
-        //labels: ['登录账户数'],
-        ykeys: ['a', 'b'],
-        labels: ['临时账户', '昵称账户'],
+        ykeys: ['a'],
+        labels: ['player'],
         hideHover: true,
         stacked: true,
-        barColors: ['#0088cc', '#2baab1']
+        barColors: ['#0088cc']
     });
 }
 

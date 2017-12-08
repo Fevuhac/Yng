@@ -7,6 +7,7 @@ class Player extends Entity{
         super(opts);
         this._sid = opts.sid || '';
         this._uid = opts.uid || '';
+        this._activeTime = Date.now();
     }
 
     get uid(){
@@ -23,6 +24,19 @@ class Player extends Entity{
 
     send(route, msg){
         messageService.send(route, packMsg(msg), {uid: this._uid, sid: this._sid});
+    }
+
+    get activeTime(){
+        return this._activeTime
+    }
+
+    updateActiveTime(){
+        this._activeTime = Date.now();
+    }
+
+    c_heartbeat(data, cb){
+        this.updateActiveTime();
+        utils.invokeCallback(cb, CONSTS.SYS_CODE.OK);
     }
 
 }

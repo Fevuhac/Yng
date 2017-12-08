@@ -18,38 +18,38 @@
       <!-- content start -->
 
       <div>
-        <button id="btn_query_loss">更新</button>
+        <button id="btn_query_loss"><%= txt_regain %></button>
       </div>
 
       <table border="2" bordercolor="#000000" style="width: 100%;" id="query-table-orders">
         <tr>
             <th class="cell-padding cell-align-center cell-head"
                 style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
-            UID
+                <%= txt_player_uid %>
             </th>
             <th class="cell-padding cell-align-center cell-head"
                 style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
-            玩家名称
+                <%= txt_player_nickname %>
             </th>
             <th class="cell-padding cell-align-center cell-head"
                 style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
-            已充值额度
+                <%= txt_player_recharge %>
             </th>
             <th class="cell-padding cell-align-center cell-head"
                 style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
-            已提现额度
+                <%= txt_player_cash %>
             </th>
             <th class="cell-padding cell-align-center cell-head"
                 style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
-            持有金币
+                <%= txt_player_gold %>
             </th>
             <th class="cell-padding cell-align-center cell-head"
                 style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
-            盈亏
+                <%= txt_loss %>
             </th>
             <th class="cell-padding cell-align-center cell-head"
                 style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
-            捕获率
+                <%= txt_catch_rate %>
             </th>
         </tr>
         <tr id="placeHolderLoss"></tr>

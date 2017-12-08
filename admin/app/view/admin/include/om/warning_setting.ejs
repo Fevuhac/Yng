@@ -1,0 +1,49 @@
+<div class="col-md-6">
+    <section class="panel">
+      <header class="panel-heading">
+        <div class="panel-actions">
+          <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+          <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+        </div>
+  
+        <h2 class="panel-title">
+          <%= txt_title_warning_setting %>
+          </h2>
+        <p class="panel-subtitle">
+          <%= txt_content_warning_setting %>
+          </p>
+      </header>
+      <div class="panel-body">
+  
+        <!-- content start -->
+
+        <!-- Add a contact way -->
+        <div>
+          <label><%= txt_phone_number %></label>
+          <input id="input-phone" name="txt" type="text" class="form-control input-lg" value="13988888888"/>
+          <label><%= txt_mail_address %></label>
+          <input id="input-mail" name="txt" type="text" class="form-control input-lg" value="your_name@gmail.com" />
+          <button id="btn_confirm_add_contact_way"><%= txt_add %></button>
+        </div>
+
+        <!-- List all kinds of contact way -->
+        <div>
+          <table border="2" bordercolor="#000000" style="width: 100%;" id="query-table-orders">
+            <tr>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+                    <%= txt_target %>
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+                    <%= txt_operate %>
+                </th>
+            </tr>
+            <tr id="fake-data-contact-list"></tr>
+          </table>
+        </div>
+        <!-- content end -->
+        
+      </div>
+    </section>
+  </div>

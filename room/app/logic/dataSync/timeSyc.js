@@ -9,7 +9,7 @@ class TimeSync extends EventEmitter {
         super();
         this._timer = null;
         this.cmds = [
-            ['GET', redisKey.PLATFORM_DATA.BONUSPOOL],
+            ['GET', redisKey.PLATFORM_DATA.BONUS_POOL],
             ['GET', redisKey.PLATFORM_DATA.PLATFORM_CATCHRATE]
         ]
     }
@@ -32,7 +32,7 @@ class TimeSync extends EventEmitter {
             // logger.error('定时获取同步数据成功', values);
 
             if(values[0]){
-                this.pub_value(redisKey.PLATFORM_DATA.BONUSPOOL, values[0]);
+                this.pub_value(redisKey.PLATFORM_DATA.BONUS_POOL, values[0]);
             }
 
             if(values[1]){

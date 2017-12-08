@@ -3,9 +3,7 @@ const Player = require('./entity/player');
 const Entry = require('./entry');
 const robotController = require('./robot/robotController');
 const config = require('./config');
-const VietnamCost = require('./gamePlay/vietnamCost');
-const Cost = require('./gamePlay/cost');
-const sharedHelper = require('./sharedHelper');
+const PlayerFactory = require('./entity/playerFactory');
 
 class Instance {
     constructor() {
@@ -26,9 +24,6 @@ class Instance {
         if(!this._kickOfflineTimer){
             this._kickOfflineTimer = setInterval(this.kick_offline_player.bind(this), config.PLAYER.KICK_OFFLINE_CHECK_TIMEOUT);
         }
-
-        this.loadGamePlay();
-
     }
 
     stop() {
@@ -37,19 +32,6 @@ class Instance {
             this._vacancyQueryTimer = null;
         }
         robotController.stop();
-    }
-
-    loadGamePlay(){
-        switch (sysConfig.PUB){
-            case sysConfig.GAMEPLAY.VIETNAM:
-                sharedHelper.cost = new VietnamCost();
-                break;
-            case sysConfig.GAMEPLAY.CHINA:
-                sharedHelper.cost = new Cost();
-                break;
-            default:
-                break;
-        }
     }
 
     /**
@@ -98,26 +80,40 @@ class Instance {
         return rooms;
     }
 
-    async enterScene(data, cb) {
-        if (!data.sceneType || !data.uid || !data.sid) {
-            utils.invokeCallback(cb, CONSTS.SYS_CODE.ARGS_INVALID);
-            return;
-        }
-        let scene = this.scenes.get(data.sceneType);
+    _getInstScene(gameType, sceneType, cb){
+        let scene = this.scenes.get(sceneType);
         if (!scene) {
-            scene = new Scene(data.gameType, data.sceneType);
+            scene = new Scene(gameType, sceneType);
             let ret = scene.start()
             if (ret) {
                 utils.invokeCallback(cb, ret)
                 return;
             } else {
-                logger.info(`${data.gameType} scene ${data.sceneType} 启动成功`);
+                logger.info(`${gameType} scene ${sceneType} 启动成功`);
             }
-            this.scenes.set(data.sceneType, scene);
+            this.scenes.set(sceneType, scene);
         }
 
+        return scene;
+    }
+
+    async enterScene(data, cb) {
+        if (!data.sceneType || !data.uid || !data.sid) {
+            utils.invokeCallback(cb, CONSTS.SYS_CODE.ARGS_INVALID);
+            return;
+        }
+
+        if(this.uids.has(data.uid)){
+            this.leaveScene(data.uid, data.sceneType);
+        }
+
+        let scene = this._getInstScene(data.gameType, data.sceneType, cb);
+        if(!scene){
+            return;
+        }
+        
         try {
-            let player = await Player.allocPlayer(data);
+            let player = await PlayerFactory.createPlayer(data);
             if (!!player) {
                 let ret = scene.joinGame(player);
                 if (ret.code !== CONSTS.SYS_CODE.OK.code) {

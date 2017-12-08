@@ -43,23 +43,6 @@ class Scene {
         return this._matchRoom();
     }
 
-    // robotJoin(player, room){
-    //     this.entities.set(player.uid, room.roomId);
-    //     room.join(player);
-    // }
-
-    // robotLeave(uid){
-    //     let room = this._getRoom(uid);
-    //     if (!!room) {
-    //         room.leave(uid);
-    //         if (room.isDestroy()) {
-    //             room.stop();
-    //             this.roomMap.delete(room.roomId);
-    //         }
-    //     }
-    //     this.entities.delete(uid)
-    // }
-
     joinGame(player) {
         if (!player || !player.uid) {
             return CONSTS.SYS_CODE.ARGS_INVALID
@@ -93,6 +76,7 @@ class Scene {
                 room.stop();
                 this.roomMap.delete(room.roomId);
             }
+
             for(let uid of uids){
                 this.entities.delete(uid);
                 scene_uids.push(uid);
@@ -245,13 +229,13 @@ class Scene {
                 return;
             }
 
-            if(this._robotEvent(route, data, cb)){
-                return;
-            }
-
             let player = this._getPlayer(uid);
             if (!player) {
                 utils.invokeCallback(cb,  FishCode.PLAYER_NOT_EXIST);
+                return;
+            }
+            player.updateActiveTime();
+            if(this._robotEvent(route, data, cb)){
                 return;
             }
 

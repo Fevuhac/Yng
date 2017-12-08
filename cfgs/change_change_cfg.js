@@ -5,6 +5,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 1,    //--子类型
 		item : ["i800",1],    //--兑换道具
+		value : 10000,    //--面额
+		business : "viettel",    //--话费运营商
 		cost : 130000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -17,6 +19,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 1,    //--子类型
 		item : ["i801",1],    //--兑换道具
+		value : 20000,    //--面额
+		business : "viettel",    //--话费运营商
 		cost : 260000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -29,6 +33,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 1,    //--子类型
 		item : ["i802",1],    //--兑换道具
+		value : 50000,    //--面额
+		business : "viettel",    //--话费运营商
 		cost : 650000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -41,6 +47,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 1,    //--子类型
 		item : ["i803",1],    //--兑换道具
+		value : 100000,    //--面额
+		business : "viettel",    //--话费运营商
 		cost : 1300000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -53,6 +61,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 1,    //--子类型
 		item : ["i804",1],    //--兑换道具
+		value : 200000,    //--面额
+		business : "viettel",    //--话费运营商
 		cost : 2600000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -65,6 +75,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 1,    //--子类型
 		item : ["i805",1],    //--兑换道具
+		value : 500000,    //--面额
+		business : "viettel",    //--话费运营商
 		cost : 6500000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -77,6 +89,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 2,    //--子类型
 		item : ["i800",1],    //--兑换道具
+		value : 10000,    //--面额
+		business : "vms",    //--话费运营商
 		cost : 130000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -89,6 +103,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 2,    //--子类型
 		item : ["i801",1],    //--兑换道具
+		value : 20000,    //--面额
+		business : "vms",    //--话费运营商
 		cost : 260000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -101,6 +117,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 2,    //--子类型
 		item : ["i802",1],    //--兑换道具
+		value : 50000,    //--面额
+		business : "vms",    //--话费运营商
 		cost : 650000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -113,6 +131,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 2,    //--子类型
 		item : ["i803",1],    //--兑换道具
+		value : 100000,    //--面额
+		business : "vms",    //--话费运营商
 		cost : 1300000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -125,6 +145,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 2,    //--子类型
 		item : ["i804",1],    //--兑换道具
+		value : 200000,    //--面额
+		business : "vms",    //--话费运营商
 		cost : 2600000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -137,6 +159,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 2,    //--子类型
 		item : ["i805",1],    //--兑换道具
+		value : 500000,    //--面额
+		business : "vms",    //--话费运营商
 		cost : 6500000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -149,6 +173,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 3,    //--子类型
 		item : ["i800",1],    //--兑换道具
+		value : 10000,    //--面额
+		business : "vnp",    //--话费运营商
 		cost : 130000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -161,6 +187,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 3,    //--子类型
 		item : ["i801",1],    //--兑换道具
+		value : 20000,    //--面额
+		business : "vnp",    //--话费运营商
 		cost : 260000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -173,6 +201,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 3,    //--子类型
 		item : ["i802",1],    //--兑换道具
+		value : 50000,    //--面额
+		business : "vnp",    //--话费运营商
 		cost : 650000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -185,6 +215,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 3,    //--子类型
 		item : ["i803",1],    //--兑换道具
+		value : 100000,    //--面额
+		business : "vnp",    //--话费运营商
 		cost : 1300000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -197,6 +229,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 3,    //--子类型
 		item : ["i804",1],    //--兑换道具
+		value : 200000,    //--面额
+		business : "vnp",    //--话费运营商
 		cost : 2600000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -209,6 +243,8 @@ var	change_change_cfg =
 		type : 1,    //--所属分页
 		type2 : 3,    //--子类型
 		item : ["i805",1],    //--兑换道具
+		value : 500000,    //--面额
+		business : "vnp",    //--话费运营商
 		cost : 6500000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
@@ -221,6 +257,8 @@ var	change_change_cfg =
 		type : 2,    //--所属分页
 		type2 : 0,    //--子类型
 		item : ["i850",1],    //--兑换道具
+		value : 0,    //--面额
+		business : "",    //--话费运营商
 		cost : 840000,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
@@ -233,6 +271,8 @@ var	change_change_cfg =
 		type : 2,    //--所属分页
 		type2 : 0,    //--子类型
 		item : ["i851",1],    //--兑换道具
+		value : 0,    //--面额
+		business : "",    //--话费运营商
 		cost : 396000,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
@@ -245,6 +285,8 @@ var	change_change_cfg =
 		type : 2,    //--所属分页
 		type2 : 0,    //--子类型
 		item : ["i852",1],    //--兑换道具
+		value : 0,    //--面额
+		business : "",    //--话费运营商
 		cost : 8400,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
@@ -257,6 +299,8 @@ var	change_change_cfg =
 		type : 2,    //--所属分页
 		type2 : 0,    //--子类型
 		item : ["i853",1],    //--兑换道具
+		value : 0,    //--面额
+		business : "",    //--话费运营商
 		cost : 31200,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
@@ -269,6 +313,8 @@ var	change_change_cfg =
 		type : 2,    //--所属分页
 		type2 : 0,    //--子类型
 		item : ["i853",1],    //--兑换道具
+		value : 0,    //--面额
+		business : "",    //--话费运营商
 		cost : 108000,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
@@ -281,6 +327,8 @@ var	change_change_cfg =
 		type : 3,    //--所属分页
 		type2 : 0,    //--子类型
 		item : ["i002",10],    //--兑换道具
+		value : 0,    //--面额
+		business : "",    //--话费运营商
 		cost : 120,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
@@ -293,6 +341,8 @@ var	change_change_cfg =
 		type : 3,    //--所属分页
 		type2 : 0,    //--子类型
 		item : ["i001",10000],    //--兑换道具
+		value : 0,    //--面额
+		business : "",    //--话费运营商
 		cost : 120,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
@@ -305,6 +355,8 @@ var	change_change_cfg =
 		type : 3,    //--所属分页
 		type2 : 0,    //--子类型
 		item : ["i400",1],    //--兑换道具
+		value : 0,    //--面额
+		business : "",    //--话费运营商
 		cost : 120,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
@@ -317,6 +369,8 @@ var	change_change_cfg =
 		type : 3,    //--所属分页
 		type2 : 0,    //--子类型
 		item : ["i002",100],    //--兑换道具
+		value : 0,    //--面额
+		business : "",    //--话费运营商
 		cost : 1200,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
@@ -329,6 +383,8 @@ var	change_change_cfg =
 		type : 3,    //--所属分页
 		type2 : 0,    //--子类型
 		item : ["i001",100000],    //--兑换道具
+		value : 0,    //--面额
+		business : "",    //--话费运营商
 		cost : 1200,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
@@ -341,6 +397,8 @@ var	change_change_cfg =
 		type : 3,    //--所属分页
 		type2 : 0,    //--子类型
 		item : ["i400",10],    //--兑换道具
+		value : 0,    //--面额
+		business : "",    //--话费运营商
 		cost : 1200,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存

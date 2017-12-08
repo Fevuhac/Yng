@@ -1,6 +1,7 @@
 const database = require('../database/dbclient');
 const DBType = require('../database/consts/consts').DBType;
 const async = require('async');
+const logger = require('./logHelper');
 
 class Application{
     constructor(opts){
@@ -10,6 +11,7 @@ class Application{
     async start(){
         let result = true;
         try {
+            
             if(this._opts.db.redis){
                 let redis = await database.runner.connectRedis(this._opts.db.redis);
                 if(redis){
@@ -25,12 +27,12 @@ class Application{
             }
 
         }catch (err){
-            logger.error('应用程序基础模块启动失败，err:', err);
+            console.error('应用程序基础模块启动失败，err:', err);
             result =  false;
         }
 
         if(result){
-            logger.info('应用程序基础模块启动成功');
+            console.log('应用程序基础模块启动成功');
         }
 
         let promise = new Promise(function (resolve, reject) {

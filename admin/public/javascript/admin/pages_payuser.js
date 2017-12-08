@@ -1,5 +1,6 @@
 ﻿//调用
 $(document).ready(function () {
+    $("#menu_statistics").addClass("nav-expanded nav-active");
     $("#menuitem_payuser").addClass("nav-active");
 
     console.log("按钮配置");
@@ -139,7 +140,7 @@ function getPayUserData(fn, start_date, end_date) {
     $.ajax({
         url: "../admin_api/get_payuser_data",
         type: "post",
-        data: { data: JSON.stringify(dataPara) },
+        data: { data: dataPara },
         success: fn
     });
 }

@@ -20,20 +20,37 @@ module.exports = {
         ANDROID: 1,
         IOS: 2
     },
-
+    
     DATA_EVENT_SYNC:{
         PLATFORM_CATCHRATE:'data_event_sync_platform_catchrate', //平台捕获率
-        PLAYER_CATCHRATE:'data_event_sync_player_catchRate', //玩家捕获率变化通知
+        PLAYER_CATCH_RATE:'data_event_sync_player_catchRate', //玩家捕获率变化
+        PLAYER_GAIN_LOSS_LIMIT:'data_event_sync_player_gain_loss_limit', //玩家盈亏限制
+        PLATFORM_EARLY_WARNING:'platform_early_warning' //平台预警
     },
 
     PLATFORM_DATA: {
         PUMPWATER: 'fishjoy:room:pumpwater', //系统收益率平衡，默认为1
         PLATFORM_CATCHRATE: 'fishjoy:room:platformCatchRate', //捕鱼捕获率平台控制，默认为1
-        BONUSPOOL: 'fishjoy:platfrom:bonusPool', //奖池
-        PUMPPOOL: 'fishjoy:platfrom:pumpPool', //抽水池
-        PLATFORM_RECHARGE: 'fishjoy:platfrom:recharge', //平台充值总金额
-        PLATFORM_CASH: 'fishjoy:platfrom:cash', //平台兑现总额度
-        PLATFORM_GIVE: 'fishjoy:platfrom:give', //平台赠送金币总量
+        BONUS_POOL: 'fishjoy:platform:bonusPool', //奖池
+        PUMP_POOL: 'fishjoy:platform:pumpPool', //抽水池
+        PLATFORM_RECHARGE: 'fishjoy:platform:recharge', //平台充值总金额
+        PLATFORM_CASH: 'fishjoy:platform:cash', //平台兑现总额度
+        PLATFORM_GIVE: 'fishjoy:platform:give', //平台赠送金币总量
+        TOTALGOLD: 'fishjoy:platform:totalGold', // 玩家金币总额
+        TOTALDRAW: 'fishjoy:platform:totalDraw', // 幸运大奖总消耗
+        TOTALNUCLEAR: 'fishjoy:platform:totalNuclear', // 核弹总消耗
+        TOTALOTHERS: 'fishjoy:platform:totalOthers', // 其他总消耗
+        TODAY_PLATFORM_CASH: "fishjoy:platform:today_cash", //平台玩家今日兑现总额度
+        G_GPCT_OUT: "fishjoy:platform:g_gpct_out", //全服命中率过期时间
+        G_GPCT_OUT_TIMESTAMP: "fishjoy:platform:g_gpct_out_timestamp", //全服命中率过期时间戳
+    },
+
+    WARNING_COEFFICIENCY:{
+        COEFFICIENCY:'warning_coefficiency',//平台预警相关信息
+    },
+
+    SWITCH: {
+        CIK: "global:switch:cik",//实物兑换开关
     },
 
     RANK: {
@@ -49,16 +66,24 @@ module.exports = {
         LOSS:"rank:loss",//亏排行榜
     },
 
-    UPDATED_UIDS: 'updated_uids',
+    UPDATED_UIDS: 'fishjoy:updated_uids',
     FLOWER_RECEIVE_WEEKLY: 'flower_receive_weekly',
 
     RANK_DAILY_AWARD: PREFIX + 'rank_daily_award',
     RANK_WEEK_AWARD: PREFIX + 'rank_week_award',
 
 
-    "PLAYER_CATCHRATE": PREFIX + "player_catchRate", //玩家捕获率
+    "GAIN_LOSS_LIMIT": PREFIX + "gain_loss_limit", //玩家捕获率修正过期参数
+    "GAIN_LOSS_SNAPSHOT":PREFIX + "gain_loss_snapshot", //盈亏值快照
+    "PLAYER_CATCH_RATE": PREFIX + "player_catch_rate", //玩家捕获率
     "RECHARGE": PREFIX + "recharge", //玩家充值总额度
     "CASH": PREFIX + "cash", //玩家兑现总额度
+
+    "COST": PREFIX + "cost", //玩家金币消耗
+    "BONUS_POOL": PREFIX + "bonus_pool", //玩家金币奖池
+    "PUMP_POOL": PREFIX + "pump_pool", //玩家金币抽水
+
+    "GAIN_LOSS":PREFIX + "gain_loss", //个人盈亏
 
     //auto build base on keyTypeDef.js
     "ID": PREFIX + "id",

@@ -12,8 +12,8 @@ class Cache{
         let cmds = [];
         cmds.push(['GET', redisKey.PLATFORM_DATA.PUMPWATER]);
         cmds.push(['GET', redisKey.PLATFORM_DATA.PLATFORM_CATCHRATE]);
-        cmds.push(['GET', redisKey.PLATFORM_DATA.BONUSPOOL]);
-        cmds.push(['GET', redisKey.PLATFORM_DATA.PUMPPOOL]);
+        cmds.push(['GET', redisKey.PLATFORM_DATA.BONUS_POOL]);
+        cmds.push(['GET', redisKey.PLATFORM_DATA.PUMP_POOL]);
 
         try{
             let values = await redisAccountSync.multiAsync(cmds);
@@ -23,7 +23,9 @@ class Cache{
             }
             else {
                 let range = platform_data_conf.PUMPWATER.RANGE;
-                if(values[0] >= range[0] && values[0] <= range[1]){
+                let pumpWater_info = JSON.parse(values[0]); 
+                let pump = pumpWater_info.pumpWater;
+                if(pump >= range[0] && pump <= range[1]){
                     this.set(redisKey.PLATFORM_DATA.PUMPWATER, values[0]);
                 }else {
                     logger.error('平台抽水系数异常, 请检查数据配置');
@@ -44,8 +46,8 @@ class Cache{
             }
 
 
-            this.set(redisKey.PLATFORM_DATA.BONUSPOOL, values[2] || 0);
-            this.set(redisKey.PLATFORM_DATA.PUMPPOOL, values[3] || 0);
+            this.set(redisKey.PLATFORM_DATA.BONUS_POOL, values[2] || 0);
+            this.set(redisKey.PLATFORM_DATA.PUMP_POOL, values[3] || 0);
 
         }catch (err){
             logger.error('加载平台初始数据失败', err);

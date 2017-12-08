@@ -1,6 +1,7 @@
 ﻿//调用
 $(document).ready(function () {
-    $("#menuitem_om_query_log").addClass("nav-active");
+    $("#menu_operation").addClass("nav-expanded nav-active");
+    $("#menuitem_om_query").addClass("nav-active");
 
     console.log("查询玩家信息");
     // setDateSelector();

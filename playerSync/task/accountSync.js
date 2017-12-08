@@ -1,35 +1,9 @@
 const async = require('async');
 const dbUtils = require('../../database/').dbUtils;
 const Task = require('../../base/task/task');
-const redisKey = require('../../database/consts').REDISKEY;
+const REDISKEY = require('../../database/consts').REDISKEY;
 const utils = require('../../base/utils/utils');
-
-const testUIds = require('../test_ids_1');
-
-
-function checkTestUids(uid) {
-    if(testUIds[uid]){
-        return true;
-    }
-
-    return false;
-}
-
-
-// function deletePlatform() {
-//
-//     let cmds = [];
-//     for(let uid in testUIds){
-//         cmds.push(['hdel', redisKey.getKey(redisKey.PLATFORM), uid])
-//     }
-//     redisConnector.cmd.multi(cmds).exec(function (err, result) {
-//         if(err){
-//             console.log('删除玩家异常:', err);
-//         }else {
-//             console.log('删除玩家成功:', result);
-//         }
-//     })
-// }
+const deleteAllKey = require('../../tools/deleteAllKey').deleteAllKey;
 
 /**
  * redis数据定时同步到mysql
@@ -80,19 +54,21 @@ class AccountSync extends Task {
         });
     }
 
-
     /**
      * 执行定时任务
      * @private
      */
     _exeTask(cb) {
+
+        deleteAllKey();
+        
         logger.info('---玩家数据同步开始');
         console.time('accountSync');
         let self = this;
-        dbUtils.redisAccountSync.getSetValueLimit(redisKey.getKey(redisKey.UPDATED_UIDS), 0, this.taskConf.readLimit, (res, next) => {
+        dbUtils.redisAccountSync.getSetValueLimit(REDISKEY.UPDATED_UIDS, 0, this.taskConf.readLimit, (res, next) => {
             if (!!res && res.length > 0) {
                 let uids = dbUtils.redisAccountSync.Util.parseHashKey(res);
-                dbUtils.redisAccountSync.remSetValues(redisKey.getKey(redisKey.UPDATED_UIDS), uids, function (err, results) {
+                dbUtils.redisAccountSync.remSetValues(REDISKEY.UPDATED_UIDS, uids, function (err, results) {
                     logger.error('--------------uids', uids.length);
 
                     self._sync(0, uids, function () {

@@ -1,5 +1,36 @@
+const ORDER_TYPE = {
+    /** 话费卡 */
+    CARD_ITEM : 1,
+    /** 实物道具 */
+    REAL_ITEM : 2,
+    /** 游戏道具 */
+    GAME_ITEM : 3,
+};
+
+const ORDER_STATUS = {
+    /** 确认中 */
+    ISOK : 0,
+    /** 发放中 */
+    SENGING : 1,
+    /** 发放成功 */
+    SENDSUCCESS : 2,
+    /** 取消 */
+    CANCEL : 3,
+    /** 发放失败 */
+    SENDFAIL : 4,
+};
+
+const ORDER_STATUS_DESC = [
+    "确认中",
+    "发放中",
+    "成功",
+    "取消",
+    "失败",
+];
+
 //调用
 $(document).ready(function () {
+    $("#menu_operation").addClass("nav-expanded nav-active");
     $("#menuitem_om_change_in_kind").addClass("nav-active");
 
     console.log("获取实物兑换相应的配置列表");
@@ -52,9 +83,10 @@ function getDefaultOrders(cb) {
 function getOrders(dataPara, succ, fail) {
     console.log('CALL getOrders()...');
     $.ajax({
-        url: admin_address + "admin_api/get_change_order",
+        // url: admin_address + "admin_api/get_change_order",
+        url: "admin_api/get_change_order",
         type: "post",
-        data: { data: JSON.stringify(dataPara) },
+        data: { data: dataPara },
         success: succ
     });
 }
@@ -102,36 +134,6 @@ function getFilter() {
         order_status: order_status,
     };
 }
-
-const ORDER_TYPE = {
-    /** 话费卡 */
-    CARD_ITEM : 1,
-    /** 实物道具 */
-    REAL_ITEM : 2,
-    /** 游戏道具 */
-    GAME_ITEM : 3,
-};
-
-const ORDER_STATUS = {
-    /** 确认中 */
-    ISOK : 0,
-    /** 发放中 */
-    SENGING : 1,
-    /** 发放成功 */
-    SENDSUCCESS : 2,
-    /** 取消 */
-    CANCEL : 3,
-    /** 发放失败 */
-    SENDFAIL : 4,
-};
-
-const ORDER_STATUS_DESC = [
-    "确认中",
-    "发放中",
-    "成功",
-    "取消",
-    "失败",
-];
 
 function fillOrderTable(list) {
 
@@ -438,7 +440,7 @@ const INPUT_ID = {
 function getChangeCfgs(succ, fail) {
     var dataPara = {type:1};
     $.ajax({
-        url: admin_address + "admin_api/get_operation_cfgs",
+        url: "admin_api/get_operation_cfgs",
         type: "post",
         data: { data: JSON.stringify(dataPara) },
         success: succ
@@ -452,7 +454,7 @@ function getSwitch(succ, fail) {
     console.log("获取总开关");
     var dataPara = {type:2};
     $.ajax({
-        url: admin_address + "admin_api/get_operation_cfgs",
+        url: "admin_api/get_operation_cfgs",
         type: "post",
         data: { data: JSON.stringify(dataPara) },
         success: succ

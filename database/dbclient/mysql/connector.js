@@ -29,12 +29,11 @@ class Connector {
         this.query = this._query;
 
         this.pool = this._createPool(opts);
-        this.pool.getConnection(function(err, connection) {
-            if(err){
-                utils.invokeCallback(cb, '数据库连接失败'+err);
-            }
-            else {
-                global.mysqlConnector =  this;
+        this.pool.getConnection(function (err, connection) {
+            if (err) {
+                utils.invokeCallback(cb, '数据库连接失败' + err);
+            } else {
+                global.mysqlConnector = this;
                 utils.invokeCallback(cb, null, this);
             }
         }.bind(this));
@@ -48,11 +47,11 @@ class Connector {
 
     buildParam(sql, datas) {
         let sqlParams = [];
-        if(!sql || !datas){
+        if (!sql || !datas) {
             return sqlParams;
         }
 
-        for(let i = 0; i< datas.length; ++i){
+        for (let i = 0; i < datas.length; ++i) {
             sqlParams.push({
                 sql: sql,
                 params: datas[i]
@@ -71,28 +70,29 @@ class Connector {
     execTransaction(sqlParams, callback) {
         this.pool.getConnection(function (err, connection) {
             if (err) {
-                return callback(err, null);
+                callback(err, null);
+                return;
             }
             connection.beginTransaction(function (err) {
                 if (err) {
                     connection.release();
-                    return callback(err, null);
+                    callback(err, null);
+                    return;
                 }
+
                 let funcAry = [];
                 sqlParams.forEach(function (sql_param) {
                     let temp = function (cb) {
                         let sql = sql_param.sql;
                         let param = sql_param.params;
                         connection.query(sql, param, function (err) {
-                            // console.log(sql, param);
                             if (err) {
                                 connection.rollback(function () {
                                     console.log("事务失败，", sql_param, " ERROR：", err);
-                                    connection.release();
-                                    // throw err;
+                                    cb(err);
                                 });
                             } else {
-                                return cb(null, 'ok');
+                                cb(null);
                             }
                         })
                     };
@@ -102,22 +102,23 @@ class Connector {
                 async.series(funcAry, function (err, result) {
                     if (err) {
                         connection.rollback(function (err) {
-                            console.log("transaction error: " + err);
+                            console.log("事务回滚失败， error: " + err);
                             connection.release();
-                            return callback(err, null);
+                            callback(err, null);
                         });
                     } else {
                         connection.commit(function (err, info) {
                             if (err) {
                                 console.log("执行事务失败，", err);
-                                connection.rollback(function (err) {
-                                    console.log("transaction error: ", err);
+                                connection.rollback(function () {
                                     connection.release();
-                                    return callback(err, null);
+                                    callback(err, null);
+                                    return;
                                 });
                             } else {
                                 connection.release();
-                                return callback(null, info);
+                                callback(null, info);
+                                return;
                             }
                         })
                     }
@@ -133,8 +134,7 @@ class Connector {
                     connection.release();
                     utils.invokeCallback(cb, error, results);
                 });
-            }
-            else {
+            } else {
                 utils.invokeCallback(cb, error);
             }
         });
@@ -165,16 +165,3 @@ class Connector {
 }
 
 module.exports = Connector;
-
-
-
-
-
-
-
-
-
-
-
-
-

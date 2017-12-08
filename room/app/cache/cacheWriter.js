@@ -7,79 +7,49 @@ class CacheWriter{
         this._data = new Map();
     }
 
-    //奖池增加金币
-    _addBonuspool(value){
+    /**
+     * 操作各种带key的池子，奖金池、抽水池
+     * @param {*} key 
+     * @param {*} value 
+     */
+    _optBonusPool(key, value){
         return new Promise(function (resolve, reject) {
-            let v = Math.max(0, value);
-            // INCRBY
-
-            redisClient.cmd.incrbyfloat(redisKey.PLATFORM_DATA.BONUSPOOL, v, function (err, result) {
+            redisClient.cmd.incrbyfloat(key, value, function (err, result) {
                 if(err){
-                    logger.error('奖池金币添加失败');
+                    logger.error('池子操作失败', key);
                     reject(err);
                     return;
                 }
-
-                cache.set(redisKey.PLATFORM_DATA.BONUSPOOL, result);
-                resolve(result);
-            });
-        });
-    }
-
-    _reduceBonuspool(value){
-        return new Promise(function (resolve, reject) {
-            let v = Math.max(0, value);
-            // INCRBY
-            redisClient.cmd.incrbyfloat(redisKey.PLATFORM_DATA.BONUSPOOL, -v, function (err, result) {
-                if(err){
-                    logger.error('奖池金币扣除失败');
-                    reject(err);
-                    return;
-                }
-                cache.set(redisKey.PLATFORM_DATA.BONUSPOOL, result);
-                resolve(result);
-            });
-        });
-    }
-
-    //抽水池增加金币
-    _addPumppool(value){
-        return new Promise(function (resolve, reject) {
-            let v = Math.max(0, value);
-            redisClient.cmd.incrbyfloat(redisKey.PLATFORM_DATA.PUMPPOOL, v, function (err, result) {
-                if(err){
-                    logger.error('抽水池金币添加失败');
-                    reject(err);
-                    return;
-                }
-
-                cache.set(redisKey.PLATFORM_DATA.PUMPPOOL, result);
+                logger.error('---------- _optBonusPool:key = ', key, ' value =', value, ' result = ',result); 
+                cache.set(key, result);
                 resolve(result);
             });
         });
     }
 
     /**
-     * 消耗贡献给抽水和奖池
-     * @param {*消耗，> 0} value 
+     * 根据消耗更新奖金池和抽水池,> 0 增加，< 0 扣除
+     * @param {*消耗，> 0增加，<0扣除} value 
      */
-    addCost(value){
-        if (!value || value < 0) return;
+    async addCost(value){
         let rate = 0.05;
         let pump = value * rate;
         let bonus = value - pump;
-        this._addBonuspool(bonus);
-        this._addPumppool(pump);
+        await this._optBonusPool(redisKey.PLATFORM_DATA.BONUS_POOL, bonus);
+        await this._optBonusPool(redisKey.PLATFORM_DATA.PUMP_POOL, pump);
+        return {
+            pump: pump,
+            bonus: bonus,
+        };
     }
 
     /**
      * 从奖池中扣除奖励
      * @param {*奖励，> 0} value 
      */
-    subReward(value) {
+    async subReward(value) {
         if (!value || value < 0) return;
-        //todo
-        this._reduceBonuspool(value);
+        await this._optBonusPool(redisKey.PLATFORM_DATA.BONUS_POOL, -value);
     }
 
 }

@@ -14,51 +14,45 @@
         </p>
     </header>
     <div class="panel-body" id="panel-pay-user">
-        <button id="btn-get-payuser-rank" class="btn btn-primary hidden-xs">获取付费排行榜</button>
+        <button id="btn-get-payuser-rank" class="btn btn-primary hidden-xs"><%= txt_get_payment_chart %></button>
 
         <div id="payuser-rank-table-div">
             <table style="width: 100%;" class="table-striped table-bordered" id="payuser-rank-table">
                 <tr>
                     <th class="cell-padding cell-align-center cell-head"
                         style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                    玩家游戏ID
+                    UID
                     </th>
                     <th class="cell-padding cell-align-center cell-head"
                         style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                    玩家渠道ID
+                        <%= txt_player_platform_id %>
                     </th>
                     <th class="cell-padding cell-align-center cell-head"
                         style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                    玩家昵称
+                        <%= txt_nickname %>
                     </th>
                     <th class="cell-padding cell-align-center cell-head"
                         style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                    玩家游戏等级
+                        <%= txt_level %>
                     </th>
                     <th class="cell-padding cell-align-center cell-head"
                         style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                    玩家rmb
+                        <%= txt_player_rmb %>
                     </th>
                     <th class="cell-padding cell-align-center cell-head"
                         style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                    玩家VIP等级
+                    VIP
                     </th>
                     <th class="cell-padding cell-align-center cell-head"
                         style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                    付费次数
+                        <%= txt_pay_times %>
                     </th>
                     <th class="cell-padding cell-align-center cell-head"
                         style="border: solid thin #eeeeee;background-color: #dfdfdf;">
-                    付费金额
+                        <%= txt_pay_money %>
                     </th>
                 </tr>
-                <tr id="fake-data-payuser-rank">
-                    <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">uid</td>
-                    <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">cid</td>
-                    <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">nickname</td>
-                    <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">total_count</td>
-                    <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">total_money</td>
-                </tr>
+                <tr id="fake-data-payuser-rank"></tr>
             </table>
         </div>
     </div>

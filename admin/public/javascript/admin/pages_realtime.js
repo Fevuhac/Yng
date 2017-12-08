@@ -11,7 +11,7 @@ function getRealtimeData(fn) {
     });
 }
 
-function genChartNewAccount(new_account_data) {
+function genChartNewAccount(new_account_data, txt) {
     // Morris: Bar
     Morris.Bar({
         resize: true,
@@ -19,13 +19,13 @@ function genChartNewAccount(new_account_data) {
         data: new_account_data,
         xkey: 'y',
         ykeys: ['a', 'b'],
-        labels: ['昨日', '今日'],
+        labels: [txt.txt_yesterday, txt.txt_today],
         hideHover: true,
         barColors: ['#0088cc', '#2baab1']
     });
 }
 
-function genChartLoginCount(login_count_data) {
+function genChartLoginCount(login_count_data, txt) {
     // Morris: Bar
     Morris.Bar({
         resize: true,
@@ -33,13 +33,13 @@ function genChartLoginCount(login_count_data) {
         data: login_count_data,
         xkey: 'y',
         ykeys: ['a', 'b'],
-        labels: ['昨日', '今日'],
+        labels: [txt.txt_yesterday, txt.txt_today],
         hideHover: true,
         barColors: ['#0088cc', '#2baab1']
     });
 }
 
-function genChartAccountCount(account_count_data) {
+function genChartAccountCount(account_count_data, txt) {
     // Morris: Bar
     Morris.Bar({
         resize: true,
@@ -47,7 +47,7 @@ function genChartAccountCount(account_count_data) {
         data: account_count_data,
         xkey: 'y',
         ykeys: ['a', 'b'],
-        labels: ['昨日', '今日'],
+        labels: [txt.txt_yesterday, txt.txt_today],
         hideHover: true,
         barColors: ['#0088cc', '#2baab1']
     });
@@ -59,15 +59,19 @@ $(document).ready(function () {
     $("#menu_statistics").addClass("nav-expanded nav-active");
     $("#menuitem_realtime").addClass("nav-active");
 
-    getRealtimeData(function (data) {
-        console.log(data.msg);
-        if (data.err) {
-            console.log(data.err);
+    getRealtimeData(function (res) {
+        console.log('res:', res);
+        if (res.err) {
+            console.log(res.err);
             return;
         }
-        var rows = data.data;
-        //console.log(rows);
-        
+        var rows = res.data.data;
+        var txt = res.data.txt;
+        let first = rows[0];
+        let second = rows[1];
+        console.log('rows:', rows);
+        console.log('txt:', txt);
+
         var new_account_data = [];
         var login_count_data = [];
         var account_count_data = [];
@@ -76,42 +80,38 @@ $(document).ready(function () {
             login_count_data[i] = { y: '' + i, a: 0, b: 0 };
             account_count_data[i] = { y: '' + i, a: 0, b: 0 };
         }
-        
-        for (var i = 0; i < rows.length; i++) {
-            var time_info = rows[i].created_at.split(' ');
-            var date_info = time_info[0];
-            var hour_info = Number(time_info[1]);
-            console.log('日期: ' + date_info);
-            console.log('时间: ' + hour_info);
 
-            var now = DateUtil.pattern(new Date(), 'yyyy-MM-dd');
-            var new_account_date = new_account_data[hour_info];
-            var login_count_date = login_count_data[hour_info];
-            var account_count_date = account_count_data[hour_info];
+        setData(first, 'a');
+        setData(second, 'b');
 
-            console.log('new_account_date', new_account_date);
-            console.log('login_count_date', login_count_date);
-            console.log('account_count_date', account_count_date);
+        genChartNewAccount(new_account_data, txt);
+        genChartLoginCount(login_count_data, txt);
+        genChartAccountCount(account_count_data, txt);
 
-            if (now != date_info) {
-                // prev date
-                new_account_date.a = rows[i].new_account;
-                login_count_date.a = rows[i].login_count;
-                account_count_date.a = rows[i].account_count;
+        function setData(list, key) {
+            for (var i = 0; i < list.length; i++) {
+                var time_info = list[i].created_at.split(' ');
+                var date_info = time_info[0];
+                var hour_info = Number(time_info[1]);
+                console.log('日期: ' + date_info);
+                console.log('时间: ' + hour_info);
+
+                var new_account_date = new_account_data[hour_info];
+                var login_count_date = login_count_data[hour_info];
+                var account_count_date = account_count_data[hour_info];
+
+                console.log('new_account_date', new_account_date);
+                console.log('login_count_date', login_count_date);
+                console.log('account_count_date', account_count_date);
+
+                new_account_date[key] = list[i].new_account;
+                login_count_date[key] = list[i].login_count;
+                account_count_date[key] = list[i].account_count;
+
+                new_account_data[hour_info] = new_account_date;
+                login_count_data[hour_info] = login_count_date;
+                account_count_data[hour_info] = account_count_date;
             }
-            else {
-                // this date
-                new_account_date.b = rows[i].new_account;
-                login_count_date.b = rows[i].login_count;
-                account_count_date.b = rows[i].account_count;
-            }
-            new_account_data[hour_info] = new_account_date;
-            login_count_data[hour_info] = login_count_date;
-            account_count_data[hour_info] = account_count_date;
         }
-
-        genChartNewAccount(new_account_data);
-        genChartLoginCount(login_count_data);
-        genChartAccountCount(account_count_data);
     });
 });

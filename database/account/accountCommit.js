@@ -3,8 +3,8 @@ const accountConf = require('./accountConf');
 /**
  * 动态代码，自动生成
  */
-class AccountCommit{
-    constructor(id){
+class AccountCommit {
+    constructor(id) {
         this.__update = [];
         this.__id = id;
     }
@@ -18,15 +18,9 @@ class AccountCommit{
     }
 
     _modify(key, value) {
-        if (AccountCommit.bIncr(key)) {            
-            if (this[`_${key}`] + value < 0) {
-                value = -this[`_${key}`];
-                this[`_${key}`] = 0;
-            }else{
-                this[`_${key}`] += value;
-            }
-        }
-        else {
+        if (AccountCommit.bIncr(key)) {
+            this[`_${key}`] += value;
+        } else {
             this[`_${key}`] = value;
         }
         this.__update.push([key, value]);
@@ -850,14 +844,67 @@ class AccountCommit{
     get city() {
         return this._value('city');
     }
-    set playerCatchRate(value){
-        this._modify('playerCatchRate', value);
+    set player_catch_rate(value) {
+        this._modify('player_catch_rate', value);
     }
-    get playerCatchRate(){
-        return this._value('playerCatchRate');
+    get player_catch_rate() {
+        return this._value('player_catch_rate');
+    }
+    get recharge() {
+        return this._value('recharge');
+    }
+
+    set recharge(value) {
+        this._modify('recharge', value);
+    }
+
+    get cash() {
+        return this._value('cash');
+    }
+
+    set cash(value) {
+        this._modify('cash', value);
+    }
+    get cost() {
+        return this._value('cost');
+    }
+
+    set cost(value) {
+        this._modify('cost', value);
+    }
+    get bonus_pool() {
+        return this._value('bonus_pool');
+    }
+
+    set bonus_pool(value) {
+        this._modify('bonus_pool', value);
+    }
+    
+    get pump_pool() {
+        return this._value('pump_pool');
+    }
+    set pump_pool(value) {
+        this._modify('pump_pool', value);
+    }
+    get gain_loss(){
+        return this._value('gain_loss');
+    }
+    set gain_loss(value) {
+        this._modify('gain_loss', value);
+    }
+    get gain_loss_limit(){
+        return this._value('gain_loss_limit');
+    }
+    set gain_loss_limit(value) {
+        this._modify('gain_loss_limit', value);
+    }
+    get gain_loss_snapshot(){
+        return this._value('gain_loss_snapshot');
+    }
+    set gain_loss_snapshot(value) {
+        this._modify('gain_loss_snapshot', value);
     }
 
 }
 
 module.exports = AccountCommit;
-

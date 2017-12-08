@@ -2,13 +2,14 @@ const Player = require('../../../base/player');
 const fishCmd = require('../fishCmd');
 const FishCode = require('../fishCode');
 const consts = require('../consts');
+
 const Cost = require('../gamePlay/cost');
 const configReader = require('../configReader');
 const redisAccountSync = require('../../../../utils/import_utils').redisAccountSync;
-const cacheWriter = require('../../../../cache/cacheWriter');
-const playerCatchRateEvent = require('../../../../cache/playerCatchRateEvent');
+const ACCOUNTKEY = require('../../../../utils/import_def').ACCOUNTKEY;
+const playerChangeEvent = require('../../../../cache/playerChangeEvent');
+const gamePlay = require('../gamePlay/gamePlay');
 
-const B_MAX = 9999;
 const FIRE_DELAY = 50; //开炮事件服务端与客户端的延时,单位毫秒
 const DEBUG = 1;
 let log = null;
@@ -34,26 +35,25 @@ class FishPlayer extends Player {
             gameMode:null,
             sceneType:null
         };
-        this._activeTime = Date.now();
+
         this._lastFireFish = null;
         this._bkCost = {};
         this._fireC = 0;
         this._collisionC = 0;
         this._tc = 0;
-        this._robotFireBKeys = {};
-        this._robotLastFire = 0;
         this._fireTimestamp = 0;
-        this.cost = require('../sharedHelper').cost;
+        this._lastFireIdx = 0;
+        this.cost = gamePlay.cost;
 
-        playerCatchRateEvent.on(this.uid, function(catchRate){
-            this.account.playerCatchRate = catchRate;
+        playerChangeEvent.on(this.uid, function(key, value){
+            this.account[key] = value;
         }.bind(this));
     }
 
 
     static allocPlayer(data){
         let promise = new Promise((resolve, reject)=>{
-            redisAccountSync.getAccount(data.uid, consts.PLAYER_BASE_INFO_FIELDS, function (err, account) {
+            redisAccountSync.getAccount(data.uid, FishPlayer.baseField, function (err, account) {
                 if(!!err){
                     reject(CONSTS.SYS_CODE.DB_ERROR);
                     return;
@@ -150,12 +150,8 @@ class FishPlayer extends Player {
         return this._account
     }
 
-    get activeTime(){
-        return this._activeTime
-    }
-
-    updateActiveTime(){
-        this._activeTime = Date.now();
+    save(){
+        this.account.commit();
     }
 
     c_query_fishes (data, cb) {
@@ -167,8 +163,12 @@ class FishPlayer extends Player {
         logger.error('--c_query_fishes--done');
     }
 
+    getBaseField(){
+        return FishPlayer.baseField;
+    }
+
     c_player_notify(data, cb){
-        redisAccountSync.getAccount(this.uid, consts.PLAYER_BASE_INFO_FIELDS, function (err, account) {
+        redisAccountSync.getAccount(this.uid, this.getBaseField(), function (err, account) {
             if(!!err){
                 utils.invokeCallback(cb, CONSTS.SYS_CODE.DB_ERROR);
                 return;
@@ -198,31 +198,36 @@ class FishPlayer extends Player {
      * 开炮
      */
     c_fire(data, cb){
+        let isReal = this.isRealPlayer();
         let curWpLv = this.DIY.weapon;
         let curSkin = this.DIY.weapon_skin;
         let energy = this.DIY.weapon_energy[curWpLv];
         if (curSkin != data.wp_skin || curWpLv != data.wp_level || (Object.keys(this.DIY.weapon_energy).length > 0 && energy === undefined)) {
-            log && log('curSkin = ', curSkin, data.wp_skin);
-            log && log('curWpLv = ', curWpLv, data.wp_level );
-            log && log('energy = ', energy);
+            isReal && log && log('curSkin = ', curSkin, data.wp_skin);
+            isReal && log && log('curWpLv = ', curWpLv, data.wp_level );
+            isReal && log && log('energy = ', energy);
             utils.invokeCallback(cb, FishCode.NOT_MATCH_WEAPON);
             return;
         }
-        
-        let now = new Date().getTime();
-        if (this._fireTimestamp > 0) {
-            let passed = now - this._fireTimestamp;
-            let SKIN_CFGS = GAMECFG.newweapon_weapons_cfg;
-            if (passed + FIRE_DELAY < SKIN_CFGS[curSkin].interval * 1000) {
-                utils.invokeCallback(cb, FishCode.INVALID_WP_FIRE);
-                logger.error('passed = ', passed);
-                return;
-            }
-        }
-        this._fireTimestamp = now;
-
         let wpBk = data.wp_bk;
-        logger.error('wbk = ', wpBk);
+        //logger.error('wbk = ', wpBk);
+        if (isReal) {
+            let bd = this.cost.parseBulletKey(wpBk);
+            let now = new Date().getTime();
+            if (this._fireTimestamp > 0) {
+                let passed = now - this._fireTimestamp;
+                let SKIN_CFGS = GAMECFG.newweapon_weapons_cfg;
+                //logger.error('bidx = ', bd.bIdx, this._lastFireIdx);
+                if (this._lastFireIdx && bd.bIdx - this._lastFireIdx === 1 && passed + FIRE_DELAY < SKIN_CFGS[curSkin].interval * 1000) {
+                    utils.invokeCallback(cb, FishCode.INVALID_WP_FIRE);
+                    logger.error('passed = ', passed);
+                    return;
+                }
+            }
+            this._fireTimestamp = now;
+            this._lastFireIdx = bd.bIdx;
+        }
+
         if (this._bkCost[wpBk] > 0) {
             utils.invokeCallback(cb, FishCode.INVALID_WP_BK);
             return;
@@ -241,7 +246,7 @@ class FishPlayer extends Player {
             }
             
             this._fireC += costGold;
-            log && log('numberTest--玩家开火累计消耗:', this._fireC);
+            isReal && log && log('numberTest--玩家开火累计消耗:', this._fireC);
             
             this._bkCost[wpBk] = costGold;
             let saveData = {
@@ -281,7 +286,8 @@ class FishPlayer extends Player {
             saveData.heartbeat = heart[0];
             saveData.heartbeat_min_cost = heart[1];
             this._save(saveData);
-            costGold > 0 && this.isRealPlayer() && cacheWriter.addCost(costGold);//贡献奖池和抽水
+            costGold > 0 && isReal && this.addCost(costGold);//贡献奖池和抽水
+            isReal && this.checkPersonalGpctOut();
         }
         
         utils.invokeCallback(cb, null, {
@@ -309,6 +315,7 @@ class FishPlayer extends Player {
      * 碰撞鱼捕获率判定
      */
     c_catch_fish(data, cb){
+        let isReal = this.isRealPlayer();
         //校验子弹是否真的存在过 //子弹不存在，则无消耗，不能碰撞
         let bFishes = data.b_fishes;
         let bks = Object.keys(bFishes);
@@ -318,22 +325,21 @@ class FishPlayer extends Player {
                 continue;
             }
             if (!this._bkCost[bk]) {
-                log && log('numberTest--无效碰撞', bk);
+                isReal && log && log('numberTest--无效碰撞', bk);
                 this._bkCost[bk] = -1;//碰撞事件比开火事件先收到，视为无效碰撞，则下一次收到该开火事件时不处理
                 delete bFishes[bk];
             }
         }
-        let tData = this.cost.catchNot(bFishes, this.account, this.fishModel);
+        let tData = this.cost.catchNot(bFishes, this.account, this.fishModel, isReal);
         let ret = tData.ret; 
         let gainGold = 0;
-        let isReal = this.isRealPlayer();
         let oldRrewardFishGold = this.account.bonus && this.account.bonus.gold_count || 0;
         let rewardFishNum = 0;
         for (let fk in ret) {
             let gold = ret[fk].gold;
             if (gold >= 0) {
                 gainGold += gold;
-                log && log('numberTest--奖励鱼 = ', fk, gold);
+                isReal && log && log('numberTest--奖励鱼 = ', fk, gold);
                 if (isReal) {
                     let flag = this._missionCoutWithFish(fk, gold);
                     flag === 1 && (rewardFishNum ++);
@@ -345,14 +351,14 @@ class FishPlayer extends Player {
         newRrewardFishGold = Math.max(newRrewardFishGold, 0);
         
         this._collisionC += gainGold;
-        log && log('numberTest--玩家累计获得:', this._collisionC);
+        isReal && log && log('numberTest--玩家累计获得:', this._collisionC);
 
         let tc = gainGold;
         let fireCostBack = tData.costGold;
         if (fireCostBack) {
             for (let bk in fireCostBack) {
                 let fc = fireCostBack[bk];
-                logger.error('fc = ', fc, bk, this._bkCost[bk]);
+                isReal && log && log('fc = ', fc, bk, this._bkCost[bk]);
                 if (this._bkCost[bk] > 0 && fc) {
                     gainGold += this._bkCost[bk];
                     this._bkCost[bk] = 0;
@@ -366,10 +372,11 @@ class FishPlayer extends Player {
             }
         }
         tc = gainGold - tc;
+        tc > 0 && this.backCost(tc);
         this._tc += tc;
-        log && log('numberTest--子弹补偿:', tc, ' 累计补偿 = ', this._tc);
+        isReal && log && log('numberTest--子弹补偿:', tc, ' 累计补偿 = ', this._tc);
 
-        gainGold > 0 && this.isRealPlayer() && cacheWriter.subReward(gainGold);//从奖池中扣除本次奖励
+        gainGold > 0 && isReal && this.subReward(gainGold);//从奖池中扣除本次奖励
 
         this._save({
             gold: gainGold,
@@ -433,9 +440,17 @@ class FishPlayer extends Player {
         let costVal = 0;
         ret.costPearl > 0 && (saveData.pearl = -ret.costPearl, costVal = ret.costPearl);
         ret.costGold > 0 && (saveData.gold = -ret.costGold, costVal = ret.costGold);
-        this._save(saveData);
 
-        costVal > 0 && this.isRealPlayer() && cacheWriter.addCost(costVal);//贡献奖池和抽水
+        let sceneFlag = GAMECFG.common_log_const_cfg.GAME_FIGHTING;
+        if (costVal > 0 && this.isRealPlayer()) {
+            if (this._isNbomb(skillId)) {
+                this.addCost(costVal);//贡献奖池和抽水
+                sceneFlag = GAMECFG.common_log_const_cfg.NUCLER_COST;
+            }else{
+                this.addCostOther(costVal);
+            }
+        }
+        this._save(saveData, sceneFlag);
 
         let common = {
             skill_id: skillId,
@@ -504,6 +519,10 @@ class FishPlayer extends Player {
         }});
     }
 
+    _isNbomb(skillId) {
+        return skillId === consts.SKILL_ID.SK_NBOMB0 || skillId === consts.SKILL_ID.SK_NBOMB1 || skillId === consts.SKILL_ID.SK_NBOMB2;
+    }
+
     /**
      * 激光或核弹确定打击位置
      */
@@ -514,7 +533,7 @@ class FishPlayer extends Player {
             return;
         }
         let skillPower = null;
-        if (skillId === consts.SKILL_ID.SK_LASER || skillId === consts.SKILL_ID.SK_NBOMB0 || skillId === consts.SKILL_ID.SK_NBOMB1 || skillId === consts.SKILL_ID.SK_NBOMB2) {
+        if (skillId === consts.SKILL_ID.SK_LASER || this._isNbomb(skillId)) {
             let wpBk = data.wp_bk;
             this._bkCost[wpBk] = true;
 
@@ -678,56 +697,13 @@ class FishPlayer extends Player {
     /**
      * 机器人开火
      */
-    robotFire () {
-        let fishKey = this._lastFireFish;
-        if (fishKey) {
-            if (this.fishModel.findFish(fishKey)) {
-                if (Math.random() > 0.9) {
-                    fishKey = null;
-                }
-            }
-        }
-        if (!fishKey) {
-            fishKey = this.fishModel.findMaxValueFish();
-            this._lastFireFish = fishKey;
-        }
-        let wpBk = this.genRobotBulletNameKey();
-        this.c_fire({
-            wp_level: this.DIY.weapon,
-            wp_skin: this.DIY.weapon_skin, 
-            fire_fish: fishKey,
-            wp_bk: wpBk,
-        });
-    }
-
-    genRobotBulletNameKey ( skillId ) {
-        let name = 'rb_';
-        if (skillId > 0) {
-            name = name + 'skill_' + skillId;
-        }
-        name = this.seatId + '_' + name;
-
-        let i = this._robotLastFire;
-        this._robotLastFire ++;
-        if (this._robotLastFire >= B_MAX) {
-            this._robotLastFire = 0;
-        }
-        let tk = ''
-        for (; i < B_MAX; i++) {
-            let nameKey = name + "_" + i;
-            if (!this._robotFireBKeys.hasOwnProperty(nameKey)) {
-                tk = nameKey;
-                break;
-            }
-        }
-        return tk;
-    }
+    robotFire () {}
 
     /**
      * 是否是真人
      */
     isRealPlayer () {
-        return this.kindId === consts.ENTITY_TYPE.PLAYER;
+        return true;
     }
 
     /**
@@ -736,7 +712,7 @@ class FishPlayer extends Player {
      * 1、房间内不能直接改变武器等级和皮肤并持久化，因为武器升级和切换皮肤在数据服操作，且实际武器等级可能超过了当前房间所允许的区间
      * 2、data所含字段必须是account含有字段，反之不会持久化
      */
-    _save(data){
+    _save(data, sceneFlag){
         if(this.isRealPlayer() && data && Object.keys(data).length > 0){
             data.hasOwnProperty('gold') && (this.account.gold = data.gold);
             data.hasOwnProperty('weapon_energy') && (this.account.weapon_energy = data.weapon_energy);
@@ -749,30 +725,34 @@ class FishPlayer extends Player {
             data.hasOwnProperty('level') && (this.account.level = data.level);
             data.hasOwnProperty('comeback_hitrate') && (this.account.comeback.hitrate = data.comeback_hitrate, this.account.comeback = this.account.comeback);
             this.account.commit();
+            this.writeLog(data, sceneFlag);
+        }
+    }
 
-            //金币日志
-            if (data.hasOwnProperty('gold')) {
-                if (data.gold > 0) {
-                    logBuilder.addGoldLog(this.account.id, data.gold, 0, this.account.gold, GAMECFG.common_log_const_cfg.GAME_FIGHTING, this.account.level);
-                }else if (data.gold < 0) {
-                    logBuilder.addGoldLog(this.account.id, 0, -data.gold, this.account.gold, GAMECFG.common_log_const_cfg.GAME_FIGHTING, this.account.level);
-                }
+    writeLog (data, sceneFlag) {
+        sceneFlag = sceneFlag || GAMECFG.common_log_const_cfg.GAME_FIGHTING;
+        //金币日志
+        if (data.hasOwnProperty('gold')) {
+            if (data.gold > 0) {
+                logBuilder.addGoldLog(this.account.id, data.gold, 0, this.account.gold, sceneFlag, this.account.level);
+            }else if (data.gold < 0) {
+                logBuilder.addGoldLog(this.account.id, 0, -data.gold, this.account.gold, sceneFlag, this.account.level);
             }
+        }
 
-            //钻石日志
-            if (data.hasOwnProperty('pearl')) {
-                if (data.pearl > 0) {
-                    logBuilder.addPearlLog(this.account.id, data.pearl, 0, this.account.pearl, GAMECFG.common_log_const_cfg.GAME_FIGHTING, this.account.level);
-                }else if (data.pearl < 0) {
-                    logBuilder.addPearlLog(this.account.id, 0, -data.pearl, this.account.pearl, GAMECFG.common_log_const_cfg.GAME_FIGHTING, this.account.level);
-                }
+        //钻石日志
+        if (data.hasOwnProperty('pearl')) {
+            if (data.pearl > 0) {
+                logBuilder.addPearlLog(this.account.id, data.pearl, 0, this.account.pearl, sceneFlag, this.account.level);
+            }else if (data.pearl < 0) {
+                logBuilder.addPearlLog(this.account.id, 0, -data.pearl, this.account.pearl, sceneFlag, this.account.level);
             }
+        }
 
-            //技能日志
-            if (data.hasOwnProperty('skillUsed')) {
-                let skillUsed = data.skillUsed;
-                logBuilder.addSkillLog(this.account.id, skillUsed.id, 0, 1, skillUsed.ct);
-            }
+        //技能日志
+        if (data.hasOwnProperty('skillUsed')) {
+            let skillUsed = data.skillUsed;
+            logBuilder.addSkillLog(this.account.id, skillUsed.id, 0, 1, skillUsed.ct);
         }
     }
 
@@ -800,10 +780,14 @@ class FishPlayer extends Player {
                     reward *= (1 + wpStarCfg.golden);  
                     reward = Math.ceil(reward);  
                 }
+                reward /= 10;//策划约定
+                reward = Math.floor(reward);
                 bonus.gold_count += reward;
                 this.account.bonus = bonus;
                 return 1;
             }
+
+            //TODO:捕鱼积分统计
         }
         return 0;
     }
@@ -816,16 +800,14 @@ class FishPlayer extends Player {
         if (this._bkCost) {
             let mBIdx = {};
             for (let bk in this._bkCost) {
-                let ts = bk.split('_');
-                if (ts.length === 4) {
-                    let uidx = ts[0];
-                    let skin = ts[1];
-                    let wpLv = ts[2];
-                    let bIdx = ts[3];
-                    if (!mBIdx[uidx]) {
-                        mBIdx[uidx] = 0;
+                let td = this.cost.parseBulletKey(bk);
+                if (td && td.hasOwnProperty('uIdx') && td.hasOwnProperty('bIdx')) {
+                    let uIdx = td.uIdx;
+                    let bIdx = td.bIdx;
+                    if (!mBIdx[uIdx]) {
+                        mBIdx[uIdx] = 0;
                     }
-                    mBIdx[uidx] = Math.max(mBIdx[uidx], bIdx);
+                    mBIdx[uIdx] = Math.max(mBIdx[uIdx], bIdx);
                 }
             }
             if (Object.keys(mBIdx).length > 0) {
@@ -834,7 +816,52 @@ class FishPlayer extends Player {
         }
         return data;
     }
+
+    /**
+     * 贡献抽水和奖池
+     */
+    addCost (costVal) { }
+
+    /**
+     * 从奖池扣除奖励
+     */
+    subReward (gainVal) { }
+
+    /**
+     * 返还消耗
+     */
+    backCost (costVal) { }
     
+    /**
+     * 其他消耗:
+     * 购买皮肤、购买月卡、购买VIP礼包、购买道具（提现功能内非实物类购买）、购买钻石、购买技能等各种其他非赌博消耗
+     * 即未参于奖池和抽水
+     */
+    addCostOther (costVal) {}
+
+    /**
+     * 个人捕获率修正过期检查
+     */
+    checkPersonalGpctOut () {}
 }
+
+FishPlayer.baseField = [
+    ACCOUNTKEY.NICKNAME,
+    ACCOUNTKEY.LEVEL,
+    ACCOUNTKEY.WEAPON,
+    ACCOUNTKEY.WEAPON_SKIN,
+    ACCOUNTKEY.GOLD,
+    ACCOUNTKEY.PEARL,
+    ACCOUNTKEY.VIP,
+    ACCOUNTKEY.COMEBACK,
+    ACCOUNTKEY.WEAPON_ENERGY,
+    ACCOUNTKEY.HEARTBEAT,
+    ACCOUNTKEY.ROIPCT_TIME,
+    ACCOUNTKEY.SKILL,
+    ACCOUNTKEY.EXP,
+    ACCOUNTKEY.FIGURE_URL,
+    ACCOUNTKEY.BONUS,
+    ACCOUNTKEY.PLAYER_CATCH_RATE
+]
 
 module.exports = FishPlayer;

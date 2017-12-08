@@ -10,7 +10,7 @@ module.exports = {
         CHINA:0, //大陆
         VIETNAM:1 //越南
     },
-    PUB: 0,
+    PUB: 1,
 
     //平台数据配置
     PLATFORM_DATA_CONF:{
@@ -19,11 +19,11 @@ module.exports = {
             DEFAULT:1
         },
         PLATFORM_CATCHRATE:{
-            RANGE:[0.5, 1.2],
+            RANGE:[0.5, 1.5],
             DEFAULT:1
         },
-        PLAYER_CATCHRATE:{
-            RANGE:[0.5, 1.2],
+        PLAYER_CATCH_RATE:{
+            RANGE:[0.5, 1.5],
             DEFAULT:1
         }
     }

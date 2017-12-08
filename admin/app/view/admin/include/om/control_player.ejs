@@ -18,51 +18,57 @@
       <!-- content start -->
 
       <div>
-        <label>玩家UID</label>
+        <label><%= txt_player_uid %></label>
         <input id="input-uid" name="txt" type="text" class="form-control input-lg" />
-        <button id="btn_query_player">查询</button>
+        <button id="btn_query_player"><%= txt_query %></button>
       </div>
 
       <table border="2" bordercolor="#000000" style="width: 100%;" id="query-table-orders">
         <tr>
             <th class="cell-padding cell-align-center cell-head"
                 style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
-            项目
+                <%= txt_key %>
             </th>
             <th class="cell-padding cell-align-center cell-head"
                 style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
-            值
+                <%= txt_val %>
             </th>
         </tr>
         <tr id="fake-data-order-list">
-            <td style="border: solid thin #000000" class="cell-padding cell-align-center">玩家名称</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center"><%= txt_player_nickname %></td>
             <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="nickname"><b></b></td>
         </tr>
         <tr id="fake-data-order-list">
-            <td style="border: solid thin #000000" class="cell-padding cell-align-center">充值额度</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center"><%= txt_player_recharge %></td>
             <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="playerRecharge"><b></b></td>
         </tr>
         <tr id="fake-data-order-list">
-            <td style="border: solid thin #000000" class="cell-padding cell-align-center">已提现额度</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center"><%= txt_player_cash %></td>
             <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="playerCash"><b></b></td>
         </tr>
         <tr id="fake-data-order-list">
-            <td style="border: solid thin #000000" class="cell-padding cell-align-center">持有金币</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center"><%= txt_player_gold %></td>
             <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="gold"><b></b></td>
         </tr>
         <tr id="fake-data-order-list">
-            <td style="border: solid thin #000000" class="cell-padding cell-align-center">盈亏</td>
+            <td style="border: solid thin #000000" class="cell-padding cell-align-center"><%= txt_player_profit %></td>
             <td style="border: solid thin #000000" class="cell-padding cell-align-center" id="profit"><b></b></td>
         </tr>
       </table>
-      <div>修正捕获率</div>
+      <div><%= txt_player_catch_rate %></div>
         <div id="containerSliderPlayer" class="mt-lg mb-lg slider-primary" 
             data-plugin-slider data-plugin-options='{ "value": 100, "range": false, "min":50, "max": 150 }' 
             data-plugin-slider-output="#listenSliderPlayer">
             <input id="listenSliderPlayer" type="hidden" value="100" />
         </div>
-        <p class="output_player">当前值: <b>100</b>%</p>
-        <button id="btn_change_rate_player">提交</button>
+        <p class="output_player"><%= txt_current_value %> <b>100</b>%</p>
+
+        <div>
+            <label><%= txt_player_expire_profit %></label>
+            <input id="input-gold" name="txt" type="number" class="form-control input-lg" />
+        </div>
+
+        <button id="btn_change_rate_player"><%= txt_commit %></button>
 
       <!-- content end -->
       

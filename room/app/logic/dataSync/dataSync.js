@@ -44,9 +44,6 @@ class DataSync {
     }
 
     platform_data_change(type, value){
-
-        // logger.error('-------datasync--------platform_data_change', type, value)
-
         redisClient.pub(eventType.PLATFORM_DATA_CHANGE, {type:type, value:value});
     }
 

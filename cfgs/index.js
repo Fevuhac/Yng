@@ -17,4 +17,5 @@ module.exports = {
     goddess_goddessup_cfg: require('./goddess_goddessup_cfg'),
     common_log_const_cfg: require('./common_log_const_cfg'),
     newweapon_star_cfg: require('./newweapon_star_cfg'),
+    player_users_cfg: require('./player_users_cfg'),
 };

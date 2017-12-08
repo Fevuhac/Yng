@@ -1,0 +1,35 @@
+﻿<div class="col-md-12">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_broadcast_server %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_broadcast_server %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- content start -->
+      <form id="broadcast-setting">
+        <div class="col-md-12 form-group mb-lg">
+          <label>公告内容</label>
+          <input id="input-broadcast-txt" name="txt" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>公告循环次数</label>
+          <input id="input-broadcast-times" name="times" type="text" class="form-control input-lg" />
+        </div>
+      </form>
+      <button id="btn-set-broadcast" class="btn btn-primary hidden-xs">设置公告信息</button>
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

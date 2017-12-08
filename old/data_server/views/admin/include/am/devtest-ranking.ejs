@@ -1,0 +1,30 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_account %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_account %>
+        </p>
+    </header>
+    <div class="panel-body">
+      
+		<!-- Form: Logout Account -->
+		<form>
+			<div class="form-group mb-lg">
+			<label>排名数量</label>
+			<input id="input-ranking-count" name="ranking_count" type="text" class="form-control input-lg" />
+			</div>
+		</form>
+
+		<button id="btn-get-ranking" type="submit" class="btn btn-primary hidden-xs">获取排名</button>
+      
+    </div>
+  </section>
+</div>

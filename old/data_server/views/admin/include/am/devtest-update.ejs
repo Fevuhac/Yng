@@ -1,0 +1,127 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_update_account %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_update_account %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <form>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>更新类型(0:经验等级, 1:关卡数据, 2:每日重置任务, 3:只能完成一次的任务, 4:首充记录, 5:活动礼包记录, 6:心跳, 7:, 8:金币购买次数, 9:武器皮肤, 10:奖金, 11:掉落物品, 12:翻盘, 13:VIP礼包, 14:武器充能, 15:海盗任务, 16:月卡领取, 17:首充大礼包, 18:背包, 19:所有, 20:引导)</label>
+          <input id="input-update-type" name="type" type="text" class="form-control input-lg" value="0" />
+        </div>
+        
+        <div class="col-md-6 form-group mb-lg">
+          <label>当前经验值</label>
+          <input id="input-cur-exp" name="exp" type="text" class="form-control input-lg account-gold" />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>当前等级</label>
+          <input id="input-cur-level" name="level" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>关卡数据</label>
+          <input id="input-level-mission" name="level_mission" type="text" class="form-control input-lg" value="{}" />
+        </div>
+
+        <!-- 每日重置任务 -->
+        <div class="col-md-6 form-group mb-lg">
+          <label>每日重置任务</label>
+          <input id="input-mission-daily-reset" name="mission_daily_reset" type="text" class="form-control input-lg" value="{}" />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>只能完成一次的任务</label>
+          <input id="input-mission-only-once" name="mission_only_once" type="text" class="form-control input-lg" value="{}" />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>首充记录</label>
+          <input id="input-first-buy" name="first_buy" type="text" class="form-control input-lg" value="{}" />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>活动礼包记录</label>
+          <input id="input-activity-gift" name="activity_gift" type="text" class="form-control input-lg" value="{}" />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>心跳</label>
+          <input id="input-heartbeat" name="heartbeat" type="text" class="form-control input-lg" value="0" />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>金币购买次数(使用钻石购买)</label>
+          <input id="input-gold-shopping" name="gold_shopping" type="text" class="form-control input-lg" value="0" />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>武器皮肤({"own":[1,2,3], "equip":1})</label>
+          <input id="input-weapon-skin" name="weapon_skin" type="text" class="form-control input-lg" value='{"own":[1,2,3], "equip":1}' />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>奖金({"fish_count":1, "gold_count":1, "got":false})</label>
+          <input id="input-bonus" name="bonus" type="text" class="form-control input-lg" value='{"fish_count":1, "gold_count":1, "got":false}' />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>掉落物品({"reset":0, "drop_key":"jqy1"})</label>
+          <input id="input-drop" name="drop" type="text" class="form-control input-lg" value='{"reset":0, "drop_key":"jqy1"}' />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>翻盘购买({"id":1})</label>
+          <input id="input-comeback" name="comeback" type="text" class="form-control input-lg" value='{"id":1}' />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>VIP礼包购买({"vip":1})</label>
+          <input id="input-vip-gift" name="vip_gift" type="text" class="form-control input-lg" value='{"vip":1}' />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>武器充能({"weapon_id1":20})</label>
+          <input id="input-weapon-energy" name="weapon_energy" type="text" class="form-control input-lg" value='{"weapon_id1":20}' />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>海盗任务({"scene_mutiple_1":{"pirate_task_id" : 1, "condition1" : 20, "condition2": 30}})</label>
+          <input id="input-pirate" name="pirate" type="text" class="form-control input-lg" value='{"scene_mutiple_1":{"pirate_task_id" : 1, "condition1" : 20, "condition2": 30}}' />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>月卡领取({"normal":true} 或 {"senior":true})</label>
+          <input id="input-get-card" name="get_card" type="text" class="form-control input-lg" value='{"normal":true}' />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>首充大礼包(true)</label>
+          <input id="input-first-buy-gift" name="first_buy_gift" type="text" class="form-control input-lg" value='true' />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>新手引导更新</label>
+          <input id="input-guide-strong" name="guide" type="text" class="form-control input-lg" value='true' />
+          <input id="input-guide-weak" name="weak" type="text" class="form-control input-lg" value='{laser:true,achieve:false,reward:true}' />
+        </div>
+
+      </form>
+      <button id="btn-update-account" class="btn btn-primary hidden-xs">更新玩家信息</button>
+      
+    </div>
+  </section>
+</div>

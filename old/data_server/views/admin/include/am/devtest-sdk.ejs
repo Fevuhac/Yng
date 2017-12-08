@@ -1,0 +1,50 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_sdk %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_sdk %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+
+      <!-- Form1 -->
+      <form id="send-sdk-request">
+        <div class="col-md-12 form-group mb-lg">
+          <label>调用SDK中的API</label>
+          <input id="input-sdk-api" name="action" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>SDK需要处理的参数</label>
+          <input id="input-sdk-params" name="data" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>Token</label>
+          <input id="input-sdk-token" name="token" type="text" class="form-control input-lg" />
+        </div>
+        
+        <div class="col-md-12 form-group mb-lg">
+          <label>选择渠道</label>
+          <select id="select-channel" class="form-control input-lg mb-md">
+            <option>1001</option>
+            <option>1002</option>
+            <option>1003</option>
+          </select>
+        </div>
+      </form>
+
+      <button id="btn-send-sdk-request" class="btn btn-primary hidden-xs">提交</button>
+      
+    </div>
+  </section>
+</div>

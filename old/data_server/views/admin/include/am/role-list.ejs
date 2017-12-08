@@ -1,0 +1,68 @@
+﻿<div class="col-md-9">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_role_list %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_role_list %>
+        </p>
+    </header>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped mb-none">
+          <thead>
+            <tr>
+              <th>
+                <%= txt_th_role_name %>
+              </th>
+              <th>
+                <%= txt_th_role_description %>
+              </th>
+              <th>
+                <%= txt_th_role_id %>
+              </th>
+              <th>
+                <%= txt_th_role_auth %>
+              </th>
+              <th>
+                <%= txt_th_edit_role %>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i = 0; i < role_list.length; i++) { %>
+            <tr>
+              <td>
+                <input name="rname" type="text" class="form-control input-xs editable-value"  value="<%= role_list[i]['rname'] %>" />
+              </td>
+              <td>
+                <input name="description" type="text" class="form-control input-xs editable-value"  value="<%= role_list[i]['description'] %>"  />
+              </td>
+              <td>
+                <input name="id" type="text" class="form-control input-xs editable-value role-id"  value="<%= role_list[i]['id'] %>"  />
+              </td>
+              <td>
+                <input name="auth_ids" type="text" class="form-control input-xs editable-value"  value="<%= role_list[i]['auth_ids'] %>"  />
+              </td>
+              <td width="100">
+                <button class="btn btn-primary btn-xs hidden-xs btn-role-edit">修改</button>
+                <% if (role_list[i]["valid"]) { %>
+                <button class="btn btn-primary btn-xs hidden-xs btn-role-delete">禁止</button>
+                <% } else {%>
+                <button class="btn btn-primary btn-xs hidden-xs btn-role-valid">激活</button>
+                <% }%>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

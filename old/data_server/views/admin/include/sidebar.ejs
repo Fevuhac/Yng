@@ -1,0 +1,253 @@
+﻿<aside id="sidebar-left" class="sidebar-left">
+    <div class="sidebar-header">
+        <div class="sidebar-title">Navigation</div>
+        <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+            <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+        </div>
+    </div>
+    <div class="nano">
+        <div class="nano-content">
+            <nav id="menu" class="nav-main" role="navigation">
+                <ul class="nav nav-main">
+                  <% if (user_auth["menu_dashboard"]) { %>
+                    <% if (expanded_id == "menu_statistics") { %>
+                    <li id="menu_dashboard" class="nav-active">
+                    <% } else { %>
+                    <li id="menu_dashboard">
+                    <% } %>
+                    <a href="javascript:void(0);" onclick='post_page("index.html")'>
+                        <!--<a href="index.html">-->
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <span><%= txt_dashboard %></span>
+                        </a>
+                    </li>
+                  <% } %>
+                      
+                  <% if (user_auth["menu_statistics"]) { %>
+                    <% if (expanded_id == "menu_statistics") { %>
+                    <li id="menu_statistics" class="nav-parent nav-expanded nav-active">
+                    <% } else { %>
+                    <li id="menu_statistics" class="nav-parent">
+                    <% } %>
+                        <a>
+                            <i class="fa fa-copy" aria-hidden="true"></i>
+                            <span>
+                                <%= txt_statistics_info %></span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li id="menuitem_realtime">
+                              <a href="javascript:void(0);" onclick='post_page("pages-realtime.html")'>
+                                <!--<a href="pages-realtime.html">-->
+                                    <%= txt_realtime %></a>
+                            </li>
+                            <li id="menuitem_online">
+                              <a href="javascript:void(0);" onclick='post_page("pages-online.html")'>
+                                <!--<a href="pages-online.html">-->
+                                    <%= txt_online %></a>
+                            </li>
+                            <li id="menuitem_register">
+                              <a href="javascript:void(0);" onclick='post_page("pages-register.html")'>
+                                <!--<a href="pages-register.html">-->
+                                    <%= txt_register %></a>
+                            </li>
+                            <li id="menuitem_active">
+                              <a href="javascript:void(0);" onclick='post_page("pages-active.html")'>
+                                <!--<a href="pages-active.html">-->
+                                    <%= txt_active %></a>
+                            </li>
+                            <li id="menuitem_payuser">
+                              <a href="javascript:void(0);" onclick='post_page("pages-payuser.html")'>
+                                <!--<a href="pages-payuser.html">-->
+                                    <%= txt_payuser %></a>
+                            </li>
+                           <li id="menuitem_retention">
+                             <a href="javascript:void(0);" onclick='post_page("pages-retention.html")'>
+                               <!--<a href="pages-retention.html">-->
+                                 <%= txt_retention %>
+                               </a>
+                             </li>
+                           <li id="menuitem_log">
+                             <a href="javascript:void(0);" onclick='post_page("pages-log.html")'>
+                                <!--<a href="pages-log.html">-->
+                                    <%= txt_log %></a>
+                            </li>
+                            <li id="menuitem_gm_data">
+                              <a href="javascript:void(0);" onclick='post_page("pages-gm-data.html")'>
+                                <!--<a href="pages-gm-data.html">-->
+                                    <%= txt_gm_data %>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                  <% } %>
+                      
+                  <% if (user_auth["menu_game_mgmt"]) { %>
+                    <% if (expanded_id == "menu_game_mgmt") { %>
+                    <li id="menu_game_mgmt" class="nav-parent nav-expanded nav-active">
+                    <% } else { %>
+                    <li id="menu_game_mgmt" class="nav-parent">
+                    <% } %>
+                        <a>
+                            <i class="fa fa-tasks" aria-hidden="true"></i>
+                            <span>
+                                <%= txt_game_mgmt %></span>
+                        </a>
+                        <ul class="nav nav-children">
+                          <li id="menuitem_gm_update">
+                            <a href="javascript:void(0);" onclick='post_page("pages-gm-update.html")'>
+                              <!--<a href="pages-gm-update.html">-->
+                                  <%= txt_gm_update %></a>
+                          </li>
+                          <li id="menuitem_gm_data">
+                            <a href="javascript:void(0);" onclick='post_page("pages-gm-data.html")'>
+                              <!--<a href="pages-gm-data.html">-->
+                                  <%= txt_gm_data %>
+                              </a>
+                          </li>
+                          <li id="menuitem_gm_broadcast">
+                            <a href="javascript:void(0);" onclick='post_page("pages-gm-broadcast.html")'>
+                              <!--<a href="pages-gm-broadcast.html">-->
+                              <%= txt_gm_broadcast %>
+                            </a>
+                          </li>
+                          <li id="menuitem_gm_mail">
+                            <a href="javascript:void(0);" onclick='post_page("pages-gm-mail.html")'>
+                              <!--<a href="pages-gm-mail.html">-->
+                              <%= txt_gm_mail %>
+                            </a>
+                          </li>
+                          <li id="menuitem_gm_active">
+                            <a href="javascript:void(0);" onclick='post_page("pages-gm-active.html")'>
+                              <!--<a href="pages-gm-active.html">-->
+                              <%= txt_gm_active %>
+                              </a>
+                          </li>
+                          <li id="menuitem_gm_match">
+                            <a href="javascript:void(0);" onclick='post_page("pages-gm-match.html")'>
+                              <!--<a href="pages-gm-match.html">-->
+                                  <%= txt_gm_match %></a>
+                          </li>
+                        </ul>
+                    </li>
+                  <% } %>
+                      
+                  <% if (user_auth["menu_operation"]) { %>
+                    <% if (expanded_id == "menu_operation") { %>
+                    <li id="menu_operation" class="nav-parent nav-expanded nav-active">
+                    <% } else { %>
+                    <li id="menu_operation" class="nav-parent">
+                    <% } %>
+                        <a>
+                            <i class="fa fa-tasks" aria-hidden="true"></i>
+                            <span>
+                                <%= txt_operation_mgmt %></span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li id="menuitem_om_query">
+                              <a href="javascript:void(0);" onclick='post_page("pages-om-query.html")'>
+                                <%= txt_om_query %>
+                              </a>
+                            </li>
+                            <li id="menuitem_om_change_in_kind">
+                              <a href="javascript:void(0);" onclick='post_page("pages-om-change-in-kind.html")'>
+                                <%= txt_om_change_in_kind %>
+                              </a>
+                            </li>
+                            <li id="menuitem_om_compensate">
+                              <a href="javascript:void(0);" onclick='post_page("pages-om-compensate.html")'>
+                                <%= txt_om_compensate %>
+                              </a>
+                            </li>
+                            <li id="menuitem_om_control">
+                              <a href="javascript:void(0);" onclick='post_page("pages-om-control.html")'>
+                                <%= txt_om_control %>
+                              </a>
+                            </li>
+                        </ul>
+                    </li>
+                  <% } %>
+                      
+                  <% if (user_auth["menu_test_mgmt"]) { %>
+                    <% if (expanded_id == "menu_test_mgmt") { %>
+                    <li id="menu_test_mgmt" class="nav-parent nav-expanded nav-active">
+                    <% } else { %>
+                    <li id="menu_test_mgmt" class="nav-parent">
+                    <% } %>
+                        <a>
+                            <i class="fa fa-tasks" aria-hidden="true"></i>
+                            <span>
+                                <%= txt_test_mgmt %></span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li id="menuitem_tm_tool">
+                              <a href="javascript:void(0);" onclick='post_page("pages-tm-tool.html")'>
+                                <%= txt_tm_tool %>
+                              </a>
+                            </li>
+                        </ul>
+                    </li>
+                  <% } %>
+                    
+                  <% if (user_auth["menu_back_mgmt"]) { %>
+                    <% if (expanded_id == "menu_back_mgmt") { %>
+                    <li id="menu_back_mgmt" class="nav-parent nav-expanded nav-active">
+                    <% } else { %>
+                    <li id="menu_back_mgmt" class="nav-parent">
+                    <% } %>
+                        <a>
+                            <i class="fa fa-tasks" aria-hidden="true"></i>
+                            <span>
+                                <%= txt_back_mgmt %></span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li id="menuitem_am_auth">
+                              <a href="javascript:void(0);" onclick='post_page("pages-am-auth.html")'>
+                              <!--<a href="pages-am-auth.html">-->
+                                <%= txt_am_auth %>
+                              </a>
+                            </li>
+                            <li id="menuitem_am_role">
+                              <a href="javascript:void(0);" onclick='post_page("pages-am-role.html")'>
+                                <!--<a href="pages-am-role.html">-->
+                                    <%= txt_am_role %>
+                                </a>
+                            </li>
+                            <li id="menuitem_am_user">
+                              <a href="javascript:void(0);" onclick='post_page("pages-am-user.html")'>
+                                <!--<a href="pages-am-user.html">-->
+                                    <%= txt_am_user %>
+                                </a>
+                            </li>
+                            <li id="menuitem_am_log">
+                              <a href="javascript:void(0);" onclick='post_page("pages-am-log.html")'>
+                                <!--<a href="pages-am-log.html">-->
+                                    <%= txt_am_log %>
+                                </a>
+                            </li>
+                            <li id="menuitem_am_server">
+                              <a href="javascript:void(0);" onclick='post_page("pages-am-server.html")'>
+                                <!--<a href="pages-am-server.html">-->
+                                    <%= txt_am_server %>
+                                </a>
+                            </li>
+                            <li id="menuitem_am_devtest">
+                              <a href="javascript:void(0);" onclick='post_page("pages-am-devtest.html")'>
+                                <!--<a href="pages-am-devtest.html">-->
+                                    <%= txt_am_devtest %>
+                                </a>
+                            </li>
+                            <li id="menuitem_am_backdoor">
+                              <a href="javascript:void(0);" onclick='post_page("pages-am-backdoor.html")'>
+                                <!--<a href="pages-am-backdoor.html">-->
+                                  <%= txt_am_backdoor %>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                   <% } %>
+                </ul>
+            </nav>
+            <hr class="separator" />
+            <hr class="separator" /></div>
+    </div>
+</aside>

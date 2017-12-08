@@ -1,0 +1,33 @@
+<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_retention %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_retention %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <div class="col-md-12 form-group mb-lg">
+        <label>开始时间</label>
+        <input id="input-retention-start-date" name="start_date" type="text" class="form-control input-lg" value="2017-04-28" />
+      </div>
+      <div class="col-md-12 form-group mb-lg">
+        <label>结束时间</label>
+        <input id="input-retention-end-date" name="end_date" type="text" class="form-control input-lg" value="2017-05-04" />
+      </div>
+
+      <div class="col-md-12 form-group mb-lg">
+        <button id="btn-retention" class="btn btn-primary hidden-xs">生成统计数据</button>
+      </div>
+      
+    </div>
+  </section>
+</div>

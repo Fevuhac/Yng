@@ -1,0 +1,39 @@
+<div class="col-md-6">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_update_cfgs_tar %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_update_cfgs_tar %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- content start -->
+      <form name="upload-profile" id="upload-profile1" method="post" enctype="multipart/form-data" action="/admin_api/upload_cfgs_tar">
+        <div class="form-group mb-lg">
+          <label>请选择要上传的cfgs.tar文件(修改或新增配置文件放置在cfgs文件中打包成tar格式的压缩文件)</label>
+          <input type="file" name="file" />
+          <input type="submit" value="提交" />
+        </div>
+      </form>
+      <button id="btn-restart-server-api" type="submit" class="btn btn-primary hidden-xs">重启API服务器</button>
+      <button id="btn-restart-server-room" type="submit" class="btn btn-primary hidden-xs">重启ROOM服务器</button>
+
+      <div>仅在有如下文件发生改变时才重启ROOM服务器</div>
+      <div>fish_fish_cfg.js</div>
+      <div>name_name_cfg.js</div>
+      <div>rank_rankgame_cfg.js</div>
+      <div>rank_ranklist_cfg.js</div>
+      <div>scene_scenes_cfg.js</div>
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

@@ -1,0 +1,45 @@
+<!-- 排行奖励生成 -->
+<div class="col-md-6">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_chart_generate %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_chart_generate %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- Form1 -->
+      <form id="chart_generate">
+        <div class="col-md-12 form-group mb-lg">
+            <div>
+                <label>生成昨日排行奖励, 支持全部的6个排行榜</label>
+            </div>
+            <div>
+                <button id="btn-generate-daily-reward" class="btn btn-primary hidden-xs">每日奖励</button>
+            </div>
+            <div>
+                <label>生成上周排行奖励, 女神生成奖励, 魅力和金币积分数据重置</label>
+            </div>
+            <div>
+                <button id="btn-generate-weekly-reward" class="btn btn-primary hidden-xs">每周奖励</button>
+            </div>
+            <div>
+                <label>生成上月排行奖励, 比赛生成奖励, 并重置数据(TODO: 比赛重置规则实现)</label>
+            </div>
+            <div>
+                <button id="btn-generate-monthly-reward" class="btn btn-primary hidden-xs">每月奖励</button>
+            </div>
+        </div>
+      </form>
+
+    </div>
+  </section>
+</div>

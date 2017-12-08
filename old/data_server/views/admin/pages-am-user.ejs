@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html class="fixed">
+	<head>
+		<% include include/head.ejs %>
+		<link rel="stylesheet" href="../fjds/assets/vendor/select2/select2.css">
+		<link rel="stylesheet" href="../fjds/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css">
+	</head>
+	<body>
+		<section class="body">
+
+			<!-- start: header -->
+      <% include include/header.ejs %>
+			<!-- end: header -->
+
+			<div class="inner-wrapper">
+				<!-- start: sidebar -->
+        <% include include/sidebar.ejs %>
+				<!-- end: sidebar -->
+
+				<section role="main" class="content-body">
+					<header class="page-header">
+						<h2>
+              <%= txt_am_user %>
+            </h2>
+					</header>
+
+					<!-- start: page -->
+
+          <div class="row">
+            <% include include/am/user-list.ejs %>
+            <% include include/am/user-add.ejs %>
+          </div>
+
+					<!-- end: page -->
+				</section>
+			</div>
+
+		</section>
+    <% include include/script.ejs %>
+	<script src="../fjds/assets/vendor/select2/select2.js"></script>
+	<script src="../fjds/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+	<script src="../fjds/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+
+    <!-- Page Related -->
+    <% include include/admin_script.ejs %>
+    <script src="../fjds/javascript/admin/am/user_add.js"></script>
+    <script src="../fjds/javascript/admin/am/user_delete.js"></script>
+    <script src="../fjds/javascript/admin/am/user_edit.js"></script>
+    <script src="../fjds/javascript/admin/pages_am_user.js"></script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_cfg %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_cfg %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+
+      <!-- Form1 -->
+      <form id="get-cfg-file">
+        <div class="form-group mb-lg">
+          <label>输入文件路径，点击"拉取文件"</label>
+          <select id="select-file-path" class="form-control input-lg mb-md">
+          </select>
+        </div>
+      </form>
+
+      <button id="btn-get-cfg-list" class="btn btn-primary hidden-xs">拉取版本表</button>
+      <button id="btn-get-cfg-file" class="btn btn-primary hidden-xs">拉取文件</button>
+      
+    </div>
+  </section>
+</div>

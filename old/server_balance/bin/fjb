@@ -1,0 +1,55 @@
+﻿#!/usr/bin/env node
+var SERVER_CFG = require("../src/cfgs/server_cfg").SERVER_CFG;
+const PATH_TO_PRIVATE_PEM = SERVER_CFG.PATH_TO_PRIVATE_PEM;
+const PATH_TO_FILE_CRT = SERVER_CFG.PATH_TO_FILE_CRT;
+const HTTP_PORT = SERVER_CFG.HTTP_PORT;
+const HTTP = SERVER_CFG.HTTP;
+const HTTPS_PORT = SERVER_CFG.HTTPS_PORT;
+const HTTPS = SERVER_CFG.HTTPS;
+var debug = require('debug')('FishjoyServerBalance');
+var app = require('../app');
+
+//------------------------------------------------------------------------------
+// original
+//------------------------------------------------------------------------------
+
+// var server = app.listen(app.get('port'), function() {
+//     debug('Express server listening on port ' + server.address().port);
+// });
+
+if (HTTPS) {
+
+    //--------------------------------------------------------------------------
+    // https
+    //--------------------------------------------------------------------------
+
+    var fs = require('fs');
+    var https = require('https');
+    var privateKey  = fs.readFileSync(PATH_TO_PRIVATE_PEM, 'utf8');
+    var certificate = fs.readFileSync(PATH_TO_FILE_CRT, 'utf8');
+    var credentials = {key: privateKey, cert: certificate};
+    var httpsServer = https.createServer(credentials, app);
+
+    httpsServer.listen(HTTPS_PORT, function() {
+        console.log('HTTPS Server is running on: https://localhost:%s', HTTPS_PORT);
+    });
+
+}
+
+if (HTTP) {
+
+    //--------------------------------------------------------------------------
+    // http
+    //--------------------------------------------------------------------------
+
+    var http = require('http');
+    var httpServer = http.createServer(app);
+
+    console.log("HTTP_PORT:", HTTP_PORT);
+    httpServer.listen(HTTP_PORT, function() {
+        console.log('HTTP Server is running on: http://localhost:%s', HTTP_PORT);
+    });
+
+}
+
+

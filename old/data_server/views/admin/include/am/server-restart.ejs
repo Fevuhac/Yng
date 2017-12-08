@@ -1,0 +1,28 @@
+<div class="col-md-6">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_server_restart %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_server_restart %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- content start -->
+
+      <button id="btn-restart-server-balance" type="submit" class="btn btn-primary hidden-xs">重启负载均衡服务器</button>
+      <button id="btn-restart-server-api" type="submit" class="btn btn-primary hidden-xs">重启API服务器</button>
+      <button id="btn-restart-server-room" type="submit" class="btn btn-primary hidden-xs">重启ROOM服务器</button>
+
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

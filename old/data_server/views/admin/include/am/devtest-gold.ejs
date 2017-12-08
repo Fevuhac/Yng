@@ -1,0 +1,38 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_gold %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_gold %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <form>
+        <div class="col-md-6 form-group mb-lg">
+          <label>当前金币总数</label>
+          <input id="input-gold-total" name="total" type="text" class="form-control input-lg account-gold" />
+        </div>
+
+        <div class="col-md-6 form-group mb-lg">
+          <label>过去的时间(毫秒)</label>
+          <input id="input-gold-duration" name="duration" type="text" class="form-control input-lg" value="1000" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>组数据([{"gain":20,"cost":0,"scene":3}])</label>
+          <input id="input-gold-data" name="group" type="text" class="form-control input-lg" value="[{"gain":20,"cost":0,"scene":3}]" />
+        </div>
+      </form>
+      <button id="btn-add-gold-log" type="submit" class="btn btn-primary hidden-xs">发送记录</button>
+      
+    </div>
+  </section>
+</div>

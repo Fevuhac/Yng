@@ -1,0 +1,80 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_signup %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_signup %>
+      </p>
+    </header>
+    <div class="panel-body">
+      
+      <!-- Form: Signup Temp Account -->
+      <form>
+        <div class="form-group mb-lg">
+          <label>点击"注册"获取临时账号, 点击"登录"使用临时账号登录</label>
+          <input id="input-temp-account" name="name" type="text" class="form-control input-lg" value="fj_1606" />
+        </div>
+      </form>
+      <button id="btn-signup-temp-account" class="btn btn-primary hidden-xs">注册</button>
+      <button id="btn-signin-temp-account" class="btn btn-primary hidden-xs">登录</button>
+
+      <!-- Form2: Signup Nickname Account -->
+      <form>
+        <div class="form-group mb-lg">
+          <label>输入昵称</label>
+          <input id="input-signup-nickname" name="nickname" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>输入密码</label>
+          <input id="input-signup-password" name="password" type="password" class="form-control input-lg" />
+        </div>
+      </form>
+      <button id="btn-signup-nickname-account" type="submit" class="btn btn-primary hidden-xs">注册</button>
+      <button id="btn-signin-nickname-account" type="submit" class="btn btn-primary hidden-xs">登录</button>
+
+      <!-- Form2: Signup Channel Account -->
+      <form>
+        <div class="form-group mb-lg">
+          <label>渠道缩写(bl: 白鹭, bd: 百度)</label>
+          <input id="input-signup-channel" name="channel" type="text" class="form-control input-lg" value="wb"/>
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>渠道中的账户ID或相关标识</label>
+          <input id="input-signup-channel-id" name="channel_account_id" type="text" class="form-control input-lg" value="12345678"/>
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>渠道中的账户昵称</label>
+          <input id="input-signup-channel-name" name="channel_account_name" type="text" class="form-control input-lg" value="好汉"/>
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>渠道中的账户详细信息</label>
+          <input id="input-signup-channel-info" name="channel_account_info" type="text" class="form-control input-lg" value='{"name":"好人","figure_url":"http://p3.wmpic.me/article/2015/05/18/1431913649_GWJqwt.jpeg"}' />
+        </div>
+      </form>
+      <button id="btn-signup-channel-account" type="submit" class="btn btn-primary hidden-xs">注册</button>
+      <button id="btn-signin-channel-account" type="submit" class="btn btn-primary hidden-xs">登录</button>
+
+      
+      <!-- Form3: Channel Login -->
+      <form>
+        <div class="form-group mb-lg">
+          <label>渠道ID</label>
+          <input id="input-channel-uid" name="channel_uid" type="text" class="form-control input-lg" value="ABCD1234ABCD1234"/>
+        </div>
+      </form>
+      <button id="btn-channel-login" type="submit" class="btn btn-primary hidden-xs">点击游戏按钮</button>
+      
+    </div>
+  </section>
+</div>

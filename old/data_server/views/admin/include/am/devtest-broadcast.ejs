@@ -1,0 +1,44 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_broadcast %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_broadcast %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- Form1 -->
+      <form id="broadcast-setting">
+        <div class="col-md-12 form-group mb-lg">
+          <label>公告内容</label>
+          <input id="input-broadcast-txt" name="txt" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>公告循环次数</label>
+          <input id="input-broadcast-times" name="times" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>公告类型</label>
+          <select id="input-broadcast-type" class="form-control input-lg mb-md">
+            <option value ="1">服务器公告</option>
+            <option value ="2">游戏事件公告</option>
+            <option value ="3">名人上线公告</option>
+          </select>
+        </div>
+      </form>
+      <button id="btn-set-broadcast" class="btn btn-primary hidden-xs">设置公告信息</button>
+      <button id="btn-get-broadcast" class="btn btn-primary hidden-xs">获取公告信息</button>
+      
+    </div>
+  </section>
+</div>

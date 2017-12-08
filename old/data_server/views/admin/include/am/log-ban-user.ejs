@@ -1,0 +1,56 @@
+<div class="col-md-12">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_ban_user %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_ban_user %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- Form1 -->
+      <button id="btn-query-log-ban-user" class="btn btn-primary hidden-xs">获取管理员封号日志</button>
+
+      <div id="log-ban-user">
+        <table style="width: 100%;" class="table-striped table-bordered" id="log-ban-user-table">
+            <tr>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                管理员ID
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                管理员昵称
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                被封号ID
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                封号时间
+                </th>
+                <th class="cell-padding cell-align-center cell-head"
+                    style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+                是否成功
+                </th>
+            </tr>
+            <tr id="fake-log-ban-user-table">
+                <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">admin_uid</td>
+                <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">nickname</td>
+                <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">uid_list</td>
+                <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">timestamp</td>
+                <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">comment</td>
+            </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

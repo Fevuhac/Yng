@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html class="fixed">
+	<head>
+    <% include include/head.ejs %>
+	</head>
+	<body>
+		<section class="body">
+
+			<!-- start: header -->
+      <% include include/header.ejs %>
+			<!-- end: header -->
+
+			<div class="inner-wrapper">
+				<!-- start: sidebar -->
+        <% include include/sidebar.ejs %>
+				<!-- end: sidebar -->
+
+				<section role="main" class="content-body">
+					<header class="page-header">
+						<h2>
+							<!-- 玩家补偿 -->
+              <%= txt_om_compensate %>
+            </h2>
+					</header>
+
+					<!-- start: page -->
+
+					<!-- end: page -->
+				</section>
+			</div>
+
+		</section>
+    <% include include/script.ejs %>
+
+    <!-- Page Related -->
+    <% include include/admin_script.ejs %>
+    <script src="../fjds/javascript/util/date_selector.js"></script>
+    <script src="../fjds/javascript/admin/pages_om_compensate.js"></script>
+	</body>
+</html>

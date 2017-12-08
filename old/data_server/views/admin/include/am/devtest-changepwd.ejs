@@ -1,0 +1,38 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_changepwd %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_changepwd %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <form id="get-temp-account">
+        <div class="form-group mb-lg">
+          <label>输入昵称</label>
+          <input id="input-changepwd-nickname" name="nickname" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>输入旧密码</label>
+          <input id="input-old-pwd" name="old_pwd" type="password" class="form-control input-lg" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>输入新密码</label>
+          <input id="input-new-pwd" name="new_pwd" type="password" class="form-control input-lg" />
+        </div>
+      </form>
+      <button id="btn-change-pwd" type="submit" class="btn btn-primary hidden-xs">修改密码</button>
+      
+    </div>
+  </section>
+</div>

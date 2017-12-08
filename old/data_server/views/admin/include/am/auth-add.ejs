@@ -1,0 +1,46 @@
+﻿<div class="col-md-3">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_auth_add %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_auth_add %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <form id="add-shop-log">
+
+        <div class="form-group mb-lg">
+          <label>页面链接</label>
+          <input id="input-auth-page" name="auth_page" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>页面描述</label>
+          <input id="input-auth-description" name="auth_description" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>父页面(根为0)</label>
+          <input id="input-auth-parent" name="auth_parent" type="text" class="form-control input-lg" />
+        </div>
+
+        <div class="form-group mb-lg">
+          <label>页面分级</label>
+          <input id="input-auth-level" name="auth_level" type="text" class="form-control input-lg" />
+        </div>
+
+      </form>
+
+      <button id="btn-add-auth" type="submit" class="btn btn-primary hidden-xs">添加权限</button>
+      
+    </div>
+  </section>
+</div>

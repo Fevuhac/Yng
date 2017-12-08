@@ -1,0 +1,43 @@
+var	common_const_cfg =  {
+		PRO_BASE_RATE : 100000,    //--随机上限
+		BROKE_DT : 30,    //--破产间隔秒
+		BTOKE_TIMES_MAX : 100,    //--破产次数上限
+		RECORD_DT : 3,    //--存档更新周期秒
+		GOLDEN_EXP_TIMES : 1,    //--开炮增加经验倍率
+		BIG_FISH_STANDER : 30,    //--鱼大分值标准，>=
+		AMOUNT_GOLD : 30,    //--大量金币
+		FISH_DIE_SCALE : 3,    //--鱼死亡放大倍率
+		DROP_ITEM_POSITION : [[0,0],[-76,38],[0,76],[76,38],[-152,0],[-76,-38],[0,-76],[76,-38],[152,0],[-228,38],[-152,76],[-76,114],[0,152],[76,114],[152,76],[228,38],[-304,0],[-228,-38],[-152,-76],[-76,-114],[0,-152],[76,-114],[152,-76],[228,-38],[304,0]],    //--掉落排列坐标，最多25个
+		FIRST_RECHARGE : [["i002",50],["i001",2000]],    //--首充奖励
+		COLLECTION : [["i002",10],["i001",1000]],    //--收藏奖励
+		SHARE_FIRST : [["i002",10],["i001",10000]],    //--话费分享奖励
+		GODDESS_PUT : 2,    //--基础放养鱼数量
+		GODDESS_BREAK : 9,    //--女神碎片总数
+		GODDESS_TIME : 10800,    //--女神互动间隔秒
+		RANK_RESET : 800,    //--赛季重置积分
+		SKILL_COST_STANDER : 50,    //--技能钻石消耗提醒边界
+		GODDESS_SCALE : 0.7,    //--女神在场景缩放
+		FORGE_SPECAIL_MATERIAL : "i500",    //--陨石道具id
+		WEAPON_ADDRATE : 0.01,    //--陨石增加成功率
+		FORGE_START_LEVEL : 1000,    //--锻造倍率要求
+		RMATCH_LIMIT : 20000,    //--排位赛匹配金币限制
+		RMATCH_COST : 150,    //--宝箱开启1钻石可以抵多少秒
+		RMATCH_OPEN_LIMIT : 100000,    //--排位赛开放武器倍率限制
+		GODDESS_COST : [40,60,80,100,120,140,160,180,200,220,240,260,300,300,300,300,300,300],    //--女神消耗
+		RMATCH_NB_LIMIT : 5000,    //--排位赛核弹发射金币条件
+		RMATCH_VICTORS : 3,    //--排位赛连胜标准
+		RMATCH_VICTORSADD : 2,    //--连胜加成系数
+		RMATCH_ROLE_LV : 100,    //--比赛解锁角色等级
+		FIRST_PAY_LV : 9,    //--首充提醒等级
+		WORLD_LABA_PEARL : 10,    //--喇叭对应钻石
+		MISS_SIGN : 10,    //--补签消耗钻石
+		RMATCH_CHAT_COUNT : 6,    //--排位赛消息数量
+		HORN_CD : 1,    //--喇叭间隔
+		WEAPONS_DRAW_COST : 10,    //--皮肤抽奖钻石
+		CHANGE_CASH_1 : 35000,    //--提现最低剩余金币
+		CHANGE_CASH_2 : 10000000,    //--自动发货超额
+		CHANGE_CASH_3 : 3,    //--充值比例
+		CHANGE_CASH_4 : 3.75,    //--提现比例
+		CHANGE_CASH_5 : 100,    //--预警玩家数
+	};
+module.exports = common_const_cfg;

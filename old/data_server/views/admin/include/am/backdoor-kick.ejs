@@ -1,0 +1,29 @@
+<div class="col-md-12">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_kick %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_kick %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- Form1 -->
+      <form id="kick_user">
+        <div class="col-md-12 form-group mb-lg">
+          <label>玩家IDs(此字段为空则踢出所有玩家)</label>
+          <input id="input-kick-uid" name="uid_list" type="text" class="form-control input-lg" value="1,2,3" />
+        </div>
+      </form>
+      <button id="btn-kick" class="btn btn-primary hidden-xs">踢出玩家</button>
+
+    </div>
+  </section>
+</div>

@@ -1,0 +1,99 @@
+﻿<!doctype html>
+<html class="fixed">
+	<head>
+    <% include include/head.ejs %>
+	</head>
+	<body>
+		<section class="body">
+
+			<!-- start: header -->
+      <% include include/header.ejs %>
+			<!-- end: header -->
+
+			<div class="inner-wrapper">
+				<!-- start: sidebar -->
+        <% include include/sidebar.ejs %>
+				<!-- end: sidebar -->
+
+				<section role="main" class="content-body">
+					<header class="page-header">
+						<h2>
+              <%= txt_realtime %>
+            </h2>
+					</header>
+
+					<!-- start: page -->
+
+          <div class="row">
+            <% include include/date-selector.ejs %>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <section class="panel">
+                <header class="panel-heading">
+                  <div class="panel-actions">
+                    <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+                    <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+                  </div>
+
+                  <h2 class="panel-title">
+                    <%= txt_title_retention %>
+                  </h2>
+                  <p class="panel-subtitle">
+                    <%= txt_content_retention %>
+                  </p>
+                </header>
+                <div class="panel-body">
+                  <!-- TODO -->
+
+  <table style="width: 100%;" class="table-striped table-bordered" id="log-table">
+    <tr>
+      <th rowspan="2" class="cell-padding cell-align-center cell-head"
+          style="border: solid thin #eeeeee;background-color: #dfdfdf;">首次登录时间
+      </th>
+      <th rowspan="2" class="cell-padding cell-align-center cell-head"
+          style="border: solid thin #eeeeee;background-color: #dfdfdf;">注册数
+      </th>
+      <th colspan="5" class="cell-padding cell-align-center cell-head"
+          style="border: solid thin #eeeeee;background-color: #dfdfdf;">留存率
+      </th>
+    </tr>
+    <tr>
+      <th class="cell-padding cell-align-center cell-head"
+          style="border: solid thin #eeeeee;background-color: #D8D800;">1日(DRR)
+      </th>
+      <th class="cell-padding cell-align-center cell-head"
+          style="border: solid thin #eeeeee;background-color: #D8D844;">7日(WRR)
+      </th>
+      <th class="cell-padding cell-align-center cell-head"
+          style="border: solid thin #eeeeee;background-color: #D8D888;">30日(MRR)
+      </th>
+    </tr>
+    <tr id="fake-data">
+      <td style="border: solid thin #eeeeee" class="cell-padding">11月15日</td>
+      <td style="border: solid thin #eeeeee" class="cell-padding">10</td>
+      <td style="border: solid thin #eeeeee" class="cell-padding">50%</td>
+      <td style="border: solid thin #eeeeee" class="cell-padding">50%}</td>
+      <td style="border: solid thin #eeeeee" class="cell-padding">50%</td>
+    </tr>
+  </table>
+
+                </div>
+              </section>
+            </div>
+          </div>
+
+					<!-- end: page -->
+				</section>
+			</div>
+
+		</section>
+    <% include include/script.ejs %>
+
+    <!-- Page Related -->
+    <% include include/admin_script.ejs %>
+    <script src="../fjds/javascript/util/date_selector.js"></script>
+    <script src="../fjds/javascript/admin/pages_retention.js"></script>
+	</body>
+</html>

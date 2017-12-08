@@ -1,0 +1,107 @@
+﻿<div class="col-md-12">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_cache_account %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_cache_account %>
+      </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- Form1 -->
+      <form id="cache-account">
+        <div class="col-md-12 form-group mb-lg">
+          <label>玩家ID</label>
+          <input id="input-account-id" name="account_id" type="text" class="form-control input-lg" value="1673" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>查询字段</label>
+          <input id="input-field" name="field" type="text" class="form-control input-lg" value="mail_box" />
+        </div>
+      </form>
+      <button id="btn-get-ca" class="btn btn-primary hidden-xs">获取玩家内存信息</button>
+      <button id="btn-del-cache" class="btn btn-primary hidden-xs">删除玩家内存信息</button>
+
+
+      <!-- Form3 -->
+      <form id="cache-account-statistics">
+        <div class="col-md-12 form-group mb-lg">
+          <label>内存中的玩家总数</label>
+          <input id="input-sum-cache-account" name="sum_cache_account" type="text" class="form-control input-lg" value="0" />
+        </div>
+
+        <div class="col-md-12 form-group mb-lg">
+          <label>玩家最近一次在线时间(不精确, 只能看到内存中玩家updated_at的值)</label>
+          <input id="input-account-updated-at" name="account_updated_at" type="text" class="form-control input-lg" value="" />
+        </div>
+      </form>
+      <button id="btn-get-ca-statistics" class="btn btn-primary hidden-xs">获取信息</button>
+      <button id="btn-sort-time" class="btn btn-primary hidden-xs sort-btn">时间排序</button>
+      <button id="btn-sort-gold" class="btn btn-primary hidden-xs sort-btn">金币排序</button>
+      <button id="btn-sort-pearl" class="btn btn-primary hidden-xs sort-btn">钻石排序</button>
+      <button id="btn-sort-level" class="btn btn-primary hidden-xs sort-btn">等级排序</button>
+      <button id="btn-sort-rmb" class="btn btn-primary hidden-xs sort-btn">充值排序</button>
+
+      <table style="width: 100%;" class="table-striped table-bordered ca-head" id="ca-table">
+        <tr>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            序号
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            ID
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            昵称
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            在线时间
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            金币
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            钻石
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            等级
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            充值
+          </th>
+          <th class="cell-padding cell-align-center cell-head"
+              style="border: solid thin #eeeeee;background-color: #dfdfdf;">
+            平台
+          </th>
+        </tr>
+        <tr class="ca-row">
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">1</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">uid</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">nickname</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">updated_at</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">gold</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">pearl</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">level</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">rmb</td>
+          <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">platform</td>
+        </tr>
+      </table>
+      
+    </div>
+  </section>
+</div>

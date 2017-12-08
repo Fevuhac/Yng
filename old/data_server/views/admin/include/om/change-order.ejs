@@ -1,0 +1,96 @@
+<div class="col-md-12">
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_change_order %>
+        </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_change_order %>
+        </p>
+    </header>
+    <div class="panel-body">
+
+      <!-- content start -->
+
+        <table border="2" bordercolor="#000000" style="width: 100%;" id="query-table-orders">
+        <tr>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            订单ID
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            玩家ID
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            收件人
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            联系电话
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            地址
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            建单时间
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            发货时间
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            兑换编号
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            内容
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            物流公司/卡号
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            物流单号/卡密
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            状态
+            </th>
+            <th class="cell-padding cell-align-center cell-head"
+                style="border: solid thin #000000;background-color: #dfdfdf;text-align:center;">
+            操作
+            </th>
+        </tr>
+        <tr id="fake-data-order-list">
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">orderid</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">uid</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">name</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">phone</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">address</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">created_at</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">ship_at</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">cid</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">itemname</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">way</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">thingnum</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">status</td>
+            <td style="border: solid thin #eeeeee" class="cell-padding cell-align-center">op</td>
+        </tr>
+        </table>
+
+      <!-- content end -->
+      
+    </div>
+  </section>
+</div>

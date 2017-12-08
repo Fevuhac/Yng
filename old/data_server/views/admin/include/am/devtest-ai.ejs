@@ -1,0 +1,42 @@
+﻿<div class="col-md-6">
+  <section class="panel panel-collapsed">
+    <header class="panel-heading">
+      <div class="panel-actions">
+        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle=""></a>
+        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss=""></a>
+      </div>
+
+      <h2 class="panel-title">
+        <%= txt_title_account %>
+      </h2>
+      <p class="panel-subtitle">
+        <%= txt_content_account %>
+        </p>
+    </header>
+    <div class="panel-body">
+      
+		<!-- Form: Logout Account -->
+		<form>
+        
+        <div class="col-md-4 form-group mb-lg">
+          <label>wpTimes</label>
+          <input id="wpTimes" name="wpTimes" type="text" class="form-control input-lg" value="{}" />
+        </div>
+        
+        <div class="col-md-4 form-group mb-lg">
+          <label>firstFireSeconds</label>
+          <input id="firstFireSeconds" name="firstFireSeconds" type="text" class="form-control input-lg" value="0" />
+        </div>
+        
+        <div class="col-md-4 form-group mb-lg">
+          <label>noFireQuitTimes</label>
+          <input id="noFireQuitTimes" name="noFireQuitTimes" type="text" class="form-control input-lg" value="0" />
+        </div>
+
+		</form>
+
+		<button id="btn-update-ai" type="submit" class="btn btn-primary hidden-xs">更新AI</button>
+      
+    </div>
+  </section>
+</div>

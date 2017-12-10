@@ -24,6 +24,9 @@ echo '服务器【'${hostname}':'${ip}'】更新项目node_modules...'
  $SHELL_DIR/modules-install.sh $ip $user $password
 echo '服务器【'${hostname}':'${ip}'】更新项目node_modules完成'
 
+#zip -r test.zip ./
+#unzip -o -d /fishjoy
+
 # echo '服务器'${hostname}'#'${ip}'#发布程序包...'
 #  $SHELL_DIR/scp.sh $SOURCE_DIR $ip:$INSTALL_PATH $user $password
 # echo '服务器'${hostname}'#'${ip}'#发布程序包完成'

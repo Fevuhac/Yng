@@ -1,9 +1,9 @@
 #!/usr/bin/expect
 
-# 安装
+# 安装运行环境
 
 if {$argc<3} {
-puts stderr "Usage: $argv0 host user passwd"
+puts stderr "Usage: $argv0 host user password"
 exit 1
 }
 
@@ -20,9 +20,11 @@ expect {
 }
 
 expect "*]#"
-send "sudo -s\r"
-send "cd /home/fishjoy\r"
-send "npm install --production\r"
-expect "*]#"
-send "exit\r"
+send "npm install pm2 -g\r"
+expect '*]#'
+send "npm install pomelo -g\r"
+expect '*]#'
+send "yum -y install sysstat\r"
+expect '*]#'
 # interact
+send "exit\r"

@@ -3,13 +3,15 @@
 # 安装运行环境
 
 if {$argc<3} {
-puts stderr "Usage: $argv0 host user passwd install_path"
+puts stderr "Usage: $argv0 host user password cmd"
 exit 1
 }
 
 set host [ lindex $argv 0 ]
 set user [ lindex $argv 1 ]
 set password  [ lindex $argv 2 ]
+set cmd  [ lindex $argv 3 ]
+puts stderr "Usage: $cmd host user password cmd"
 
 set timeout 10 
 spawn ssh ${user}@${host}
@@ -20,11 +22,7 @@ expect {
 }
 
 expect "*]#"
-send "npm install forever -g\r"
-expect '*]#'
-send "npm install pomelo -g\r"
-expect '*]#'
-send "yum -y install sysstat\r"
+send "${cmd}\r"
 expect '*]#'
 # interact
 send "exit\r"

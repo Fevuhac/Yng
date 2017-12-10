@@ -16,7 +16,7 @@ set password [ lindex $argv 3 ]
  
 set timeout 30
 
-spawn scp -r ${localfile} ${user}@${remotefile}     
+spawn scp ${localfile} ${user}@${remotefile}     
 
 expect {
 "*yes/no" { send "yes\r"}

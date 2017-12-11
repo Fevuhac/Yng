@@ -19,9 +19,9 @@ set timeout 30
 spawn scp ${localfile} ${user}@${remotefile}     
 
 expect {
-"*yes/no" { send "yes\r"}
-"*password:" { send "$password\r" }
+"*yes/no" { send "yes\r";}
+"*password:" { send "$password\r";exp_continue}
 }
- 
-expect '*]#'
+
 send "exit\r"
+expect eof

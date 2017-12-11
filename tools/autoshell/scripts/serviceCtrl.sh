@@ -29,6 +29,6 @@ expect "*]#"
 send "cd ${installPath}\r"
 expect "*]#"
 send "${cmd}\r"
-expect '*]#'
-# interact
 send "exit\r"
+expect eof
+# interact

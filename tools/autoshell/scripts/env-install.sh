@@ -26,5 +26,7 @@ send "npm install pomelo -g\r"
 expect '*]#'
 send "yum -y install sysstat\r"
 expect '*]#'
-# interact
+send "yum -y install unzip\r"
 send "exit\r"
+expect eof
+# interact

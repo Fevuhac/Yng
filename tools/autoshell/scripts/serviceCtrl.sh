@@ -22,7 +22,7 @@ expect {
 "*yes/no" { send "yes\r"}
 "*password:" { send "$password\r" }
 }
-
+set timeout 3 
 expect "*]#"
 send "sudo -s\r"
 expect "*]#"

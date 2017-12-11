@@ -10,6 +10,8 @@
 // 2cpu01-node06.local,171.244.35.37,root,QA6vAB7tGD3b3SmC
 
 // 4cpu02-node04.hongkong,119.28.176.122,root,Chufeng123456,data_server_a
+
+
 const keys = ["pair:uid:rmb",
 "big_data:gold:gain:box_reward:history",
 "pair:uid:rank_in_friends",

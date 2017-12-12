@@ -26,6 +26,8 @@ expect "*]#"
 send "cd ${installPath}\r"
 expect "*]#"
 send "npm install --production\r"
+expect "*]#"
+send "rm -rf ../node_modules/pomelo-logger/node_modules/log4js/\r"
 send "exit\r"
 expect eof
 # interact

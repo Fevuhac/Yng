@@ -25,7 +25,7 @@ class Subscribe {
                 let pump_water = value.pumpWater;
                 let range_pump = platform_data_conf.PUMPWATER.RANGE;
                 if (pump_water >= range_pump[0] && pump_water <= range_pump[1]) {
-                    cache.set(type, value);
+                    cache.set(type, pump_water);
                 } else {
                     logger.error('非法平台抽水系数设置，请及时检查平台安全性');
                 }

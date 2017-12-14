@@ -2,13 +2,14 @@ const RobotPlayer = require('./robotPlayer');
 const fishCmd = require('../fishCmd');
 const event = require('../../../base/event');
 const config = require('../config');
-const robotBuilder = require('./robotBuilder');
+const RobotBuilder = require('./robotBuilder');
 
 class RobotController {
     constructor() {
         this._robotPlayerMap = new Map();
         event.on(fishCmd.request.robot_catch_fish.route.split('.')[2], this.onCatchfish.bind(this));
         this._fireTimer = null;
+        this._robotBuilder = new RobotBuilder();
     }
 
     run() {
@@ -55,7 +56,7 @@ class RobotController {
             }
             let scene = item.scene;
 
-            let account = await robotBuilder.genAccount(room);
+            let account = await this._robotBuilder.genAccount(room);
             let player = RobotPlayer.allocPlayer({
                 gameMode: room.mode,
                 sceneType: room.sceneType,

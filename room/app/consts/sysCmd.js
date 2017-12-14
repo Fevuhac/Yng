@@ -1,7 +1,8 @@
 class SysCmd {
     constructor() {
-        this.req = {};
-        this.push = {};
+        this._req = {};
+        this._push = {};
+        this._rpc = {};
     }
 
     /**
@@ -12,12 +13,11 @@ class SysCmd {
          * 心跳协议
          * @type {{}}
          */
-        this.req.heartbeat = {
+        this._req.heartbeat = {
             route: 'game.fishHandler.c_heartbeat',
             msg: {
                 enc: 'aes',
-                data: {
-                }
+                data: {}
             },
             res: {}
         };
@@ -27,11 +27,16 @@ class SysCmd {
     /**
      * 初始化推送消息接口定义
      */
-    initPush() {
+    initPush() {}
+
+    initRemote() {}
+
+    get request() {
+        return this._req;
     }
 
-    get request(){
-        return this.req;
+    get remote(){
+        return this._rpc;
     }
 }
 

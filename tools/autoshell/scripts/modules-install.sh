@@ -23,9 +23,9 @@ expect {
 expect "*]#"
 send "sudo -s\r"
 expect "*]#"
-send "cd ${installPath}\r"
+send "cd ${installPath}server\r"
 expect "*]#"
 send "npm install --production\r"
+expect "*]#"
 send "exit\r"
-expect eof
 # interact

@@ -26,7 +26,7 @@ class Cache{
                 let pumpWater_info = JSON.parse(values[0]); 
                 let pump = pumpWater_info.pumpWater;
                 if(pump >= range[0] && pump <= range[1]){
-                    this.set(redisKey.PLATFORM_DATA.PUMPWATER, values[0]);
+                    this.set(redisKey.PLATFORM_DATA.PUMPWATER, pump);
                 }else {
                     logger.error('平台抽水系数异常, 请检查数据配置');
                 }

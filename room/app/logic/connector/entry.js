@@ -58,6 +58,14 @@ class Entry {
         })
     }
 
+    onLogin(msg, session, cb){
+
+    }
+
+    onLeave(msg, session, cb){
+        
+    }
+
     /**
      * 加入游戏房间
      * @param {*} msg 
@@ -69,7 +77,7 @@ class Entry {
         let token = msg.data.token;
         delete msg.data.token;
         let data = {
-            gameType: 'fish',
+            gameType: sysConfig.GAME_TYPE,
             gameMode: msg.data.flag, // 详见GAME_MODE定义
             sceneType: msg.data.scene_name,
             sid: session.frontendId
@@ -151,26 +159,6 @@ class Entry {
             logger.info(`用户[${uid}]退出游戏服务`, session.get('gameId'));
             utils.invokeCallback(cb, null, answer.respNoData(CONSTS.SYS_CODE.OK));
         });
-    }
-
-    /**
-     * 比赛报名
-     * @param {*} msg 
-     * @param {*} session 
-     * @param {*} cb 
-     */
-    onEnroll(msg, session, cb){
-
-    }
-
-    /**
-     * 撤销报名
-     * @param {*} msg 
-     * @param {*} session 
-     * @param {*} cb 
-     */
-    onRevoke(msg, session, cb){
-
     }
 
     _playerOffline(session, reason) {

@@ -31,5 +31,6 @@ expect {
 "*yes/no" { send "yes\r"; exp_continue }
 "*password:" { send "$password\r" }
 }
+ 
 expect eof
 

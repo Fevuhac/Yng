@@ -4,6 +4,7 @@ const async = require('async');
 const randomName = require("chinese-random-name");
 const redisClient = require('../../../../utils/import_db').redisClient;
 const redisAccountSync = require('../../../../utils/import_utils').redisAccountSync;
+const KEYTYPEDEF = require('../../../../utils/import_def').KEYTYPEDEF;
 
 class RobotBuilder {
     constructor() {
@@ -59,7 +60,7 @@ class RobotBuilder {
         level_filter.forEach(function (item) {
             weapon.weapon_energy[item] = utils.random_int(100, 3000);
         });
-        weapon.skin = this._genOwnWeaponSkin();
+        weapon.skin = this.genOwnWeaponSkin();
 
         return weapon;
     }
@@ -84,7 +85,7 @@ class RobotBuilder {
      * @returns {{own: [number], equip: number, star: {}}}
      * @private
      */
-    _genOwnWeaponSkin() {
+    genOwnWeaponSkin() {
         let weapon_skin = {
             own: [1],
             equip: 12,
@@ -107,26 +108,11 @@ class RobotBuilder {
         return weapon_skin;
     }
 
-    _calcGold(num, minNum){
-        let gold = num + utils.random_int(config.ROBOT.GOLD_RANDOM[0], config.ROBOT.GOLD_RANDOM[1]) * config.ROBOT.GOLD_STEP;
-        gold = gold <= 0 ? config.ROBOT.GOLD_DEFAULT : gold;
-        if (gold < minNum) {
-            gold = minNum;
-        }
-        return gold;
-    }
-
-    _calcPearl(num){
-        let pearl = num + utils.random_int(config.ROBOT.PEARL_RANDOM[0], config.ROBOT.PEARL_RANDOM[1]) * config.ROBOT.PEARL_STEP;
-        pearl = pearl <= 0 ? config.ROBOT.PEARL_DEFAULT : pearl;
-        return pearl;
-    }
-
-    _genRandomInfo(){
-        let promise = new Promise(function (resolve, reject) {
+    genBaseInfo(){
+        return new Promise(function (resolve, reject) {
 
             let info = {
-                figure_url:'http://p3.wmpic.me/article/2015/05/18/1431913649_GWJqwtVU.jpeg',
+                figure_url:KEYTYPEDEF.AccountDef.figure_url.def,
                 nickname:randomName.generate()
             };
 
@@ -162,8 +148,21 @@ class RobotBuilder {
             });
 
         });
+    }
 
-        return promise;
+    _calcGold(num, minNum){
+        let gold = num + utils.random_int(config.ROBOT.GOLD_RANDOM[0], config.ROBOT.GOLD_RANDOM[1]) * config.ROBOT.GOLD_STEP;
+        gold = gold <= 0 ? config.ROBOT.GOLD_DEFAULT : gold;
+        if (gold < minNum) {
+            gold = minNum;
+        }
+        return gold;
+    }
+
+    _calcPearl(num){
+        let pearl = num + utils.random_int(config.ROBOT.PEARL_RANDOM[0], config.ROBOT.PEARL_RANDOM[1]) * config.ROBOT.PEARL_STEP;
+        pearl = pearl <= 0 ? config.ROBOT.PEARL_DEFAULT : pearl;
+        return pearl;
     }
 
     async genAccount(room) {
@@ -182,7 +181,7 @@ class RobotBuilder {
         let pearl = this._calcPearl(room.avgPearl);
         let exp = room.avgExp;
         let vip = room.avgVIP;
-        let randomInfo = await this._genRandomInfo();
+        let randomInfo = await this.genBaseInfo();
 
         let account = {
             nickname: randomInfo.nickname,
@@ -206,18 +205,13 @@ class RobotBuilder {
 
 }
 
-module.exports = new RobotBuilder();
+module.exports = RobotBuilder;
 
-// CONSTS.REDIS_KEY.nickname,
-// CONSTS.REDIS_KEY.level,
-// CONSTS.REDIS_KEY.weapon,
-// CONSTS.REDIS_KEY.weapon_skin,
-// CONSTS.REDIS_KEY.gold,
-// CONSTS.REDIS_KEY.pearl,
-// CONSTS.REDIS_KEY.vip,
-// CONSTS.REDIS_KEY.comeback,
-// CONSTS.REDIS_KEY.weapon_energy,
-// CONSTS.REDIS_KEY.heartbeat,
-// CONSTS.REDIS_KEY.roipct_time,
-// CONSTS.REDIS_KEY.skill,
-// CONSTS.REDIS_KEY.exp,
+
+
+
+
+
+
+
+

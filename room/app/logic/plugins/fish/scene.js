@@ -250,9 +250,13 @@ class Scene {
 
 }
 
-let req = fishCmd.request;
-for(let k of Object.keys(req)){
-    Scene.registe(req[k].route.split('.')[2]);
+function attach(){
+    let req = fishCmd.request;
+    for(let k of Object.keys(req)){
+        Scene.registe(req[k].route.split('.')[2]);
+    }
 }
+
+attach();
 
 module.exports = Scene;

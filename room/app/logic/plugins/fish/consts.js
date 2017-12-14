@@ -48,8 +48,14 @@ module.exports = {
     ROOM_MAX_PLAYER: 4,
 
     ENTITY_TYPE: {
-        PLAYER: 0,
-        ROBOT: 1,
+        PLAYER: 0, //玩家
+        ROBOT: 1, //普通机器人
+        MATCH_ROBOT:2, //比赛机器人
     },
+
+    MATCH_TYPE:{
+        RANK:1,
+        OTHER:2
+    }
 
 };

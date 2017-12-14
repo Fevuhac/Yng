@@ -35,9 +35,9 @@ gulp.task('checkout', ['commit'], function () {
 });
 
 gulp.task('prod', function (cb) {
-  runSequence('clean', 'eslint', ['mix', 'copy'], 'zip', 'scp', cb);
+  // runSequence('clean', 'eslint', ['mix', 'copy'], 'zip', 'scp', cb);
   // runSequence('clean', ['mix', 'copy'], 'zip', 'scp', cb);
-  // runSequence('zip', 'scp', cb);
+  runSequence('zip', 'scp', cb);
 });
 
 gulp.task('clean', function () {

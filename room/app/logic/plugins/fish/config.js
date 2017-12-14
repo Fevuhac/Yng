@@ -17,5 +17,9 @@ module.exports = {
     PLAYER:{
         OFFLINE_TIMEOUT:60000,//离线玩家踢出游戏超时时间，单位(秒:ms)
         KICK_OFFLINE_CHECK_TIMEOUT:10000 //离线玩家超时踢出检查周期 单位(秒:ms)
+    },
+    MATCH:{
+        MATE_INTERVAL:1000, //比赛匹配周期
+        MATE_TIMEOUT:10000, //匹配超时时间，超时则分配机器人
     }
 }

@@ -9,18 +9,6 @@
 // 4cpu02-node06.local,171.244.35.38,root,YtutDgNwd3WmLHGr
 // 2cpu01-node06.local,171.244.35.37,root,QA6vAB7tGD3b3SmC
 
-// 4cpu02-node04.hongkong,119.28.176.122,root,Chufeng123456,data_server_a
-
-// 4cpu02-node04.local,171.244.35.45,root,pemjsXH8Ce7E2G5j,balance_server
-// 4cpu01-node04.local,171.244.35.44,root,k5N6s3auYfu7tN4q,chat_server
-// 4cpu03-node04.local,171.244.35.43,root,Cpn3vXtsmvKuaTR9,fight_server
-// 4cpu01-node05.local,171.244.35.42,root,Y5A6vtHJCkpGBhQx,fight_server
-// 4cpu02-node05.local,171.244.35.41,root,Vg8Bd3xPEP4V8E5g,fight_server
-// 4cpu03-node05.local,171.244.35.40,root,YDCNcPpKrjgJ2Ka4,data_server
-// 4cpu01-node06.local,171.244.35.39,root,44SqgfnJGY43gxz8,data_server
-// 4cpu02-node06.local,171.244.35.38,root,YtutDgNwd3WmLHGr,data_server
-// 2cpu01-node06.local,171.244.35.37,root,QA6vAB7tGD3b3SmC,resource_server
-
 const keys = ["pair:uid:rmb",
 "big_data:gold:gain:box_reward:history",
 "pair:uid:rank_in_friends",

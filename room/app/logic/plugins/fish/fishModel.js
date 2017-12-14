@@ -595,7 +595,6 @@ class FishModel {
 
     //设置定鱼自然死亡时器：定时移除鱼数据，即鱼自然游动到终点
     _setLifeTiker (fish) {
-        fish._timestamp = new Date().getTime();
         fish._lifeDtSaved = fish.lifeDt;
         this._resetLifeTicker(fish);
     }
@@ -660,7 +659,7 @@ class FishModel {
         groupFish.lifeDt = dt;
         groupFish.path = pathName;
         groupFish.sub_fish = sub_fish, 
-        groupFish.tide = this._curTideCfg.id
+        this._curTideCfg && (groupFish.tide = this._curTideCfg.id);
 
         //鱼潮鱼阵音效配置
         this._newFishEvent({data : groupFish}, FishModel.EventType.EVENT_NEW_GROUP_FISH);
@@ -799,18 +798,11 @@ class FishModel {
      * 暂定生命计时器
      */
     pauseLifeTicker () {
-        let now = new Date().getTime();
         for (var k in this._actorData) {
             let fish = this._actorData[k];
             if (fish._lifeTiker) {
                 this._clearLifeTicker(fish);
-                let passed = (now - fish._timestamp)/1000;
-                fish.lifeDt -= passed;
-                if (fish.lifeDt < 0) {
-                    fish.lifeDt = 0;
-                    this._lifeEnd(fish);
-                }
-                //console.log('-pauseLifeTicker-fish name = ', fish.nameKey, fish.lifeDt, fish._timestamp);
+                //console.log('-pauseLifeTicker-fish name = ', fish.nameKey, fish.lifeDt);
             }
         }
     }
@@ -819,13 +811,11 @@ class FishModel {
      * 恢复已暂停的计时器
      */
     resumeLifeTicker () {
-        let now = new Date().getTime();
         for (var k in this._actorData) {
             let fish = this._actorData[k];
             if (!fish._lifeTiker && fish.lifeDt > 0) {
-                fish._timestamp = now;
                 this._resetLifeTicker(fish);
-                //console.log('-resumeLifeTicker-fish name = ', fish.nameKey, fish.lifeDt, fish._timestamp);
+                //console.log('-resumeLifeTicker-fish name = ', fish.nameKey, fish.lifeDt);
             }
         }
     }
@@ -840,7 +830,6 @@ class FishModel {
                 clearInterval(fish._lifeTiker);
                 fish._lifeTiker = null;
                 fish.lifeDt = 0;
-                fish._timestamp = 0;
             }
         }
     }

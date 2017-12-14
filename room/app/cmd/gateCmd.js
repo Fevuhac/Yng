@@ -17,7 +17,7 @@ class GateCmd extends SysCmd{
          * 分配登录服务器
          * @type {{route: string, msg: {enc: string, data: {token: string}}, res: {}}}
          */
-        this.req.queryEntry = {
+        this._req.queryEntry = {
             route:'gate.gateHandler.queryEntry',
             msg:{
                 enc:'aes',

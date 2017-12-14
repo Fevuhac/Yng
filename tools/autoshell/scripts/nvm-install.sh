@@ -21,6 +21,6 @@ expect {
 
 expect "*]#"
 send "curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash\r"
-send "exit\r"
-expect eof
+expect '*]#'
 # interact
+send "exit\r"

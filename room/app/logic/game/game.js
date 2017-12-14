@@ -113,11 +113,6 @@ class Game extends Entity {
         }
         inst.leaveScene(data.uid, data.sceneType, cb);
     }
-
-
-    onPumpwater(msg) {
-        shareData.set(dataType.PUMPWATER, msg.pumpwater);
-    }
 }
 
 module.exports = new Game();

@@ -1,6 +1,6 @@
 module.exports = {
     //服务数据加密KEY
-    KEYS:'12345',
+    KEYS:'fishjoy&2017_12_11_@12345',
 
     //负载均衡服负载信息拉取周期
     BALANCE_PERIOD:1000, //ms
@@ -11,6 +11,8 @@ module.exports = {
         VIETNAM:1 //越南
     },
     PUB: 1,
+
+    GAME_TYPE:'fishjoy',
 
     //平台数据配置
     PLATFORM_DATA_CONF:{

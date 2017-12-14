@@ -1,11 +1,11 @@
-var pomelo = require('pomelo');
-var logger = require('pomelo-logger').getLogger(__filename);
+const pomelo = require('pomelo');
+const logger = require('pomelo-logger').getLogger(__filename);
 
 
-var exp = module.exports;
+const exp = module.exports;
 
 exp.broadcast = function (route, msg, uids) {
-	pomelo.app.get('channelService').pushMessageByUids(route, msg, uids, function(err, fails) {
+	pomelo.app.get('channelService').pushMessageByUids(route, packMsg(msg), uids, function(err, fails) {
         if(err){
             logger.error('Push Message route=%s msg=%j err=%j', route, msg, err.stack);
         }
@@ -30,11 +30,5 @@ exp.broadcast = function (route, msg, uids) {
  * ]
  */
 exp.send = function (route, msg, uids) {
-  if(uids instanceof Array){
-    exp.broadcast(route, msg, uids);
-  }
-  else{
-    exp.broadcast(route, msg, [uids]);
-  }
-
+  exp.broadcast(route, msg, [uids]);
 };

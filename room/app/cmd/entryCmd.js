@@ -18,7 +18,7 @@ class EntryCmd extends SysCmd{
          * 加入游戏房间
          * @type {{route: string, msg: {enc: string, data: {token: string, flag: boolean, scene_name: string}}, res: {}}}
          */
-        this.req.enterGame = {
+        this._req.enterGame = {
             route:'connector.entryHandler.c_enter_room',
             msg:{
                 enc:'aes',
@@ -40,7 +40,7 @@ class EntryCmd extends SysCmd{
          * 离开游戏房间
          * @type {{route: string, msg: {enc: string, data: {}}, res: {}}}
          */
-        this.req.leaveGame = {
+        this._req.leaveGame = {
             route:'connector.entryHandler.c_leave_room',
             msg:{
                 enc:'aes',

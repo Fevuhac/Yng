@@ -14,7 +14,7 @@ class FishCmd extends SysCmd {
          * 通知服务器从redis中及时取数据同步缓存
          * @type {{route: string, msg: {enc: string, data: {}}, res: {}, description: string}}
          */
-        this.req.player_notify = {
+        this._req.player_notify = {
             route: 'game.fishHandler.c_player_notify',
             msg: {
                 enc: 'aes',
@@ -29,7 +29,7 @@ class FishCmd extends SysCmd {
          * 返回对象，单个格式，fishKey: [pathKey, seconds]
          * @type {{route: string, msg: {enc: string, data: {wp_skin: number, fire_point: {x: number, y: number}}}, res: {fj_0_0: [string,number], fj_1_0: [string,number], fj_2_0: [string,number]}, description: string}}
          */
-        this.req.query_fishes = {
+        this._req.query_fishes = {
             route: 'game.fishHandler.c_query_fishes',
             msg: {
                 enc: 'aes',
@@ -49,7 +49,7 @@ class FishCmd extends SysCmd {
          * 发射子弹
          * @type {{route: string, msg: {enc: string, data: {wp_skin: number, fire_point: {x: number, y: number}}}, description: string}}
          */
-        this.req.fire = {
+        this._req.fire = {
             route: 'game.fishHandler.c_fire',
             msg: {
                 enc: 'aes',
@@ -65,7 +65,7 @@ class FishCmd extends SysCmd {
          * 子弹碰撞鱼
          * @type {{route: string, msg: {enc: string, data: {bullet_key: string, wp_skin: number, wp_level: number, skill_ing: number, fish_keys: [string,string]}}, description: string}}
          */
-        this.req.catch_fish = {
+        this._req.catch_fish = {
             route: 'game.fishHandler.c_catch_fish',
             msg: {
                 enc: 'aes',
@@ -85,7 +85,7 @@ class FishCmd extends SysCmd {
          * 机器人子弹碰撞鱼
          * @type {{route: string, msg: {enc: string, data: {bullet_key: string, wp_skin: number, wp_level: number, skill_ing: number, fish_keys: [string,string]}}, description: string}}
          */
-        this.req.robot_catch_fish = {
+        this._req.robot_catch_fish = {
             route: 'game.fishHandler.c_robot_catch_fish',
             msg: {
                 enc: 'aes',
@@ -105,7 +105,7 @@ class FishCmd extends SysCmd {
          * 使用技能
          * @type {{route: string, msg: {enc: string, data: {skill: number}}, res: {}}}
          */
-        this.req.use_skill = {
+        this._req.use_skill = {
             route: 'game.fishHandler.c_use_skill',
             msg: {
                 enc: 'aes',
@@ -120,7 +120,7 @@ class FishCmd extends SysCmd {
          * 使用锁定技能锁定指定鱼
          * @type {{route: string, msg: {enc: string, data: {tfish: string}}, res: {}}}
          */
-        this.req.use_skill_lock_fish = {
+        this._req.use_skill_lock_fish = {
             route: 'game.fishHandler.c_use_skill_lock_fish',
             msg: {
                 enc: 'aes',
@@ -135,7 +135,7 @@ class FishCmd extends SysCmd {
          * 使用召唤技能召唤指定鱼
          * @type {{route: string, msg: {enc: string, data: {tfish: string, path: string}}, res: {}}}
          */
-        this.req.use_skill_call_fish = {
+        this._req.use_skill_call_fish = {
             route: 'game.fishHandler.c_use_skill_call_fish',
             msg: {
                 enc: 'aes',
@@ -151,7 +151,7 @@ class FishCmd extends SysCmd {
          * 确定激光或核弹技能打击点
          * @type {{route: string, msg: {enc: string, data: {skill: number, fire_point: {x: number, y: number}}}, res: {}}}
          */
-        this.req.use_skill_sure = {
+        this._req.use_skill_sure = {
             route: 'game.fishHandler.c_use_skill_sure',
             msg: {
                 enc: 'aes',
@@ -167,7 +167,7 @@ class FishCmd extends SysCmd {
          * 战斗行为通知
          * @t0武器皮肤更新 1武器倍率（武器升级、切换倍率）
          */
-        this.req.fighting_notify = {
+        this._req.fighting_notify = {
             route: 'game.fishHandler.c_fighting_notify',
             msg: {
                 enc: 'aes',
@@ -191,7 +191,7 @@ class FishCmd extends SysCmd {
          * 单个玩家格式：{用户标识id, 座位号seatId, 武器wp_skin, 武器等级wp_level, 当前金币gold, 当前钻石pearl}
          * @type {{route: string, msg: {enc: string, data: {players: [null,null,null,null]}}}}
          */
-        this.push.enter_room = {
+        this._push.enter_room = {
             route: 's_enter_room',
             msg: {
                 enc: 'aes',
@@ -211,7 +211,7 @@ class FishCmd extends SysCmd {
          * 多人房广播他人离开
          * @type {{route: string, msg: {enc: string, data: {seatId: number}}}}
          */
-        this.push.leave_room = {
+        this._push.leave_room = {
             route: 's_leave_room',
             msg: {
                 enc: 'aes',
@@ -223,7 +223,7 @@ class FishCmd extends SysCmd {
         };
 
 
-        this.push.playerState = {
+        this._push.playerState = {
             route: 's_playerState',
             msg: {
                 enc: 'aes',
@@ -240,7 +240,7 @@ class FishCmd extends SysCmd {
          * 多人房广播他人开炮
          * @type {{route: string, msg: {enc: string, data: {wp_skin: number, seatId: number, fire_point: {x: number, y: number}, gold: number}}}}
          */
-        this.push.fire = {
+        this._push.fire = {
             route: 's_fire',
             msg: {
                 enc: 'aes',
@@ -258,7 +258,7 @@ class FishCmd extends SysCmd {
          * 多人房广播他人捕获鱼
          * @type {{route: string, msg: {enc: string, data: {seatId: number, catch_fishes: [string], gold: number, pearl: number}}, description: string}}
          */
-        this.push.catch_fish = {
+        this._push.catch_fish = {
             route: 's_catch_fish',
             msg: {
                 enc: 'aes',
@@ -278,7 +278,7 @@ class FishCmd extends SysCmd {
          * 注意，若技能是激光或核弹，需要则某玩家确认打击点后，才可广播给其他人
          * @type {{route: string, msg: {enc: string, data: {seatId: number, catch_fishes: [string], gold: number, pearl: number}}, res: {}}}
          */
-        this.push.use_skill = {
+        this._push.use_skill = {
             route: 's_use_skill',
             msg: {
                 enc: 'aes',
@@ -319,7 +319,7 @@ class FishCmd extends SysCmd {
          * 多人房广播技能使用结束
          * @type {{route: string, msg: {enc: string, data: {seatId: number, skill: number}}, res: {}}}
          */
-        this.push.use_skill_end = {
+        this._push.use_skill_end = {
             route: 's_use_skill_end',
             msg: {
                 enc: 'aes',
@@ -335,7 +335,7 @@ class FishCmd extends SysCmd {
          * 多人房广播刷鱼
          * @type {{route: string, msg: {enc: string, data: {evtName: string, evtData: {}}}, res: {}}}
          */
-        this.push.flush_fish = {
+        this._push.flush_fish = {
             route: 's_flush_fish',
             msg: {
                 enc: 'aes',
@@ -351,7 +351,7 @@ class FishCmd extends SysCmd {
          * 多人房广播战斗行为通知
          * @type {{route: string, msg: {enc: string, data: {evtName: string, evtData: {}}}, res: {}}}
          */
-        this.push.fighting_notify = {
+        this._push.fighting_notify = {
             route: 's_fighting_notify',
             msg: {
                 enc: 'aes',
@@ -364,7 +364,7 @@ class FishCmd extends SysCmd {
             res:{}
         }
 
-        this.push.player_notify = {
+        this._push.player_notify = {
             route: 's_player_notify',
             msg: {
                 enc: 'aes',

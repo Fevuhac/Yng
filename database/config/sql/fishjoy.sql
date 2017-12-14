@@ -47,6 +47,7 @@ CREATE TABLE `tbl_account` (
   `new_reward_adv` tinyint(4) NOT NULL DEFAULT '0' COMMENT '新手礼包领取(0表示未领取, 1表示已经领取)',
   `day_reward_weekly` int(11) NOT NULL DEFAULT '0',
   `vip_daily_fill` int(11) NOT NULL DEFAULT '1',
+  `vip_daily_reward` smallint(6) NOT NULL DEFAULT '0' COMMENT 'vip每日领取,0-未领,1-已领',
   `rmb` int(11) NOT NULL DEFAULT '0' COMMENT '玩家累计充值金额，单位为分',
   `channel` varchar(8) NOT NULL DEFAULT 'fj' COMMENT '同时也是tempname的前缀',
   `channel_account_id` varchar(64) DEFAULT NULL COMMENT '非渠道接入此字段可以为空',
@@ -104,6 +105,11 @@ CREATE TABLE `tbl_account` (
   `charm_point` int(11) NOT NULL DEFAULT '0' COMMENT '魅力值',
   `sex` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0男1女',
   `city` varchar(20) NOT NULL DEFAULT '四川' COMMENT '玩家城市信息',
+  `recharge` bigint(20) DEFAULT NULL COMMENT '玩家充值总额',
+  `cash` bigint(20) DEFAULT NULL COMMENT '玩家提现总额',
+  `cost` bigint(20) DEFAULT NULL COMMENT '玩家其他金币消耗',
+  `bonus_pool` double DEFAULT NULL COMMENT '玩家对奖池贡献(可正可负)',
+  `pump_pool` double DEFAULT NULL COMMENT '玩家对抽水贡献(不断增加的正数)',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=69924 DEFAULT CHARSET=utf8;
 

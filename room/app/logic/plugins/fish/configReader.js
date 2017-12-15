@@ -33,6 +33,27 @@ class ConfigReader {
                 tkey: 'level'
             },
             {
+                tbl: 'goddess_defend_cfg',
+                tkey: 'id'
+            },
+            {
+                tbl: 'goddess_fishborn_cfg',
+                tkey: 'id'
+            },
+            {
+                tbl: 'new_mini_game_coincatch_cfg',
+                tkey: 'id'
+            },
+            {
+                tbl: 'new_mini_game_crazyfugu_cfg',
+                tkey: 'id'
+            },
+            {
+                tbl: 'daily_pirate_cfg',
+                tkey: 'ID'
+            },
+
+            {
                 tbl: 'goddess_goddessup_cfg',
                 tkey: 'id',
                 tkey1: 'level'
@@ -69,6 +90,14 @@ class ConfigReader {
     }
 
     /**
+     * 根据表名，取得配置项个数
+     */
+    getLength (tbl) {
+        let tbVal = this._cfg[tbl] || GAMECFG[tbl];
+        return tbVal && Object.keys(tbVal).length || tbVal.length;
+    }
+
+    /**
      * 根据表名+唯一标识取得配置
      */
     getValue (tbl, key) {
@@ -89,7 +118,6 @@ class ConfigReader {
      */
     getValueByKey1 (tbl, key, key1) {
         let tkey = key + '_' + key1;
-        logger.error('tkey = ', tkey);
         return this.getValue(tbl, tkey);
     }
 

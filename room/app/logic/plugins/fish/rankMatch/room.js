@@ -1,3 +1,4 @@
+const rankMatchCmd = require('../../../../cmd/rankMatchCmd');
 class RankMatchRoom {
     constructor(opts) {
         this._playerMap = new Map();
@@ -5,7 +6,8 @@ class RankMatchRoom {
         this._state = 0;
         this._createTime = Date.now();
         this._lastUpdateTime = Date.now();
-        this.id = opts.roomId;
+        this._roomId = opts.roomId;
+        this.channel = pomelo.app.get('channelService').getChannel(this._roomId, true);
     }
 
     get state() {
@@ -73,12 +75,21 @@ class RankMatchRoom {
         return 1;
     }
 
+    _broadcast(route, data) {
+        this.channel.pushMessage(route, packMsg(data));
+    }
+
     //战斗结算
     _settlement() {
+        let data = {};
+        for (let player of this._playerMap.values()) {
+            this._broadcast(rankMatchCmd._push.pkResult.route, data)
+        }
     }
 
     //发送倒计时
     _sendCountdown() {
+        this._broadcast(rankMatchCmd._push.pkResult.route, {countdown:this._countdown});
     }
 
 }

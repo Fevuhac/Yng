@@ -1,5 +1,4 @@
 const Scene = require('./scene');
-const Player = require('./entity/player');
 const Entry = require('./entry');
 const robotController = require('./robot/robotController');
 const config = require('./config');
@@ -156,9 +155,9 @@ class Instance {
             utils.invokeCallback(cb, null)
             return
         }
-        scene.leaveGame(uid);
+        let data = scene.leaveGame(uid);
         this.uids.delete(uid);
-        utils.invokeCallback(cb, null)
+        utils.invokeCallback(cb, null, data);
     }
 
     getScene(sceneType) {

@@ -1,6 +1,6 @@
 const Player = require('../../../base/player');
 
-class RankMatchPlayer extends Player{
+class RankMatchPlayer extends Player {
     /**
      * {
      * kindId:0,
@@ -12,31 +12,34 @@ class RankMatchPlayer extends Player{
      * }
      * @param {*} opts 
      */
-    constructor(opts){
+    constructor(opts) {
         super(opts);
         this._ready = false;
         this._statistics = {
-            total:1000,
-            fish:{
-                
-            }
+            total: 1000,
+            fish: {}
         }
 
     }
 
-    set ready(value){
+    set ready(value) {
         this._ready = value;
     }
 
-    get ready(){
+    get ready() {
         return this._ready;
     }
 
-    static allocPlayer(data){
-        let player = new RankMatchPlayer({uid:data.uid, sid:data.sid, account:account,kindId:consts.ENTITY_TYPE.PLAYER});
+    static allocPlayer(data) {
+        let player = new RankMatchPlayer({
+            uid: data.uid,
+            sid: data.sid,
+            account: account,
+            kindId: consts.ENTITY_TYPE.PLAYER
+        });
         player.gameInfo = {
-            gameMode:data.gameMode,
-            sceneType:data.sceneType
+            gameMode: data.gameMode,
+            sceneType: data.sceneType
         };
     }
 }

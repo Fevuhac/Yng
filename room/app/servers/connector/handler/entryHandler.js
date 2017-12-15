@@ -8,7 +8,7 @@ class EntryHandler extends Handler{
 }
 
 module.exports = function(){
-    EntryHandler.registe(entryCmd.req.enterGame.route.split('.')[2]);
-    EntryHandler.registe(entryCmd.req.leaveGame.route.split('.')[2]);
+    EntryHandler.registe(entryCmd.request.enterGame.route.split('.')[2]);
+    EntryHandler.registe(entryCmd.request.leaveGame.route.split('.')[2]);
     return new EntryHandler();
 };

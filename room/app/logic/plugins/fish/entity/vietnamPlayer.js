@@ -1,3 +1,10 @@
+// //--[[
+// description: 越南版player
+// author: scott
+// date: 20171129
+// ATTENTION：
+// //--]]
+
 const FishPlayer = require('./player');
 const ACCOUNTKEY = require('../../../../utils/import_def').ACCOUNTKEY;
 const redisAccountSync = require('../../../../utils/import_utils').redisAccountSync;
@@ -9,34 +16,23 @@ class VietnamPlayer extends FishPlayer{
         super(data);
     }
 
-    static allocPlayer(data){
-        let promise = new Promise((resolve, reject)=>{
-            logger.error('account data.uid= ', data.uid);
-            redisAccountSync.getAccount(data.uid, VietnamPlayer.baseField, function (err, account) {
-                if(!!err){
-                    reject(CONSTS.SYS_CODE.DB_ERROR);
-                    return;
-                }
-                if(!account){
-                    reject(CONSTS.SYS_CODE.PLAYER_NOT_EXIST);
-                    return
-                }
-
-                logger.error('account = ', account);
-                
-                let player = new VietnamPlayer({uid:data.uid, sid:data.sid, account:account,kindId:consts.ENTITY_TYPE.PLAYER});
-                player.gameInfo = {
-                    gameMode:data.gameMode,
-                    sceneType:data.sceneType
-                };
-                resolve(player);
-            });
-        });
-        return promise;
+    static sBaseField(){
+        let baseField = FishPlayer.sBaseField();
+        const self = [
+            ACCOUNTKEY.BONUS_POOL,
+            ACCOUNTKEY.PUMP_POOL,
+            ACCOUNTKEY.COST,
+            ACCOUNTKEY.CASH,
+            ACCOUNTKEY.RECHARGE,
+            ACCOUNTKEY.GAIN_LOSS,
+            ACCOUNTKEY.GAIN_LOSS_LIMIT,
+            ACCOUNTKEY.GAIN_LOSS_SNAPSHOT,
+        ];
+        return baseField.concat(self);
     }
 
-    getBaseField(){
-        return VietnamPlayer.baseField;
+    getBaseField () {
+        return VietnamPlayer.sBaseField();
     }
 
     /**
@@ -103,32 +99,5 @@ class VietnamPlayer extends FishPlayer{
         }
     }
 }
-
-VietnamPlayer.baseField = [
-    ACCOUNTKEY.NICKNAME,
-    ACCOUNTKEY.LEVEL,
-    ACCOUNTKEY.WEAPON,
-    ACCOUNTKEY.WEAPON_SKIN,
-    ACCOUNTKEY.GOLD,
-    ACCOUNTKEY.PEARL,
-    ACCOUNTKEY.VIP,
-    ACCOUNTKEY.COMEBACK,
-    ACCOUNTKEY.WEAPON_ENERGY,
-    ACCOUNTKEY.HEARTBEAT,
-    ACCOUNTKEY.ROIPCT_TIME,
-    ACCOUNTKEY.SKILL,
-    ACCOUNTKEY.EXP,
-    ACCOUNTKEY.FIGURE_URL,
-    ACCOUNTKEY.BONUS,
-    ACCOUNTKEY.PLAYER_CATCH_RATE,
-    ACCOUNTKEY.BONUS_POOL,
-    ACCOUNTKEY.PUMP_POOL,
-    ACCOUNTKEY.COST,
-    ACCOUNTKEY.CASH,
-    ACCOUNTKEY.RECHARGE,
-    ACCOUNTKEY.GAIN_LOSS,
-    ACCOUNTKEY.GAIN_LOSS_LIMIT,
-    ACCOUNTKEY.GAIN_LOSS_SNAPSHOT,
-];
 
 module.exports = VietnamPlayer;

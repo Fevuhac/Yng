@@ -3,7 +3,7 @@ const dbUtils = require('../../database/').dbUtils;
 const Task = require('../../base/task/task');
 const REDISKEY = require('../../database/consts').REDISKEY;
 const utils = require('../../base/utils/utils');
-const deleteAllKey = require('../../tools/deleteAllKey').deleteAllKey;
+// const deleteAllKey = require('../../tools/deleteAllKey').deleteAllKey;
 
 /**
  * redis数据定时同步到mysql
@@ -59,9 +59,7 @@ class AccountSync extends Task {
      * @private
      */
     _exeTask(cb) {
-
-        deleteAllKey();
-        
+        // deleteAllKey();
         logger.info('---玩家数据同步开始');
         console.time('accountSync');
         let self = this;

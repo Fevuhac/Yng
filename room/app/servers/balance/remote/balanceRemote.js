@@ -8,12 +8,15 @@ function BalanceRemote(app) {
     this.app = app;
 }
 
-BalanceRemote.prototype.allocConnector = function (cb) {
-    this.app.balance.onAllocConnector(cb);
+BalanceRemote.prototype.getConnector = function (cb) {
+    this.app.balance.getConnectorServer(cb);
 };
 
-BalanceRemote.prototype.allocGame = function (type, cb) {
-    this.app.balance.onAllocGame(type, cb);
+BalanceRemote.prototype.getGame = function (cb) {
+    this.app.balance.getGameServer(cb);
+};
+BalanceRemote.prototype.getRankMatch = function (cb) {
+    this.app.balance.getRankMatchServer(cb);
 };
 
 module.exports = function (app) {

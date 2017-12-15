@@ -96,6 +96,7 @@ const configure = function () {
         // route configures
         // app.route('chat', routeUtil.chatRoute);
         app.route('game', routeUtil.gameRoute);
+        app.route('rankMatch', routeUtil.rankMatchRoute);
     });
 
     // gate configuration
@@ -162,7 +163,7 @@ const configure = function () {
     app.configure('production|development', 'balance', function () {
         global.logger = require('pomelo-logger').getLogger('balance');
 
-        app.balance = require('./app/logic/balance/loadManager');
+        app.balance = require('./app/logic/balance/balance');
         app.balance.start();
 
         // todo deprecated
@@ -181,6 +182,32 @@ const configure = function () {
         // todo deprecated
         app.beforeStopHook(function () {
             app.dataCenter.stop();
+        });
+    });
+
+     // 排位赛匹配服
+     app.configure('production|development', 'matching', function () {
+        global.logger = require('pomelo-logger').getLogger('matching');
+
+        app.matching = require('./app/logic/matching/matching');
+        app.matching.start();
+
+        // todo deprecated
+        app.beforeStopHook(function () {
+            app.matching.stop();
+        });
+    });
+
+    // 排位赛服
+    app.configure('production|development', 'rankMatch', function () {
+        global.logger = require('pomelo-logger').getLogger('rankMatch');
+
+        app.rankMatch = require('./app/logic/rankMatch/rankMatch');
+        app.rankMatch.start();
+
+        // todo deprecated
+        app.beforeStopHook(function () {
+            app.rankMatch.stop();
         });
     });
 };

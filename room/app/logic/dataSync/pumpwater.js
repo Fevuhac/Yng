@@ -19,10 +19,10 @@ class Pumpwater extends EventEmitter {
         this._serverPeriodState = SERVER_PERIOD.GENERAL; //服务器周期状态
         this.period_start_time = Date.now(); //周期开始时间
         this.period_duration = this.weight_time1;
-        this._pumpWater = 1;
     }
 
     start() {
+        this.pumpWater = 1;
         // 开始后一周期后进行第一次抽水计算
         setTimeout(function () {
             this._recursiveMathWater(this.weight_time1, this.weight_time2, this.weight_time3, this.cur_extract, common_mathadjust_const_cfg.addvalue, common_mathadjust_const_cfg.reducevalue);

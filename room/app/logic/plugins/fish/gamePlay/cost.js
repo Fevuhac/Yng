@@ -345,8 +345,8 @@ class Cost {
         let vipHitrate = params.vipHitrate;
         let skinPct = params.skinPct;
         let gold = params.gold;
+        let fishbasepct = params.fishbasepct;
 
-        let fishbasepct = fishCfg.fishbasepct;
         let basPCT = fishbasepct * fishCfg.mapct * weaponspct;
         
         let log = params.isReal && this.log || null;
@@ -474,9 +474,10 @@ class Cost {
             let vipSkillPct = vip > 0 && this.getVippingSkillPct(vip, skillIngIds) || 0;
             let skinReward = 1;
             let skinPct = 1; //TODO:武器星级可对皮肤捕获率加成,字段pct
+            let SKIN = null;
             let bulletBornSkillHitrate = this.getSkillGpctValue(skillIngIds) || 1;
             if (bulletBornSkillHitrate === 1) {
-                let SKIN = this._getWpSKinCfg(skin);
+                (!SKIN) && (SKIN = this._getWpSKinCfg(skin));
                 if (!SKIN) {
                     logger.error('skin = ', skin, weaponLv);
                 }
@@ -504,13 +505,13 @@ class Cost {
                 }
             } else if (td.skillId > 0) {
                 let skillId = td.skillId;
-                const CFG = this._getSkillCfg(skillId);
-                rewardLv = CFG.ratio;//当有激光或核弹时，参与计算的倍率应当为技能倍率
                 isPlayerPowerSkillIng = skin && weaponLv && skillIngIds && skillIngIds.length > 0;
                 if (skillId === consts.SKILL_ID.SK_LASER) {
                     fireFlag = consts.FIRE_FLAG.LASER;
                 } else if (skillId == consts.SKILL_ID.SK_NBOMB0 || skillId == consts.SKILL_ID.SK_NBOMB1 || skillId == consts.SKILL_ID.SK_NBOMB2) {
                     fireFlag = consts.FIRE_FLAG.NBOMB;
+                    const CFG = this._getSkillCfg(skillId);
+                    rewardLv = CFG.ratio;//当有核弹时，参与计算的倍率应当为技能倍率
                 } else {
                     isPlayerPowerSkillIng = false;
                 }
@@ -572,8 +573,8 @@ class Cost {
                 }
                 let temp = fk.split('__');
                 fish.name = temp[0];
-                let fishCfg = fishModel.getFishCfg(fish.name);
-                fishbasepctTotal += fishCfg.fishbasepct;
+                let fishbasepct = fishModel.getFishBasePct(fk);
+                fishbasepctTotal += fishbasepct;
                 fishGoldTotal += fish.goldVal;
             }
 
@@ -588,8 +589,10 @@ class Cost {
                     continue;
                 }                
                 let fishCfg = fishModel.getFishCfg(fish.name);
+                let fishbasepct = fishModel.getFishBasePct(fk);
                 let isCaught = this._isCaughtByGpct({
                     fishCfg: fishCfg, 
+                    fishbasepct: fishbasepct,
                     weaponspct: weaponspct, 
                     fireFlag: fireFlag, 
                     fishbasepctTotal: fishbasepctTotal, 
@@ -619,6 +622,9 @@ class Cost {
                     });
                     gotData.fireFlag = fireFlag;
                     fishFloor[fk] = gotData.floor;
+                }else if (skin === consts.WP_SKIN_ID.CHIYANNVSHEN) {
+                    (!SKIN) && (SKIN = this._getWpSKinCfg(skin));
+                    SKIN && SKIN.effectvalue > 0 && fishModel.resetFish(fk, SKIN.effectvalue);
                 }
                 ret[fk] = gotData;
             }
@@ -725,6 +731,57 @@ class Cost {
         }
         return [heartbeat, heartbeatMinCost];
     }
+
+    /**
+     * 计算奖金鱼奖金
+     * 注意其加成方式
+     */
+    calGoldenFishReward (gold, skin, star) {
+        let reward = gold;
+        if (skin === consts.WP_SKIN_ID.DIANWAN) {
+            const cfg = this._getWpSKinCfg(skin);
+            if (cfg && cfg.effectvalue > 0) {
+                reward *= cfg.effectvalue;
+            }
+        }
+        const wpStarCfg = this._configReader.getWeaponStarData(skin, star);
+        if (wpStarCfg && wpStarCfg.golden >= 0) {
+            reward *= (1 + wpStarCfg.golden);  
+        }
+        reward /= 10;//策划约定
+        reward = Math.floor(reward);
+        return reward;
+    }
+
+    /**
+     * 指定皮肤的武器产生多少颗克隆子弹，一般是0
+     * 注意：星舰黎明必须返回，客户端在处理子弹反弹时需要克隆子弹，以达到入射逐渐变短，出射逐渐增长的效果
+     */
+    calBulletClonedCount (skin) {
+        let count = 0;
+        switch(skin) {
+            case consts.WP_SKIN_ID.LIMING:
+            case consts.WP_SKIN_ID.YUELIANGTU:
+                count = 10 + Math.floor(Math.random()*40); //星舰黎明和月亮兔子弹 分裂出来的子弹都是根据第一个子弹克隆，约定一个最多碰撞分裂次数
+            break;
+
+            case consts.WP_SKIN_ID.JIAN20: 
+                count = 3 + Math.floor(Math.random()*5); //除掉自己
+            break;
+
+            case consts.WP_SKIN_ID.PAOPAOTANG:{
+                const cfg = this._getWpSKinCfg(skin);
+                let rv = Math.random();
+                if (rv < cfg.effectvalue) {
+                    count = 8;
+                }
+                //logger.error('calBulletClonedCount count = ', count, rv, cfg.effectvalue);
+            }
+            break;
+        }
+        return count;
+    }
+
 }
 
 module.exports = Cost;

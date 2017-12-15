@@ -12,6 +12,10 @@ class RankMatchInstance{
     stop(){
         this._entry.stop();
     }
+
+    getLoadStatistics(){
+        return this._entry.getLoadStatistics();
+    }
     
 }
 

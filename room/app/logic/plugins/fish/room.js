@@ -15,8 +15,7 @@ class Room {
         this._sceneType = opts.sceneType;
         this._evtor = new EventEmitter();
 
-        let fishModel = new FishModel(this._evtor, this._sceneType);
-        this._fishModel = fishModel;
+        this.createFishModel();
 
         this._flushFishTimer = -1;
         this.playerMap = new Map();
@@ -27,6 +26,11 @@ class Room {
             this._seatState[i] = 0;
         }
         this._robotJoinTimestamp = 0;
+    }
+
+    createFishModel () {
+        let fishModel = new FishModel(this._evtor, this._sceneType);
+        this._fishModel = fishModel;
     }
 
     /**
@@ -194,11 +198,18 @@ class Room {
         return this._roomId;
     }
 
+    isNewFishEnabled () {
+        if (this._skillIceTicker) {
+            return false;
+        }
+        return true;
+    }
+
     start() {
         this._evtor.on(consts.FLUSH_EVENT, this.onFlushFish.bind(this));
         let fish_dt = 1; //秒
         this._flushFishTimer = setInterval(function () {
-            if (this._skillIceTicker) {
+            if (!this.isNewFishEnabled()) {
                 return;
             }
             this._fishModel.checkNewFish(fish_dt);
@@ -286,12 +297,17 @@ class Room {
      */
     leave(uid) {
         let player = this.playerMap.get(uid);
+        let data = null;
         if (!!player) {
+            data = {
+                gold: player.account.gold,
+                pearl: player.account.pearl,
+            }
             player.save();
             this._clearPlayerResource(player);
             this.playerMap.delete(uid);
         }
-
+        return data;
     }
 
     kickRobot(){

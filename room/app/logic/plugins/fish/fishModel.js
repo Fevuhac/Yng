@@ -98,6 +98,7 @@ class FishModel {
         this._actorData = {};
         this._deadHistory = {}; //死亡历史,鱼潮来临时清空现有历史        
         this._scenePaths = {}; //场景中已经出现的路径 
+        this._fishBasePct = {};
         
         this._makeFishZorder();
         this._curBoosCount = 0;
@@ -371,6 +372,7 @@ class FishModel {
         fish.floor = 1; //相当于几条命
         fish.goldVal = this._generateFishGold(cfg);
         actorArray[nameKey] = fish;
+        this._fishBasePct[nameKey] = cfg.fishbasepct; //将该字段存起来，方便特殊武器打中鱼时对此作出修改等影响
 
         if (this.findDeadHistory(nameKey)) {
             this._setDead2History(nameKey, 0);
@@ -403,7 +405,8 @@ class FishModel {
         this._clearLifeTicker(fish);
 
         delete this._actorData[nameKey];
-        
+        delete this._fishBasePct[nameKey];
+
         this._setDead2History(nameKey, 1);
         DEBUG && console.log('del = nameKey = ', nameKey, this.getActorTotal())
     }
@@ -802,7 +805,7 @@ class FishModel {
             let fish = this._actorData[k];
             if (fish._lifeTiker) {
                 this._clearLifeTicker(fish);
-                //console.log('-pauseLifeTicker-fish name = ', fish.nameKey, fish.lifeDt);
+                console.log('-pauseLifeTicker-fish name = ', fish.nameKey, fish.lifeDt);
             }
         }
     }
@@ -815,7 +818,7 @@ class FishModel {
             let fish = this._actorData[k];
             if (!fish._lifeTiker && fish.lifeDt > 0) {
                 this._resetLifeTicker(fish);
-                //console.log('-resumeLifeTicker-fish name = ', fish.nameKey, fish.lifeDt);
+                console.log('-resumeLifeTicker-fish name = ', fish.nameKey, fish.lifeDt);
             }
         }
     }
@@ -866,6 +869,27 @@ class FishModel {
      */
     findFish (fishKey) {
         return this._actorData && this._actorData[fishKey];
+    }
+
+    /**
+     * 重置鱼相关参数
+     * 价值、基础捕获率
+     */
+    resetFish (fishKey, effectvalue) {
+        let fish = this._actorData[fishKey];
+        let oldFishBasePct = this._fishBasePct[fishKey];
+        if (fish && oldFishBasePct) {
+            let oldGoldVal = fish.goldVal;
+            fish.goldVal -= effectvalue;
+            if (fish.goldVal < 1) {
+                fish.goldVal = 1;
+            }
+            this._fishBasePct[fishKey] = oldFishBasePct * oldGoldVal / fish.goldVal;
+        }
+    }
+
+    getFishBasePct (fishKey) {
+        return this._fishBasePct[fishKey] || 1;
     }
     
 

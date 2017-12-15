@@ -70,6 +70,21 @@ class FishCode extends SysCode{
             code: '3014',
             desc: '开炮太频繁了，疑似作弊'
         };
+
+        this.INVALID_GOD = {
+            code: '3015',
+            desc: '女神数据不匹配'
+        };
+
+        this.LOCK_GOD = {
+            code: '3016',
+            desc: '女神尚未解锁'
+        };
+
+        this.MATCH_REPEATE_JOIN = {
+            code: '3100',
+            desc: '重复加入比赛'
+        };
     }
 }
 

@@ -38,7 +38,7 @@ class RankMatchCmd extends SysCmd {
             msg: {
                 enc: 'aes',
                 data: {
-                   free:100, //倒计时（单位:s）
+                   countdown:100, //倒计时（单位:s）
                 }
             }
         },
@@ -109,10 +109,7 @@ class RankMatchCmd extends SysCmd {
             route:'rpc_ready',
             data:{
                 uid:10001,
-                room: {
-                    gameId: 'game-server-1',
-                    roomId: '100202'
-                }
+                roomId: '100202'
             }
         }
 
@@ -120,6 +117,7 @@ class RankMatchCmd extends SysCmd {
             route:'rpc_fight_info',
             data:{
                 uid:10001,
+                roomId: '100202',
                 catch:[
                     {key:'fish_0_1', value:5},
                     {key:'fish_1_1', value:7},

@@ -1,5 +1,4 @@
-[
-  {
+[{
     "type": "connector",
     "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn"
   },
@@ -21,6 +20,14 @@
   },
   {
     "type": "dataSync",
+    "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn"
+  },
+  {
+    "type": "matching",
+    "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn"
+  },
+  {
+    "type": "rankmatch",
     "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn"
   }
 ]

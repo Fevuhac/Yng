@@ -4,7 +4,7 @@ const pomelo = require('pomelo');
 
 class Gate{
     constructor(){
-        event.on(gateCmd.req.queryEntry.route, this.onQueryEntry.bind(this));
+        event.on(gateCmd.request.queryEntry.route, this.onQueryEntry.bind(this));
     }
 
     start(){
@@ -16,13 +16,11 @@ class Gate{
     }
 
     onQueryEntry(msg, session, cb){
-        pomelo.app.rpc.balance.balanceRemote.allocConnector(session, function (err, serverInfo) {
+        pomelo.app.rpc.balance.balanceRemote.getConnector(session, function (err, serverInfo) {
             if(err){
                 utils.invokeCallback(cb, null, answer.respNoData(err));
                 return;
             }
-
-            logger.debug('app.rpc.balance.balanceRemote.allocConnector:', serverInfo);
 
             utils.invokeCallback(cb, null, answer.respData(serverInfo, msg.enc))
         });

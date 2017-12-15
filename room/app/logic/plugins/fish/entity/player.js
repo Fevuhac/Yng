@@ -1,14 +1,22 @@
+// //--[[
+// description: 大陆版player
+// author: linyang
+// date: 20171129
+// ATTENTION：
+// //--]]
+
 const Player = require('../../../base/player');
 const fishCmd = require('../fishCmd');
 const FishCode = require('../fishCode');
 const consts = require('../consts');
 
-const Cost = require('../gamePlay/cost');
 const configReader = require('../configReader');
 const redisAccountSync = require('../../../../utils/import_utils').redisAccountSync;
 const ACCOUNTKEY = require('../../../../utils/import_def').ACCOUNTKEY;
 const playerChangeEvent = require('../../../../cache/playerChangeEvent');
 const gamePlay = require('../gamePlay/gamePlay');
+const Pirate = require('./pirate');
+const Rmatch = require('./rmatch');
 
 const FIRE_DELAY = 50; //开炮事件服务端与客户端的延时,单位毫秒
 const DEBUG = 1;
@@ -37,7 +45,7 @@ class FishPlayer extends Player {
         };
 
         this._lastFireFish = null;
-        this._bkCost = {};
+        this._bkData = {};
         this._fireC = 0;
         this._collisionC = 0;
         this._tc = 0;
@@ -45,33 +53,14 @@ class FishPlayer extends Player {
         this._lastFireIdx = 0;
         this.cost = gamePlay.cost;
 
+        this._pirate = null;
+        this._pirateTimestamp = null;
+
+        this._rmatch = null;
+
         playerChangeEvent.on(this.uid, function(key, value){
             this.account[key] = value;
         }.bind(this));
-    }
-
-
-    static allocPlayer(data){
-        let promise = new Promise((resolve, reject)=>{
-            redisAccountSync.getAccount(data.uid, FishPlayer.baseField, function (err, account) {
-                if(!!err){
-                    reject(CONSTS.SYS_CODE.DB_ERROR);
-                    return;
-                }
-                if(!account){
-                    reject(CONSTS.SYS_CODE.PLAYER_NOT_EXIST);
-                    return
-                }
-
-                let player = new FishPlayer({uid:data.uid, sid:data.sid, account:account,kindId:consts.ENTITY_TYPE.PLAYER});
-                player.gameInfo = {
-                    gameMode:data.gameMode,
-                    sceneType:data.sceneType
-                };
-                resolve(player);
-            });
-        });
-        return promise;
     }
 
     set roomId(value){
@@ -163,8 +152,31 @@ class FishPlayer extends Player {
         logger.error('--c_query_fishes--done');
     }
 
-    getBaseField(){
-        return FishPlayer.baseField;
+    static sBaseField() {
+        const baseField = [
+            ACCOUNTKEY.NICKNAME,
+            ACCOUNTKEY.LEVEL,
+            ACCOUNTKEY.WEAPON,
+            ACCOUNTKEY.WEAPON_SKIN,
+            ACCOUNTKEY.GOLD,
+            ACCOUNTKEY.PEARL,
+            ACCOUNTKEY.VIP,
+            ACCOUNTKEY.COMEBACK,
+            ACCOUNTKEY.WEAPON_ENERGY,
+            ACCOUNTKEY.HEARTBEAT,
+            ACCOUNTKEY.ROIPCT_TIME,
+            ACCOUNTKEY.SKILL,
+            ACCOUNTKEY.EXP,
+            ACCOUNTKEY.FIGURE_URL,
+            ACCOUNTKEY.BONUS,
+            ACCOUNTKEY.PLAYER_CATCH_RATE,
+            ACCOUNTKEY.PIRATE,
+        ];
+        return baseField;
+    }
+
+    getBaseField () {
+        return FishPlayer.sBaseField();
     }
 
     c_player_notify(data, cb){
@@ -227,20 +239,27 @@ class FishPlayer extends Player {
             this._fireTimestamp = now;
             this._lastFireIdx = bd.bIdx;
         }
-
-        if (this._bkCost[wpBk] > 0) {
+        if (!this._bkData[wpBk]) {
+            this._bkData[wpBk] = {
+                cost: 0,
+                clone: 0,
+            }
+        }
+        if (this._bkData[wpBk].cost > 0) {
             utils.invokeCallback(cb, FishCode.INVALID_WP_BK);
             return;
-        }else if (this._bkCost[wpBk] === -1) {
-            this._bkCost[wpBk] = 0;
+        }else if (this._bkData[wpBk].cost === -1) {
+            this._bkData[wpBk].cost = 0;
             utils.invokeCallback(cb, null);
             return;
         }
         energy = energy || 0;
         let gainLaser = energy;
         let newComebackHitrate = this.account.comeback.hitrate || 1;
+        let costGold = 0;
+        let nextFireBCC = 0; //下一炮子弹可能分裂出的子弹数
         if(this.account.gold > 0){
-            let costGold = this.cost.fire_gold_cost({weapon_skin:curSkin, weapon:curWpLv});
+            costGold = this.cost.fire_gold_cost({weapon_skin:curSkin, weapon:curWpLv});
             if(costGold > this.account.gold){
                 costGold = this.account.gold; //最后一炮不足以开炮时，则默认剩余全部用完可开一次，下一次开炮则破产
             }
@@ -248,7 +267,10 @@ class FishPlayer extends Player {
             this._fireC += costGold;
             isReal && log && log('numberTest--玩家开火累计消耗:', this._fireC);
             
-            this._bkCost[wpBk] = costGold;
+            nextFireBCC = this.cost.calBulletClonedCount(curSkin);
+            this._bkData[wpBk].clone = nextFireBCC;
+            this._bkData[wpBk].cost = costGold;
+            
             let saveData = {
                 level: this.account.level,
                 exp: this.account.exp,
@@ -296,6 +318,8 @@ class FishPlayer extends Player {
             level: this.account.level,
             gold: this.account.gold,
             comeback_hitrate: newComebackHitrate,
+            costGold: costGold,
+            nextFireBCC: nextFireBCC,
         });
         
         if(this.account.gold > 0){
@@ -307,6 +331,7 @@ class FishPlayer extends Player {
                 gold: this.account.gold,
                 fire_fish: data.fire_fish,
                 wp_bk: wpBk,
+                costGold: costGold,
             }});
         }
     }
@@ -316,33 +341,50 @@ class FishPlayer extends Player {
      */
     c_catch_fish(data, cb){
         let isReal = this.isRealPlayer();
-        //校验子弹是否真的存在过 //子弹不存在，则无消耗，不能碰撞
         let bFishes = data.b_fishes;
         let bks = Object.keys(bFishes);
+
+        //校验子弹是否真的存在过 //子弹不存在，则无消耗，不能碰撞
         for (let bk in bFishes) {
             if (bk.indexOf('=') > 0) {
                 //被鱼技能打死的鱼，不做此校验
                 continue;
             }
-            if (!this._bkCost[bk]) {
+            let td = bFishes[bk];
+            let bd = this._bkData[bk];
+            if (!bd) {
+                bd = this._bkData[td.cloneBk];
+                if (bd) {
+                    if (bd.clone > 0) {
+                        bd.clone --;
+                        continue;
+                    }
+                    bd = null;
+                }
+            }
+            if (!bd || !bd.cost) {
                 isReal && log && log('numberTest--无效碰撞', bk);
-                this._bkCost[bk] = -1;//碰撞事件比开火事件先收到，视为无效碰撞，则下一次收到该开火事件时不处理
+                bd && (bd.cost = -1);//碰撞事件比开火事件先收到，视为无效碰撞，则下一次收到该开火事件时不处理
                 delete bFishes[bk];
             }
         }
+
+        //检测是否可捕获
         let tData = this.cost.catchNot(bFishes, this.account, this.fishModel, isReal);
         let ret = tData.ret; 
         let gainGold = 0;
         let oldRrewardFishGold = this.account.bonus && this.account.bonus.gold_count || 0;
         let rewardFishNum = 0;
+        let pirateData = null;
         for (let fk in ret) {
             let gold = ret[fk].gold;
             if (gold >= 0) {
                 gainGold += gold;
                 isReal && log && log('numberTest--奖励鱼 = ', fk, gold);
                 if (isReal) {
-                    let flag = this._missionCoutWithFish(fk, gold);
-                    flag === 1 && (rewardFishNum ++);
+                    let temp = this._missionCoutWithFish(fk, gold);
+                    temp.rewardFishFlag === 1 && (rewardFishNum ++);
+                    temp.pirateFlag > 0 && this._pirate && (pirateData = this._pirate.getProgress());
                 }
             }
         }
@@ -358,17 +400,21 @@ class FishPlayer extends Player {
         if (fireCostBack) {
             for (let bk in fireCostBack) {
                 let fc = fireCostBack[bk];
-                isReal && log && log('fc = ', fc, bk, this._bkCost[bk]);
-                if (this._bkCost[bk] > 0 && fc) {
-                    gainGold += this._bkCost[bk];
-                    this._bkCost[bk] = 0;
+                let bkd = this._bkData[bk];
+                if (!bkd) {
+                    continue;
+                }
+                isReal && log && log('fc = ', fc, bk, bkd.cost);
+                if (bkd.cost > 0 && fc) {
+                    gainGold += bkd.cost;
+                    bkd.cost = 0;
                 }
             }
         }
         for (let i = 0; i < bks.length; i ++) {
             let bk = bks[i];
-            if (this._bkCost[bk] > 0) {
-                this._bkCost[bk] = 0;
+            if (this._bkData[bk] && this._bkData[bk].cost > 0) {
+                this._bkData[bk].cost = 0;
             }
         }
         tc = gainGold - tc;
@@ -380,13 +426,15 @@ class FishPlayer extends Player {
 
         this._save({
             gold: gainGold,
-            roipct_time: tData.roipct_time
+            roipct_time: tData.roipct_time,
+            pirateData: pirateData,
         });
 
         utils.invokeCallback(cb, null, {
             bonus: this.account.bonus,
             rewardFishGold: newRrewardFishGold,
             rewardFishNum: rewardFishNum,
+            pirateData: pirateData,
         });
 
         this.emit(fishCmd.push.catch_fish.route, {player: this, data:{
@@ -394,39 +442,15 @@ class FishPlayer extends Player {
             catch_fishes: ret,
             gold: this.account.gold
         }});
+
+        //排位赛统计
+        isReal && this._rmatch && this._rmatch.fireCount(bks, ret);
     }
 
     /**
-     * 开始使用技能
+     * 技能消耗之后处理
      */
-    c_use_skill(data, cb){
-        let skillId = data.skill;
-        if (!this._skState) {
-            this._skState = {};
-        }
-        if (!this._skState[skillId]) {
-            this._skState[skillId] = {};
-        }
-        if (this._skState[skillId].ticker) {
-            utils.invokeCallback(cb, FishCode.INVALID_SKILL_ING);
-            return;
-        }
-        if (this._skState[skillId].flag) {
-            utils.invokeCallback(cb, FishCode.INVALID_SKILL_STATE);
-            return;
-        }
-
-        let ret = this.cost.useSkill(skillId, data.wp_level, this.account);
-        
-        //开始持续时间定时器，结束时即技能结束
-        if (skillId === consts.SKILL_ID.SK_FREEZ || skillId === consts.SKILL_ID.SK_AIM) {
-            this._startSkillTicker(skillId);
-        }else if(skillId === consts.SKILL_ID.SK_LASER && ret.notEnough === 3) {
-            utils.invokeCallback(cb, FishCode.INVALID_WP_LASER);
-            return;
-        }
-        this._skState[skillId].flag = 0;
-
+    _afterSkillCost (skillId, ret) {
         let saveData = {};
         let skill = this.account.skill;
         if (skill) {
@@ -458,6 +482,70 @@ class FishPlayer extends Player {
         };
         ret.pearl >= 0 && (common.pearl = ret.pearl);
         ret.gold >= 0 && (common.gold = ret.gold);
+        return common;
+    }
+
+    /**
+     * 开始使用技能
+     */
+    c_use_skill(data, cb){
+        let skillId = data.skill;
+        if (!this._skState) {
+            this._skState = {};
+        }
+        if (!this._skState[skillId]) {
+            this._skState[skillId] = {};
+        }
+        if (this._skState[skillId].ticker) {
+            utils.invokeCallback(cb, FishCode.INVALID_SKILL_ING);
+            return;
+        }
+        if (this._skState[skillId].flag) {
+            utils.invokeCallback(cb, FishCode.INVALID_SKILL_STATE);
+            return;
+        }
+
+        let isReal = this.isRealPlayer();
+
+        //核弹在确认发射时才扣钱
+        if (skillId === consts.SKILL_ID.SK_NBOMB0 || skillId === consts.SKILL_ID.SK_NBOMB1 || skillId === consts.SKILL_ID.SK_NBOMB2) {
+            if (isReal && this._rmatch && !this._rmatch.isNormalFireEnd()) {
+                utils.invokeCallback(cb, null, {
+                    rmatch: true,
+                });
+                return;
+            }
+            
+            this._skState[skillId].flag = 0;
+            utils.invokeCallback(cb, null, {
+                skill_id: skillId,
+            });
+            this.emit(fishCmd.push.use_skill.route, {player: this, data:{
+                common: {
+                    skill_id: skillId,
+                },
+            }});
+            return;
+        }else if (skillId === consts.SKILL_ID.SK_LASER) {
+            if (isReal && this._rmatch && !this._rmatch.isOver()) {
+                utils.invokeCallback(cb, null, {
+                    rmatch: true,
+                });
+                return;
+            }
+        }
+
+        let ret = this.cost.useSkill(skillId, data.wp_level, this.account);
+        
+        //开始持续时间定时器，结束时即技能结束
+        if (skillId === consts.SKILL_ID.SK_FREEZ || skillId === consts.SKILL_ID.SK_AIM) {
+            this._startSkillTicker(skillId);
+        }else if(skillId === consts.SKILL_ID.SK_LASER && ret.notEnough === 3) {
+            utils.invokeCallback(cb, FishCode.INVALID_WP_LASER);
+            return;
+        }
+        this._skState[skillId].flag = 0;
+        let common = this._afterSkillCost(skillId, ret);
         utils.invokeCallback(cb, null, common);
         this.emit(fishCmd.push.use_skill.route, {player: this, data:{
             common: {
@@ -535,7 +623,10 @@ class FishPlayer extends Player {
         let skillPower = null;
         if (skillId === consts.SKILL_ID.SK_LASER || this._isNbomb(skillId)) {
             let wpBk = data.wp_bk;
-            this._bkCost[wpBk] = true;
+            if (!this._bkData[wpBk]) {
+                this._bkData[wpBk] = {};
+            }
+            this._bkData[wpBk].cost = true;
 
             let firePoint = data.fire_point;
             skillPower = firePoint;
@@ -553,7 +644,11 @@ class FishPlayer extends Player {
                    laser: reset, 
                 });
             }else {
-                utils.invokeCallback(cb, null);
+                //核弹需要在确认发射时才扣钱
+                let ret = this.cost.useSkill(skillId, data.wp_level, this.account);
+                let common = this._afterSkillCost(skillId, ret);
+                utils.invokeCallback(cb, null, common);
+                this.isRealPlayer() && this._rmatch && this._rmatch.nbFlag(true);
             }
             this.emit(fishCmd.push.use_skill.route, {player: this, data:{
                 skill_power: skillPower,
@@ -573,44 +668,112 @@ class FishPlayer extends Player {
      c_fighting_notify(data, cb){
          let event = data.event;
          let evtData = data.event_data;
-         if (event === consts.FIGHTING_NOTIFY.WP_SKIN) {
-             let wpSkin = evtData;
-             let oldSkin = this.account.weapon_skin;
-             let own = oldSkin.own;
-             let isExist = false;
-             if (own) {
-                 for (let i = 0; i < own.length; i ++) {
-                    if (wpSkin == own[i]) {
-                        isExist = true;
-                        break;
-                    } 
-                 }
+         let ret = null;
+         switch (event) {
+             case consts.FIGHTING_NOTIFY.WP_SKIN: {
+                let wpSkin = evtData;
+                let oldSkin = this.account.weapon_skin;
+                let own = oldSkin.own;
+                let isExist = false;
+                if (own) {
+                    for (let i = 0; i < own.length; i ++) {
+                       if (wpSkin == own[i]) {
+                           isExist = true;
+                           break;
+                       } 
+                    }
+                }
+                if (!isExist) {
+                    log && log('wpskin = ', wpSkin, own);
+                    utils.invokeCallback(cb, null);
+                    return;
+                }
+                this.DIY.weapon_skin = wpSkin;
              }
-             if (!isExist) {
-                 log && log('wpskin = ', wpSkin, own);
-                 utils.invokeCallback(cb, null);
-                 return;
+             break;
+
+             case consts.FIGHTING_NOTIFY.WP_LEVEL: {
+                let wpLv = evtData;
+                let wpEng = this.account.weapon_energy;
+                if (wpEng && (wpEng[wpLv] >= 0 || wpLv === 1) && wpLv >= this._sceneCfg.min_level && wpLv <= this._sceneCfg.max_level) {
+                    this.DIY.weapon = wpLv;
+                }else{
+                    log && log('energy = ', wpEng, wpEng[wpLv]);
+                    utils.invokeCallback(cb, null);
+                    return;
+                }
              }
-             this.DIY.weapon_skin = wpSkin;
-         }else if (event === consts.FIGHTING_NOTIFY.WP_LEVEL) {
-             let wpLv = evtData;
-             let wpEng = this.account.weapon_energy;
-             if (wpEng && (wpEng[wpLv] >= 0 || wpLv === 1) && wpLv >= this._sceneCfg.min_level && wpLv <= this._sceneCfg.max_level) {
-                 this.DIY.weapon = wpLv;
-             }else{
-                 log && log('energy = ', wpEng, wpEng[wpLv]);
-                 utils.invokeCallback(cb, null);
-                 return;
+             break;
+
+             case consts.FIGHTING_NOTIFY.MINI_GAME: {
+                let mtype = evtData.type;
+                let mgold = evtData.gold;
+                if (mgold === 0) {
+                    this._miniTimestamp = new Date().getTime();
+                }else if (mgold > 0 && this._miniTimestamp) {
+                    let cfg = null;
+                    if (mtype === 0) {
+                        cfg = configReader.getValue('new_mini_game_coincatch_cfg', 1001);
+                    }else if (mtype === 1) {
+                        cfg = configReader.getValue('new_mini_game_crazyfugu_cfg', 1001);
+                    }else {
+                        return;
+                    }
+                    let dt = cfg.cd * 1000;
+                    let now  = new Date().getTime();
+                    now -= this._miniTimestamp;
+                    const goldMax = cfg.maxscore;
+                    if (now >= dt && mgold > 0 && mgold < goldMax && mgold > 0 && this.isRealPlayer()) {
+                        this.subReward(mgold);//从奖池中扣除本次奖励
+                        this._save({
+                            gold: mgold,
+                        }, GAMECFG.common_log_const_cfg.MINI_GAME);
+                        ret = {
+                            gold: this.account.gold,
+                        }
+                    }
+                    this._miniTimestamp = null;
+                }
              }
+             break;
+
+             case consts.FIGHTING_NOTIFY.DROP:{
+                if (evtData.isPirateReward) {
+                    let pirate = this._pirate;
+                    if (pirate && pirate.isFinished()) {
+                        pirate.reset();
+                        this._save({
+                            pirateData: -1,
+                        });
+                        this._pirate = null;
+                    }
+                }
+             }
+             break
+
+             case consts.FIGHTING_NOTIFY.RMATCH_NB:
+                this._rmatch && this._rmatch.nbFlag(evtData === 1);
+             break;
          }
 
-        utils.invokeCallback(cb, null);
+        utils.invokeCallback(cb, null, ret);
 
         this.emit(fishCmd.push.fighting_notify.route, {player: this, data:{
             seatId: this.seatId,
             event: event,
             event_data: evtData,
         }});
+    }
+
+    /**
+     * 查询海盗任务
+     */
+    c_query_pirate (data, cb) {
+        let pirate = this._generatePirate();
+        let pirateData = pirate && pirate.getProgress() || null;
+        utils.invokeCallback(cb, null, {
+            pirateData: pirateData
+        });
     }
 
     /**
@@ -724,6 +887,19 @@ class FishPlayer extends Player {
             data.hasOwnProperty('exp') && (this.account.exp = data.exp);
             data.hasOwnProperty('level') && (this.account.level = data.level);
             data.hasOwnProperty('comeback_hitrate') && (this.account.comeback.hitrate = data.comeback_hitrate, this.account.comeback = this.account.comeback);
+            if (data.hasOwnProperty('pirateData') && data.pirateData) {
+                let td = this.account.pirate;
+                let tp = data.pirateData;
+                if (tp === -1) {
+                    delete this.account.pirate[this._sceneCfg.name];
+                    td = this.account.pirate;
+                }else{
+                    td[this._sceneCfg.name] = tp;
+                }
+                this.account.pirate = td;
+                logger.error('pirate = ', tp);
+            }
+
             this.account.commit();
             this.writeLog(data, sceneFlag);
         }
@@ -763,6 +939,7 @@ class FishPlayer extends Player {
         let temp = fk.split('__');
         let fishName = temp[0];
         let cfg = fishName && this.fishModel.getFishCfg(fishName) || null;
+        let data = {};
         if (cfg) {
             //奖金鱼统计
             if (cfg.display_type === 4) {
@@ -774,22 +951,19 @@ class FishPlayer extends Player {
                 if (!bonus.gold_count) {
                     bonus.gold_count = 0;
                 }
-                let reward = gold;
-                let wpStarCfg = configReader.getWeaponStarData(skin, star);
-                if (wpStarCfg && wpStarCfg.golden >= 0) {
-                    reward *= (1 + wpStarCfg.golden);  
-                    reward = Math.ceil(reward);  
-                }
-                reward /= 10;//策划约定
-                reward = Math.floor(reward);
+                let reward = this.cost.calGoldenFishReward(gold, skin, star);
                 bonus.gold_count += reward;
                 this.account.bonus = bonus;
-                return 1;
+                data.rewardFishFlag =  1;
             }
 
+            //海盗任务统计
+            if (this._pirate) {
+                data.pirateFlag = this._pirate.countFish(fishName);
+            }
             //TODO:捕鱼积分统计
         }
-        return 0;
+        return data;
     }
 
     /**
@@ -797,9 +971,9 @@ class FishPlayer extends Player {
      */
     getContinueData () {
         let data = {}
-        if (this._bkCost) {
+        if (this._bkData) {
             let mBIdx = {};
-            for (let bk in this._bkCost) {
+            for (let bk in this._bkData) {
                 let td = this.cost.parseBulletKey(bk);
                 if (td && td.hasOwnProperty('uIdx') && td.hasOwnProperty('bIdx')) {
                     let uIdx = td.uIdx;
@@ -843,25 +1017,39 @@ class FishPlayer extends Player {
      * 个人捕获率修正过期检查
      */
     checkPersonalGpctOut () {}
-}
 
-FishPlayer.baseField = [
-    ACCOUNTKEY.NICKNAME,
-    ACCOUNTKEY.LEVEL,
-    ACCOUNTKEY.WEAPON,
-    ACCOUNTKEY.WEAPON_SKIN,
-    ACCOUNTKEY.GOLD,
-    ACCOUNTKEY.PEARL,
-    ACCOUNTKEY.VIP,
-    ACCOUNTKEY.COMEBACK,
-    ACCOUNTKEY.WEAPON_ENERGY,
-    ACCOUNTKEY.HEARTBEAT,
-    ACCOUNTKEY.ROIPCT_TIME,
-    ACCOUNTKEY.SKILL,
-    ACCOUNTKEY.EXP,
-    ACCOUNTKEY.FIGURE_URL,
-    ACCOUNTKEY.BONUS,
-    ACCOUNTKEY.PLAYER_CATCH_RATE
-]
+    /**
+     * 初始化海盗任务
+     */
+    _generatePirate () {
+        if (!this.isRealPlayer()) {
+            return null;
+        }
+        if (this.account.pirate && this._sceneCfg && !this._pirate) {
+            let now = new Date().getTime();
+            if (this._pirateTimestamp && now - this._pirateTimestamp < this._sceneCfg.pirate_time * 1000) {
+                return null;
+            }
+            let name = this._sceneCfg.name;
+            this._pirate = new Pirate(this.account.pirate[name], this._sceneCfg);
+            this._pirateTimestamp = now;
+        }       
+        return this._pirate; 
+    }
+
+    /**
+     * 排位赛：报名成功之后，开始比赛
+     */
+    rmatchStart () {
+        this._rmatch = new Rmatch();
+    }
+
+    /**
+     * 排位赛：全程结束，销毁
+     */
+    rmatchOver () {
+        this._rmatch = null;
+    }
+}
 
 module.exports = FishPlayer;

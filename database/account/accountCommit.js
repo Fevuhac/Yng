@@ -904,6 +904,12 @@ class AccountCommit {
     set gain_loss_snapshot(value) {
         this._modify('gain_loss_snapshot', value);
     }
+    get pirate(){
+        return this._value('pirate');
+    }
+    set pirate(value) {
+        this._modify('pirate', value);
+    }
 
 }
 

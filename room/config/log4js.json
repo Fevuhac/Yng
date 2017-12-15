@@ -104,8 +104,11 @@
       "category": "pomelo-rpc"
     }
   },
-  "categories":{
-    "default":{"appenders": ["file","console"], "level": "error"}
+  "categories": {
+    "default": {
+      "appenders": ["file", "console"],
+      "level": "error"
+    }
   },
   "replaceConsole": true,
   "lineDebug": true

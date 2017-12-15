@@ -8,6 +8,6 @@ class GateHandler extends Handler{
 }
 
 module.exports = function () {
-    GateHandler.registe(gateCmd.req.queryEntry.route.split('.')[2]);
+    GateHandler.registe(gateCmd.request.queryEntry.route.split('.')[2]);
     return  new GateHandler();
 };

@@ -1,6 +1,8 @@
 const pomelo = require('pomelo')
 const FishCode = require('./fishCode');
 const Room = require('./room');
+const GoddessRoom = require('./goddess/goddessRoom');
+
 const consts = require('./consts')
 const fishCmd = require('../../../logic/plugins/fish/fishCmd');
 const event = require('../../base/event');
@@ -57,15 +59,18 @@ class Scene {
     }
 
     leaveGame(uid) {
+        let data = null;
         let room = this._getRoom(uid);
         if (!!room) {
-            room.leave(uid);
+            data = room.leave(uid);
             if (room.isDestroy()) {
                 room.stop();
                 this.roomMap.delete(room.roomId);
             }
         }
         this.entities.delete(uid)
+
+        return data;
     }
 
     kickOfflinePlayer(){
@@ -117,8 +122,13 @@ class Scene {
         let mode = player.gameInfo.gameMode;
         switch (mode) {
             case consts.GAME_MODE.GODDESS:
+                let room = this._createRoom(mode, GoddessRoom, 1);
+                room.join(player);
+                this.entities.set(player.uid, room.roomId);
+            break;
+
             case consts.GAME_MODE.SINGLE: {
-                let room = this._createRoom(mode);
+                let room = this._createRoom(mode, Room, 1);
                 room.join(player);
                 this.entities.set(player.uid, room.roomId);
             }
@@ -148,14 +158,16 @@ class Scene {
         return ret;
     }
 
-    _createRoom(mode) {
+    _createRoom(mode, className, playerMax) {
+        className =  className || Room;
+        playerMax = playerMax || consts.ROOM_MAX_PLAYER;
         let roomId = `${this.sceneType}_${this._genRoomId()}`;
-        let room = new Room({
+        let room = new className({
             roomId: roomId, 
             config: this._config, 
             mode: mode, 
             sceneType:this.sceneType,
-            playerMax: consts.ROOM_MAX_PLAYER,
+            playerMax: playerMax,
         });
         room.start();
 

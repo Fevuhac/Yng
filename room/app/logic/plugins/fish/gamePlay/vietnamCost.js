@@ -7,7 +7,7 @@
 
 const Cost = require('./cost')
 const cacheReader = require('../../../../cache/cacheReader');
-
+const consts = require('../consts');
 const TAG = 'numberTest ---';
 
 class VietnamCost extends Cost{
@@ -89,8 +89,11 @@ class VietnamCost extends Cost{
             let skillIngIds = bd.skill_ing;
             let rewardLv = weaponLv;
             if (td.skillId > 0) {
-                const CFG = this._getSkillCfg(td.skillId);
-                rewardLv = CFG.ratio;//当有激光或核弹时，参与计算的倍率应当为技能倍率
+                let skillId = td.skillId;
+                if (skillId == consts.SKILL_ID.SK_NBOMB0 || skillId == consts.SKILL_ID.SK_NBOMB1 || skillId == consts.SKILL_ID.SK_NBOMB2) {
+                    const CFG = this._getSkillCfg(skillId);
+                    rewardLv = CFG.ratio;//当有核弹时，参与计算的倍率应当为技能倍率
+                }
             }
 
             let skinReward = 1;

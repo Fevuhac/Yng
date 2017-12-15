@@ -20,6 +20,10 @@ class RankMatch{
         }
     }
 
+    getLoadInfo(){
+        return this._instance.getLoadStatistics();
+    }
+
 }
 
 module.exports = new RankMatch();

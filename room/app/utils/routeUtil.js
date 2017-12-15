@@ -14,6 +14,10 @@ routeUtil.gameRoute = function (session, msg, app, cb) {
     cb(null, session.get('gameId'));
 };
 
+routeUtil.rankMatchRoute = function (session, msg, app, cb) {
+    cb(null, session.get('rankMatchId'));
+};
+
 routeUtil.hallRoute = function (session, msg, app, cb) {
     let hallServers = app.getServersByType('hall');
     if(!hallServers || hallServers.length === 0) {

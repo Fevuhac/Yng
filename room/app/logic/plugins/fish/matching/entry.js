@@ -16,14 +16,14 @@ class MatchingEntry extends Entity {
         }
     }
 
-    start(){
+    start() {
         this._rankMatching.start();
     }
 
-    stop(){
+    stop() {
         this._rankMatching.stop();
     }
-    
+
     onMessage(msg, session, cb, route) {
         msg.data.uid = session.uid;
         msg.data.sid = session.frontendId

@@ -41,10 +41,10 @@ class Subscribe {
                 break;
             case redisKey.PLATFORM_DATA.BONUS_POOL:
                 //logger.error('同步奖池值---value=:', value);
-                // cache.set(type, value);
+                //cache.set(type, value);
                 break;
             case redisKey.PLATFORM_DATA.PUMP_POOL:
-                // cache.set(type, value);
+                //cache.set(type, value);
                 break;
             case redisKey.PLAYER_CATCH_RATE:
                 let catchRate = value.value;

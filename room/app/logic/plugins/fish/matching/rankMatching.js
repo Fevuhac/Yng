@@ -5,6 +5,8 @@ const messageService = require('../../../net/messageService');
 const matchingCmd = require('../../../../cmd/matchingCmd');
 const RobotBuilder = require('../robot/robotBuilder');
 const consts = require('../consts');
+const uuidv1 = require('uuid/v1');
+
 class RankMatching {
     constructor() {
         this._users = new Map();
@@ -16,7 +18,7 @@ class RankMatching {
         if (!this._canRun) return;
         setTimeout(function () {
             this._mate();
-            runTask();
+            this.runTask();
         }.bind(this), config.MATCH.MATE_INTERVAL);
     }
 
@@ -73,6 +75,7 @@ class RankMatching {
         let weapon_skin = this._robotBuilder.genOwnWeaponSkin();
 
         let account = {
+            uid:uuidv1(),
             nickname: baseInfo.nickname,
             figure_url: baseInfo.figure_url,
             weapon_skin: weapon_skin,
@@ -111,21 +114,35 @@ class RankMatching {
             if (enemy) {
                 let uids = this._getUids(user, enemy);
                 try {
-                    let matchInfo = await this._joinMatchRoom([user.account, enemy.account]);
-                    this._sendMateResult(null, matchInfo, uids);
+                    let serverId = await this._allocMatchServer();
+                    let matchInfo = await this._joinMatchRoom(serverId, [user.account, enemy.account]);
+
+                    let mateResult = {
+                        roomInfo: {
+                            serverId: serverId,
+                            roomId: matchInfo.roomId,
+                            countdown: matchInfo.countdown,
+                            bulletNum: matchInfo.bulletNum
+                        },
+                        users: [
+                            user.account,
+                            enemy.account
+                        ]
+                    }
+
+                    this._sendMateResult(null, mateResult, uids);
                 } catch (err) {
                     logger.error('排位赛加入异常', err);
                     this._sendMateResult(err, null, uids);
                 }
-
             }
         }
     }
 
-    _getUids(users){
+    _getUids(users) {
         let uids = [];
         users.forEach(user => {
-            if(users.account.type == consts.ENTITY_TYPE.PLAYER){
+            if (users.account.type == consts.ENTITY_TYPE.PLAYER) {
                 uids.push({
                     uid: user.ext.uid,
                     sid: user.ext.sid
@@ -136,12 +153,22 @@ class RankMatching {
     }
 
     _allocMatchServer() {
-
+        return new Promise(function (resolve, reject) {
+            pomelo.app.rpc.balance.getRankMatch({}, function (err, serverId) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(serverId);
+                }
+            })
+        })
     }
 
-    _joinMatchRoom(users) {
+    _joinMatchRoom(serverId, users) {
         return new Promise(function (resolve, reject) {
-            pomelo.app.rpc.rankMatch.rankMatchRemote.join({}, users, function (err, result) {
+            pomelo.app.rpc.rankMatch.rankMatchRemote.join({
+                rankMatchId: serverId
+            }, users, function (err, result) {
                 if (err) {
                     reject(err);
                     return;
@@ -151,72 +178,13 @@ class RankMatching {
         });
     }
 
-
     _sendMateResult(err, data, uids) {
-        if(err){
+        if (err) {
             messageService.broadcast(matchingCmd.push.matchingResult.route, answer.respNoData(err), uids);
             return;
         }
         messageService.broadcast(matchingCmd.push.matchingResult.route, answer.respData(data), uids);
     }
-
 }
-
-// msg: {
-//     enc: 'aes',
-//     data: {
-//         players: [{
-//                 id: 201,
-//                 score: 0,
-//                 rank: 14,
-//                 nickname: 'zhangsan',
-//                 vip: 5
-//             },
-//             {
-//                 id: 202,
-//                 score: 0,
-//                 rank: 14,
-//                 nickname: 'lisi',
-//                 vip: 1
-//             },
-//         ]
-//     }
-// },
-
-let jj = new Map()
-jj.set(1, {
-    rank: 5,
-    score: 20
-})
-jj.set(2, {
-    rank: 4,
-    score: 50
-})
-jj.set(3, {
-    rank: 10,
-    score: 30
-})
-jj.set(4, {
-    rank: 4,
-    score: 50
-})
-
-
-let sor = [...jj];
-
-console.log('before:', [...sor])
-sor.sort(function (a, b) {
-    if (a[1].rank != b[1].rank) {
-        return a[1].rank > b[1].rank;
-    } else {
-        return a[1].score > b[1].score;
-    }
-});
-
-console.log('after:', [...sor])
-
-let map1 = new Map(sor);
-console.log([...map1]);
-
 
 module.exports = RankMatching;

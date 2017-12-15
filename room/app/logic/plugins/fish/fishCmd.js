@@ -179,6 +179,71 @@ class FishCmd extends SysCmd {
             res:{}
         };
 
+        /**
+         * 保卫女神：通知服务器客户端已就绪
+         */
+        this._req.god_ready = {
+            route: 'game.fishHandler.c_god_ready',
+            msg: {
+                enc: 'aes',
+                data: {
+                }
+            },
+            res: {}
+        };
+
+        /**
+         * 保卫女神：暂停
+         */
+        this._req.god_pause = {
+            route: 'game.fishHandler.c_god_pause',
+            msg: {
+                enc: 'aes',
+                data: {
+                }
+            },
+            res: {}
+        };
+
+        /**
+         * 保卫女神：继续
+         */
+        this._req.god_continue = {
+            route: 'game.fishHandler.c_god_continue',
+            msg: {
+                enc: 'aes',
+                data: {
+                }
+            },
+            res: {}
+        };
+
+        /**
+         * 保卫女神：受伤
+         */
+        this._req.god_hurt = {
+            route: 'game.fishHandler.c_god_hurt',
+            msg: {
+                enc: 'aes',
+                data: {
+                }
+            },
+            res: {}
+        };
+
+        /**
+         * 海盗任务：查询进度
+         */
+        this._req.query_pirate = {
+            route: 'game.fishHandler.c_query_pirate',
+            msg: {
+                enc: 'aes',
+                data: {
+                }
+            },
+            res: {}
+        };
+
 
     }
 
@@ -377,6 +442,41 @@ class FishCmd extends SysCmd {
             res: {}
         };
 
+        this._push.god_ready = {
+            route: 's_god_ready',
+            msg: {
+                enc: 'aes',
+                data: {}
+            },
+            res: {}
+        };
+
+        this._push.god_pause = {
+            route: 's_god_pause',
+            msg: {
+                enc: 'aes',
+                data: {}
+            },
+            res: {}
+        };
+        
+        this._push.god_continue = {
+            route: 's_god_continue',
+            msg: {
+                enc: 'aes',
+                data: {}
+            },
+            res: {}
+        };
+
+        this._push.god_hurt = {
+            route: 's_god_hurt',
+            msg: {
+                enc: 'aes',
+                data: {}
+            },
+            res: {}
+        };
 
     }
 }

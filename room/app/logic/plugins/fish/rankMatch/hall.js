@@ -1,8 +1,14 @@
 const RankMatchRoom = require('./room');
+const fishCode = require('../fishCode');
 class RankHall{
     constructor(){
         this._roomMap = new Map();
+        this._uids = new Map();
         this._canRun = true;
+    }
+
+    get roomCount(){
+        return this._roomMap.size;
     }
 
     _tick(){
@@ -34,8 +40,21 @@ class RankHall{
         this._canRun = false;
     }
 
+    // let account = {
+    //     uid:uuidv1(),
+    //     nickname: baseInfo.nickname,
+    //     figure_url: baseInfo.figure_url,
+    //     weapon_skin: weapon_skin,
+    //     type: consts.ENTITY_TYPE.MATCH_ROBOT
+    // };
     rpc_join(users, cb){
-
+        for(let i = 0; i< users.length; ++i){
+            let user = users[i];
+            if(this._uids.has(user.uid)){
+                cb(fishCode.MATCH_REPEATE_JOIN);
+                return
+            }
+        }
     }
 
     rpc_ready(data, cb){

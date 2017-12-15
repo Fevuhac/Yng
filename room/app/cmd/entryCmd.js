@@ -15,6 +15,31 @@ class EntryCmd extends SysCmd{
         super.initReq();
 
         /**
+         * 登录
+         * @type {{route: string, msg: {enc: string, data: {token: string, flag: boolean, scene_name: string}}, res: {}}}
+         */
+        this._req.login = {
+            route:'connector.entryHandler.c_login',
+            msg:{
+                enc:'aes',
+                data:{
+                    token:'52_03458cd087cb11e7ba758392291a4bfa'
+                }
+            },
+            res:{}
+        };
+
+         /**
+         * 注销
+         * @type {{route: string, msg: {enc: string, data: {token: string, flag: boolean, scene_name: string}}, res: {}}}
+         */
+        this._req.logout = {
+            route:'connector.entryHandler.c_logout',
+            msg:{},
+            res:{}
+        };
+
+        /**
          * 加入游戏房间
          * @type {{route: string, msg: {enc: string, data: {token: string, flag: boolean, scene_name: string}}, res: {}}}
          */

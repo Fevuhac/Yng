@@ -7,6 +7,8 @@ const constsDef = require('../../consts/constDef');
 
 class Entry {
     constructor() {
+        event.on(entryCmd.req.login.route, this.onLogin.bind(this));
+        event.on(entryCmd.req.logout.route, this.onEnterGame.bind(this));
         event.on(entryCmd.req.enterGame.route, this.onEnterGame.bind(this));
         event.on(entryCmd.req.leaveGame.route, this.onLeaveGame.bind(this));
     }
@@ -58,31 +60,8 @@ class Entry {
         })
     }
 
-    onLogin(msg, session, cb){
-
-    }
-
-    onLeave(msg, session, cb){
-        
-    }
-
-    /**
-     * 加入游戏房间
-     * @param {*} msg 
-     * @param {*} session 
-     * @param {*} cb 
-     */
-    onEnterGame(msg, session, cb) {
-        console.log(msg);
+    onLogin(msg, session, cb) {
         let token = msg.data.token;
-        delete msg.data.token;
-        let data = {
-            gameType: sysConfig.GAME_TYPE,
-            gameMode: msg.data.flag, // 详见GAME_MODE定义
-            sceneType: msg.data.scene_name,
-            sid: session.frontendId
-        };
-
         if (!token) {
             utils.invokeCallback(cb, null, answer.respNoData(CONSTS.SYS_CODE.ARGS_INVALID));
             return;
@@ -105,13 +84,52 @@ class Entry {
                 });
             },
             function (cb) {
+                session.bind(data.uid, function (err) {
+                    if (err) {
+                        cb(CONSTS.SYS_CODE.SYSTEM_ERROR)
+                    } else {
+                        session.on('closed', self._playerOffline.bind(this));
+                        cb();
+                    }
+                });
+            }
+        ], function (err) {
+            if (!err) {
+                err = CONSTS.SYS_CODE.OK;
+            }
+            utils.invokeCallback(cb, null, answer.respNoData(err));
+            logger.error(`用户[${data.uid}]登陆成功`);
+        });
+    }
+
+    onLogout(msg, session, cb) {
+        utils.invokeCallback(cb, null, answer.respNoData(CONSTS.SYS_CODE.OK));
+    }
+
+    /**
+     * 加入游戏房间
+     * @param {*} msg 
+     * @param {*} session 
+     * @param {*} cb 
+     */
+    onEnterGame(msg, session, cb) {
+        let data = {
+            gameType: sysConfig.GAME_TYPE,
+            gameMode: msg.data.flag, // 详见GAME_MODE定义
+            sceneType: msg.data.scene_name,
+            sid: session.frontendId
+        };
+
+        let self = this;
+        let sessionService = pomelo.app.get('sessionService');
+        async.waterfall([
+            function (cb) {
                 session.set('gameType', data.gameType);
                 session.set('sceneType', data.sceneType);
                 session.bind(data.uid, function (err) {
                     if (err) {
                         cb(CONSTS.SYS_CODE.SYSTEM_ERROR)
                     } else {
-                        session.on('closed', self._playerOffline.bind(this));
                         cb();
                     }
                 });
@@ -141,7 +159,7 @@ class Entry {
             });
         });
     }
-    
+
     /**
      * 离开游戏房间
      * @param {*} msg 
@@ -152,9 +170,9 @@ class Entry {
         logger.info(`用户[${session.uid}]主动退出房间`);
         let uid = session.uid;
         pomelo.app.rpc.game.playerRemote.leave(session, {
-            uid:uid, 
-            gameType:session.get('gameType'),
-            sceneType:session.get('sceneType')
+            uid: uid,
+            gameType: session.get('gameType'),
+            sceneType: session.get('sceneType')
         }, function (err, result) {
             logger.info(`用户[${uid}]退出游戏服务`, session.get('gameId'));
             utils.invokeCallback(cb, null, answer.respNoData(CONSTS.SYS_CODE.OK));
@@ -166,14 +184,13 @@ class Entry {
             return;
         }
         let uid = session.uid;
-        pomelo.app.rpc.game.playerRemote.playerConnectState(session,
-            {
-                uid: uid,
-                state: constsDef.PALYER_STATE.OFFLINE,
-                sid: session.frontendId,
-                gameType: session.get('gameType'),
-                sceneType: session.get('sceneType')
-            }, function (err, result) {
+        pomelo.app.rpc.game.playerRemote.playerConnectState(session, {
+            uid: uid,
+            state: constsDef.PALYER_STATE.OFFLINE,
+            sid: session.frontendId,
+            gameType: session.get('gameType'),
+            sceneType: session.get('sceneType')
+        }, function (err, result) {
             logger.info(`用户[${uid}] 网络连接断开`, session.get('gameId'));
         });
     }

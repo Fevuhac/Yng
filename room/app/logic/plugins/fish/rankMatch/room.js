@@ -1,7 +1,7 @@
 class RankRoom{
     constructor(opts){
-        this._players = {};
-        this._free_time = 150000;
+        this._players = new Map();
+        this._countdown = 150000;
     }
 
     setReady(uid){

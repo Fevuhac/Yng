@@ -15,14 +15,8 @@ class PlayerFilter{
             next(CONSTS.SYS_CODE.PALYER_NOT_IN_SCENE);
             return;
         }
-
         msg.scene = scene;
-
         next();
-
-        // let route = msg.__route__;
-        //
-        // msg.__route__.match('')
     }
 
     after(err, msg, session, resp, next){

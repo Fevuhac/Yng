@@ -6,6 +6,7 @@ global.logger = require('pomelo-logger').getLogger('default');
 require('./app/utils/globals');
 const routeUtil = require('./app/utils/routeUtil');
 const decryptFilter = require('./app/servers/common/decryptFilter');
+const unLoginFilter = require('./app/servers/common/unLoginFilter');
 const playerFilter = require('./app/servers/game/filter/playerFilter');
 const redisClient = require('./app/utils/import_db').redisClient;
 
@@ -49,6 +50,7 @@ const configure = function () {
         // app.filter(pomelo.filters.time()); //主要负责记录请求的相应时间
         app.filter(pomelo.filters.timeout()); //主要负责监控请求响应时间，如果超时就给出警告
         app.before(decryptFilter);
+        app.before(unLoginFilter);
 
         var onlineUser = require('./app/modules/onlineUser');
         var gameInfo = require('./app/modules/gameInfo');

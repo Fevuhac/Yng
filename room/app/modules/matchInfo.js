@@ -4,7 +4,7 @@ module.exports = function (opts) {
     return new Module(opts);
 }
 
-module.exports.moduleId = 'rankMatchInfo';
+module.exports.moduleId = 'matchInfo';
 
 let Module = function (opts) {
     opts = opts || {};
@@ -14,7 +14,7 @@ let Module = function (opts) {
 };
 
 Module.prototype.monitorHandler = function (agent, msg) {
-    if (this.app.getServerType() !== 'rankmatch') {
+    if (this.app.getServerType() !== 'rankMatch') {
         logger.error('not support type: %j', agent.id);
         return;
     }

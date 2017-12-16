@@ -54,9 +54,11 @@ const configure = function () {
 
         let onlineUser = require('./app/modules/onlineUser');
         let gameInfo = require('./app/modules/gameInfo');
+        let matchInfo = require('./app/modules/matchInfo');
         if (typeof app.registerAdmin === 'function') {
             app.registerAdmin(onlineUser, { app: app });
             app.registerAdmin(gameInfo, { app: app });
+            app.registerAdmin(matchInfo, { app: app });
         }
 
         let redis_config = app.get('redis');

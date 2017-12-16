@@ -28,10 +28,6 @@ class Task{
 
         let self = this;
         this.schedule = schedule.scheduleJob(cron_time, function(){
-
-            logger.info('totalmem:', os.totalmem()/1024/1024 , 'MB');
-            logger.info('freemem:',os.freemem()/1024/1024 , 'MB');
-            logger.info('memoryUsage:',process.memoryUsage());
             if(self.busy){
                 logger.warn(self.taskId + '任务繁忙');
                 return;

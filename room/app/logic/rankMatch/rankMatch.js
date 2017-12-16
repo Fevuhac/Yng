@@ -1,6 +1,6 @@
 const hall = require('../plugins');
 const event = require('../../logic/base/event');
-
+const plugins = require('../plugins');
 class RankMatch{
     constructor(){
         this._instance = new plugins[sysConfig.GAME_TYPE].MatchRankInstance();

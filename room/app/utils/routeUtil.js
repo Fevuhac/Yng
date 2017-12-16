@@ -11,7 +11,7 @@ routeUtil.chatRoute = function(session, msg, app, cb) {
 };
 
 routeUtil.gameRoute = function (session, msg, app, cb) {
-    cb(null, session.get('gameId'));
+    cb(null, session.get('game').serverId);
 };
 
 routeUtil.rankMatchRoute = function (session, msg, app, cb) {

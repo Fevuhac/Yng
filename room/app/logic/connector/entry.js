@@ -33,7 +33,7 @@ class Entry {
             if (err) {
                 cb(err);
             } else {
-                session.set('game', {serverId:_serverId,roomId:roomId,scene:data.scene});
+                session.set('game', { serverId: _serverId, roomId: roomId, scene: data.scene });
                 cb(null);
             }
         })
@@ -47,10 +47,10 @@ class Entry {
             state: data.state,
             sid: data.sid,
             scene: data.game.scene
-        }, function(err){
-            if(err){
+        }, function (err) {
+            if (err) {
                 cb(err);
-            }else{
+            } else {
                 session.set('game', data.game);
                 cb(null);
             }
@@ -111,7 +111,7 @@ class Entry {
      */
     onEnterGame(msg, session, cb) {
         let data = {
-            mode: msg.data.flag, // 详见GAME_MODE定义
+            gameMode: msg.data.flag, // 详见GAME_MODE定义
             scene: msg.data.scene_name,
             sid: session.frontendId
         };
@@ -128,7 +128,7 @@ class Entry {
                     self._newGame(data, session, cb);
                 }
             },
-            function(cb){
+            function (cb) {
                 session.pushAll(cb);
             }
         ], function (err) {
@@ -136,9 +136,8 @@ class Entry {
                 utils.invokeCallback(cb, null, answer.respNoData(err));
                 return;
             }
-            
-            utils.invokeCallback(cb, null, answer.respData(session.get('game'), msg.enc));
 
+            utils.invokeCallback(cb, null, answer.respData(session.get('game'), msg.enc));
             logger.error(`用户[${data.uid}]加入游戏成功`, session.get('game'));
         });
     }
@@ -152,14 +151,24 @@ class Entry {
     onLeaveGame(msg, session, cb) {
         logger.info(`用户[${session.uid}]主动退出房间`);
         let uid = session.uid;
-        pomelo.app.rpc.game.playerRemote.leave(session, {
-            uid: uid,
-            gameType: session.get('gameType'),
-            sceneType: session.get('sceneType')
-        }, function (err, result) {
-            logger.info(`用户[${uid}]退出游戏服务`, session.get('gameId'));
-            utils.invokeCallback(cb, null, answer.respData(result, msg.enc));
-        });
+        let game = session.get('game');
+        if (!!game) {
+            pomelo.app.rpc.game.playerRemote.leave(session, {
+                uid: uid,
+                sceneType: game.scene
+            }, function (err, result) {
+                logger.info(`用户[${uid}]退出游戏服务`, game.serverId);
+                session.set('game', null);
+                utils.invokeCallback(cb, null, answer.respData(result, msg.enc));
+            });
+        }
+        else {
+            utils.invokeCallback(cb, null);
+        }
+    }
+
+    _leaveFight(game, cb) {
+
     }
 
     _playerOffline(session, reason) {
@@ -167,15 +176,17 @@ class Entry {
             return;
         }
         let uid = session.uid;
-        pomelo.app.rpc.game.playerRemote.playerConnectState(session, {
-            uid: uid,
-            state: constsDef.PALYER_STATE.OFFLINE,
-            sid: session.frontendId,
-            gameType: session.get('gameType'),
-            sceneType: session.get('sceneType')
-        }, function (err, result) {
-            logger.info(`用户[${uid}] 网络连接断开`, session.get('gameId'));
-        });
+        let game = session.get('game');
+        if(!!game){
+            pomelo.app.rpc.game.playerRemote.playerConnectState(session, {
+                uid: uid,
+                state: constsDef.PALYER_STATE.OFFLINE,
+                sid: session.frontendId,
+                scene: game.scene
+            }, function (err, result) {
+                logger.info(`用户[${uid}] 网络连接断开`, game.serverId);
+            });
+        }
     }
 
 }

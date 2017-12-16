@@ -21,7 +21,7 @@ class Balance {
     runTick() {
         this._timerHandle = setInterval(function () {
             //请求连接服务器负载
-            adminClient.request('onlineUser', {}, function (err, data) {
+            this._adminClient.request('onlineUser', {}, function (err, data) {
                 if (!!err || data === undefined) {
                     return;
                 }
@@ -29,20 +29,18 @@ class Balance {
             }.bind(this));
 
             //请求游戏服务器业务负载信息
-            adminClient.request('gameInfo', {}, function (err, data) {
+            this._adminClient.request('gameInfo', {}, function (err, data) {
                 if (!!err || data === undefined) {
                     return;
                 }
                 this._updateGameServerLoad(data);
-                logger.info('--------------gameInfo:', err, data);
             }.bind(this));
 
-            adminClient.request('rankMatchInfo', {}, function (err, data) {
+            this._adminClient.request('matchInfo', {}, function (err, data) {
                 if (!!err || data === undefined) {
                     return;
                 }
                 this._updateRankMatchServerLoad(data);
-                logger.info('--------------rankMatchInfo:', err, data);
             }.bind(this));
 
             //请求服务器系统负载信息
@@ -208,7 +206,7 @@ class Balance {
         if (arr.length === 0) {
             return;
         }
-
+        logger.error('_updateConnectionsLoad:', arr);
         let sorted = arr.sort(function (a, b) {
             return a[1].loginedCount > b[1].loginedCount;
         });
@@ -229,12 +227,12 @@ class Balance {
         if (arr.length === 0) {
             return;
         }
-
+        arr = arr.concat(arr);
         let sorted = arr.sort(function (a, b) {
-            if (a[1].roomLoad != b[1].roomLoad) {
-                return a[1].roomLoad > b[1].roomLoad
+            if (a[1].load.roomCount != b[1].load.roomCount) {
+                return a[1].load.roomCount > b[1].load.roomCount
             } else {
-                return a[1].playerLoad > b[1].playerLoad
+                return a[1].load.playerCount > b[1].load.playerCount
             }
         });
         this.gameServerMap.clear();
@@ -249,9 +247,9 @@ class Balance {
         if (arr.length === 0) {
             return;
         }
-
+        arr = arr.concat(arr);
         let sorted = arr.sort(function (a, b) {
-            return a[1].roomCount > b[1].roomCount
+            return a[1].load.roomCount > b[1].load.roomCount
         });
         this.rankMatchServerMap.clear();
         for (let i in sorted) {

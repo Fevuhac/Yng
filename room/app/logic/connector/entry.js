@@ -23,18 +23,18 @@ class Entry {
 
     //新建游戏
     _newGame(data, session, cb) {
+        let _serverId = null;
         async.waterfall([function (cb) {
             pomelo.app.rpc.balance.balanceRemote.getGame(session, cb);
         }, function (serverId, cb) {
-            session.set('gameId', serverId);
-            cb();
-        }, function (cb) {
-            pomelo.app.rpc.game.playerRemote.enter(session, data, cb);
+            _serverId = serverId;
+            pomelo.app.rpc.game.playerRemote.enterGame(session, data, cb);
         }], function (err, roomId) {
             if (err) {
                 cb(err);
             } else {
-                cb(null, roomId);
+                session.set('game', {serverId:_serverId,roomId:roomId,scene:data.scene});
+                cb(null);
             }
         })
     }
@@ -46,9 +46,15 @@ class Entry {
             uid: data.uid,
             state: data.state,
             sid: data.sid,
-            gameType: data.gameType,
-            sceneType: data.sceneType
-        }, cb);
+            scene: data.game.scene
+        }, function(err){
+            if(err){
+                cb(err);
+            }else{
+                session.set('game', data.game);
+                cb(null);
+            }
+        });
     }
 
     onLogin(msg, session, cb) {
@@ -105,30 +111,24 @@ class Entry {
      */
     onEnterGame(msg, session, cb) {
         let data = {
-            gameType: sysConfig.GAME_TYPE,
-            gameMode: msg.data.flag, // 详见GAME_MODE定义
-            sceneType: msg.data.scene_name,
+            mode: msg.data.flag, // 详见GAME_MODE定义
+            scene: msg.data.scene_name,
             sid: session.frontendId
         };
 
         let self = this;
-        session.set('gameType', data.gameType);
-        session.set('sceneType', data.sceneType);
-
-        let _roomId = null;
         async.waterfall([
             function (cb) {
-                if (!!msg.data.recover) {
-                    session.set('gameId', msg.data.recover.gameId);
+                if (!!msg.data.game) {
+                    session.set('game', msg.data.game);
                     self._reconnectGame(data, session, cb);
-                    logger.error('onEnterGame 玩家重连游戏', msg.data.recover.gameId);
+                    logger.error('onEnterGame 玩家重连游戏', msg.data.game);
                 } else {
                     logger.error('onEnterGame 新建游戏', data.uid);
                     self._newGame(data, session, cb);
                 }
             },
-            function (roomId, cb) {
-                _roomId = roomId;
+            function(cb){
                 session.pushAll(cb);
             }
         ], function (err) {
@@ -137,15 +137,9 @@ class Entry {
                 return;
             }
             
-            utils.invokeCallback(cb, null, answer.respData({
-                roomId: _roomId,
-                gameId: session.get('gameId')
-            }, msg.enc));
+            utils.invokeCallback(cb, null, answer.respData(session.get('game'), msg.enc));
 
-            logger.error(`用户[${data.uid}]加入游戏成功`, {
-                roomId: _roomId,
-                gameId: session.get('gameId')
-            });
+            logger.error(`用户[${data.uid}]加入游戏成功`, session.get('game'));
         });
     }
 

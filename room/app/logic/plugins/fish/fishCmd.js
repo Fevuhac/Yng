@@ -18,8 +18,7 @@ class FishCmd extends SysCmd {
             route: 'game.fishHandler.c_player_notify',
             msg: {
                 enc: 'aes',
-                data: {
-                }
+                data: {}
             },
             res: {}
         };
@@ -35,7 +34,10 @@ class FishCmd extends SysCmd {
                 enc: 'aes',
                 data: {
                     wp_skin: 1, //武器皮肤，决定子弹类型
-                    fire_point: {x: 0, y: 0} //开火人打击点
+                    fire_point: {
+                        x: 0,
+                        y: 0
+                    } //开火人打击点
                 }
             },
             res: {
@@ -55,10 +57,13 @@ class FishCmd extends SysCmd {
                 enc: 'aes',
                 data: {
                     wp_skin: 1, //武器皮肤，决定子弹类型
-                    fire_point: {x: 0, y: 0} //开火人打击点
+                    fire_point: {
+                        x: 0,
+                        y: 0
+                    } //开火人打击点
                 }
             },
-            res:{}
+            res: {}
         };
 
         /**
@@ -77,7 +82,7 @@ class FishCmd extends SysCmd {
                     fish_keys: ['fj_0_0', 'fj_2_1'], //碰撞鱼key数组
                 }
             },
-            res:{}
+            res: {}
         };
 
 
@@ -90,7 +95,7 @@ class FishCmd extends SysCmd {
             msg: {
                 enc: 'aes',
                 data: {
-                    robot_uid:'fdsfdfsfsd',
+                    robot_uid: 'fdsfdfsfsd',
                     bullet_key: 'b_0_1', //子弹唯一标识
                     wp_skin: 1, //发出该子弹时武器皮肤
                     wp_level: 950, //发出该子弹时武器等级
@@ -98,7 +103,7 @@ class FishCmd extends SysCmd {
                     fish_keys: ['fj_0_0', 'fj_2_1'], //碰撞鱼key数组
                 }
             },
-            res:{}
+            res: {}
         };
 
         /**
@@ -113,7 +118,7 @@ class FishCmd extends SysCmd {
                     skill: 1, //技能id
                 }
             },
-            res:{}
+            res: {}
         };
 
         /**
@@ -128,10 +133,10 @@ class FishCmd extends SysCmd {
                     tfish: 'fj_0_0', //锁定鱼key
                 }
             },
-            res:{}
+            res: {}
         };
 
-         /**
+        /**
          * 使用召唤技能召唤指定鱼
          * @type {{route: string, msg: {enc: string, data: {tfish: string, path: string}}, res: {}}}
          */
@@ -144,7 +149,7 @@ class FishCmd extends SysCmd {
                     path: 'fj.json', //召唤鱼路径名
                 }
             },
-            res:{}
+            res: {}
         };
 
         /**
@@ -157,10 +162,13 @@ class FishCmd extends SysCmd {
                 enc: 'aes',
                 data: {
                     skill: 4, //技能id
-                    fire_point: {x: 100, y: 200}, //打击点
+                    fire_point: {
+                        x: 100,
+                        y: 200
+                    }, //打击点
                 }
             },
-            res:{}
+            res: {}
         };
 
         /**
@@ -176,7 +184,7 @@ class FishCmd extends SysCmd {
                     event_data: {},
                 }
             },
-            res:{}
+            res: {}
         };
 
         /**
@@ -186,8 +194,7 @@ class FishCmd extends SysCmd {
             route: 'game.fishHandler.c_god_ready',
             msg: {
                 enc: 'aes',
-                data: {
-                }
+                data: {}
             },
             res: {}
         };
@@ -199,8 +206,7 @@ class FishCmd extends SysCmd {
             route: 'game.fishHandler.c_god_pause',
             msg: {
                 enc: 'aes',
-                data: {
-                }
+                data: {}
             },
             res: {}
         };
@@ -212,8 +218,7 @@ class FishCmd extends SysCmd {
             route: 'game.fishHandler.c_god_continue',
             msg: {
                 enc: 'aes',
-                data: {
-                }
+                data: {}
             },
             res: {}
         };
@@ -225,8 +230,7 @@ class FishCmd extends SysCmd {
             route: 'game.fishHandler.c_god_hurt',
             msg: {
                 enc: 'aes',
-                data: {
-                }
+                data: {}
             },
             res: {}
         };
@@ -238,8 +242,7 @@ class FishCmd extends SysCmd {
             route: 'game.fishHandler.c_query_pirate',
             msg: {
                 enc: 'aes',
-                data: {
-                }
+                data: {}
             },
             res: {}
         };
@@ -261,15 +264,42 @@ class FishCmd extends SysCmd {
             msg: {
                 enc: 'aes',
                 data: {
-                    players: [
-                        {id: 12312312, seatId: 0, wp_skin: 1, wp_level: 120, gold: 1000, pearl: 10},
-                        {id: 12312313, seatId: 1, wp_skin: 2, wp_level: 10, gold: 1000, pearl: 10},
-                        {id: 12312314, seatId: 2, wp_skin: 3, wp_level: 100, gold: 1000, pearl: 10},
-                        {id: 12312316, seatId: 3, wp_skin: 4, wp_level: 1200, gold: 1000, pearl: 10},
+                    players: [{
+                            id: 12312312,
+                            seatId: 0,
+                            wp_skin: 1,
+                            wp_level: 120,
+                            gold: 1000,
+                            pearl: 10
+                        },
+                        {
+                            id: 12312313,
+                            seatId: 1,
+                            wp_skin: 2,
+                            wp_level: 10,
+                            gold: 1000,
+                            pearl: 10
+                        },
+                        {
+                            id: 12312314,
+                            seatId: 2,
+                            wp_skin: 3,
+                            wp_level: 100,
+                            gold: 1000,
+                            pearl: 10
+                        },
+                        {
+                            id: 12312316,
+                            seatId: 3,
+                            wp_skin: 4,
+                            wp_level: 1200,
+                            gold: 1000,
+                            pearl: 10
+                        },
                     ]
                 }
             },
-            res:{}
+            res: {}
         };
 
         /**
@@ -284,7 +314,7 @@ class FishCmd extends SysCmd {
                     seatId: 1, //离开者座位号
                 }
             },
-            res:{}
+            res: {}
         };
 
 
@@ -293,11 +323,11 @@ class FishCmd extends SysCmd {
             msg: {
                 enc: 'aes',
                 data: {
-                    state:0, //0：online, 1:offline
-                    uid:12022
+                    state: 0, //0：online, 1:offline
+                    uid: 12022
                 }
             },
-            res:{}
+            res: {}
         };
 
 
@@ -312,11 +342,14 @@ class FishCmd extends SysCmd {
                 data: {
                     wp_skin: 1, //武器皮肤，决定子弹类型
                     seatId: 1, //开火人座位id
-                    fire_point: {x: 0, y: 0},
+                    fire_point: {
+                        x: 0,
+                        y: 0
+                    },
                     gold: 1000, //开伙人此时的金币数
                 }
             },
-            res:{}
+            res: {}
         };
 
         /**
@@ -334,7 +367,7 @@ class FishCmd extends SysCmd {
                     pearl: 12 //本次打死鱼获得钻石数量，即单次增量
                 }
             },
-            res:{}
+            res: {}
         };
 
         /**
@@ -351,7 +384,7 @@ class FishCmd extends SysCmd {
                     seatId: 1, //座位号
 
                     //锁定
-                    skill_lock:  {
+                    skill_lock: {
                         tfish: 'fj_0_0' //默认锁定场景上最大鱼
                     },
 
@@ -368,16 +401,22 @@ class FishCmd extends SysCmd {
                     //核弹
                     skill_nb: {
                         nb_id: 8, //核弹id
-                        fire_point: {x:100, y:900}, //打击点
+                        fire_point: {
+                            x: 100,
+                            y: 900
+                        }, //打击点
                     },
 
                     //激光
                     skill_laser: {
-                        fire_point: {x: 100, y: 100}, //打击点
+                        fire_point: {
+                            x: 100,
+                            y: 100
+                        }, //打击点
                     }
                 }
             },
-            res:{}
+            res: {}
         };
 
         /**
@@ -393,7 +432,7 @@ class FishCmd extends SysCmd {
                     skill: 1, //技能id
                 }
             },
-            res:{}
+            res: {}
         }
 
         /**
@@ -409,7 +448,7 @@ class FishCmd extends SysCmd {
                     evtData: {}, //刷鱼数据
                 }
             },
-            res:{}
+            res: {}
         }
 
         /**
@@ -426,7 +465,7 @@ class FishCmd extends SysCmd {
                     event_data: {},
                 }
             },
-            res:{}
+            res: {}
         }
 
         this._push.player_notify = {
@@ -459,7 +498,7 @@ class FishCmd extends SysCmd {
             },
             res: {}
         };
-        
+
         this._push.god_continue = {
             route: 's_god_continue',
             msg: {
@@ -478,6 +517,38 @@ class FishCmd extends SysCmd {
             res: {}
         };
 
+    }
+
+    initRemote() {
+        super.initRemote();
+        this._rpc.enterGame = {
+            route: 'rpc_enter_game',
+            data: {
+                mode: '',
+                scene: 'scene_fish_1',
+                sid: 'connector-server-1'
+            }
+        }
+
+        this._rpc.leaveGame = {
+            route: 'rpc_leave_game',
+            data: {
+                mode: '',
+                scene: 'scene_fish_1',
+                sid: 'connector-server-1'
+            }
+        }
+
+        //玩家连接状态
+        this._rpc.playerConnectState = {
+            route: 'rpc_player_connect_state',
+            data: {
+                uid: 10011,
+                state: 1,
+                sid: 'connector-server-1',
+                scene: 'scene_fish_1'
+            }
+        }
     }
 }
 

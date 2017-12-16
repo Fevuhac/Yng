@@ -33,7 +33,7 @@ class Balance {
                 if (!!err || data === undefined) {
                     return;
                 }
-                this._updateGamePlayerLoad(data);
+                this._updateGameServerLoad(data);
                 logger.info('--------------gameInfo:', err, data);
             }.bind(this));
 
@@ -41,7 +41,7 @@ class Balance {
                 if (!!err || data === undefined) {
                     return;
                 }
-                this._updateRankMatchLoad(data);
+                this._updateRankMatchServerLoad(data);
                 logger.info('--------------rankMatchInfo:', err, data);
             }.bind(this));
 
@@ -224,7 +224,7 @@ class Balance {
     }
 
     //更新游戏服务器房间人数负载
-    _updateGamePlayerLoad(data) {
+    _updateGameServerLoad(data) {
         let arr = [...dataformat.objToMap(data)];
         if (arr.length === 0) {
             return;
@@ -244,7 +244,7 @@ class Balance {
     }
 
     //更新游戏服务器房间人数负载
-    _updateRankMatchLoad(data) {
+    _updateRankMatchServerLoad(data) {
         let arr = [...dataformat.objToMap(data)];
         if (arr.length === 0) {
             return;

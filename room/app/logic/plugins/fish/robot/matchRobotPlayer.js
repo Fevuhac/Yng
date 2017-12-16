@@ -14,10 +14,7 @@ class RobotPlayer extends Player {
         let uid = uuidv1();
         let player = new RobotPlayer({uid:uid, account: redisAccountSync.genAccount(uid,data.account),
             kindId: consts.ENTITY_TYPE.MATCH_ROBOT, room:data.room});
-        player.gameInfo = {
-            gameMode: data.gameMode,
-            sceneType: data.sceneType
-        };
+            
         return player;
     }
 }

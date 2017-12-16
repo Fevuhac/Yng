@@ -33,7 +33,7 @@ class Entry {
             if (err) {
                 cb(err);
             } else {
-                session.set('game', { serverId: _serverId, roomId: roomId, scene: data.scene });
+                session.set('game', { serverId: _serverId, roomId: roomId, sceneId: data.sceneId });
                 cb(null);
             }
         })
@@ -46,7 +46,7 @@ class Entry {
             uid: data.uid,
             state: data.state,
             sid: data.sid,
-            scene: data.game.scene
+            sceneId: data.game.sceneId
         }, function (err) {
             if (err) {
                 cb(err);
@@ -112,7 +112,7 @@ class Entry {
     onEnterGame(msg, session, cb) {
         let data = {
             gameMode: msg.data.flag, // 详见GAME_MODE定义
-            scene: msg.data.scene_name,
+            sceneId: msg.data.scene_name,
             sid: session.frontendId
         };
 
@@ -136,7 +136,6 @@ class Entry {
                 utils.invokeCallback(cb, null, answer.respNoData(err));
                 return;
             }
-
             utils.invokeCallback(cb, null, answer.respData(session.get('game'), msg.enc));
             logger.error(`用户[${data.uid}]加入游戏成功`, session.get('game'));
         });
@@ -155,7 +154,7 @@ class Entry {
         if (!!game) {
             pomelo.app.rpc.game.playerRemote.leave(session, {
                 uid: uid,
-                sceneType: game.scene
+                sceneId: game.sceneId
             }, function (err, result) {
                 logger.info(`用户[${uid}]退出游戏服务`, game.serverId);
                 session.set('game', null);
@@ -177,12 +176,12 @@ class Entry {
         }
         let uid = session.uid;
         let game = session.get('game');
-        if(!!game){
+        if (!!game) {
             pomelo.app.rpc.game.playerRemote.playerConnectState(session, {
                 uid: uid,
                 state: constsDef.PALYER_STATE.OFFLINE,
                 sid: session.frontendId,
-                scene: game.scene
+                sceneId: game.sceneId
             }, function (err, result) {
                 logger.info(`用户[${uid}] 网络连接断开`, game.serverId);
             });

@@ -41,7 +41,7 @@ class FishPlayer extends Player {
         this._seatId = -1; //座位号，从0开始
         this._gameInfo = {
             gameMode:null,
-            sceneType:null
+            sceneId:null
         };
 
         this._lastFireFish = null;
@@ -121,14 +121,6 @@ class FishPlayer extends Player {
     set seatId(id){
         this._seatId = id;
         logger.error('seatId changed = ', id);
-    }
-
-    set gameInfo(info){
-        this._gameInfo = info
-    }
-
-    get gameInfo(){
-        return this._gameInfo
     }
 
     set account(value) {

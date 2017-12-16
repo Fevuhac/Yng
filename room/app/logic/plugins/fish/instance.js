@@ -14,7 +14,7 @@ class Instance {
     }
 
 
-    run() {
+    start() {
         if (!this._vacancyQueryTimer) {
             this._vacancyQueryTimer = setInterval(this.assignRobot.bind(this), config.ROBOT.VACANCY_QUERY_TIMEOUT);
         }
@@ -79,34 +79,32 @@ class Instance {
         return rooms;
     }
 
-    _getInstScene(gameType, sceneType, cb){
-        let scene = this.scenes.get(sceneType);
+    _getInstScene(sceneId, cb){
+        let scene = this.scenes.get(sceneId);
         if (!scene) {
-            scene = new Scene(gameType, sceneType);
+            scene = new Scene(sceneId);
             let ret = scene.start()
             if (ret) {
                 utils.invokeCallback(cb, ret)
                 return;
-            } else {
-                logger.info(`${gameType} scene ${sceneType} 启动成功`);
             }
-            this.scenes.set(sceneType, scene);
+            this.scenes.set(sceneId, scene);
         }
 
         return scene;
     }
 
     async enterScene(data, cb) {
-        if (!data.sceneType || !data.uid || !data.sid) {
+        if (!data.sceneId || !data.uid || !data.sid) {
             utils.invokeCallback(cb, CONSTS.SYS_CODE.ARGS_INVALID);
             return;
         }
 
         if(this.uids.has(data.uid)){
-            this.leaveScene(data.uid, data.sceneType);
+            this.leaveScene(data.uid, data.sceneId);
         }
 
-        let scene = this._getInstScene(data.gameType, data.sceneType, cb);
+        let scene = this._getInstScene(data.sceneId, cb);
         if(!scene){
             return;
         }
@@ -114,7 +112,7 @@ class Instance {
         try {
             let player = await PlayerFactory.createPlayer(data);
             if (!!player) {
-                let ret = scene.joinGame(player);
+                let ret = scene.joinGame(data.gameMode, player);
                 if (ret.code !== CONSTS.SYS_CODE.OK.code) {
                     utils.invokeCallback(cb, ret);
                     return
@@ -134,7 +132,7 @@ class Instance {
             utils.invokeCallback(cb, CONSTS.SYS_CODE.ARGS_INVALID);
             return;
         }
-        let scene = this.scenes.get(data.sceneType);
+        let scene = this.scenes.get(data.sceneId);
         if (!scene) {
             logger.error('setPlayerState data - ', data);
             utils.invokeCallback(cb, CONSTS.SYS_CODE.PALYER_GAME_ROOM_DISMISS)
@@ -149,8 +147,8 @@ class Instance {
         }
     }
 
-    leaveScene(uid, sceneType, cb) {
-        let scene = this.scenes.get(sceneType)
+    leaveScene(uid, sceneId, cb) {
+        let scene = this.scenes.get(sceneId)
         if (!scene) {
             utils.invokeCallback(cb, null)
             return
@@ -160,8 +158,8 @@ class Instance {
         utils.invokeCallback(cb, null, data);
     }
 
-    getScene(sceneType) {
-        return this.scenes.get(sceneType)
+    getScene(sceneId) {
+        return this.scenes.get(sceneId)
     }
 }
 

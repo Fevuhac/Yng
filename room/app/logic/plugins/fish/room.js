@@ -12,7 +12,7 @@ class Room {
         this._roomId = opts.roomId;
         this._config = opts.config;
         this._mode = opts.mode;
-        this._sceneType = opts.sceneType;
+        this._sceneId = opts.sceneId;
         this._evtor = new EventEmitter();
 
         this.createFishModel();
@@ -29,7 +29,7 @@ class Room {
     }
 
     createFishModel () {
-        let fishModel = new FishModel(this._evtor, this._sceneType);
+        let fishModel = new FishModel(this._evtor, this._sceneId);
         this._fishModel = fishModel;
     }
 
@@ -190,8 +190,8 @@ class Room {
         return this._mode;
     }
 
-    get sceneType() {
-        return this._sceneType;
+    get sceneId() {
+        return this._sceneId;
     }
 
     get roomId() {

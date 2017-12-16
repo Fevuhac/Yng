@@ -6,14 +6,11 @@ class Auth {
     constructor() {
     }
 
-    start() {
-        let config = pomelo.app.get('redis');
-        redisClient.start(config, function (err, connector) {
-            if(err){
-                logger.error('连接redis数据库失败:', err);
-                return;
-            }
-        });
+    async start() {
+        let result = await redisClient.start(pomelo.app.get('redis'));
+        if (!result) {
+            process.exit(0);
+        }
     }
 
     stop() {

@@ -206,7 +206,6 @@ class Balance {
         if (arr.length === 0) {
             return;
         }
-        logger.error('_updateConnectionsLoad:', arr);
         let sorted = arr.sort(function (a, b) {
             return a[1].loginedCount > b[1].loginedCount;
         });
@@ -227,7 +226,6 @@ class Balance {
         if (arr.length === 0) {
             return;
         }
-        arr = arr.concat(arr);
         let sorted = arr.sort(function (a, b) {
             if (a[1].load.roomCount != b[1].load.roomCount) {
                 return a[1].load.roomCount > b[1].load.roomCount
@@ -247,7 +245,6 @@ class Balance {
         if (arr.length === 0) {
             return;
         }
-        arr = arr.concat(arr);
         let sorted = arr.sort(function (a, b) {
             return a[1].load.roomCount > b[1].load.roomCount
         });

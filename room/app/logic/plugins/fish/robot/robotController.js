@@ -59,7 +59,7 @@ class RobotController {
             let account = await this._robotBuilder.genAccount(room);
             let player = RobotPlayer.allocPlayer({
                 gameMode: room.mode,
-                sceneType: room.sceneType,
+                sceneId: room.sceneId,
                 account: account,
                 room:room
             });

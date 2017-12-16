@@ -9,71 +9,44 @@ class Game extends Entity {
     constructor() {
         super({})
         this.instances = new Map(); //服务器实例
+        this._instance = new plugins[sysConfig.GAME_TYPE].Instance();
     }
 
-    start() {
-        let config = pomelo.app.get('redis');
-        redisClient.start(config, function (err, connector) {
-            if (err) {
-                logger.error('连接redis数据库失败:', err);
-                return;
-            }
-            cacheRunner.start();
-
-            mysqlClient.start(pomelo.app.get('mysql'), function (err, connecotr) {
-                if (err) {
-                    logger.error('连接mysql数据库失败:', err);
-                    return;
-                }
-                logger.info('连接mysql数据库成功');
-            });
-
-        }.bind(this));
+    async start() {
+        let result = await redisClient.start(pomelo.app.get('redis'));
+        if (!result) {
+            process.exit(0);
+            return;
+        }
+        result = await mysqlClient.start(pomelo.app.get('mysql'));
+        if (!result) {
+            process.exit(0);
+            return;
+        }
+        cacheRunner.start();
+        this._instance.start();
+        logger.info('游戏战斗服启动成功');
     }
 
     stop() {
+        this._instance.stop();
         redisClient.stop();
+        mysqlClient.stop();
         // pomelo.app.get('sync').flush();
     }
 
-    getScene(gameType, sceneType) {
-        let inst = this.instances.get(gameType);
-        if (!inst) {
-            return;
-        }
-        return inst.getScene(sceneType);
+    getScene(sceneId) {
+        return this._instance.getScene(sceneId);
     }
 
     //获取玩家负载信息
     getLoadInfo() {
-        let info = [...this.instances.values()].reduce(function (prev, next) {
-            let sub = next.getLoadStatistics();
-            return {
-                playerCount: prev.playerCount + sub.playerCount,
-                roomCount: prev.roomCount + sub.roomCount
-            }
-        }, {
-            playerCount: 0,
-            roomCount: 0
-        });
-
-        return info;
-    }
-
-    getInstance(gameType) {
-        let inst = this.instances.get(gameType);
-        if (!inst) {
-            inst = new plugins[gameType].Instance();
-            this.instances.set(gameType, inst);
-            inst.run();
-        }
-        return inst;
+        return this._instance.getLoadStatistics();
     }
 
     //玩家加入
     onPlayerJoin(data, cb) {
-        let inst = this.getInstance(data.gameType);
-        inst.enterScene(data, function (err, roomId) {
+        this._instance.enterScene(data, function (err, roomId) {
             if (!err) {
                 logger.error('onPlayerJoin enter ok', data.uid);
             }
@@ -83,18 +56,11 @@ class Game extends Entity {
 
     /**
      * 玩家连接状态
-     * @param {*} data {uid,state, sid,gameType,sceneType}
+     * @param {*} data {uid,state, sid,sceneId}
      * @param {*} cb 
      */
     onPlayerConnectState(data, cb) {
-        let inst = this.getInstance(data.gameType);
-        if (!inst) {
-            logger.error('onPlayerConnectState data - ', data);
-            utils.invokeCallback(cb, CONSTS.SYS_CODE.PALYER_GAME_ROOM_DISMISS);
-            return
-        }
-
-        inst.setPlayerState(data, function (err, roomId) {
+        this._instance.setPlayerState(data, function (err, roomId) {
             if (err) {
                 logger.error('onPlayerConnectState error', err);
                 utils.invokeCallback(cb, err);
@@ -104,14 +70,9 @@ class Game extends Entity {
         });
     }
 
-    //玩家离开{uid,gameType,sceneType}
+    //玩家离开{uid,sceneId}
     onPlayerLeave(data, cb) {
-        let inst = this.getInstance(data.gameType);
-        if (!inst) {
-            utils.invokeCallback(cb, null);
-            return
-        }
-        inst.leaveScene(data.uid, data.sceneType, cb);
+        this._instance.leaveScene(data.uid, data.scene, cb);
     }
 }
 

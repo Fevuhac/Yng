@@ -25,7 +25,7 @@ class GoddessRoom extends Room {
     }
 
     createFishModel () {
-        let fishModel = new GoddessFishModel(this._evtor, this._sceneType);
+        let fishModel = new GoddessFishModel(this._evtor, this._sceneId);
         this._fishModel = fishModel;
     }
     

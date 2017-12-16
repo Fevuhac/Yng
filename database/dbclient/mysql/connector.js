@@ -13,30 +13,36 @@ class Connector {
     }
 
     start(opts, cb) {
-        if (!opts.enable) {
-            utils.invokeCallback(cb, null);
-            return;
-        }
-
-        if (!!this.pool) {
-            utils.invokeCallback(cb, null);
-            return;
-        }
-
-        this.insert = this._query;
-        this.update = this._query;
-        this.delete = this._query;
-        this.query = this._query;
-
-        this.pool = this._createPool(opts);
-        this.pool.getConnection(function (err, connection) {
-            if (err) {
-                utils.invokeCallback(cb, '数据库连接失败' + err);
-            } else {
-                global.mysqlConnector = this;
-                utils.invokeCallback(cb, null, this);
+        return new Promise(function (resolve, reject) {
+            if (!opts.enable) {
+                utils.invokeCallback(cb, null);
+                resolve(false);
+                return;
             }
-        }.bind(this));
+
+            if (!!this.pool) {
+                utils.invokeCallback(cb, null);
+                resolve(false);
+                return;
+            }
+
+            this.insert = this._query;
+            this.update = this._query;
+            this.delete = this._query;
+            this.query = this._query;
+
+            this.pool = this._createPool(opts);
+            this.pool.getConnection(function (err, connection) {
+                if (err) {
+                    utils.invokeCallback(cb, '数据库连接失败' + err);
+                    resolve(false);
+                } else {
+                    global.mysqlConnector = this;
+                    utils.invokeCallback(cb, null, this);
+                    resolve(true);
+                }
+            }.bind(this));
+        }.bind(this))
     }
 
     stop() {

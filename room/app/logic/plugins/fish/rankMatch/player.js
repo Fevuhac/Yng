@@ -37,10 +37,6 @@ class RankMatchPlayer extends Player {
             account: account,
             kindId: consts.ENTITY_TYPE.PLAYER
         });
-        player.gameInfo = {
-            gameMode: data.gameMode,
-            sceneType: data.sceneType
-        };
     }
 }
 

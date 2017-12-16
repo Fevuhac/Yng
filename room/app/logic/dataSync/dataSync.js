@@ -15,26 +15,23 @@ class DataSync {
         timeSyc.on(eventType.PLATFORM_DATA_CHANGE, this.platform_data_change.bind(this));
     }
 
-    start() {
-        async.waterfall([function (cb) {
-            let config = pomelo.app.get('mysql');
-            mysqlClient.start(config, cb);
-        },function (connector, cb) {
-            let redis_config = pomelo.app.get('redis');
-            redisClient.start(redis_config,cb);
-        }],function (err) {
-            if(err){
-                logger.error('连接数据库失败:', err);
-                return;
-            }
+    async start() {
+        let result = await redisClient.start(pomelo.app.get('redis'));
+        if (!result) {
+            process.exit(0);
+            return;
+        }
+        result = await mysqlClient.start(pomelo.app.get('mysql'));
+        if (!result) {
+            process.exit(0);
+            return;
+        }
 
-            pumpwater.start();
-            changeSync.start();
-            timeSyc.start();
+        pumpwater.start();
+        changeSync.start();
+        timeSyc.start();
 
-            logger.info('数据同步服启动成功');
-
-        }.bind(this));
+        logger.info('数据同步服启动成功');
     }
 
     stop() {

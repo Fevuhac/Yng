@@ -23,10 +23,6 @@ class PlayerFactory{
 
                 //logger.error('account = ', account);
                 let player = new classObj({uid:data.uid, sid:data.sid, account:account,kindId:consts.ENTITY_TYPE.PLAYER});
-                player.gameInfo = {
-                    gameMode:data.gameMode,
-                    sceneType:data.sceneType
-                };
                 resolve(player);
             });
         });

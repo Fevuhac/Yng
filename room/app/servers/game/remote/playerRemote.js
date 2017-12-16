@@ -8,7 +8,7 @@ PlayerRemote.prototype.enter = function (data, cb) {
 
 /**
  * 玩家离开
- * @param {*} data {uid,gameType,sceneType}
+ * @param {*} data {uid,sceneId}
  * @param {*} cb 
  */
 PlayerRemote.prototype.leave = function (data, cb) {
@@ -17,7 +17,7 @@ PlayerRemote.prototype.leave = function (data, cb) {
 
 /**
  * 玩家连接状态
- * @param {*} data {uid,state, sid,gameType,sceneType}
+ * @param {*} data {uid,state, sid,sceneId}
  * @param {*} cb 
  */
 PlayerRemote.prototype.playerConnectState = function (data, cb) {

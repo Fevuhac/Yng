@@ -10,10 +10,9 @@ const event = require('../../base/event');
 const ROBOT_EVENT = new Set([fishCmd.request.robot_catch_fish.route.split('.')[2]]);
 
 class Scene {
-    constructor(gameType, sceneType) {
+    constructor(sceneId) {
         this.app = pomelo.app;
-        this.gameType = gameType;
-        this.sceneType = sceneType;
+        this.sceneId = sceneId;
         this._config = null
         this.entities = new Map();
         this.roomMap = new Map();
@@ -26,7 +25,7 @@ class Scene {
 
     start() {
         //获取游戏场景配置
-        this._config = GAMECFG.scene_scenes_cfg[this.sceneType];
+        this._config = GAMECFG.scene_scenes_cfg[this.sceneId];
 
         if (!this._config) {
             return FishCode.NOT_SUPPORT_SCENETYPE
@@ -45,7 +44,7 @@ class Scene {
         return this._matchRoom();
     }
 
-    joinGame(player) {
+    joinGame(gameMode, player) {
         if (!player || !player.uid) {
             return CONSTS.SYS_CODE.ARGS_INVALID
         }
@@ -55,7 +54,7 @@ class Scene {
             return ret
         }
 
-        return this._enterRoom(player);
+        return this._enterRoom(gameMode, player);
     }
 
     leaveGame(uid) {
@@ -117,9 +116,8 @@ class Scene {
         return null;
     }
 
-    _enterRoom(player) {
+    _enterRoom(mode, player) {
         let ret = CONSTS.SYS_CODE.OK;
-        let mode = player.gameInfo.gameMode;
         switch (mode) {
             case consts.GAME_MODE.GODDESS:
                 let room = this._createRoom(mode, GoddessRoom, 1);
@@ -161,12 +159,12 @@ class Scene {
     _createRoom(mode, className, playerMax) {
         className =  className || Room;
         playerMax = playerMax || consts.ROOM_MAX_PLAYER;
-        let roomId = `${this.sceneType}_${this._genRoomId()}`;
+        let roomId = `${this.sceneId}_${this._genRoomId()}`;
         let room = new className({
             roomId: roomId, 
             config: this._config, 
             mode: mode, 
-            sceneType:this.sceneType,
+            sceneId:this.sceneId,
             playerMax: playerMax,
         });
         room.start();

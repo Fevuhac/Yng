@@ -34,7 +34,7 @@ const configure = function () {
 
     app.loadConfig('redis', path.join(app.getBase(), '../database/config/database/redis.json'));
     app.loadConfig('mysql', path.join(app.getBase(), '../database/config/database/mysql.json'));
-    
+
     app.set('errorHandler', function (err, msg, resp, session, next) {
         logger.error('-------errorHandler happend ---->', err);
         session.__session__.__socket__.socket.close();
@@ -52,11 +52,11 @@ const configure = function () {
         app.before(decryptFilter);
         app.before(unLoginFilter);
 
-        var onlineUser = require('./app/modules/onlineUser');
-        var gameInfo = require('./app/modules/gameInfo');
+        let onlineUser = require('./app/modules/onlineUser');
+        let gameInfo = require('./app/modules/gameInfo');
         if (typeof app.registerAdmin === 'function') {
-            app.registerAdmin(onlineUser, {app: app});
-            app.registerAdmin(gameInfo, {app: app});
+            app.registerAdmin(onlineUser, { app: app });
+            app.registerAdmin(gameInfo, { app: app });
         }
 
         let redis_config = app.get('redis');
@@ -185,8 +185,8 @@ const configure = function () {
         });
     });
 
-     // 排位赛匹配服
-     app.configure('production|development', 'matching', function () {
+    // 排位赛匹配服
+    app.configure('production|development', 'matching', function () {
         global.logger = require('pomelo-logger').getLogger('matching');
 
         app.matching = require('./app/logic/matching/matching');

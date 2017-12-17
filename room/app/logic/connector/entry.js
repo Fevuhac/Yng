@@ -55,6 +55,14 @@ class Entry {
                 session.push('gameSid', cb);
             },
             function (cb) {
+                let serverId = session.get('rankMatchSid');
+                let roomId = session.get('rankMatchRoomId');
+                if(roomId && serverId){
+                    data.rankMatch = {
+                        serverId:rankMatchSid,
+                        roomId:roomId,
+                    }
+                }
                 pomelo.app.rpc.game.playerRemote.rpc_enter_game(session, data, cb);
             },
             function (roomId, cb) {
@@ -67,8 +75,8 @@ class Entry {
                 cb(err);
             } else {
                 cb(null, {
-                    gameSid: session.get('gameSid'),
-                    gameRoomId: session.get('gameRoomId'),
+                    serverId: session.get('gameSid'),
+                    roomId: session.get('gameRoomId'),
                     sceneId: session.get('sceneId')
                 });
             }
@@ -79,16 +87,17 @@ class Entry {
     _reconnectGame(data, session, cb) {
         data.state = constsDef.PALYER_STATE.ONLINE;
         async.waterfall([function (cb) {
-            session.set('gameSid', data.recover.gameSid);
-            session.set('gameRoomId', data.recover.gameRoomId);
-            session.set('sceneId', data.recover.sceneId);
+            session.set('gameSid', data.recover.game.serverId);
+            session.set('gameRoomId', data.recover.game.roomId);
+            session.set('sceneId', data.recover.game.sceneId);
             session.pushAll(cb);
         }, function (cb) {
             pomelo.app.rpc.game.playerRemote.rpc_player_connect_state(session, {
                 uid: data.uid,
                 state: data.state,
                 sid: data.sid,
-                sceneId: data.recover.sceneId
+                sceneId: data.recover.game.sceneId,
+                rankMatch:data.recover.rankMatch,
             }, cb);
         }], function (err) {
             if (err) {
@@ -189,13 +198,13 @@ class Entry {
     c_leave_room(data, session, cb) {
         logger.error(`用户[${session.uid}]主动退出房间`);
         let uid = session.uid;
-        let gameSid = session.get('gameSid');
-        if (!!gameSid) {
+        let serverId = session.get('gameSid');
+        if (!!serverId) {
             pomelo.app.rpc.game.playerRemote.rpc_leave_game(session, {
                 uid: uid,
                 sceneId: session.get('sceneId')
             }, function (err, result) {
-                logger.info(`用户[${uid}]退出游戏服务`, gameSid);
+                logger.info(`用户[${uid}]退出游戏服务`, serverId);
                 session.set('gameSid', null);
                 session.push('gameSid', function (err) {
                     utils.invokeCallback(cb, null, result);
@@ -211,15 +220,15 @@ class Entry {
             return;
         }
         let uid = session.uid;
-        let gameSid = session.get('gameSid');
-        if (!!gameSid) {
+        let serverId = session.get('gameSid');
+        if (!!serverId) {
             pomelo.app.rpc.game.playerRemote.rpc_player_connect_state(session, {
                 uid: uid,
                 state: constsDef.PALYER_STATE.OFFLINE,
                 sid: session.frontendId,
                 sceneId: session.get('sceneId')
             }, function (err, result) {
-                logger.info(`用户[${uid}] 网络连接断开`, gameSid);
+                logger.info(`用户[${uid}] 网络连接断开`, serverId);
             });
         }
     }

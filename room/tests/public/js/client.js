@@ -284,13 +284,19 @@ $(document).ready(function () {
 						}, function (res) {
 							console.log('game.fishHandler.c_fire:', res);
 							setTimeout(function () {
-								pomelo.request('connector.entryHandler.c_leave_room', {
+								// pomelo.request('connector.entryHandler.c_leave_room', {
+								// 	data: {
+								// 	}
+								// }, function(res){
+								// 	console.log('connector.entryHandler.c_leave_room:', res);
+								// })
+
+								pomelo.request('matching.matchingHandler.c_signup', {
 									data: {
 									}
 								}, function(res){
-									console.log('connector.entryHandler.c_leave_room:', res);
+									console.log('matching.matchingHandler.c_signup:', res);
 								})
-
 
 
 							}, 10000);

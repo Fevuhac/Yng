@@ -18,13 +18,10 @@ class MatchingCmd extends SysCmd {
          * 报名
          */
         this._req.signup = {
-            route: 'matching.rankMatchHandler.c_signup',
+            route: 'matching.matchingHandler.c_signup',
             msg: {
                 enc: 'aes',
-                data: {
-                    token: '52_03458cd087cb11e7ba758392291a4bfa',
-                    num: 2 //双人模式
-                }
+                data: {}
             },
             res: {}
         };
@@ -33,7 +30,7 @@ class MatchingCmd extends SysCmd {
          * 取消报名
          */
         this._req.cancle = {
-            route: 'connector.rankMatchHandler.c_cancle',
+            route: 'matching.matchingHandler.c_cancle',
             msg: {
                 enc: 'aes',
                 data: {}

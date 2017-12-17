@@ -26,8 +26,8 @@ class MatchingEntry extends Entity {
 
     onMessage(msg, session, cb, route) {
         msg.data.uid = session.uid;
-        msg.data.sid = session.frontendId
-        this._rankMatching[route](msg.data, function (err, result) {
+        msg.data.sid = session.frontendId;
+        this._rankMatching[route](msg.data, session, function (err, result) {
             if (!!err) {
                 utils.invokeCallback(cb, null, answer.respNoData(err));
                 return;

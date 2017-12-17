@@ -549,6 +549,15 @@ class FishCmd extends SysCmd {
                 scene: 'scene_fish_1'
             }
         }
+
+        this._rpc.startMatch = {
+            route: 'rpc_start_match',
+            data: {
+                uid: 10011,
+                roomId: '111111',
+                sceneId: 'scene_fish_1'
+            }
+        }
     }
 }
 

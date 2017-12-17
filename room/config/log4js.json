@@ -107,7 +107,7 @@
   "categories": {
     "default": {
       "appenders": ["file", "console"],
-      "level": "debug"
+      "level": "error"
     }
   },
   "replaceConsole": true,

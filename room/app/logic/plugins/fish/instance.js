@@ -3,6 +3,8 @@ const Entry = require('./entry');
 const robotController = require('./robot/robotController');
 const config = require('./config');
 const PlayerFactory = require('./entity/playerFactory');
+const fishCmd = require('./fishCmd');
+const event = require('../../base/event');
 
 class Instance {
     constructor() {
@@ -11,6 +13,11 @@ class Instance {
         this.entry = new Entry();
         this._vacancyQueryTimer = null;
         this._kickOfflineTimer = null;
+
+        let rpc = fishCmd.remote;
+        for (let k of Object.keys(rpc)) {
+            event.on(rpc[k].route, this.onRPCMessage.bind(this));
+        }
     }
 
 
@@ -20,7 +27,7 @@ class Instance {
         }
         robotController.run();
 
-        if(!this._kickOfflineTimer){
+        if (!this._kickOfflineTimer) {
             this._kickOfflineTimer = setInterval(this.kick_offline_player.bind(this), config.PLAYER.KICK_OFFLINE_CHECK_TIMEOUT);
         }
     }
@@ -41,10 +48,10 @@ class Instance {
         robotController.addRobot(rooms);
     }
 
-    kick_offline_player(){
-        for(let scene of this.scenes.values()){
+    kick_offline_player() {
+        for (let scene of this.scenes.values()) {
             let scene_uids = scene.kickOfflinePlayer();
-            for(let uid of scene_uids){
+            for (let uid of scene_uids) {
                 this.uids.delete(uid);
             }
         }
@@ -79,35 +86,41 @@ class Instance {
         return rooms;
     }
 
-    _getInstScene(sceneId){
-        let scene = this.scenes.get(sceneId);
-        if (!scene) {
-            scene = new Scene(sceneId);
-            let err = scene.start()
-            if (err) {
-                return [err, null];
-            }
-            this.scenes.set(sceneId, scene);
-        }
-        return [null, scene];
+    getScene(sceneId) {
+        return this.scenes.get(sceneId);
     }
 
-    async enterScene(data, cb) {
+    onRPCMessage(data, route, cb) {
+        this[route](data, function (err, result) {
+            if (!!err) {
+                logger.error('-------------game远程调用失败', route, data)
+                return;
+            }
+            utils.invokeCallback(cb, err, result);
+        });
+    }
+
+    async rpc_enter_game(data, cb) {
         if (!data.gameMode || !data.sceneId || !data.uid || !data.sid) {
             utils.invokeCallback(cb, CONSTS.SYS_CODE.ARGS_INVALID);
             return;
         }
 
-        if(this.uids.has(data.uid)){
-            this.leaveScene(data.uid, data.sceneId);
+        if (this.uids.has(data.uid)) {
+            this.rpc_leave_game(data);
         }
 
-        let [err, scene] = this._getInstScene(data.sceneId, cb);
-        if(err){
-            utils.invokeCallback(cb, err);
-            return;
+        let scene = this.scenes.get(data.sceneId);
+        if (!scene) {
+            scene = new Scene(data.sceneId);
+            let err = scene.start()
+            if (err) {
+                utils.invokeCallback(cb, err);
+                return;
+            }
+            this.scenes.set(data.sceneId, scene);
         }
-        
+
         try {
             let player = await PlayerFactory.createPlayer(data);
             if (!!player) {
@@ -116,7 +129,6 @@ class Instance {
                     utils.invokeCallback(cb, err);
                     return
                 }
-                logger.error('-----------------------enterScene err, roomId:', err, roomId);
                 this.uids.set(data.uid, scene);
                 utils.invokeCallback(cb, null, roomId);
             } else {
@@ -126,12 +138,25 @@ class Instance {
             utils.invokeCallback(cb, err);
         }
     }
+    // uid, sceneId
+    rpc_leave_game(data, cb) {
+        let scene = this.scenes.get(data.sceneId)
+        if (!scene) {
+            utils.invokeCallback(cb, null);
+            return
+        }
+        let data1 = scene.leaveGame(data.uid);
+        this.uids.delete(data.uid);
+        utils.invokeCallback(cb, null, data1);
+    }
 
-    setPlayerState(data, cb) {
+    rpc_player_connect_state(data, cb) {
         if (!data.uid || !data.sid) {
             utils.invokeCallback(cb, CONSTS.SYS_CODE.ARGS_INVALID);
             return;
         }
+
+        logger.error('#########################333:', [...this.uids]);
         let scene = this.scenes.get(data.sceneId);
         if (!scene) {
             logger.error('setPlayerState data - ', data);
@@ -139,29 +164,14 @@ class Instance {
             return
         }
         let room = scene.getSceneRoom(data.uid)
-        if(!!room && room.setPlayerState(data.uid, data.state, data.sid)){
+        if (!!room && room.setPlayerState(data.uid, data.state, data.sid)) {
             utils.invokeCallback(cb, null, room.roomId);
-        }else{
+        } else {
             logger.error('setPlayerState dat222a - ', data, room);
             utils.invokeCallback(cb, CONSTS.SYS_CODE.PALYER_GAME_ROOM_DISMISS);
         }
     }
 
-    leaveScene(uid, sceneId, cb) {
-        let scene = this.scenes.get(sceneId)
-        if (!scene) {
-            utils.invokeCallback(cb, null)
-            return
-        }
-        let data = scene.leaveGame(uid);
-        this.uids.delete(uid);
-        utils.invokeCallback(cb, null, data);
-    }
-
-    getScene(sceneId) {
-        logger.error('-------getScene sceneId:', sceneId, [...this.scenes])
-        return this.scenes.get(sceneId)
-    }
 }
 
 module.exports = Instance;

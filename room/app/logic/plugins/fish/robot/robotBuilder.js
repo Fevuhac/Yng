@@ -8,10 +8,6 @@ const KEYTYPEDEF = require('../../../../utils/import_def').KEYTYPEDEF;
 
 class RobotBuilder {
     constructor() {
-        // this._weaponLevels = Object.keys(GAMECFG.newweapon_upgrade_cfg).map(function (item) {
-        //     return Number(item);
-        // });
-
         this._weaponLevels = Object.keys(GAMECFG.newweapon_upgrade_cfg);
         for (let k in this._weaponLevels) {
             this._weaponLevels[k] = parseInt(this._weaponLevels[k]);
@@ -114,7 +110,6 @@ class RobotBuilder {
                 figure_url:KEYTYPEDEF.OtherDef.figure_url.def,
                 nickname:randomName.generate()
             };
-
             async.waterfall([function (cb) {
                 redisClient.cmd.hlen(dbConsts.REDISKEY.FIGURE_URL, cb);
             },function (num, cb) {

@@ -30,7 +30,7 @@ class RankMatch {
     }
 
     remoteRpc(method, data, cb) {
-        if (!event.emit(method, data, cb, method)) {
+        if (!event.emit(method, data, method, cb)) {
             cb(CONSTS.SYS_CODE.NOT_SUPPORT_SERVICE);
         }
     }

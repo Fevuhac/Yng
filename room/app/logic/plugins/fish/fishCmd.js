@@ -1,10 +1,10 @@
-const SysCmd = require('../../../consts/sysCmd')
-
+const SysCmd = require('../../../consts/sysCmd');
 class FishCmd extends SysCmd {
     constructor() {
         super()
         this.initReq()
         this.initPush()
+        this.initRemote();
     }
 
     initReq() {

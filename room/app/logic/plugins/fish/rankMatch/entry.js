@@ -36,7 +36,20 @@ class RankMatchEntry extends Entity {
         this._rankHall.stop();
     }
 
-    _call(data, cb, route) {
+    onRPCMessage(data, route, cb) {
+        this[route](data, function (err, result) {
+            if (!!err) {
+                logger.error('-------------rankMatch远程调用失败', route, data)
+                return;
+            }
+            utils.invokeCallback(cb, err, result);
+        });
+    }
+
+    //接受网络消息
+    onMessage(msg, session, cb, route) {
+        msg.data.uid = session.uid;
+        msg.data.sid = session.frontendId;
         this._rankHall[route](data, function (err, result) {
             if (!!err) {
                 utils.invokeCallback(cb, null, answer.respNoData(err));
@@ -48,17 +61,6 @@ class RankMatchEntry extends Entity {
                 utils.invokeCallback(cb, null, answer.respNoData(CONSTS.SYS_CODE.OK));
             }
         });
-    }
-
-    onRPCMessage(data, cb, route) {
-        this._call(data, cb, route);
-    }
-
-    //接受网络消息
-    onMessage(msg, session, cb, route) {
-        msg.data.uid = session.uid;
-        msg.data.sid = session.frontendId;
-        this._call(msg.data, cb, route);
     }
 }
 

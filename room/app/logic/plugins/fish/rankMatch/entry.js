@@ -8,7 +8,6 @@ const RankHall = require('./hall');
 class RankMatchEntry extends Entity {
     constructor() {
         super({})
-        this.game = pomelo.app.game;
         this._rankHall = new RankHall();
 
         let req = rankMatchCmd.request;
@@ -50,7 +49,7 @@ class RankMatchEntry extends Entity {
     onMessage(msg, session, cb, route) {
         msg.data.uid = session.uid;
         msg.data.sid = session.frontendId;
-        this._rankHall[route](data, function (err, result) {
+        this._rankHall[route](msg.data, function (err, result) {
             if (!!err) {
                 utils.invokeCallback(cb, null, answer.respNoData(err));
                 return;

@@ -7,10 +7,16 @@ const constsDef = require('../../consts/constDef');
 
 class Entry {
     constructor() {
-        event.on(entryCmd.request.login.route, this.onLogin.bind(this));
-        event.on(entryCmd.request.logout.route, this.onLogout.bind(this));
-        event.on(entryCmd.request.enterGame.route, this.onEnterGame.bind(this));
-        event.on(entryCmd.request.leaveGame.route, this.onLeaveGame.bind(this));
+
+        let req = entryCmd.request;
+        for (let k of Object.keys(req)) {
+            event.on(req[k].route, this.onMessage.bind(this));
+        }
+
+        // event.on(entryCmd.request.login.route, this.onLogin.bind(this));
+        // event.on(entryCmd.request.logout.route, this.onLogout.bind(this));
+        // event.on(entryCmd.request.enterGame.route, this.onEnterGame.bind(this));
+        // event.on(entryCmd.request.leaveGame.route, this.onLeaveGame.bind(this));
     }
 
     start() {
@@ -19,6 +25,23 @@ class Entry {
 
     stop() {
         logger.info('连接服务器已经停止');
+    }
+
+    //接受网络消息
+    onMessage(msg, session, cb, route) {
+        msg.data.uid = session.uid;
+        msg.data.sid = session.frontendId;
+        this[route](msg.data, session, function (err, result) {
+            if (!!err) {
+                utils.invokeCallback(cb, null, answer.respNoData(err));
+                return;
+            }
+            if (result) {
+                utils.invokeCallback(cb, null, answer.respData(result, msg.enc));
+            } else {
+                utils.invokeCallback(cb, null, answer.respNoData(CONSTS.SYS_CODE.OK));
+            }
+        });
     }
 
     //新建游戏
@@ -44,8 +67,9 @@ class Entry {
                 cb(err);
             } else {
                 cb(null, {
-                    serverId: session.get('serverId'),
-                    roomId: session.get('roomId')
+                    gameSid: session.get('gameSid'),
+                    gameRoomId: session.get('gameRoomId'),
+                    sceneId: session.get('sceneId')
                 });
             }
         })
@@ -55,34 +79,31 @@ class Entry {
     _reconnectGame(data, session, cb) {
         data.state = constsDef.PALYER_STATE.ONLINE;
         async.waterfall([function (cb) {
-            session.set('serverId', data.serverId);
-            session.set('roomId', data.roomId);
-            session.set('sceneId', data.sceneId);
+            session.set('gameSid', data.recover.gameSid);
+            session.set('gameRoomId', data.recover.gameRoomId);
+            session.set('sceneId', data.recover.sceneId);
             session.pushAll(cb);
         }, function (cb) {
             pomelo.app.rpc.game.playerRemote.rpc_player_connect_state(session, {
                 uid: data.uid,
                 state: data.state,
                 sid: data.sid,
-                sceneId: data.game.sceneId
+                sceneId: data.recover.sceneId
             }, cb);
         }], function (err) {
             if (err) {
                 cb(err);
             } else {
-                cb(null, {
-                    serverId: data.serverId,
-                    roomId: data.roomId
-                });
+                cb(null, data.recover);
             }
         })
 
     }
 
-    onLogin(msg, session, cb) {
-        let token = msg.data.token;
+    c_login(data, session, cb) {
+        let token = data.token;
         if (!token) {
-            utils.invokeCallback(cb, null, answer.respNoData(CONSTS.SYS_CODE.ARGS_INVALID));
+            utils.invokeCallback(cb, CONSTS.SYS_CODE.ARGS_INVALID);
             return;
         }
 
@@ -108,22 +129,19 @@ class Entry {
                     if (err) {
                         cb(CONSTS.SYS_CODE.SYSTEM_ERROR)
                     } else {
-                        session.on('closed', self._playerOffline.bind(this));
+                        session.on('closed', self._socketClose.bind(this));
                         cb();
                     }
                 });
             }
         ], function (err) {
-            if (!err) {
-                err = CONSTS.SYS_CODE.OK;
-            }
-            utils.invokeCallback(cb, null, answer.respNoData(err));
+            utils.invokeCallback(cb, err);
             logger.error(`用户[${_uid}]登陆成功`);
         });
     }
 
-    onLogout(msg, session, cb) {
-        utils.invokeCallback(cb, null, answer.respNoData(CONSTS.SYS_CODE.OK));
+    c_logout(msg, session, cb) {
+        utils.invokeCallback(cb, null);
     }
 
     /**
@@ -132,32 +150,33 @@ class Entry {
      * @param {*} session 
      * @param {*} cb 
      */
-    onEnterGame(msg, session, cb) {
-        let data = {
-            gameMode: msg.data.flag, // 详见GAME_MODE定义
-            sceneId: msg.data.scene_name,
+    c_enter_room(data, session, cb) {
+        let _data = {
+            gameMode: data.flag, // 详见GAME_MODE定义
+            sceneId: data.scene_name,
             sid: session.frontendId,
-            uid: session.uid
+            uid: session.uid,
+            recover: data.recover
         };
 
         let self = this;
         async.waterfall([
             function (cb) {
-                if (!!msg.data.recover) {
-                    self._reconnectGame(data, session, cb);
-                    logger.error('onEnterGame 玩家重连游戏', msg.data.game);
+                if (!!data.recover) {
+                    self._reconnectGame(_data, session, cb);
+                    logger.error('onEnterGame 玩家重连游戏', _data.recover);
                 } else {
-                    logger.error('onEnterGame 新建游戏', data.uid);
-                    self._newGame(data, session, cb);
+                    logger.error('onEnterGame 新建游戏', _data.uid);
+                    self._newGame(_data, session, cb);
                 }
             }
         ], function (err, result) {
             if (err) {
-                utils.invokeCallback(cb, null, answer.respNoData(err));
+                utils.invokeCallback(cb, err);
                 return;
             }
-            utils.invokeCallback(cb, null, answer.respData(result, msg.enc));
-            logger.error(`用户[${data.uid}]加入游戏成功 roomId`, session.get('roomId'));
+            utils.invokeCallback(cb, null, result);
+            logger.error(`用户[${data.uid}]加入游戏成功`, result);
         });
     }
 
@@ -167,8 +186,8 @@ class Entry {
      * @param {*} session 
      * @param {*} cb 
      */
-    onLeaveGame(msg, session, cb) {
-        logger.info(`用户[${session.uid}]主动退出房间`);
+    c_leave_room(data, session, cb) {
+        logger.error(`用户[${session.uid}]主动退出房间`);
         let uid = session.uid;
         let gameSid = session.get('gameSid');
         if (!!gameSid) {
@@ -178,19 +197,19 @@ class Entry {
             }, function (err, result) {
                 logger.info(`用户[${uid}]退出游戏服务`, gameSid);
                 session.set('gameSid', null);
-                utils.invokeCallback(cb, null, answer.respData(result, msg.enc));
+                session.push('gameSid', function (err) {
+                    utils.invokeCallback(cb, null, result);
+                });
             });
         } else {
             utils.invokeCallback(cb, null);
         }
     }
 
-    _playerOffline(session, reason) {
-        logger.error('--------------------- _playerOffline  网络断开 11111111111');
+    _socketClose(session, reason) {
         if (!session || !session.uid) {
             return;
         }
-        logger.error('--------------------- _playerOffline  网络断开 22222222222');
         let uid = session.uid;
         let gameSid = session.get('gameSid');
         if (!!gameSid) {

@@ -38,6 +38,10 @@ class SysCmd {
     get remote(){
         return this._rpc;
     }
+
+    get push(){
+        return this._push;
+    }
 }
 
 module.exports = SysCmd

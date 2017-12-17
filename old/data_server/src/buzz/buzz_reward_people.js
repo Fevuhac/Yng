@@ -24,7 +24,7 @@ var REDIS_KEYS = require('./cst/buzz_cst_redis_keys').REDIS_KEYS,
     MSG = REDIS_KEYS.MSG;
 
 const shop_shop_buy_type_cfg = require('../../cfgs/shop_shop_buy_type_cfg');
-const i18n = require('../../../cfgs/string_strings_cfg');
+const i18n = require('../../cfgs/string_strings_cfg');
 const lan = 'cn';
 exports.give_reward = give_reward;
 

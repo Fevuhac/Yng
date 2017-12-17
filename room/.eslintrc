@@ -1,0 +1,45 @@
+{
+    // "extends": "eslint:recommended",
+    "rules": {
+        "camel_case": 0, //0 - turn rule off,1 - rule generates warnings
+        // "comma-dangle": 2,
+        "quotes": 0,
+        // "semi": [2, "always"], //语句强制分号结尾
+        "semi-spacing": [0, {
+            "before": false,
+            "after": true
+        }], //分号前后空格
+        // "no-unreachable": 2,//不能有无法执行的代码
+        // "no-unused-expressions": 2,//禁止无用的表达式
+        "strict": 2, //使用严格模式
+        // "no-undef": 0,//不能有未定义的变量
+        "no-undef-init": 2,//变量初始化时不能直接给它赋值为undefined
+        // "no-undefined": 2,//不能使用undefined
+        "no-unused-vars": [0, {"vars": "all", "args": "after-used"}],//不能有声明后未被使用的变量或参数
+        // "no-use-before-define": 2,//未定义前不能使用
+        // "no-constant-condition": 2, //禁止在条件中使用常量表达式 if(true) if(1)
+        "no-dupe-args": 2, //函数参数不能重复
+        "no-duplicate-case": 2, //switch中的case标签不能重复
+        // "no-else-return": 2, //如果if语句里面有return,后面不能跟else语句
+        // "no-empty": 2, //块语句中的内容不能为空
+        "no-eval": 1, //禁止使用eval
+        // "no-extra-parens": 2, //禁止非必要的括号
+        // "no-invalid-this": 2, //禁止无效的this，只能用在构造器，类，对象字面量
+        "space-after-keywords": [0, "always"], //关键字后面是否要空一格
+        "space-before-blocks": [0, "always"], //不以新行开始的块{前面要不要有空格
+        "space-before-function-paren": [0, "always"], //函数定义时括号前面要不要有空格
+        "space-in-parens": [0, "never"], //小括号里面要不要有空格
+        "use-isnan": 2,//禁止比较时使用NaN，只能用isNaN()
+        "no-var": 0,//禁用var，用let和const代替
+        "init-declarations": 0,//声明时必须赋初值
+        "max-depth": [0, 4]//嵌套块深度
+    },
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "module"
+    },
+    "globals": {
+        "console": true,
+        "module": true
+    }
+}

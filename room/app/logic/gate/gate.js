@@ -21,7 +21,6 @@ class Gate{
                 utils.invokeCallback(cb, null, answer.respNoData(err));
                 return;
             }
-
             utils.invokeCallback(cb, null, answer.respData(serverInfo, msg.enc))
         });
     }

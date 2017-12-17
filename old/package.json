@@ -30,13 +30,13 @@
         "socket.io": "^1.2.0",
         "redis": ">=0.0.1"
     },
-    "devDependencies": { 
-        "tap":  "*",
-        "socket-stress-test":  "*",
-        "ms":  "*",
-        "xmlhttprequest-ssl":  "*",
-        "engine.io-parser":  "*",
-        "parseqs":  "*",
+    "devDependencies": {
+        "tap": "*",
+        "socket-stress-test": "*",
+        "ms": "*",
+        "xmlhttprequest-ssl": "*",
+        "engine.io-parser": "*",
+        "parseqs": "*",
         "component-inherit": "*",
         "yeast": "*",
         "parsejson": "*",

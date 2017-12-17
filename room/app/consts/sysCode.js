@@ -67,7 +67,6 @@ class SysCode{
             desc:'服务器部署错误'
         };
 
-
         this.PLAYER_ILLEGAL = {
             code:350,
             desc:'玩家非法'
@@ -90,7 +89,7 @@ class SysCode{
 
         this.PLAYER_NOT_LOGIN = {
             code:354,
-            desc:'账号未登录'
+            desc:'玩家未登录'
         };
 
         this.PLAYER_BLOCK = {

@@ -1,5 +1,6 @@
 const pomelo = require('pomelo');
 const plugins = require('../plugins');
+const event = require('../../logic/base/event');
 const Entity = require('../base/entity');
 const cacheRunner = require('../../cache/runner');
 const redisClient = require('../../utils/import_db').redisClient;
@@ -8,7 +9,6 @@ const mysqlClient = require('../../utils/import_db').mysqlClient;
 class Game extends Entity {
     constructor() {
         super({})
-        this.instances = new Map(); //服务器实例
         this._instance = new plugins[sysConfig.GAME_TYPE].Instance();
     }
 
@@ -35,6 +35,12 @@ class Game extends Entity {
         // pomelo.app.get('sync').flush();
     }
 
+    remoteRpc(method, data, cb) {
+        if (!event.emit(method, data, cb, method)) {
+            cb(CONSTS.SYS_CODE.NOT_SUPPORT_SERVICE);
+        }
+    }
+
     getScene(sceneId) {
         return this._instance.getScene(sceneId);
     }
@@ -44,11 +50,12 @@ class Game extends Entity {
         return this._instance.getLoadStatistics();
     }
 
+
     //玩家加入
     onPlayerJoin(data, cb) {
         this._instance.enterScene(data, function (err, roomId) {
             if (!err) {
-                logger.error('onPlayerJoin enter ok', data.uid);
+                logger.error('加入游戏房间成功', data.uid);
             }
             utils.invokeCallback(cb, err, roomId);
         }.bind(this));

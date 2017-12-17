@@ -79,23 +79,21 @@ class Instance {
         return rooms;
     }
 
-    _getInstScene(sceneId, cb){
+    _getInstScene(sceneId){
         let scene = this.scenes.get(sceneId);
         if (!scene) {
             scene = new Scene(sceneId);
-            let ret = scene.start()
-            if (ret) {
-                utils.invokeCallback(cb, ret)
-                return;
+            let err = scene.start()
+            if (err) {
+                return [err, null];
             }
             this.scenes.set(sceneId, scene);
         }
-
-        return scene;
+        return [null, scene];
     }
 
     async enterScene(data, cb) {
-        if (!data.sceneId || !data.uid || !data.sid) {
+        if (!data.gameMode || !data.sceneId || !data.uid || !data.sid) {
             utils.invokeCallback(cb, CONSTS.SYS_CODE.ARGS_INVALID);
             return;
         }
@@ -104,21 +102,23 @@ class Instance {
             this.leaveScene(data.uid, data.sceneId);
         }
 
-        let scene = this._getInstScene(data.sceneId, cb);
-        if(!scene){
+        let [err, scene] = this._getInstScene(data.sceneId, cb);
+        if(err){
+            utils.invokeCallback(cb, err);
             return;
         }
         
         try {
             let player = await PlayerFactory.createPlayer(data);
             if (!!player) {
-                let ret = scene.joinGame(data.gameMode, player);
-                if (ret.code !== CONSTS.SYS_CODE.OK.code) {
-                    utils.invokeCallback(cb, ret);
+                let [err, roomId] = scene.joinGame(data.gameMode, player);
+                if (err) {
+                    utils.invokeCallback(cb, err);
                     return
                 }
+                logger.error('-----------------------enterScene err, roomId:', err, roomId);
                 this.uids.set(data.uid, scene);
-                utils.invokeCallback(cb, null, player.roomId);
+                utils.invokeCallback(cb, null, roomId);
             } else {
                 utils.invokeCallback(cb, CONSTS.SYS_CODE.PLAYER_CREATE_FAILED);
             }
@@ -159,6 +159,7 @@ class Instance {
     }
 
     getScene(sceneId) {
+        logger.error('-------getScene sceneId:', sceneId, [...this.scenes])
         return this.scenes.get(sceneId)
     }
 }

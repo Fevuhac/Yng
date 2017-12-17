@@ -46,12 +46,12 @@ class Scene {
 
     joinGame(gameMode, player) {
         if (!player || !player.uid) {
-            return CONSTS.SYS_CODE.ARGS_INVALID
+            return [CONSTS.SYS_CODE.ARGS_INVALID];
         }
 
-        let ret = this._access(player.account);
-        if (ret.code !== CONSTS.SYS_CODE.OK.code) {
-            return ret
+        let err = this._access(player.account);
+        if (err) {
+            return [err];
         }
 
         return this._enterRoom(gameMode, player);
@@ -117,31 +117,32 @@ class Scene {
     }
 
     _enterRoom(mode, player) {
-        let ret = CONSTS.SYS_CODE.OK;
+        let err = null;
+        let room = null;
         switch (mode) {
             case consts.GAME_MODE.GODDESS:
-                let room = this._createRoom(mode, GoddessRoom, 1);
+                room =  this._createRoom(mode, GoddessRoom, 1);
                 room.join(player);
                 this.entities.set(player.uid, room.roomId);
             break;
 
             case consts.GAME_MODE.SINGLE: {
-                let room = this._createRoom(mode, Room, 1);
+                room = this._createRoom(mode, Room, 1);
                 room.join(player);
                 this.entities.set(player.uid, room.roomId);
             }
                 break;
             case consts.GAME_MODE.MULTI: {
-                let room = this._searchMultiRoom();
+                room = this._searchMultiRoom();
                 if(!room){
-                    room = this._createRoom(mode);
+                    room = this._createRoom(consts.GAME_MODE.MULTI);
                 }
                 room.join(player);
                 this.entities.set(player.uid, room.roomId);
             }
                 break;
             case consts.GAME_MODE.MATCH: {
-                let room = this._matchRoom();
+                room = this._matchRoom();
                 if(!room){
                     room = this._createRoom(mode);
                 }
@@ -150,10 +151,10 @@ class Scene {
             }
                 break;
             default:
-                ret = FishCode.NOT_SUPPORT_ROOMMODE;
+            err = FishCode.NOT_SUPPORT_ROOMMODE;
                 break
         }
-        return ret;
+        return [err, !!room ? room.roomId : null];
     }
 
     _createRoom(mode, className, playerMax) {
@@ -209,7 +210,7 @@ class Scene {
             return FishCode.WEAPON_LEVEL_LOW;
         }
 
-        return CONSTS.SYS_CODE.OK;
+        return null;
     }
 
 

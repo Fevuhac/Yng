@@ -110,9 +110,8 @@ class RobotBuilder {
 
     genBaseInfo(){
         return new Promise(function (resolve, reject) {
-
             let info = {
-                figure_url:KEYTYPEDEF.AccountDef.figure_url.def,
+                figure_url:KEYTYPEDEF.OtherDef.figure_url.def,
                 nickname:randomName.generate()
             };
 

@@ -167,20 +167,14 @@ function queryEntry(uid, callback) {
 		log: true
 	}, function() {
 
-		let msg = {
-			// enc:"aes"
-		};
-
-		console.log('-----------',cryptojs);
-        msg.data = {
-            token:'ae432r9jfasfh8424'
-		};
-		pomelo.request(route, msg, function(package) {
+		pomelo.request(route, {}, function(package) {
 			pomelo.disconnect();
 			if(package.code === 500) {
 				showError(LOGIN_ERROR);
 				return;
 			}
+
+			console.log('---------connector-------', package);
 			callback(package.msg.data.host, package.msg.data.port);
 		});
 	});
@@ -257,38 +251,47 @@ $(document).ready(function() {
 				port: port,
 				log: true
 			}, function() {
-				var route = "connector.entryHandler.c_enter_room";
+				let route = "connector.entryHandler.c_login";
 				pomelo.request(route, {
 					data:{
-                        token: '3747_03458cd087cb11e7ba758392291a4bfa',
-                        // token: '358_03458cd087cb11e7ba758392291a4bfa',
-                        flag:1, // 多人房标记true，默认单人房false
-                        scene_name:'scene_mutiple_1' //准备进入的场景名
+                        token: '1_03458cd087cb11e7ba758392291a4bfa',
 					}
 				}, function(res) {
-
-					console.log('connector.entryHandler.c_enter_room',res);
-
-					if(res.error) {
-						showError(DUPLICATE_ERROR);
-						return;
-					}
-
-                    pomelo.request('game.fishHandler.c_fire', {
-                        data:{
-                            wp_skin: 13,
-                            fire_point: {x: 110, y: 200}
-                        }
-                    }, function(res) {
-						console.log('game.fishHandler.c_fire:',res);
-
+					console.log('connector.entryHandler.c_login:',res);
+					var route = "connector.entryHandler.c_enter_room";
+					pomelo.request(route, {
+						data:{
+							flag:1, // 多人房标记true，默认单人房false
+							scene_name:'scene_mutiple_1' //准备进入的场景名
+						}
+					}, function(res) {
+	
+						console.log('connector.entryHandler.c_enter_room',res);
+	
+						if(res.error) {
+							showError(DUPLICATE_ERROR);
+							return;
+						}
+	
+						pomelo.request('game.fishHandler.c_fire', {
+							data:{
+								wp_skin: 13,
+								fire_point: {x: 110, y: 200}
+							}
+						}, function(res) {
+							console.log('game.fishHandler.c_fire:',res);
+	
+						});
+	
+						setName();
+						setRoom();
+						showChat();
+						initUserList(res);
 					});
 
-					setName();
-					setRoom();
-					showChat();
-					initUserList(res);
 				});
+
+				
 			});
 		});
 	});

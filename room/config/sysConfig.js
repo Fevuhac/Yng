@@ -10,7 +10,7 @@ module.exports = {
         CHINA: 0, //大陆
         VIETNAM: 1 //越南
     },
-    PUB: 1,
+    PUB: 0,
 
     GAME_TYPE: 'fish',
 

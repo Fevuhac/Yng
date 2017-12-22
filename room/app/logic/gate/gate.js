@@ -1,5 +1,6 @@
 const event = require('../base/event');
 const gateCmd = require('../../cmd/gateCmd');
+const balanceCmd = require('../../cmd/balanceCmd');
 const pomelo = require('pomelo');
 
 class Gate{
@@ -16,7 +17,7 @@ class Gate{
     }
 
     onQueryEntry(msg, session, cb){
-        pomelo.app.rpc.balance.balanceRemote.getConnector(session, function (err, serverInfo) {
+        pomelo.app.rpc.balance.balanceRemote[balanceCmd.remote.getConnector.route](session, function (err, serverInfo) {
             if(err){
                 utils.invokeCallback(cb, null, answer.respNoData(err));
                 return;

@@ -5,27 +5,27 @@ var	drop_droplist_cfg =
 		probability : [10000],    //--掉落概率
 	},
 	'mry' : {
-		drop_id : [["mry","fd5","mry1","mry2"]],    //--掉落ID
+		drop_id : [["mry","fd4","mry1","mry2"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'zy' : {
-		drop_id : [["zy","fd6","zy1","zy2","S300_1","S300_2","S300_3","S300_4","S300_5"]],    //--掉落ID
+		drop_id : [["zy","fd4","zy1","zy2","S300_1","S300_2","S300_3","S300_4","S300_5"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'lg' : {
-		drop_id : [["lg","fd8","lg1","lg2","C300_1","C300_2","C300_3","C300_4","C300_5"]],    //--掉落ID
+		drop_id : [["lg","fd4","lg1","lg2","C300_1","C300_2","C300_3","C300_4","C300_5"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'hm' : {
-		drop_id : [["hm","fd3","hm1","hm2"]],    //--掉落ID
+		drop_id : [["hm","fd2","hm1","hm2"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'hm_s' : {
-		drop_id : [["hm","fd3","hm1","hm2","S300_1","S300_2","S300_3","S300_4","S300_5"]],    //--掉落ID
+		drop_id : [["hm","fd2","hm1","hm2","S300_1","S300_2","S300_3","S300_4","S300_5"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'hm_c' : {
-		drop_id : [["hm","fd3","hm1","hm2","C300_1","C300_2","C300_3","C300_4","C300_5"]],    //--掉落ID
+		drop_id : [["hm","fd2","hm1","hm2","C300_1","C300_2","C300_3","C300_4","C300_5"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'jqy' : {
@@ -281,91 +281,91 @@ var	drop_droplist_cfg =
 		probability : [10000],    //--掉落概率
 	},
 	'pirate1' : {
-		drop_id : [["mini002"]],    //--掉落ID
+		drop_id : [["i240"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate2' : {
-		drop_id : [["mini002"]],    //--掉落ID
+		drop_id : [["mini012"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate3' : {
-		drop_id : [["mini002"]],    //--掉落ID
+		drop_id : [["coincatch","mini013"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate4' : {
-		drop_id : [["mini002"]],    //--掉落ID
+		drop_id : [["i240"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate5' : {
-		drop_id : [["mini002"]],    //--掉落ID
+		drop_id : [["crazyfugu","mini013"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate6' : {
-		drop_id : [["mini002"]],    //--掉落ID
+		drop_id : [["mini013"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate7' : {
-		drop_id : [["mini002"]],    //--掉落ID
+		drop_id : [["mini012"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate8' : {
-		drop_id : [["mini002"]],    //--掉落ID
+		drop_id : [["i240"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate9' : {
-		drop_id : [["mini002"]],    //--掉落ID
+		drop_id : [["mini013"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate10' : {
-		drop_id : [["mini002"]],    //--掉落ID
+		drop_id : [["i240"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate11' : {
-		drop_id : [["mini002","mini002","mini012","mini013","mini013"]],    //--掉落ID
+		drop_id : [["coincatch","i240","i240","i240","mini021","mini013","mini013","mini013"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate12' : {
-		drop_id : [["mini002","mini002","mini012","mini011","mini012"]],    //--掉落ID
+		drop_id : [["coincatch","i240","i240","i240","mini012","mini022","mini012","mini012"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate13' : {
-		drop_id : [["mini002","mini002","mini013","mini013","mini031"]],    //--掉落ID
+		drop_id : [["coincatch","i240","i240","i240","mini013","mini013","mini023","mini031"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate14' : {
-		drop_id : [["mini002","mini002","mini011","mini013","mini013"]],    //--掉落ID
+		drop_id : [["crazyfugu","i240","i240","i240","mini023","mini013","mini013","mini013"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate15' : {
-		drop_id : [["mini002","mini002","mini012","mini012","mini012"]],    //--掉落ID
+		drop_id : [["crazyfugu","mini002","i240","i240","mini021","mini012","mini012","mini012"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate16' : {
-		drop_id : [["mini002","mini002","mini013","mini011","mini031"]],    //--掉落ID
+		drop_id : [["crazyfugu","i240","mini002","i240","mini022","mini012","mini011","mini031"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate21' : {
-		drop_id : [["mini002","mini002","mini011","mini013","mini013"]],    //--掉落ID
+		drop_id : [["coincatch","i240","i240","mini002","mini022","mini013","mini013","mini013"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate22' : {
-		drop_id : [["mini002","mini002","mini031","mini012","mini012"]],    //--掉落ID
+		drop_id : [["coincatch","i240","mini002","i240","mini021","mini012","mini012","mini012"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate23' : {
-		drop_id : [["mini002","mini002","mini013","mini012","mini011"]],    //--掉落ID
+		drop_id : [["coincatch","mini002","i240","i240","mini013","mini023","mini031","mini011"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate24' : {
-		drop_id : [["mini002","mini002","mini013","mini013","mini013"]],    //--掉落ID
+		drop_id : [["crazyfugu","i240","mini002","mini002","mini013","mini013","mini021","mini013"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate25' : {
-		drop_id : [["mini002","mini002","mini012","mini012","mini012"]],    //--掉落ID
+		drop_id : [["crazyfugu","mini002","mini002","mini002","mini012","mini012","mini022","mini012"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'pirate26' : {
-		drop_id : [["mini002","mini002","mini012","mini012","mini011"]],    //--掉落ID
+		drop_id : [["crazyfugu","i240","i240","i240","mini012","mini012","mini023","mini011"]],    //--掉落ID
 		probability : [10000],    //--掉落概率
 	},
 	'i000' : {

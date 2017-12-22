@@ -52,6 +52,10 @@ class ConfigReader {
                 tbl: 'daily_pirate_cfg',
                 tkey: 'ID'
             },
+            {
+                tbl: 'rank_rankgame_cfg',
+                tkey: 'id'
+            },
 
             {
                 tbl: 'goddess_goddessup_cfg',

@@ -21,7 +21,7 @@ do
 #复制安装包
 echo '服务器【'${hostname}':'${ip}'】创建安装目录...'
 scripts/cmd.sh $ip $user $password 'mkdir -p '${INSTALL_DIR}
-echo '服务器【'${hostname}':'${ip}'】创建安装目录'
+echo '服务器【'${hostname}':'${ip}'】创建安装目录完成'
 
 #复制安装包
 echo '服务器【'${hostname}':'${ip}'】安装包复制中...'

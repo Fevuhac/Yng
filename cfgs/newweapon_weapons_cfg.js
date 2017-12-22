@@ -58,7 +58,7 @@ var	newweapon_weapons_cfg =
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 1,    //--是否售卖
-		price : 99800,    //--售价钻石
+		price : 499,    //--售价钻石
 		bullet_type : 1,    //--子弹预制id
 		scale : 0.6,    //--战斗中缩放
 		iconscale : 0.18,    //--icon缩放
@@ -70,7 +70,7 @@ var	newweapon_weapons_cfg =
 		time2 : 0,    //--每降1点温度时间
 		autofire : 0,    //--自动开炮
 		tag : "0",    //--皮肤标签
-		piece : ["w502",150],    //--兑换碎片
+		piece : ["w502",50],    //--兑换碎片
 		starttime : "0",    //--上架时间
 		endtime : "0",    //--下降时间
 	},
@@ -90,12 +90,12 @@ var	newweapon_weapons_cfg =
 		sp : 1000,    //--子弹速度
 		bounce : 999,    //--反弹次数
 		effectvalue : 0,    //--特殊参数
-		power : [2.005,2,1],    //--命中消耗奖励
+		power : [2.015,2,1],    //--命中消耗奖励
 		interval : 0.25,    //--子弹隔秒
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 1,    //--是否售卖
-		price : 339800,    //--售价钻石
+		price : 1699,    //--售价钻石
 		bullet_type : 2,    //--子弹预制id
 		scale : 0.6,    //--战斗中缩放
 		iconscale : 0.18,    //--icon缩放
@@ -107,7 +107,7 @@ var	newweapon_weapons_cfg =
 		time2 : 0,    //--每降1点温度时间
 		autofire : 1,    //--自动开炮
 		tag : "0",    //--皮肤标签
-		piece : ["w503",150],    //--兑换碎片
+		piece : ["w503",90],    //--兑换碎片
 		starttime : "0",    //--上架时间
 		endtime : "0",    //--下降时间
 	},
@@ -127,12 +127,12 @@ var	newweapon_weapons_cfg =
 		sp : 1000,    //--子弹速度
 		bounce : 3,    //--反弹次数
 		effectvalue : 0,    //--特殊参数
-		power : [1,2,2.01],    //--命中消耗奖励
+		power : [1,2,2.02],    //--命中消耗奖励
 		interval : 0.25,    //--子弹隔秒
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 1,    //--是否售卖
-		price : 139800,    //--售价钻石
+		price : 699,    //--售价钻石
 		bullet_type : 3,    //--子弹预制id
 		scale : 0.6,    //--战斗中缩放
 		iconscale : 0.18,    //--icon缩放
@@ -144,7 +144,7 @@ var	newweapon_weapons_cfg =
 		time2 : 0,    //--每降1点温度时间
 		autofire : 0,    //--自动开炮
 		tag : "0",    //--皮肤标签
-		piece : ["w504",150],    //--兑换碎片
+		piece : ["w504",60],    //--兑换碎片
 		starttime : "0",    //--上架时间
 		endtime : "0",    //--下降时间
 	},
@@ -169,7 +169,7 @@ var	newweapon_weapons_cfg =
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 1,    //--是否售卖
-		price : 59800,    //--售价钻石
+		price : 299,    //--售价钻石
 		bullet_type : 4,    //--子弹预制id
 		scale : 0.55,    //--战斗中缩放
 		iconscale : 0.165,    //--icon缩放
@@ -181,7 +181,7 @@ var	newweapon_weapons_cfg =
 		time2 : 0,    //--每降1点温度时间
 		autofire : 0,    //--自动开炮
 		tag : "0",    //--皮肤标签
-		piece : ["w505",150],    //--兑换碎片
+		piece : ["w505",40],    //--兑换碎片
 		starttime : "0",    //--上架时间
 		endtime : "0",    //--下降时间
 	},
@@ -201,12 +201,12 @@ var	newweapon_weapons_cfg =
 		sp : 8000,    //--子弹速度
 		bounce : 0,    //--反弹次数
 		effectvalue : 0,    //--特殊参数
-		power : [5.0375,5,1],    //--命中消耗奖励
+		power : [5.06,5,1],    //--命中消耗奖励
 		interval : 0.6,    //--子弹隔秒
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 1,    //--是否售卖
-		price : 359800,    //--售价钻石
+		price : 1799,    //--售价钻石
 		bullet_type : 6,    //--子弹预制id
 		scale : 0.6,    //--战斗中缩放
 		iconscale : 0.18,    //--icon缩放
@@ -218,7 +218,7 @@ var	newweapon_weapons_cfg =
 		time2 : 0,    //--每降1点温度时间
 		autofire : 1,    //--自动开炮
 		tag : "0",    //--皮肤标签
-		piece : ["w506",150],    //--兑换碎片
+		piece : ["w506",90],    //--兑换碎片
 		starttime : "0",    //--上架时间
 		endtime : "0",    //--下降时间
 	},
@@ -238,12 +238,12 @@ var	newweapon_weapons_cfg =
 		sp : 2000,    //--子弹速度
 		bounce : 999,    //--反弹次数
 		effectvalue : 0,    //--特殊参数
-		power : [1.005,1,1],    //--命中消耗奖励
+		power : [1.01,1,1],    //--命中消耗奖励
 		interval : 0.13,    //--子弹隔秒
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 1,    //--是否售卖
-		price : 399800,    //--售价钻石
+		price : 1999,    //--售价钻石
 		bullet_type : 7,    //--子弹预制id
 		scale : 0.6,    //--战斗中缩放
 		iconscale : 0.18,    //--icon缩放
@@ -255,7 +255,7 @@ var	newweapon_weapons_cfg =
 		time2 : 0,    //--每降1点温度时间
 		autofire : 1,    //--自动开炮
 		tag : "0",    //--皮肤标签
-		piece : ["w507",150],    //--兑换碎片
+		piece : ["w507",100],    //--兑换碎片
 		starttime : "0",    //--上架时间
 		endtime : "0",    //--下降时间
 	},
@@ -274,13 +274,13 @@ var	newweapon_weapons_cfg =
 		charm : 1250,    //--魅力
 		sp : 1000,    //--子弹速度
 		bounce : 0,    //--反弹次数
-		effectvalue : 0.12875,    //--特殊参数
+		effectvalue : 0.13,    //--特殊参数
 		power : [1,2,1],    //--命中消耗奖励
 		interval : 0.26,    //--子弹隔秒
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 1,    //--是否售卖
-		price : 419800,    //--售价钻石
+		price : 2099,    //--售价钻石
 		bullet_type : 8,    //--子弹预制id
 		scale : 0.6,    //--战斗中缩放
 		iconscale : 0.18,    //--icon缩放
@@ -292,7 +292,7 @@ var	newweapon_weapons_cfg =
 		time2 : 0,    //--每降1点温度时间
 		autofire : 1,    //--自动开炮
 		tag : "0",    //--皮肤标签
-		piece : ["w508",150],    //--兑换碎片
+		piece : ["w508",100],    //--兑换碎片
 		starttime : "0",    //--上架时间
 		endtime : "0",    //--下降时间
 	},
@@ -312,12 +312,12 @@ var	newweapon_weapons_cfg =
 		sp : 1000,    //--子弹速度
 		bounce : 999,    //--反弹次数
 		effectvalue : 0,    //--特殊参数
-		power : [1.005,1,1],    //--命中消耗奖励
+		power : [1.01,1,1],    //--命中消耗奖励
 		interval : 0.1,    //--子弹隔秒
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 1,    //--是否售卖
-		price : 359800,    //--售价钻石
+		price : 1799,    //--售价钻石
 		bullet_type : 9,    //--子弹预制id
 		scale : 0.6,    //--战斗中缩放
 		iconscale : 0.18,    //--icon缩放
@@ -329,7 +329,7 @@ var	newweapon_weapons_cfg =
 		time2 : 0.5,    //--每降1点温度时间
 		autofire : 1,    //--自动开炮
 		tag : "0",    //--皮肤标签
-		piece : ["w509",150],    //--兑换碎片
+		piece : ["w509",90],    //--兑换碎片
 		starttime : "0",    //--上架时间
 		endtime : "0",    //--下降时间
 	},
@@ -349,12 +349,12 @@ var	newweapon_weapons_cfg =
 		sp : 1000,    //--子弹速度
 		bounce : 0,    //--反弹次数
 		effectvalue : 100.801,    //--特殊参数
-		power : [3.0225,3,1],    //--命中消耗奖励
+		power : [3.03,3,1],    //--命中消耗奖励
 		interval : 0.4,    //--子弹隔秒
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 1,    //--是否售卖
-		price : 279800,    //--售价钻石
+		price : 1399,    //--售价钻石
 		bullet_type : 10,    //--子弹预制id
 		scale : 0.7,    //--战斗中缩放
 		iconscale : 0.21,    //--icon缩放
@@ -366,7 +366,7 @@ var	newweapon_weapons_cfg =
 		time2 : 0,    //--每降1点温度时间
 		autofire : 1,    //--自动开炮
 		tag : "0",    //--皮肤标签
-		piece : ["w510",150],    //--兑换碎片
+		piece : ["w510",80],    //--兑换碎片
 		starttime : "0",    //--上架时间
 		endtime : "0",    //--下降时间
 	},
@@ -385,16 +385,16 @@ var	newweapon_weapons_cfg =
 		charm : 1100,    //--魅力
 		sp : 1000,    //--子弹速度
 		bounce : 999,    //--反弹次数
-		effectvalue : 0.2,    //--特殊参数
+		effectvalue : 0.15,    //--特殊参数
 		power : [2,2,1],    //--命中消耗奖励
 		interval : 0.25,    //--子弹隔秒
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 1,    //--是否售卖
-		price : 379800,    //--售价钻石
+		price : 1899,    //--售价钻石
 		bullet_type : 11,    //--子弹预制id
-		scale : 0.85,    //--战斗中缩放
-		iconscale : 0.255,    //--icon缩放
+		scale : 0.65,    //--战斗中缩放
+		iconscale : 0.195,    //--icon缩放
 		probation : 0,    //--试用时间
 		pricescale : 1,    //--试用折扣比例
 		progress : 0,    //--温度上限
@@ -403,7 +403,7 @@ var	newweapon_weapons_cfg =
 		time2 : 0,    //--每降1点温度时间
 		autofire : 1,    //--自动开炮
 		tag : "0",    //--皮肤标签
-		piece : ["w511",150],    //--兑换碎片
+		piece : ["w511",100],    //--兑换碎片
 		starttime : "0",    //--上架时间
 		endtime : "0",    //--下降时间
 	},
@@ -423,12 +423,12 @@ var	newweapon_weapons_cfg =
 		sp : 1000,    //--子弹速度
 		bounce : 999,    //--反弹次数
 		effectvalue : 0.7,    //--特殊参数
-		power : [1,1,1],    //--命中消耗奖励
+		power : [1,1,1.01],    //--命中消耗奖励
 		interval : 0.15,    //--子弹隔秒
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 1,    //--是否售卖
-		price : 439800,    //--售价钻石
+		price : 2199,    //--售价钻石
 		bullet_type : 12,    //--子弹预制id
 		scale : 0.6,    //--战斗中缩放
 		iconscale : 0.18,    //--icon缩放
@@ -440,7 +440,7 @@ var	newweapon_weapons_cfg =
 		time2 : 0,    //--每降1点温度时间
 		autofire : 0,    //--自动开炮
 		tag : "七夕限定",    //--皮肤标签
-		piece : ["w512",150],    //--兑换碎片
+		piece : ["w512",110],    //--兑换碎片
 		starttime : "0",    //--上架时间
 		endtime : "0",    //--下降时间
 	},
@@ -460,12 +460,12 @@ var	newweapon_weapons_cfg =
 		sp : 1000,    //--子弹速度
 		bounce : 999,    //--反弹次数
 		effectvalue : 1,    //--特殊参数
-		power : [1.005,1,1],    //--命中消耗奖励
+		power : [1.01,1,1],    //--命中消耗奖励
 		interval : 0.25,    //--子弹隔秒
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 0,    //--是否售卖
-		price : 519800,    //--售价钻石
+		price : 2599,    //--售价钻石
 		bullet_type : 13,    //--子弹预制id
 		scale : 1,    //--战斗中缩放
 		iconscale : 0.3,    //--icon缩放
@@ -477,7 +477,7 @@ var	newweapon_weapons_cfg =
 		time2 : 0,    //--每降1点温度时间
 		autofire : 1,    //--自动开炮
 		tag : "最强王者限定",    //--皮肤标签
-		piece : ["w513",150],    //--兑换碎片
+		piece : ["w513",120],    //--兑换碎片
 		starttime : "0",    //--上架时间
 		endtime : "0",    //--下降时间
 	},
@@ -496,13 +496,13 @@ var	newweapon_weapons_cfg =
 		charm : 1800,    //--魅力
 		sp : 500,    //--子弹速度
 		bounce : 999,    //--反弹次数
-		effectvalue : 0.5037,    //--特殊参数
+		effectvalue : 0.508,    //--特殊参数
 		power : [1,2,1],    //--命中消耗奖励
 		interval : 0.25,    //--子弹隔秒
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 0,    //--是否售卖
-		price : 19999800,    //--售价钻石
+		price : 9999999,    //--售价钻石
 		bullet_type : 14,    //--子弹预制id
 		scale : 0.9,    //--战斗中缩放
 		iconscale : 0.27,    //--icon缩放
@@ -534,12 +534,12 @@ var	newweapon_weapons_cfg =
 		sp : 500,    //--子弹速度
 		bounce : 999,    //--反弹次数
 		effectvalue : 1,    //--特殊参数
-		power : [1.005,6,1],    //--命中消耗奖励
+		power : [1.01,6,1],    //--命中消耗奖励
 		interval : 0.75,    //--子弹隔秒
 		bullet_count : 1,    //--子弹个数
 		default : 0,    //--默认
 		issale : 0,    //--是否售卖
-		price : 19999800,    //--售价钻石
+		price : 9999999,    //--售价钻石
 		bullet_type : 15,    //--子弹预制id
 		scale : 0.8,    //--战斗中缩放
 		iconscale : 0.24,    //--icon缩放

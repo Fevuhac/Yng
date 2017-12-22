@@ -7,7 +7,7 @@
 const Room = require('../room');
 const GoddessFishModel = require('./goddessFishModel');
 const consts = require('../consts');
-const fishCmd = require('../fishCmd');
+const fishCmd = require('../../../../cmd/fishCmd');
 
 class GoddessRoom extends Room {
     constructor (opts){

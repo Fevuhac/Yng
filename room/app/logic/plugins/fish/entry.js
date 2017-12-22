@@ -1,18 +1,22 @@
 const Entity = require('../../base/entity');
-const fishCmd = require('./fishCmd');
-const event = require('../../base/event');
+const fishCmd = require('../../../cmd/fishCmd');
 const pomelo = require('pomelo');
 const Code = require('./fishCode');
 
 class Entry extends Entity{
     constructor(){
         super({})
-        this.game = pomelo.app.game;
+    }
 
+    start(){
         let req = fishCmd.request;
         for(let k of Object.keys(req)){
-            event.on(req[k].route, this.onMessage.bind(this));
+            pomelo.app.game.event.on(req[k].route, this.onMessage.bind(this));
         }
+    }
+
+    stop(){
+
     }
 
     onMessage(msg, session, cb, route){

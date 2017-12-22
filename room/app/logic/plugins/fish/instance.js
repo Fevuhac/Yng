@@ -2,22 +2,17 @@ const Scene = require('./scene');
 const Entry = require('./entry');
 const robotController = require('./robot/robotController');
 const config = require('./config');
+const consts = require('./consts');
 const PlayerFactory = require('./entity/playerFactory');
-const fishCmd = require('./fishCmd');
-const event = require('../../base/event');
+const fishCmd = require('../../../cmd/fishCmd');
 
 class Instance {
     constructor() {
         this.scenes = new Map();
         this.uids = new Map();
-        this.entry = new Entry();
+        this._entry = new Entry();
         this._vacancyQueryTimer = null;
         this._kickOfflineTimer = null;
-
-        let rpc = fishCmd.remote;
-        for (let k of Object.keys(rpc)) {
-            event.on(rpc[k].route, this.onRPCMessage.bind(this));
-        }
     }
 
 
@@ -30,9 +25,12 @@ class Instance {
         if (!this._kickOfflineTimer) {
             this._kickOfflineTimer = setInterval(this.kick_offline_player.bind(this), config.PLAYER.KICK_OFFLINE_CHECK_TIMEOUT);
         }
+
+        this._entry.start();
     }
 
     stop() {
+        this._entry.stop();
         if (this._vacancyQueryTimer) {
             clearInterval(this._vacancyQueryTimer);
             this._vacancyQueryTimer = null;
@@ -90,18 +88,19 @@ class Instance {
         return this.scenes.get(sceneId);
     }
 
-    onRPCMessage(data, route, cb) {
-        this[route](data, function (err, result) {
-            if (!!err) {
-                logger.error('-------------game远程调用失败', route, data)
-                return;
-            }
+    remoteRpc(method, data, cb){
+        if(!this[method]){
+            cb(CONSTS.SYS_CODE.NOT_SUPPORT_SERVICE);
+            return;
+        }
+
+        this[method](data, function (err, result) {
             utils.invokeCallback(cb, err, result);
         });
     }
 
     async rpc_enter_game(data, cb) {
-        if (!data.gameMode || !data.sceneId || !data.uid || !data.sid) {
+        if (data.gameMode === undefined || !data.sceneId || !data.uid || !data.sid) {
             utils.invokeCallback(cb, CONSTS.SYS_CODE.ARGS_INVALID);
             return;
         }
@@ -122,6 +121,7 @@ class Instance {
         }
 
         try {
+            data.kindId = consts.ENTITY_TYPE.PLAYER; //通过该方法创建的玩家都是真实玩家
             let player = await PlayerFactory.createPlayer(data);
             if (!!player) {
                 let [err, roomId] = scene.joinGame(data.gameMode, player);
@@ -145,6 +145,8 @@ class Instance {
             utils.invokeCallback(cb, null);
             return
         }
+
+        logger.error('---------------------------------------离开游戏');
         let data1 = scene.leaveGame(data.uid);
         this.uids.delete(data.uid);
         utils.invokeCallback(cb, null, data1);
@@ -163,7 +165,7 @@ class Instance {
             utils.invokeCallback(cb, CONSTS.SYS_CODE.PALYER_GAME_ROOM_DISMISS)
             return
         }
-        let room = scene.getSceneRoom(data.uid)
+        let room = scene.getSceneRoom(data.uid);
         if (!!room && room.setPlayerState(data.uid, data.state, data.sid)) {
             utils.invokeCallback(cb, null, room.roomId);
         } else {
@@ -171,6 +173,51 @@ class Instance {
             utils.invokeCallback(cb, CONSTS.SYS_CODE.PALYER_GAME_ROOM_DISMISS);
         }
     }
+
+    rpc_match_start(data, cb) {
+        if (!data.uid) {
+            utils.invokeCallback(cb, CONSTS.SYS_CODE.ARGS_INVALID);
+            return;
+        }
+
+        let scene = this.uids.get(data.uid);
+        logger.error('#########################333: rpc_match_start ');
+        if (!scene) {
+            logger.error('setPlayerState data - ', data);
+            utils.invokeCallback(cb, CONSTS.SYS_CODE.PALYER_GAME_ROOM_DISMISS)
+            return
+        }
+
+        let room = scene.getSceneRoom(data.uid);
+        if (room) {
+            let player = room.getPlayer(data.uid);
+            player && player.startRmatch(data);
+            utils.invokeCallback(cb, null);
+        }
+    }
+
+    rpc_match_finish(data, cb) {
+        if (!data.uid) {
+            utils.invokeCallback(cb, CONSTS.SYS_CODE.ARGS_INVALID);
+            return;
+        }
+
+        let scene = this.uids.get(data.uid);
+        logger.error('#########################333: rpc_match_finish ');
+        if (!scene) {
+            logger.error('setPlayerState data - ', data);
+            utils.invokeCallback(cb, CONSTS.SYS_CODE.PALYER_GAME_ROOM_DISMISS)
+            return
+        }
+
+        let room = scene.getSceneRoom(data.uid);
+        if (room) {
+            let player = room.getPlayer(data.uid);
+            player && player.clearRmatch();
+            utils.invokeCallback(cb, null);
+        }
+    }
+
 
 }
 

@@ -12,6 +12,15 @@ class Handler{
             }
         };
     }
+
+    static registeEx(name, server){
+        let prototype = Handler.prototype;
+        prototype[name] = function (msg, session, next) {
+            if(!server.event.emit(msg.__route__, msg, session, next, name)){
+                next(null, answer.respNoData(CONSTS.SYS_CODE.NOT_SUPPORT_SERVICE));
+            }
+        };
+    }
 }
 
 module.exports = Handler;

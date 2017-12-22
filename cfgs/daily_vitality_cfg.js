@@ -10,7 +10,7 @@ var	daily_vitality_cfg =
 	},
 	{
 		value : 75,    //--条件值
-		reward : [["i013",2]],    //--物品id和个数
+		reward : [["i001",10000]],    //--物品id和个数
 	},
 	{
 		value : 100,    //--条件值

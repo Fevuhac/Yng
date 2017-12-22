@@ -1,5 +1,5 @@
 const RobotPlayer = require('./robotPlayer');
-const fishCmd = require('../fishCmd');
+const fishCmd = require('../../../../cmd/fishCmd');
 const event = require('../../../base/event');
 const config = require('../config');
 const RobotBuilder = require('./robotBuilder');
@@ -93,7 +93,6 @@ class RobotController {
 
     _addPlayerEvent(player) {
         player.on('kick', function (event) {
-            logger.error('-----------robot kick', event.player.uid);
             this._robotPlayerMap.delete(event.player.uid);
 
         }.bind(this));

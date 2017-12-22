@@ -22,13 +22,13 @@ expect {
 "*yes/no" { send "yes\r"}
 "*password:" { send "$password\r" }
 }
-
+set timeout 3 
 expect "*]#"
 send "sudo -s\r"
 expect "*]#"
 send "cd ${installPath}\r"
 expect "*]#"
 send "${cmd}\r"
-expect '*]#'
-# interact
 send "exit\r"
+expect eof
+# interact

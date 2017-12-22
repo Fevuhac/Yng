@@ -1,6 +1,6 @@
 const redisKey = require('../utils/import_def').REDISKEY;
 const redisAccountSync = require('../utils/import_utils').redisAccountSync;
-const platform_data_conf = require('../config/configReader').sysConfig.PLATFORM_DATA_CONF;
+const platform_data_conf = global.sysConfig.PLATFORM_DATA_CONF;
 
 class Cache{
     constructor(){

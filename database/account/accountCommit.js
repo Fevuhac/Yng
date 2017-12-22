@@ -910,6 +910,12 @@ class AccountCommit {
     set pirate(value) {
         this._modify('pirate', value);
     }
+    get phone(){
+        return this._value('phone');
+    }
+    set phone(value){
+        this._modify('phone', value);
+    }
 
 }
 

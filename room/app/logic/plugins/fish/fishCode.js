@@ -85,6 +85,21 @@ class FishCode extends SysCode{
             code: '3100',
             desc: '重复加入比赛'
         };
+
+        this.MATCH_ROOM_NOPLAYER = {
+            code: 3101,
+            desc: '玩家不在此比赛房间'
+        };
+
+        this.MATCH_ROOM_NOT_EXIST = {
+            code: 3101,
+            desc: '玩家不在此比赛房间'
+        };
+
+        this.MATCH_ROOM_GAMEOVER = {
+            code: 3101,
+            desc: '玩家不在此比赛房间'
+        };
     }
 }
 

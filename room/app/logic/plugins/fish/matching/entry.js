@@ -1,6 +1,5 @@
 const Entity = require('../../../base/entity');
 const matchingCmd = require('../../../../cmd/matchingCmd');
-const event = require('../../../base/event');
 const pomelo = require('pomelo');
 const Code = require('../fishCode');
 const consts = require('../consts');
@@ -9,15 +8,14 @@ class MatchingEntry extends Entity {
     constructor() {
         super({})
         this._rankMatching = new RankMatching();
-
-        let req = matchingCmd.request;
-        for (let k of Object.keys(req)) {
-            event.on(req[k].route, this.onMessage.bind(this));
-        }
     }
 
     start() {
         this._rankMatching.start();
+        let req = matchingCmd.request;
+        for (let k of Object.keys(req)) {
+            pomelo.app.matching.event.on(req[k].route, this.onMessage.bind(this));
+        }
     }
 
     stop() {

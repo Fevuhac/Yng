@@ -123,7 +123,7 @@ var	scene_scenes_cfg =
 	'scene_aquarium' : {
 		name : "0",    //--名称
 		description : "0",    //--规则说明
-		min_level : 100000,    //--最低倍率
+		min_level : 1,    //--最低倍率
 		max_level : 10000,    //--最高倍率
 		min_voucher : 6,    //--最低话费券
 		max_voucher : 10,    //--最高话费券
@@ -147,7 +147,7 @@ var	scene_scenes_cfg =
 	'scene_goddess' : {
 		name : "0",    //--名称
 		description : "0",    //--规则说明
-		min_level : 100000,    //--最低倍率
+		min_level : 100,    //--最低倍率
 		max_level : 100000,    //--最高倍率
 		min_voucher : 6,    //--最低话费券
 		max_voucher : 10,    //--最高话费券

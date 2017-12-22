@@ -4,7 +4,7 @@ const Room = require('./room');
 const GoddessRoom = require('./goddess/goddessRoom');
 
 const consts = require('./consts')
-const fishCmd = require('../../../logic/plugins/fish/fishCmd');
+const fishCmd = require('../../../cmd/fishCmd');
 const event = require('../../base/event');
 
 const ROBOT_EVENT = new Set([fishCmd.request.robot_catch_fish.route.split('.')[2]]);

@@ -3,23 +3,23 @@ const entryCmd = require('../../cmd/entryCmd');
 const pomelo = require('pomelo');
 const async = require('async');
 const constsDef = require('../../consts/constDef');
-
-
+const balanceCmd = require('../../cmd/balanceCmd');
+const fishCmd = require('../../cmd/fishCmd');
+const EventEmitter = require('events').EventEmitter;
 class Entry {
     constructor() {
-
-        let req = entryCmd.request;
-        for (let k of Object.keys(req)) {
-            event.on(req[k].route, this.onMessage.bind(this));
-        }
-
-        // event.on(entryCmd.request.login.route, this.onLogin.bind(this));
-        // event.on(entryCmd.request.logout.route, this.onLogout.bind(this));
-        // event.on(entryCmd.request.enterGame.route, this.onEnterGame.bind(this));
-        // event.on(entryCmd.request.leaveGame.route, this.onLeaveGame.bind(this));
+        this._event = new EventEmitter();
+    }
+    
+    get event(){
+        return this._event;
     }
 
     start() {
+        let req = entryCmd.request;
+        for (let k of Object.keys(req)) {
+            this.event.on(req[k].route, this.onMessage.bind(this));
+        }
         logger.info('连接服务器启动成功');
     }
 
@@ -48,7 +48,7 @@ class Entry {
     _newGame(data, session, cb) {
         async.waterfall([
             function (cb) {
-                pomelo.app.rpc.balance.balanceRemote.getGame(session, cb);
+                pomelo.app.rpc.balance.balanceRemote[balanceCmd.remote.getGameServer.route](session, cb);
             },
             function (serverId, cb) {
                 session.set('gameSid', serverId);
@@ -63,7 +63,7 @@ class Entry {
                         roomId:roomId,
                     }
                 }
-                pomelo.app.rpc.game.playerRemote.rpc_enter_game(session, data, cb);
+                pomelo.app.rpc.game.playerRemote[fishCmd.remote.enterGame.route](session, data, cb);
             },
             function (roomId, cb) {
                 session.set('gameRoomId', roomId);
@@ -92,7 +92,7 @@ class Entry {
             session.set('sceneId', data.recover.game.sceneId);
             session.pushAll(cb);
         }, function (cb) {
-            pomelo.app.rpc.game.playerRemote.rpc_player_connect_state(session, {
+            pomelo.app.rpc.game.playerRemote[fishCmd.remote.playerConnectState.route](session, {
                 uid: data.uid,
                 state: data.state,
                 sid: data.sid,
@@ -103,7 +103,7 @@ class Entry {
             if (err) {
                 cb(err);
             } else {
-                cb(null, data.recover);
+                cb(null, data.recover.game);
             }
         })
 
@@ -151,6 +151,7 @@ class Entry {
 
     c_logout(msg, session, cb) {
         utils.invokeCallback(cb, null);
+        logger.error('用户[]登出成功', msg.uid);
     }
 
     /**
@@ -200,7 +201,7 @@ class Entry {
         let uid = session.uid;
         let serverId = session.get('gameSid');
         if (!!serverId) {
-            pomelo.app.rpc.game.playerRemote.rpc_leave_game(session, {
+            pomelo.app.rpc.game.playerRemote[fishCmd.remote.leaveGame.route](session, {
                 uid: uid,
                 sceneId: session.get('sceneId')
             }, function (err, result) {
@@ -209,6 +210,7 @@ class Entry {
                 session.push('gameSid', function (err) {
                     utils.invokeCallback(cb, null, result);
                 });
+               // utils.invokeCallback(cb, null, result);
             });
         } else {
             utils.invokeCallback(cb, null);
@@ -222,7 +224,7 @@ class Entry {
         let uid = session.uid;
         let serverId = session.get('gameSid');
         if (!!serverId) {
-            pomelo.app.rpc.game.playerRemote.rpc_player_connect_state(session, {
+            pomelo.app.rpc.game.playerRemote[fishCmd.remote.playerConnectState.route](session, {
                 uid: uid,
                 state: constsDef.PALYER_STATE.OFFLINE,
                 sid: session.frontendId,

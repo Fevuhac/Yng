@@ -1,5 +1,7 @@
 const RankMatchRoom = require('./room');
 const fishCode = require('../fishCode');
+const config = require('../config');
+
 class RankHall{
     constructor(){
         this._roomMap = new Map();
@@ -11,11 +13,22 @@ class RankHall{
         return this._roomMap.size;
     }
 
+    remoteRpc(method, data, cb){
+        if(!this[method]){
+            cb(CONSTS.SYS_CODE.NOT_SUPPORT_SERVICE);
+            return;
+        }
+        this[method](data, function (err, result) {
+            utils.invokeCallback(cb, err, result);
+        });
+    }
+
     _tick(){
         for(let room of this._roomMap.values()){
             room.update();
-            if(room.state == 2){
-                this._roomMap.delete(room.id);
+            if(room.isGameOver()){
+                this._roomMap.delete(room.roomId);
+                logger.error('比赛结束，移除房间');
             }
         }
     }
@@ -24,63 +37,88 @@ class RankHall{
 
     }
 
-    runTask() {
+    _runTask() {
         if (!this._canRun) return;
         setTimeout(function () {
             this._tick();
-            runTask();
+            this._runTask();
         }.bind(this), 100);
     }
 
     start(){
-
+        this._runTask();
     }
 
     stop(){
         this._canRun = false;
     }
 
-    // let account = {
-    //     uid:uuidv1(),
-    //     nickname: baseInfo.nickname,
-    //     figure_url: baseInfo.figure_url,
-    //     weapon_skin: weapon_skin,
-    //     type: consts.ENTITY_TYPE.MATCH_ROBOT
-    // };
-    rpc_join(users, cb){
-        for(let i = 0; i< users.length; ++i){
-            let user = users[i];
-            if(this._uids.has(user.uid)){
-                cb(fishCode.MATCH_REPEATE_JOIN);
-                return
-            }
-        }
+    rpc_join(data, cb){
+        let room = new RankMatchRoom({users: data.users});
+        this._roomMap.set(room.roomId, room);
+        cb(null, {
+            roomId: room.roomId,
+            countdown: room.countdown,
+            bulletNum: config.MATCH.FIRE,
+        });
     }
 
     rpc_ready(data, cb){
         let room = this._roomMap.get(data.roomId);
         if(!room){
-            cb('房间不存在');
+            cb(fishCode.MATCH_ROOM_NOT_EXIST);
             return;
         }
-
-        room.setReady(data.uid);
+        room.setReady(data);
         cb();        
     }
 
-    rpc_fight_info(data, cb){
+    _rpcInfo(data, cb){
         let room = this._roomMap.get(data.roomId);
         if(!room){
-            cb('比赛房间已经解散');
+            cb(fishCode.MATCH_ROOM_NOT_EXIST);
             return;
         }
 
-        if(room.gameover()){
-            cb('比赛房间已经结束');
+        if(room.isGameOver()){
+            cb(fishCode.MATCH_ROOM_GAMEOVER);
             return;
         }
+        cb && cb(0, room);
     }
 
+    rpc_fight_info(data, cb){
+        this._rpcInfo(data, function(code, room) {
+            if (code != 0) return;
+            room.setFightInfo(data);
+            cb && cb(null);
+        });
+    }
+
+    rpc_weapon_change(data, cb) {
+        this._rpcInfo(data, function(code, room) {
+            if (code != 0) return;
+            room.weaponChange(data);
+            cb && cb(null);
+        });
+    }
+
+    rpc_use_nbomb(data, cb) {
+        this._rpcInfo(data, function(code, room) {
+            if (code != 0) return;
+            room.useNbomb(data);
+            cb && cb(null);
+        });
+    }
+
+    rpc_cancel_nbomb(data, cb) {
+        this._rpcInfo(data, function(code, room) {
+            if (code != 0) return;
+            room.cancelNbomb(data);
+            cb && cb(null);
+        });
+    }
+    
     c_chat(data, cb){
 
     }

@@ -3,6 +3,9 @@ const User = require('./user');
 const pomelo = require('pomelo');
 const messageService = require('../../../net/messageService');
 const matchingCmd = require('../../../../cmd/matchingCmd');
+const balanceCmd = require('../../../../cmd/balanceCmd');
+const rankMatchCmd = require('../../../../cmd/rankMatchCmd');
+const fishCmd = require('../../../../cmd/fishCmd');
 const RobotBuilder = require('../robot/robotBuilder');
 const consts = require('../consts');
 const uuidv1 = require('uuid/v1');
@@ -33,29 +36,17 @@ class RankMatching {
     //排位赛玩家报名
     async c_signup(data, session, cb) {
         try {
-            let serverId = session.get('gameSid');
-            let sceneId = session.get('sceneId');
-            let roomId = session.get('gameRoomId');
-            if (!!gameSid && !!sceneId && !!gameRoomId) {
-                data.game = {
-                    serverId: serverId,
-                    sceneId: sceneId,
-                    roomId: roomId,
-                }
-            }
-            logger.error('-------------------c_signup', data);
+            logger.error('有人报名--', data);
             let user = await User.allocUser(data);
             this._users.set(data.uid, user);
-            logger.error('-------------------c_signup 111', user);
             cb();
-
         } catch (err) {
             cb(err);
         }
     }
 
     //取消报名
-    c_cancle(data, session, cb) {
+    c_cancel(data, session, cb) {
         this._users.delete(data.uid);
         cb();
     }
@@ -68,6 +59,7 @@ class RankMatching {
             if (user.canMatch(enemy.sword)) {
                 if (enemy.canMatch(user.sword)) {
                     mate_enemy = enemy;
+                    levels[i] = null;
                     break;
                 }
 
@@ -79,8 +71,8 @@ class RankMatching {
     }
 
     //TODO: 分配机器人
-    _allocRobotEnemy(user) {
-        let baseInfo = this._robotBuilder.genBaseInfo();
+    async _allocRobotEnemy(user) {
+        let baseInfo = await this._robotBuilder.genBaseInfo();
         let weapon_skin = this._robotBuilder.genOwnWeaponSkin();
 
         let account = {
@@ -88,11 +80,13 @@ class RankMatching {
             nickname: baseInfo.nickname,
             figure_url: baseInfo.figure_url,
             weapon_skin: weapon_skin,
-            type: consts.ENTITY_TYPE.MATCH_ROBOT
+            match_rank: 5,//TODO
+            nbomb_cost: 1000, //TODO 本次核弹消耗金币
+            kindId: consts.ENTITY_TYPE.ROBOT,
         };
 
         return {
-            account: account
+            account: account,
         };
     }
 
@@ -101,7 +95,6 @@ class RankMatching {
      */
     async _mate() {
         let levels = [...this._users];
-        logger.error('--------------_mate 111:', levels);
         levels.sort(function (userA, userB) {
             if (userA.sword != userB.sword) {
                 return userA.sword < userB.sword;
@@ -109,56 +102,59 @@ class RankMatching {
                 return userA.sigupTime > userB.sigupTime;
             }
         });
-        logger.error('--------------_mate 222:', levels);
+
         for (let i = 0; i < levels.length; i++) {
+            if (!levels[i]) continue;
+
             let user = levels[i][1];
             levels[i] = null;
+
             let enemy = this._searchEnemy(user, levels);
             if (!enemy) {
                 //TODO:读取配置文件，不同段位的玩家，匹配机器人时间不同
                 if (Date.now() - user.sigupTime > config.MATCH.MATE_TIMEOUT) {
-                    enemy = this._allocRobotEnemy(user);
+                    enemy = await this._allocRobotEnemy(user);
                 }
             }
 
             if (enemy) {
-                let uids = this._getUids(user, enemy);
+                let uids = this._getUids([user, enemy]);
                 try {
                     let serverId = await this._allocMatchServer();
-                    let matchInfo = await this._joinMatchRoom(serverId, [user.account, enemy.account]);
-
+                    let matchInfo = await this._joinMatchRoom(serverId, {
+                        users: [user.account, enemy.account]
+                    });
                     let mateResult = {
-                        roomInfo: {
+                        rankMatch: {
                             serverId: serverId,
                             roomId: matchInfo.roomId,
-                            countdown: matchInfo.countdown,
-                            bulletNum: matchInfo.bulletNum
                         },
-                        users: [
-                            user.account,
-                            enemy.account
-                        ]
-                    }
+                        players: [user.getMatchingInfo(), enemy.getMatchingInfo()],
+                    };
                     this._responseMateResult(null, mateResult, uids);
-                    this._notifyGameRoomMatch([user, enemy], {
-                        serverId: serverId,
-                        roomId: matchInfo.roomId
-                    });
+                    this._remQueue(uids);
                 } catch (err) {
                     logger.error('排位赛加入异常', err);
-                    this._sendMateResult(err, null, uids);
+                    this._responseMateResult(err, null, uids);
+                    this._remQueue(uids);
                 }
             }
         }
     }
 
+    _remQueue(uids) {
+        uids.forEach(function (item) {
+            this._users.delete(item.uid);
+        }.bind(this));
+    }
+
     _getUids(users) {
         let uids = [];
         users.forEach(user => {
-            if (user.account.type == consts.ENTITY_TYPE.PLAYER) {
+            if (user.account.kindId == consts.ENTITY_TYPE.PLAYER) {
                 uids.push({
-                    uid: user.ext.uid,
-                    sid: user.ext.sid
+                    uid: user.account.uid,
+                    sid: user.account.sid
                 });
             }
         });
@@ -167,7 +163,7 @@ class RankMatching {
 
     _allocMatchServer() {
         return new Promise(function (resolve, reject) {
-            pomelo.app.rpc.balance.getRankMatch({}, function (err, serverId) {
+            pomelo.app.rpc.balance.balanceRemote[balanceCmd.remote.getRankMatchServer.route]({}, function (err, serverId) {
                 if (err) {
                     reject(err);
                 } else {
@@ -178,11 +174,11 @@ class RankMatching {
     }
 
     //加入比赛房间
-    _joinMatchRoom(serverId, users) {
+    _joinMatchRoom(serverId, data) {
         return new Promise(function (resolve, reject) {
-            pomelo.app.rpc.rankMatch.rankMatchRemote.join({
-                rankMatchId: serverId
-            }, users, function (err, result) {
+            pomelo.app.rpc.rankMatch.rankMatchRemote[rankMatchCmd.remote.join.route]({
+                rankMatchSid: serverId
+            }, data, function (err, result) {
                 if (err) {
                     reject(err);
                     return;
@@ -198,26 +194,7 @@ class RankMatching {
             messageService.broadcast(matchingCmd.push.matchingResult.route, answer.respNoData(err), uids);
             return;
         }
-        messageService.broadcast(matchingCmd.push.matchingResult.route, answer.respData(data), uids);
-    }
-
-    //通知游戏服务器比赛
-    _notifyGameRoomMatch(users, rankMatch) {
-        users.forEach(user => {
-            if (user.account.type == consts.ENTITY_TYPE.PLAYER) {
-                if (user.ext.game) {
-                    pomelo.app.rpc.game.playerRemote.rpc_start_match({
-                        serverId: user.ext.game.serverId
-                    }, {
-                        uid: user.account.uid,
-                        roomId: user.rankMatch.roomId,
-                        sceneId: user.rankMatch.sceneId,
-                    }, function (err, result) {
-                        logger.error('_notifyGameRoomMatch ', err, result);
-                    });
-                }
-            }
-        });
+        messageService.broadcast(matchingCmd.push.matchingResult.route, data, uids);
     }
 }
 

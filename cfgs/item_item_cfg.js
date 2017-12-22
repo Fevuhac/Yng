@@ -89,7 +89,7 @@ var	item_item_cfg =
 		description : "item_desc_i011",    //--物品描述
 		type : 3,    //--类型
 		id : 1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "skill_02",    //--显示图标
@@ -101,7 +101,7 @@ var	item_item_cfg =
 		description : "item_desc_i012",    //--物品描述
 		type : 3,    //--类型
 		id : 2,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "skill_01",    //--显示图标
@@ -113,7 +113,7 @@ var	item_item_cfg =
 		description : "item_desc_i013",    //--物品描述
 		type : 3,    //--类型
 		id : 3,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "skill_04",    //--显示图标
@@ -125,7 +125,7 @@ var	item_item_cfg =
 		description : "item_desc_i014",    //--物品描述
 		type : 3,    //--类型
 		id : 4,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "skill_03",    //--显示图标
@@ -137,7 +137,7 @@ var	item_item_cfg =
 		description : "item_desc_i015",    //--物品描述
 		type : 3,    //--类型
 		id : 8,    //--该类型对应id，-1无意义
-		saleprice : 50,    //--售价金币
+		saleprice : 20000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "hedan1",    //--显示图标
@@ -149,7 +149,7 @@ var	item_item_cfg =
 		description : "item_desc_i016",    //--物品描述
 		type : 3,    //--类型
 		id : 9,    //--该类型对应id，-1无意义
-		saleprice : 150,    //--售价金币
+		saleprice : 60000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "hedan2",    //--显示图标
@@ -161,7 +161,7 @@ var	item_item_cfg =
 		description : "item_desc_i017",    //--物品描述
 		type : 3,    //--类型
 		id : 10,    //--该类型对应id，-1无意义
-		saleprice : 500,    //--售价金币
+		saleprice : 200000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "hedan3",    //--显示图标
@@ -461,7 +461,7 @@ var	item_item_cfg =
 		description : "item_desc_i301",    //--物品描述
 		type : 9,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "qixi02",    //--显示图标
@@ -473,7 +473,7 @@ var	item_item_cfg =
 		description : "item_desc_i302",    //--物品描述
 		type : 9,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "qixi03",    //--显示图标
@@ -485,7 +485,7 @@ var	item_item_cfg =
 		description : "item_desc_i303",    //--物品描述
 		type : 9,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "qixi04",    //--显示图标
@@ -497,7 +497,7 @@ var	item_item_cfg =
 		description : "item_desc_i304",    //--物品描述
 		type : 9,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "qixi05",    //--显示图标
@@ -521,7 +521,7 @@ var	item_item_cfg =
 		description : "item_desc_i310",    //--物品描述
 		type : 9,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "mianfen",    //--显示图标
@@ -533,7 +533,7 @@ var	item_item_cfg =
 		description : "item_desc_i311",    //--物品描述
 		type : 9,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "hongdou",    //--显示图标
@@ -545,7 +545,7 @@ var	item_item_cfg =
 		description : "item_desc_i312",    //--物品描述
 		type : 9,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 2,    //--售价金币
+		saleprice : 2000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "huotui",    //--显示图标
@@ -557,7 +557,7 @@ var	item_item_cfg =
 		description : "item_desc_i313",    //--物品描述
 		type : 9,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 4,    //--售价金币
+		saleprice : 4000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "lianzi",    //--显示图标
@@ -569,7 +569,7 @@ var	item_item_cfg =
 		description : "item_desc_i314",    //--物品描述
 		type : 9,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 8,    //--售价金币
+		saleprice : 8000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "shijing",    //--显示图标
@@ -737,7 +737,7 @@ var	item_item_cfg =
 		description : "item_desc_i500",    //--物品描述
 		type : 9,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 100,    //--售价金币
+		saleprice : 100000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "yunshiicon",    //--显示图标
@@ -749,7 +749,7 @@ var	item_item_cfg =
 		description : "item_desc_i501",    //--物品描述
 		type : 8,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 2,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "dianzhishiicon",    //--显示图标
@@ -761,7 +761,7 @@ var	item_item_cfg =
 		description : "item_desc_i502",    //--物品描述
 		type : 8,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 2,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "huozhishiicon",    //--显示图标
@@ -773,7 +773,7 @@ var	item_item_cfg =
 		description : "item_desc_i503",    //--物品描述
 		type : 8,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 2,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "xuezhishiicon",    //--显示图标
@@ -785,7 +785,7 @@ var	item_item_cfg =
 		description : "item_desc_i504",    //--物品描述
 		type : 8,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 2,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "anzhishiicon",    //--显示图标
@@ -797,7 +797,7 @@ var	item_item_cfg =
 		description : "item_desc_i505",    //--物品描述
 		type : 8,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 2,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "dizhishiicon",    //--显示图标
@@ -809,7 +809,7 @@ var	item_item_cfg =
 		description : "item_desc_i601",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "sjysp",    //--显示图标
@@ -821,7 +821,7 @@ var	item_item_cfg =
 		description : "item_desc_i602",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "dbssp",    //--显示图标
@@ -833,7 +833,7 @@ var	item_item_cfg =
 		description : "item_desc_i603",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "xcysp",    //--显示图标
@@ -845,7 +845,7 @@ var	item_item_cfg =
 		description : "item_desc_i604",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "hjsp",    //--显示图标
@@ -857,7 +857,7 @@ var	item_item_cfg =
 		description : "item_desc_i605",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "htsp",    //--显示图标
@@ -869,7 +869,7 @@ var	item_item_cfg =
 		description : "item_desc_i607",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "jdsp",    //--显示图标
@@ -881,7 +881,7 @@ var	item_item_cfg =
 		description : "item_desc_i608",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "mgysp",    //--显示图标
@@ -893,7 +893,7 @@ var	item_item_cfg =
 		description : "item_desc_i609",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "ctssp",    //--显示图标
@@ -905,7 +905,7 @@ var	item_item_cfg =
 		description : "item_desc_i610",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "cmysp",    //--显示图标
@@ -917,7 +917,7 @@ var	item_item_cfg =
 		description : "item_desc_i611",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "smsp",    //--显示图标
@@ -929,7 +929,7 @@ var	item_item_cfg =
 		description : "item_desc_i612",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "hgsp",    //--显示图标
@@ -941,7 +941,7 @@ var	item_item_cfg =
 		description : "item_desc_i613",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "lbsysp",    //--显示图标
@@ -953,7 +953,7 @@ var	item_item_cfg =
 		description : "item_desc_i614",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "dhbysp",    //--显示图标
@@ -965,7 +965,7 @@ var	item_item_cfg =
 		description : "item_desc_i615",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "bffsp",    //--显示图标
@@ -977,7 +977,7 @@ var	item_item_cfg =
 		description : "item_desc_i616",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "jjysp",    //--显示图标
@@ -989,7 +989,7 @@ var	item_item_cfg =
 		description : "item_desc_i617",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "ylsp",    //--显示图标
@@ -1001,7 +1001,7 @@ var	item_item_cfg =
 		description : "item_desc_i618",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "htsp_1",    //--显示图标
@@ -1013,7 +1013,7 @@ var	item_item_cfg =
 		description : "item_desc_i620",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "hgjjsp",    //--显示图标
@@ -1025,7 +1025,7 @@ var	item_item_cfg =
 		description : "item_desc_i621",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "bzysp",    //--显示图标
@@ -1037,7 +1037,7 @@ var	item_item_cfg =
 		description : "item_desc_i622",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "mrysp",    //--显示图标
@@ -1049,7 +1049,7 @@ var	item_item_cfg =
 		description : "item_desc_i623",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "dnysp",    //--显示图标
@@ -1061,7 +1061,7 @@ var	item_item_cfg =
 		description : "item_desc_i624",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "ppsysp",    //--显示图标
@@ -1073,7 +1073,7 @@ var	item_item_cfg =
 		description : "item_desc_i626",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "dysp",    //--显示图标
@@ -1085,7 +1085,7 @@ var	item_item_cfg =
 		description : "item_desc_i632",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "cqysp",    //--显示图标
@@ -1097,7 +1097,7 @@ var	item_item_cfg =
 		description : "item_desc_i639",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "jysp",    //--显示图标
@@ -1109,7 +1109,7 @@ var	item_item_cfg =
 		description : "item_desc_i649",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "zysp",    //--显示图标
@@ -1121,7 +1121,7 @@ var	item_item_cfg =
 		description : "item_desc_i651",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "sjlgsp",    //--显示图标
@@ -1133,7 +1133,7 @@ var	item_item_cfg =
 		description : "item_desc_i657",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 1,    //--售价金币
+		saleprice : 100,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "hmsp",    //--显示图标
@@ -1145,7 +1145,7 @@ var	item_item_cfg =
 		description : "item_desc_i700",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "nsspicon_1",    //--显示图标
@@ -1157,7 +1157,7 @@ var	item_item_cfg =
 		description : "item_desc_i701",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "nsspicon_2",    //--显示图标
@@ -1169,7 +1169,7 @@ var	item_item_cfg =
 		description : "item_desc_i702",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "nsspicon_3",    //--显示图标
@@ -1181,7 +1181,7 @@ var	item_item_cfg =
 		description : "item_desc_i703",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "nsspicon_4",    //--显示图标
@@ -1193,7 +1193,7 @@ var	item_item_cfg =
 		description : "item_desc_i704",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "nsspicon_3",    //--显示图标
@@ -1205,7 +1205,7 @@ var	item_item_cfg =
 		description : "item_desc_i705",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "nsspicon_3",    //--显示图标
@@ -1217,7 +1217,7 @@ var	item_item_cfg =
 		description : "item_desc_i706",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "nsspicon_3",    //--显示图标
@@ -1229,7 +1229,7 @@ var	item_item_cfg =
 		description : "item_desc_i707",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "nsspicon_3",    //--显示图标
@@ -1241,7 +1241,7 @@ var	item_item_cfg =
 		description : "item_desc_i708",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "nsspicon_3",    //--显示图标
@@ -1253,7 +1253,7 @@ var	item_item_cfg =
 		description : "item_desc_i709",    //--物品描述
 		type : 4,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "nsspicon_3",    //--显示图标
@@ -1265,7 +1265,7 @@ var	item_item_cfg =
 		description : "item_desc_i800",    //--物品描述
 		type : 10,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "30hficon",    //--显示图标
@@ -1277,247 +1277,103 @@ var	item_item_cfg =
 		description : "item_desc_i801",    //--物品描述
 		type : 10,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "100hficon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i802' : {
-		name : "item_name_i802",    //--物品名称
-		description : "item_desc_i802",    //--物品描述
-		type : 10,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "100jdicon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i803' : {
-		name : "item_name_i803",    //--物品名称
-		description : "item_desc_i803",    //--物品描述
-		type : 10,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "500jdicon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i804' : {
-		name : "item_name_i804",    //--物品名称
-		description : "item_desc_i804",    //--物品描述
-		type : 10,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "1000jdicon",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
 	'i805' : {
 		name : "item_name_i805",    //--物品名称
 		description : "item_desc_i805",    //--物品描述
-		type : 11,    //--类型
+		type : 10,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "xmcdbicon",    //--显示图标
+		icon : "100jdicon",    //--显示图标
+		lengthtype : 0,    //--有效期类型
+		lengthtime : 0,    //--有效时长
+	},
+	'i806' : {
+		name : "item_name_i806",    //--物品名称
+		description : "item_desc_i806",    //--物品描述
+		type : 10,    //--类型
+		id : -1,    //--该类型对应id，-1无意义
+		saleprice : 1000,    //--售价金币
+		dropid : "0",    //--奖励id
+		level : 0,    //--需要等级
+		icon : "500jdicon",    //--显示图标
+		lengthtype : 0,    //--有效期类型
+		lengthtime : 0,    //--有效时长
+	},
+	'i807' : {
+		name : "item_name_i807",    //--物品名称
+		description : "item_desc_i807",    //--物品描述
+		type : 10,    //--类型
+		id : -1,    //--该类型对应id，-1无意义
+		saleprice : 1000,    //--售价金币
+		dropid : "0",    //--奖励id
+		level : 0,    //--需要等级
+		icon : "1000jdicon",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
 	'i810' : {
 		name : "item_name_i810",    //--物品名称
 		description : "item_desc_i810",    //--物品描述
-		type : 10,    //--类型
+		type : 11,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "30hficon",    //--显示图标
+		icon : "xmcdbicon",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
 	'i811' : {
 		name : "item_name_i811",    //--物品名称
 		description : "item_desc_i811",    //--物品描述
-		type : 10,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "100hficon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i812' : {
-		name : "item_name_i812",    //--物品名称
-		description : "item_desc_i812",    //--物品描述
-		type : 10,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "100jdicon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i813' : {
-		name : "item_name_i813",    //--物品名称
-		description : "item_desc_i813",    //--物品描述
-		type : 10,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "500jdicon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i814' : {
-		name : "item_name_i814",    //--物品名称
-		description : "item_desc_i814",    //--物品描述
-		type : 10,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "1000jdicon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i815' : {
-		name : "item_name_i815",    //--物品名称
-		description : "item_desc_i815",    //--物品描述
 		type : 11,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "xmcdbicon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i820' : {
-		name : "item_name_i820",    //--物品名称
-		description : "item_desc_i820",    //--物品描述
-		type : 10,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "30hficon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i821' : {
-		name : "item_name_i821",    //--物品名称
-		description : "item_desc_i821",    //--物品描述
-		type : 10,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "100hficon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i822' : {
-		name : "item_name_i822",    //--物品名称
-		description : "item_desc_i822",    //--物品描述
-		type : 10,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "100jdicon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i823' : {
-		name : "item_name_i823",    //--物品名称
-		description : "item_desc_i823",    //--物品描述
-		type : 10,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "500jdicon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i824' : {
-		name : "item_name_i824",    //--物品名称
-		description : "item_desc_i824",    //--物品描述
-		type : 10,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "1000jdicon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i825' : {
-		name : "item_name_i825",    //--物品名称
-		description : "item_desc_i825",    //--物品描述
-		type : 11,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
-		dropid : "0",    //--奖励id
-		level : 0,    //--需要等级
-		icon : "xmcdbicon",    //--显示图标
-		lengthtype : 0,    //--有效期类型
-		lengthtime : 0,    //--有效时长
-	},
-	'i850' : {
-		name : "item_name_i850",    //--物品名称
-		description : "item_desc_i850",    //--物品描述
-		type : 11,    //--类型
-		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "flptxdicon",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
-	'i851' : {
-		name : "item_name_i851",    //--物品名称
-		description : "item_desc_i851",    //--物品描述
+	'i812' : {
+		name : "item_name_i812",    //--物品名称
+		description : "item_desc_i812",    //--物品描述
 		type : 11,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "xmjhqicon",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
-	'i852' : {
-		name : "item_name_i852",    //--物品名称
-		description : "item_desc_i852",    //--物品描述
+	'i813' : {
+		name : "item_name_i813",    //--物品名称
+		description : "item_desc_i813",    //--物品描述
 		type : 11,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "oppor9icon",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
-	'i853' : {
-		name : "item_name_i853",    //--物品名称
-		description : "item_desc_i853",    //--物品描述
+	'i814' : {
+		name : "item_name_i814",    //--物品名称
+		description : "item_desc_i814",    //--物品描述
 		type : 11,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 0,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "iphone7icon",    //--显示图标
@@ -1709,7 +1565,7 @@ var	item_item_cfg =
 		description : "item_desc_w501",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "ptpficon",    //--显示图标
@@ -1721,7 +1577,7 @@ var	item_item_cfg =
 		description : "item_desc_w502",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "empficon",    //--显示图标
@@ -1733,7 +1589,7 @@ var	item_item_cfg =
 		description : "item_desc_w503",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "tspficon",    //--显示图标
@@ -1745,7 +1601,7 @@ var	item_item_cfg =
 		description : "item_desc_w504",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "dcpficon",    //--显示图标
@@ -1757,7 +1613,7 @@ var	item_item_cfg =
 		description : "item_desc_w505",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "ryjppficon",    //--显示图标
@@ -1769,7 +1625,7 @@ var	item_item_cfg =
 		description : "item_desc_w506",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "jcpficon",    //--显示图标
@@ -1781,7 +1637,7 @@ var	item_item_cfg =
 		description : "item_desc_w507",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "zjpficon",    //--显示图标
@@ -1793,7 +1649,7 @@ var	item_item_cfg =
 		description : "item_desc_w508",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "pptpficon",    //--显示图标
@@ -1805,7 +1661,7 @@ var	item_item_cfg =
 		description : "item_desc_w509",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "hjjtlpficon",    //--显示图标
@@ -1817,7 +1673,7 @@ var	item_item_cfg =
 		description : "item_desc_w510",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "xjglpficon",    //--显示图标
@@ -1829,7 +1685,7 @@ var	item_item_cfg =
 		description : "item_desc_w511",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "dwjypficon",    //--显示图标
@@ -1841,7 +1697,7 @@ var	item_item_cfg =
 		description : "item_desc_w512",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "szaspficon",    //--显示图标
@@ -1853,7 +1709,7 @@ var	item_item_cfg =
 		description : "item_desc_w513",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "cynspficon",    //--显示图标
@@ -1865,7 +1721,7 @@ var	item_item_cfg =
 		description : "item_desc_w514",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "yueliangtusuipian",    //--显示图标
@@ -1877,7 +1733,7 @@ var	item_item_cfg =
 		description : "item_desc_w515",    //--物品描述
 		type : 13,    //--类型
 		id : -1,    //--该类型对应id，-1无意义
-		saleprice : 5,    //--售价金币
+		saleprice : 1000,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
 		icon : "qian20suipian",    //--显示图标

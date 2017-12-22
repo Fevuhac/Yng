@@ -1,5 +1,5 @@
 const pomelo = require('pomelo')
-const fishCmd = require('./fishCmd');
+const fishCmd = require('../../../cmd/fishCmd');
 const consts = require('./consts');
 const Cost = require('./gamePlay/cost');
 const config = require('./config');
@@ -217,7 +217,6 @@ class Room {
     }
 
     stop() {
-        logger.error('玩家离开');
         for (let player of this.playerMap.values()) {
             this._clearPlayerResource(player);
             this.playerMap.delete(player.uid);
@@ -233,6 +232,8 @@ class Room {
             this.channel.destroy();
             this.channel = null;
         }
+
+        logger.error('---------------------------------------房间关闭');
     }
 
     _genPlayerProcolInfo(player){
@@ -405,7 +406,6 @@ class Room {
         this._removeChannel(player);
         player.clearSkillTickers();
         this._seatState[player.seatId] = 0;
-        logger.error('&&&&&&&&&&&&&&&&&&&&& 玩家离开', player.uid, 'seat:',player.seatId );
         this._broadcast(fishCmd.push.leave_room.route, {
             seatId: player.seatId
         });

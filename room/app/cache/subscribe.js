@@ -3,7 +3,7 @@ const eventType = require('../consts/eventType');
 const cache = require('./cache');
 const redisKey = require('../utils/import_def').REDISKEY;
 const ACCOUNTKEY = require('../utils/import_def').ACCOUNTKEY;
-const platform_data_conf = require('../config/configReader').sysConfig.PLATFORM_DATA_CONF;
+const platform_data_conf = global.sysConfig.PLATFORM_DATA_CONF;
 const playerChangeEvent = require('./playerChangeEvent');
 
 class Subscribe {

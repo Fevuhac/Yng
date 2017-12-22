@@ -21,7 +21,9 @@ class MatchingCmd extends SysCmd {
             route: 'matching.matchingHandler.c_signup',
             msg: {
                 enc: 'aes',
-                data: {}
+                data: {
+                    waitDt: 10, //平均等待时间，单位秒
+                }
             },
             res: {}
         };
@@ -30,7 +32,7 @@ class MatchingCmd extends SysCmd {
          * 取消报名
          */
         this._req.cancle = {
-            route: 'matching.matchingHandler.c_cancle',
+            route: 'matching.matchingHandler.c_cancel',
             msg: {
                 enc: 'aes',
                 data: {}
@@ -50,19 +52,28 @@ class MatchingCmd extends SysCmd {
             msg: {
                 enc: 'aes',
                 data: {
-                    players: [{
-                            id: 201,
-                            score: 0,
+                    rankMatch:{
+                        serverId:'1213',
+                        roomId:'1111'
+                    },
+                    players: [
+                        {
+                            uid: 201,
                             rank: 14,
                             nickname: 'zhangsan',
-                            vip: 5
+                            figure_url: '12312.png',
+                            winning_rate: 50,
+                            wp_skin: 1,
+                            nbomb_cost: 1000, //本次核弹消耗金币
                         },
                         {
-                            id: 202,
-                            score: 0,
+                            uid: 202,
                             rank: 14,
-                            nickname: 'lisi',
-                            vip: 1
+                            nickname: 'zhangsan',
+                            figure_url: '12312.png',
+                            winning_rate: 50,
+                            wp_skin: 1,
+                            nbomb_cost: 1000, //本次核弹消耗金币
                         },
                     ]
                 }

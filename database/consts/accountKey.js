@@ -145,4 +145,5 @@ module.exports = {
     "GAIN_LOSS":"gain_loss",
     "GAIN_LOSS_LIMIT": "gain_loss_limit",
     "GAIN_LOSS_SNAPSHOT":"gain_loss_snapshot",
+    "PHONE":"phone"
 }

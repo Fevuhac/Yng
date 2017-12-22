@@ -1,23 +1,16 @@
-/**
- * 远程过程调用，分配连接服务器和游戏服务器
- * @param app
- * @constructor
- */
+const balanceCmd = require('../../../cmd/balanceCmd');
+const RemoteHandler = require('../../common/remoteHandler');
+const balance = require('../../../logic/balance/balance');
+
 
 function BalanceRemote(app) {
     this.app = app;
 }
 
-BalanceRemote.prototype.getConnector = function (cb) {
-    this.app.balance.getConnectorServer(cb);
-};
-
-BalanceRemote.prototype.getGame = function (cb) {
-    this.app.balance.getGameServer(cb);
-};
-BalanceRemote.prototype.getRankMatch = function (cb) {
-    this.app.balance.getRankMatchServer(cb);
-};
+let remote = balanceCmd.remote;
+for(let k of Object.keys(remote)){
+    RemoteHandler.registe(remote[k].route, BalanceRemote.prototype, balance);
+}
 
 module.exports = function (app) {
     return new BalanceRemote(app);

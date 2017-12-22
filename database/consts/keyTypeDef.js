@@ -464,6 +464,11 @@ exports.AccountDef = {
     "gain_loss_snapshot": {
         "def": 0,
         "type": "float"
+    },
+    "phone":{
+        "def": '',
+        "type": "string",
+        "name": "phone" 
     }
 };
 
@@ -667,7 +672,7 @@ exports.OtherDef = {
         "type": "number"
     },
     "figure_url": {
-        "def": "http://p3.wmpic.me/article/2015/05/18/1431913649_GWJqwtVU.jpeg",
+        "def": "default.jpeg",
         "type": "string"
     },
     "new_player": {

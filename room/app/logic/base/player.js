@@ -1,6 +1,7 @@
 const Entity = require('./entity');
 const pomelo = require('pomelo');
-const messageService = require('../net/messageService')
+const messageService = require('../net/messageService');
+const rpc = require('../net/rpc');
 
 class Player extends Entity{
     constructor(opts){
@@ -24,6 +25,10 @@ class Player extends Entity{
 
     send(route, msg){
         messageService.send(route, packMsg(msg), {uid: this._uid, sid: this._sid});
+    }
+
+    rpcRankMatchCall(method, rankMatchSid, data, cb){
+        rpc.request('rankMatch', 'rankMatchRemote',method, {rankMatchSid:rankMatchSid}, data, cb);
     }
 
     get activeTime(){

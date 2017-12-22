@@ -69,10 +69,10 @@ class LogBuilder {
         this.logInsertTask.pushData(logTableDef.TYPE.PEARL, log);
     }
 
-    addSkillLog(uid, skill_id, gain, cost, total){
+    addSkillLog(uid, skill_id, gain, cost, total) {
         let log = {
             account_id: uid,
-            skill_id:skill_id,
+            skill_id: skill_id,
             log_at: this._genNow(),
             gain: gain,
             cost: cost,
@@ -80,7 +80,30 @@ class LogBuilder {
             nickname: 0
         };
 
-        this.logInsertTask.pushData(logTableDef.TYPE.SKILL, log);   
+        this.logInsertTask.pushData(logTableDef.TYPE.SKILL, log);
+    }
+    
+    addRankGameLog(data){
+        let log = {
+            time: data.time,
+            player1: data.player1,
+            wait_time1: data.wait_time1,
+            rank1: data.rank1,
+            bullet_score1: data.bullet_score1,
+            used_bullet1: data.used_bullet1,
+            nuclear_score1: data.nuclear_score1,
+            nuclear_exploded1:data.nuclear_exploded1,
+            player2:data.player2,
+            wait_time2:data.wait_time2,
+            rank2:data.rank2,
+            bullet_score2:data.bullet_score2,
+            used_bullet2:data.used_bullet2,
+            nuclear_score2:data.nuclear_score2,
+            nuclear_exploded2:data.nuclear_exploded2,
+            result:data.result,
+        };
+
+        this.logInsertTask.pushData(logTableDef.TYPE.RANK_GAME, log);
     }
 
 

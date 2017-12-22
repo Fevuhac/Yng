@@ -3,7 +3,7 @@
     "server": {
         "host": "127.0.0.1",
         "port": 6379,
-        "auth":true,
+        "auth":false,
         "pwd": "show_me_your_pwd",
         "database": 0,
         "prefix":""

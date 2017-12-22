@@ -418,15 +418,19 @@ class Cost {
             uIdx: parseInt(ts[0]),
             skin: parseInt(ts[1]),
             wpLv: parseInt(ts[2]),
-            bIdx: parseInt(ts[3]),
+            skillId: parseInt(ts[3]),
+            rmatching: parseInt(ts[4]),
+            bIdx: parseInt(ts[5]),
         };
         let tl = ts.length;
-        if (tl === 5) {
-            data.skillId = parseInt(ts[4]);
-        }else if (tl > 5 && bk.indexOf('_=') > 0) {
-            data.fishSkill = ts[4];
+        if (bk.indexOf('_=') > 0 && tl > 5) {
+            data.fishSkill = ts[3];
+            data.skillId = 0;
+            data.rmatching = parseInt(ts[tl - 2]);
+            data.bIdx = parseInt(ts[tl - 1]);
             ts = bk.split('_=');
-            data.sfk = ts[1];
+            ts = ts[1].split('@');
+            data.sfk = ts[0];
         }
         return data;
     }
@@ -571,7 +575,7 @@ class Cost {
                     fishes.splice(i, 1);
                     continue;
                 }
-                let temp = fk.split('__');
+                let temp = fk.split('#');
                 fish.name = temp[0];
                 let fishbasepct = fishModel.getFishBasePct(fk);
                 fishbasepctTotal += fishbasepct;
@@ -621,6 +625,7 @@ class Cost {
                         fishRewad: bGold[fk],
                     });
                     gotData.fireFlag = fireFlag;
+                    gotData.rmatching = td.rmatching;
                     fishFloor[fk] = gotData.floor;
                 }else if (skin === consts.WP_SKIN_ID.CHIYANNVSHEN) {
                     (!SKIN) && (SKIN = this._getWpSKinCfg(skin));
@@ -681,7 +686,6 @@ class Cost {
     /**
      * 技能消耗
      * 充足则直接扣，反之扣钻石
-     * TODO：多平台
      */
     useSkill(skillId, curWpLv, account) {
         let ret = {};
@@ -702,6 +706,22 @@ class Cost {
             }
             ret.skillC = ownC;
         }
+        ret.notEnough = notEnough;
+        return ret
+    }
+
+    /**
+     * 排位赛：技能消耗
+     * 不管充足与否，扣除对应金币
+     */
+    useSkillWithRmatch(skillId, curWpLv, account, costVal) {
+        let ret = {};
+        let notEnough = this.checkEnough(skillId, curWpLv, account);
+        let skill = account.skill;
+        let ownC = skill[skillId] || 0;
+        ret.gold = account.gold;
+        ret.costGold = costVal;
+        ret.skillC = ownC;
         ret.notEnough = notEnough;
         return ret
     }

@@ -38,6 +38,11 @@ class Connector {
                     resolve(false);
                 } else {
                     global.mysqlConnector = this;
+                    // let sql = 'ALTER TABLE tbl_account MODIFY  city VARCHAR (48)';
+                    // this.query(sql,[], function(err, result){
+                    //     console.log('----------sql, ', sql);
+                    //     console.log('----------sql, ', err, result);
+                    // })
                     utils.invokeCallback(cb, null, this);
                     resolve(true);
                 }

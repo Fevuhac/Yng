@@ -22,6 +22,6 @@ expect {
 
 expect "*]#"
 send "nvm install $node_version\r"
-expect '*]#'
-# interact
 send "exit\r"
+expect eof
+# interact

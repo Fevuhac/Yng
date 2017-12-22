@@ -56,7 +56,7 @@ module.exports = {
         WP_LEVEL: 1, //切换武器倍率
         MINI_GAME: 2, //小游戏
         TURN_DRAW: 3, //奖金鱼抽奖
-        RMATCH: 4, //排位赛
+        RMATCH_READY: 4, //排位赛
         DROP: 5, //战斗内掉落
         RMATCH_NB: 6, //排位赛核弹与否，0取消 1使用
     },
@@ -71,28 +71,54 @@ module.exports = {
 
     RMATCH_STATE: {
         READY: 0, //准备中,3秒倒计时
-        START: 1, //开始比赛 
-        FIRE100: 2,//一百炮开完 
-        NB_USED: 3,//使用核弹 
-        NB_CANCEL: 4,//取消核弹 
-        END: 5, //比赛结束
+        NB_USED: 1,//使用核弹 
+        NB_CANCEL: 2,//取消核弹 
     },
 
     FLUSH_EVENT: Symbol('flushFish'),
     RMATCH_EVENT: Symbol('rmatchEvt'),
 
     ROOM_MAX_PLAYER: 4,
-    RMATH_FIRE_MAX: 100, //排位赛100炮
 
     ENTITY_TYPE: {
         PLAYER: 0, //玩家
-        ROBOT: 1, //普通机器人
-        MATCH_ROBOT:2, //比赛机器人
+        ROBOT: 1 //普通机器人
     },
 
-    MATCH_TYPE:{
-        RANK:1,
-        OTHER:2
-    }
+    MATCH_ROOM_STATE:{
+        WAIT:1, //等待
+        DOING:2, //比赛中
+        OVER:3, //结束
+    },
+
+    /** 首胜宝箱状态 */
+    BOX_STAT: {
+        /** 时间未到不可用 */
+        WAIT: 0,
+        /** 时间已到未获取 */
+        NULL: 1,
+        /** 已获取还未领取, 领取后才会将状态设置为0 */
+        GOT: 2,
+    },
+
+    BROADCAST_TYPE: {
+        SERVER:         1,
+        GAME_EVENT:     2,
+        FAMOUS_ONLINE:  3,
+        DRAW:           4,
+    },
+    
+    GAME_EVENT_TYPE: {
+        BOSS_KILL:          1,
+        WEAPON_UPGRADE:     2,
+        SKIN_GOT:           3,
+        TOOL_GOT:           4,
+        GOLDFISH_DRAW:      5,
+        GODDESS_UNLOCK:     6,
+        GODDESS_UPGRADE:    7,
+        GODDESS_CHALLENGE:  8,
+        DRAW_REWARD:        9,
+        VICTORS:            10,
+    },
 
 };

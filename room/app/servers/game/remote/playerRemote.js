@@ -1,19 +1,14 @@
-const fishCmd = require('../../../logic/plugins/fish/fishCmd');
+const fishCmd = require('../../../cmd/fishCmd');
+const RemoteHandler = require('../../common/remoteHandler');
+const game = require('../../../logic/game/game');
 
 function PlayerRemote(app) {
     this.app = app;
 }
 
-function registe(route){
-    let prototype = PlayerRemote.prototype;
-    prototype[route] = function (data, cb) {
-        this.app.game.remoteRpc(route, data, cb);
-    };
-}
-
 let remote = fishCmd.remote;
 for(let k of Object.keys(remote)){
-    registe(remote[k].route);
+    RemoteHandler.registe(remote[k].route, PlayerRemote.prototype, game);
 }
 
 module.exports = function (app) {

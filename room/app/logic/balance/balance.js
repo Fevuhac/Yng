@@ -1,7 +1,6 @@
 const pomelo = require('pomelo');
 const pomeloAdmin = require('pomelo-admin');
 const plugins = require('../plugins');
-const configReader = require('../../config/configReader');
 
 class Balance {
     constructor() {
@@ -16,6 +15,14 @@ class Balance {
         });
 
         this._timerHandle = null;
+    }
+
+    remoteRpc(method, data, cb){
+        if(!this[method]){
+            cb(CONSTS.SYS_CODE.NOT_SUPPORT_SERVICE);
+            return;
+        }
+        this[method](data, cb);
     }
 
     runTick() {
@@ -55,7 +62,7 @@ class Balance {
             // }.bind(this));
             //
 
-        }.bind(this), configReader.sysConfig.BALANCE_PERIOD);
+        }.bind(this), sysConfig.BALANCE_PERIOD);
     }
 
     start() {
@@ -81,7 +88,7 @@ class Balance {
      * @param token
      * @param cb
      */
-    getConnectorServer(cb) {
+    rpc_get_connector(cb) {
         let connectors = this.app.getServersByType('connector');
         if (!connectors || connectors.length === 0) {
             utils.invokeCallback(cb, CONSTS.SYS_CODE.SERVER_DEPLOY_ERROR);
@@ -123,7 +130,7 @@ class Balance {
      * @param param
      * @param cb
      */
-    getGameServer(cb) {
+    rpc_get_game_server(cb) {
         if (!plugins[sysConfig.GAME_TYPE]) {
             utils.invokeCallback(cb, CONSTS.SYS_CODE.NOT_SUPPORT_GAMETYPE);
             return
@@ -161,7 +168,7 @@ class Balance {
         utils.invokeCallback(cb, null, gameSid);
     }
 
-    getRankMatchServer(cb) {
+    rpc_get_rankMatch_server(cb) {
         if (!plugins[sysConfig.GAME_TYPE]) {
             utils.invokeCallback(cb, CONSTS.SYS_CODE.NOT_SUPPORT_GAMETYPE);
             return
@@ -173,7 +180,7 @@ class Balance {
             return;
         }
 
-        if (this.gameServerMap.size === 0) {
+        if (this.rankMatchServerMap.size === 0) {
             utils.invokeCallback(cb, CONSTS.SYS_CODE.SERVER_NOT_RUNNING);
             return;
         }
@@ -183,8 +190,10 @@ class Balance {
             _cfgGameMap.set(item.id, item);
         });
 
+        // logger.error('--------------------------_cfgGameMap',[..._cfgGameMap]);
+        // logger.error('--------------------------this.gameServerMap',[...this.rankMatchServerMap]);
         let serverId = null;
-        for (let [k, v] of this.gameServerMap) {
+        for (let [k, v] of this.rankMatchServerMap) {
             let item = _cfgGameMap.get(k);
             if (!!item) {
                 serverId = item.id;

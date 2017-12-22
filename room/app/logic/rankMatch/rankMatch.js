@@ -1,12 +1,17 @@
 const hall = require('../plugins');
-const event = require('../../logic/base/event');
 const plugins = require('../plugins');
 const pomelo = require('pomelo');
 const redisClient = require('../../utils/import_db').redisClient;
 const mysqlClient = require('../../utils/import_db').mysqlClient;
+const EventEmitter = require('events').EventEmitter;
+
 class RankMatch {
     constructor() {
-        this._instance = new plugins[sysConfig.GAME_TYPE].MatchRankInstance();
+        this._event = new EventEmitter();
+    }
+
+    get event(){
+        return this._event;
     }
 
     async start() {
@@ -20,7 +25,7 @@ class RankMatch {
             process.exit(0);
             return;
         }
-
+        this._instance = new plugins[sysConfig.GAME_TYPE].MatchRankInstance();
         this._instance.start();
         logger.info('排位赛比赛服启动成功');
     }
@@ -30,9 +35,7 @@ class RankMatch {
     }
 
     remoteRpc(method, data, cb) {
-        if (!event.emit(method, data, method, cb)) {
-            cb(CONSTS.SYS_CODE.NOT_SUPPORT_SERVICE);
-        }
+        this._instance.remoteRpc(method, data, cb);
     }
 
     getLoadInfo() {

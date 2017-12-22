@@ -6,7 +6,7 @@
 // //--]]
 const ChannelPlayer =  require('../entity/channelPlayer');
 const FishCode = require('../fishCode');
-const fishCmd = require('../fishCmd');
+const fishCmd = require('../../../../cmd/fishCmd');
 const ACCOUNTKEY = require('../../../../utils/import_def').ACCOUNTKEY;
 const configReader = require('../configReader');
 

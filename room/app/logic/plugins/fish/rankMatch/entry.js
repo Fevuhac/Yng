@@ -1,6 +1,5 @@
 const Entity = require('../../../base/entity');
 const rankMatchCmd = require('../../../../cmd/rankMatchCmd');
-const event = require('../../../base/event');
 const pomelo = require('pomelo');
 const Code = require('../fishCode');
 const RankHall = require('./hall');
@@ -9,16 +8,6 @@ class RankMatchEntry extends Entity {
     constructor() {
         super({})
         this._rankHall = new RankHall();
-
-        let req = rankMatchCmd.request;
-        for (let k of Object.keys(req)) {
-            event.on(req[k].route, this.onMessage.bind(this));
-        }
-
-        let rpc = rankMatchCmd.remote;
-        for (let k of Object.keys(rpc)) {
-            event.on(rpc[k].route, this.onRPCMessage.bind(this));
-        }
     }
 
     getLoadStatistics() {
@@ -29,20 +18,18 @@ class RankMatchEntry extends Entity {
 
     start() {
         this._rankHall.start();
+        let req = rankMatchCmd.request;
+        for (let k of Object.keys(req)) {
+            pomelo.app.rankMatch.event.on(req[k].route, this.onMessage.bind(this));
+        }
     }
 
     stop() {
         this._rankHall.stop();
     }
 
-    onRPCMessage(data, route, cb) {
-        this[route](data, function (err, result) {
-            if (!!err) {
-                logger.error('-------------rankMatch远程调用失败', route, data)
-                return;
-            }
-            utils.invokeCallback(cb, err, result);
-        });
+    remoteRpc(method, data, cb){
+        this._rankHall.remoteRpc(method, data, cb);
     }
 
     //接受网络消息

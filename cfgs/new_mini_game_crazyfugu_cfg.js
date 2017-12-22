@@ -10,6 +10,7 @@ var	new_mini_game_crazyfugu_cfg =
 		holdon : [1,0.003,0.6],    //--停留间隔
 		base_multiple : 1,    //--基础倍率
 		scene_multiple : 0.005,    //--场景倍率系数
+		maxscore : 17000,    //--最大分
 	},
 ];
 module.exports = new_mini_game_crazyfugu_cfg;

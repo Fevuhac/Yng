@@ -18,4 +18,10 @@ module.exports = {
     common_log_const_cfg: require('./common_log_const_cfg'),
     newweapon_star_cfg: require('./newweapon_star_cfg'),
     player_users_cfg: require('./player_users_cfg'),
+    goddess_defend_cfg: require('./goddess_defend_cfg'),
+    goddess_fishborn_cfg: require('./goddess_fishborn_cfg'),
+    new_mini_game_coincatch_cfg: require('./new_mini_game_coincatch_cfg'),
+    new_mini_game_crazyfugu_cfg: require('./new_mini_game_crazyfugu_cfg'),
+    daily_pirate_cfg: require('./daily_pirate_cfg'),
+    rank_rankgame_cfg: require('./rank_rankgame_cfg'),
 };

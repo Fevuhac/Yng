@@ -77,6 +77,12 @@ exports.fields = {
         "table": "tbl_account",
         "name": "updated_at"
     },
+    "phone":{
+        "def": '',
+        "type": "string",
+        "name": "phone",
+        "table": "tbl_account",
+    },
     "last_online_time": {
         "def": 0,
         "type": "timestamp",
@@ -1511,6 +1517,11 @@ exports.tbl_account = {
         "name": "gain_loss",
         "type": "float"
     },
+    "phone":{
+        "def": '',
+        "type": "string",
+        "name": "phone" 
+    }
 };
 exports.tbl_img = {
     "figure": {

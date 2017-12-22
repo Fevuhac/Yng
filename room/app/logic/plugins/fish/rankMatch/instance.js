@@ -16,6 +16,10 @@ class RankMatchInstance{
     getLoadStatistics(){
         return this._entry.getLoadStatistics();
     }
+
+    remoteRpc(method, data, cb){
+        this._entry.remoteRpc(method, data, cb);
+    }
     
 }
 

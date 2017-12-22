@@ -191,7 +191,7 @@ class FishModel {
         }
 
         for (; i < max; i++) {
-            let nameKey = name + "__" + i;
+            let nameKey = name + "#" + i;
             if (!nameTable.hasOwnProperty(nameKey)) {
                 return nameKey;
             }
@@ -716,7 +716,8 @@ class FishModel {
     //刷鱼事件，统一处理，方便附带回调处理
     _newFishEvent (customData, evtName) {
         evtName = evtName || FishModel.EventType.EVENT_NEW_FISH;
-        this._emitEvent(evtName, customData);
+        let temp = clone(customData);
+        this._emitEvent(evtName, temp);
         let fish = customData.data;
         this._setLifeTiker(fish);
     }

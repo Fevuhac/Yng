@@ -6,7 +6,8 @@
 // //--]]
 
 const Player = require('../../../base/player');
-const fishCmd = require('../fishCmd');
+const fishCmd = require('../../../../cmd/fishCmd');
+const rankMatchCmd = require('../../../../cmd/rankMatchCmd');
 const FishCode = require('../fishCode');
 const consts = require('../consts');
 
@@ -220,9 +221,9 @@ class FishPlayer extends Player {
             let now = new Date().getTime();
             if (this._fireTimestamp > 0) {
                 let passed = now - this._fireTimestamp;
-                let SKIN_CFGS = GAMECFG.newweapon_weapons_cfg;
+                const SKIN_CFGS = configReader.getValue('newweapon_weapons_cfg', curSkin);
                 //logger.error('bidx = ', bd.bIdx, this._lastFireIdx);
-                if (this._lastFireIdx && bd.bIdx - this._lastFireIdx === 1 && passed + FIRE_DELAY < SKIN_CFGS[curSkin].interval * 1000) {
+                if (this._lastFireIdx && bd.bIdx - this._lastFireIdx === 1 && passed + FIRE_DELAY < SKIN_CFGS.interval * 1000) {
                     utils.invokeCallback(cb, FishCode.INVALID_WP_FIRE);
                     logger.error('passed = ', passed);
                     return;
@@ -519,7 +520,7 @@ class FishPlayer extends Player {
             }});
             return;
         }else if (skillId === consts.SKILL_ID.SK_LASER) {
-            if (isReal && this._rmatch && !this._rmatch.isOver()) {
+            if (isReal && this._rmatch) {
                 utils.invokeCallback(cb, null, {
                     rmatch: true,
                 });
@@ -637,10 +638,15 @@ class FishPlayer extends Player {
                 });
             }else {
                 //核弹需要在确认发射时才扣钱
-                let ret = this.cost.useSkill(skillId, data.wp_level, this.account);
+                let ret = null;
+                if (this.isRealPlayer() && this._rmatch) {
+                    ret = this.cost.useSkillWithRmatch(skillId, data.wp_level, this.account, this._rmatch.nbombCost);
+                    this._rmatch.nbFlag(true);
+                }else{
+                    ret = this.cost.useSkill(skillId, data.wp_level, this.account);   
+                }
                 let common = this._afterSkillCost(skillId, ret);
                 utils.invokeCallback(cb, null, common);
-                this.isRealPlayer() && this._rmatch && this._rmatch.nbFlag(true);
             }
             this.emit(fishCmd.push.use_skill.route, {player: this, data:{
                 skill_power: skillPower,
@@ -681,6 +687,9 @@ class FishPlayer extends Player {
                     return;
                 }
                 this.DIY.weapon_skin = wpSkin;
+                this.rpcRankMatchCall(rankMatchCmd.remote.weaponChange.route, {
+                    wp_skin: wpSkin,
+                });
              }
              break;
 
@@ -741,10 +750,18 @@ class FishPlayer extends Player {
                     }
                 }
              }
-             break
+             break;
+             
+             case consts.FIGHTING_NOTIFY.RMATCH_READY: 
+                this._rmatchReady(evtData);
+             break;
 
              case consts.FIGHTING_NOTIFY.RMATCH_NB:
-                this._rmatch && this._rmatch.nbFlag(evtData === 1);
+                if (this._rmatch && !evtData) {              
+                    this._rmatch.nbFlag(false);  
+                    this.rpcRankMatchCall(rankMatchCmd.remote.cancelNbomb.route);
+                    this.clearRmatch();
+                } 
              break;
          }
 
@@ -928,7 +945,7 @@ class FishPlayer extends Player {
      * 捕获鱼相关任务统计
      */
     _missionCoutWithFish (fk, gold, skin, star) {
-        let temp = fk.split('__');
+        let temp = fk.split('#');
         let fishName = temp[0];
         let cfg = fishName && this.fishModel.getFishCfg(fishName) || null;
         let data = {};
@@ -949,8 +966,8 @@ class FishPlayer extends Player {
                 data.rewardFishFlag =  1;
             }
 
-            //海盗任务统计
-            if (this._pirate) {
+            //海盗任务统计(排位赛进行中不统计)
+            if (this._pirate && !this._rmatch) {
                 data.pirateFlag = this._pirate.countFish(fishName);
             }
             //TODO:捕鱼积分统计
@@ -1030,17 +1047,55 @@ class FishPlayer extends Player {
     }
 
     /**
-     * 排位赛：报名成功之后，开始比赛
+     * 排位赛：客户端准备就绪，等待开始通知
      */
-    rmatchStart () {
+    _rmatchReady (evtData) {
+        if (this._rmatch) return;
         this._rmatch = new Rmatch();
+        this._rmatch.setServerData(evtData.rankMatch);
+        this.rpcRankMatchCall(rankMatchCmd.remote.ready.route, {
+            serverId: evtData.game.serverId,
+        });
+    }
+
+    /**
+     * 排位赛：正式开始
+     */
+    startRmatch (evtData) {
+        if (!this._rmatch) return;
+        this._rmatch.setNbCost(evtData.nbomb_cost);
+        this._rmatch.registerUpdateFunc(function (data, isFiredWithNB) {
+            logger.error('当前战绩===', data);
+            if (isFiredWithNB) {
+                this.rpcRankMatchCall(rankMatchCmd.remote.useNbomb.route, data);
+                this.clearRmatch();
+            }else{
+                this.rpcRankMatchCall(rankMatchCmd.remote.fightInfo.route, data);
+            }
+        }.bind(this));
     }
 
     /**
      * 排位赛：全程结束，销毁
      */
-    rmatchOver () {
+    clearRmatch () {
         this._rmatch = null;
+        logger.error('比赛结束，重置状态');
+    }
+
+    /**
+     * 战斗服向比赛服发送数据
+     * @param {*} method 
+     * @param {*} data 
+     * @param {*} cb 
+     */
+    rpcRankMatchCall(method, data, cb){
+        if (!this.isRealPlayer()) return;
+        if (!this._rmatch) return;
+        data = data || {};
+        data.uid = this.account.id;
+        data.roomId = this._rmatch.roomId;
+        super.rpcRankMatchCall(method, this._rmatch.sid, data, cb);
     }
 }
 

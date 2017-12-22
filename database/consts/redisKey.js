@@ -222,5 +222,6 @@ module.exports = {
     "NEED_INSERT": PREFIX + "need_insert",
     "NEED_UPDATE": PREFIX + "need_update",
     "ONLINE_TIME": PREFIX + "online_time",
-    "VIP_FILL_THIS_TIME": PREFIX + "vip_fill_this_time"
+    "VIP_FILL_THIS_TIME": PREFIX + "vip_fill_this_time",
+    "PHONE":PREFIX + "phone"
 };

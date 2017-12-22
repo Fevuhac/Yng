@@ -1,5 +1,7 @@
 const ChannelPlayer =  require('./channelPlayer');
 const GoddessPlayer = require('../goddess/goddessPlayer');
+const RankMatchPlayer = require('../rankMatch/rankMatchPlayer');
+
 const redisAccountSync = require('../../../../utils/import_utils').redisAccountSync;
 const consts = require('../consts');
 
@@ -22,7 +24,12 @@ class PlayerFactory{
                 }
 
                 //logger.error('account = ', account);
-                let player = new classObj({uid:data.uid, sid:data.sid, account:account,kindId:consts.ENTITY_TYPE.PLAYER});
+                let player = new classObj({
+                    uid: data.uid, 
+                    sid: data.sid, 
+                    account: account,
+                    kindId: data.kindId,
+                });
                 resolve(player);
             });
         });
@@ -49,6 +56,7 @@ class PlayerFactory{
             break;
 
             case consts.GAME_MODE.MATCH:
+                return RankMatchPlayer;
             break;
 
             default:

@@ -11,11 +11,22 @@ routeUtil.chatRoute = function(session, msg, app, cb) {
 };
 
 routeUtil.gameRoute = function (session, msg, app, cb) {
-    cb(null, session.get('gameSid'));
+    if(typeof session.get === 'function'){
+        cb(null, session.get('gameSid'));
+    }
+    else{
+        cb(null, session.gameSid);
+    }
+
 };
 
 routeUtil.rankMatchRoute = function (session, msg, app, cb) {
-    cb(null, session.get('rankMatchSid'));
+    if(typeof session.get === 'function'){
+        cb(null, session.get('rankMatchSid'));
+    }
+    else{
+        cb(null, session.rankMatchSid);
+    }
 };
 
 routeUtil.hallRoute = function (session, msg, app, cb) {

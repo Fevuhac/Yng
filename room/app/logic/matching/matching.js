@@ -2,9 +2,14 @@
 const plugins = require('../plugins');
 const pomelo = require('pomelo');
 const redisClient = require('../../utils/import_db').redisClient;
+const EventEmitter = require('events').EventEmitter;
 class Matching {
     constructor() {
-        this._instance = new plugins[sysConfig.GAME_TYPE].MatchingInstance();
+        this._event = new EventEmitter();
+    }
+
+    get event(){
+        return this._event;
     }
 
     async start() {
@@ -13,7 +18,7 @@ class Matching {
             process.exit(0);
             return;
         }
-
+        this._instance = new plugins[sysConfig.GAME_TYPE].MatchingInstance();
         this._instance.start();
         logger.info('排位赛匹配服启动成功');
     }

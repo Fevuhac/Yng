@@ -129,11 +129,11 @@ const configure = function () {
                 useDict: true,
                 useProtobuf: true
             });
-        app.entry = require('./app/logic/connector/entry');
-        app.entry.start();
+        app.connector = require('./app/logic/connector/entry');
+        app.connector.start();
         // todo deprecated
         app.beforeStopHook(function () {
-            app.entry.stop();
+            app.connector.stop();
         });
     });
 

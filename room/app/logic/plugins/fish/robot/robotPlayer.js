@@ -2,6 +2,9 @@ const Player = require('../entity/player');
 const consts = require('../consts');
 const uuidv1 = require('uuid/v1');
 const redisAccountSync = require('../../../../utils/import_utils').redisAccountSync;
+
+const configReader = require('../configReader');
+
 const B_MAX = 9999;
 
 class RobotPlayer extends Player {
@@ -57,6 +60,17 @@ class RobotPlayer extends Player {
      * 机器人开火
      */
     robotFire () {
+        let curSkin = this.DIY.weapon_skin;
+        let now = new Date().getTime();
+        if (this._fireTimestamp > 0) {
+            let passed = now - this._fireTimestamp;
+            const SKIN_CFGS = configReader.getValue('newweapon_weapons_cfg', curSkin);
+            if (passed < SKIN_CFGS.interval * 1000) {
+                return;
+            }
+        }
+        this._fireTimestamp = now;
+
         //logger.error('fic = ', this._fireCount, this._fireRandomCount, this._waitDt);
         if (this._fireCount >= this._fireRandomCount) {
             if (!this._waitTimer) {
@@ -82,7 +96,7 @@ class RobotPlayer extends Player {
         let wpBk = this.genRobotBulletNameKey();
         this.c_fire({
             wp_level: this.DIY.weapon,
-            wp_skin: this.DIY.weapon_skin, 
+            wp_skin: curSkin, 
             fire_fish: fishKey,
             wp_bk: wpBk,
         });

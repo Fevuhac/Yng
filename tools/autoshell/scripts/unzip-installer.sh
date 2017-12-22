@@ -26,9 +26,9 @@ send "sudo -s\r"
 expect "*]#"
 send "cd ${installPath}\r"
 expect "*]#"
-send "unzip -o -d ${installPath} ${zipInstaller}\r"
+send "unzip -o ${zipInstaller} -d ${installPath}\r"
 expect "*]#"
 send "npm install --production\r"
-expect "*]#"
 send "exit\r"
+expect eof
 # interact

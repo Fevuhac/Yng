@@ -1,6 +1,6 @@
 const pomelo = require('pomelo');
 const plugins = require('../plugins');
-const event = require('../../logic/base/event');
+const EventEmitter = require('events').EventEmitter;
 const Entity = require('../base/entity');
 const cacheRunner = require('../../cache/runner');
 const redisClient = require('../../utils/import_db').redisClient;
@@ -9,7 +9,11 @@ const mysqlClient = require('../../utils/import_db').mysqlClient;
 class Game extends Entity {
     constructor() {
         super({})
-        this._instance = new plugins[sysConfig.GAME_TYPE].Instance();
+        this._event = new EventEmitter();
+    }
+
+    get event(){
+        return this._event;
     }
 
     async start() {
@@ -24,6 +28,7 @@ class Game extends Entity {
             return;
         }
         cacheRunner.start();
+        this._instance = new plugins[sysConfig.GAME_TYPE].Instance();
         this._instance.start();
         logger.info('游戏战斗服启动成功');
     }
@@ -36,9 +41,7 @@ class Game extends Entity {
     }
 
     remoteRpc(method, data, cb) {
-        if (!event.emit(method, data, method, cb)) {
-            cb(CONSTS.SYS_CODE.NOT_SUPPORT_SERVICE);
-        }
+        this._instance.remoteRpc(method, data, cb);
     }
 
     getScene(sceneId) {

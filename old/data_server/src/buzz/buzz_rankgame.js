@@ -64,7 +64,6 @@ const TAG = "【buzz_rankgame】";
 exports.result = result;
 exports.info = info;
 exports.box = box;
-exports.getSeasonReward = getSeasonReward;
 exports.ongoing = ongoing;
 
 //------------------------------------------------------------------------------
@@ -170,26 +169,6 @@ function box(req, data, cb) {
 }
 
 /**
- * 获取赛季奖励.
- */
-function getSeasonReward(req, data, cb) {
-    const FUNC = TAG + "getSeasonReward() --- ";
-
-    if (DEBUG) console.info(FUNC + "CALL...");
-
-    if (!_prepare(data, cb)) return;
-    BuzzUtil.cacheLinkDataApi(data, "get_season_reward");
-
-    buzz_account.getAccountByToken(req, data.token, function(err, account) {
-        if (err) {
-            cb(err);
-            return;
-        }
-        req.dao.getSeasonReward(data, account, cb);
-    });
-};
-
-/**
  * 获取是否有正在进行中的比赛.
  */
 function ongoing(req, data, cb) {
@@ -249,21 +228,6 @@ function connectEnterPoolSocket(uid, callback) {
         return socket;
     }
 }
-
-function connectEnterPoolHttp(uid, callback) {
-    const FUNC = TAG + "connectEnterPoolHttp() --- ";
-
-    if (DEBUG)console.info(FUNC + "CALL...");
-
-    HttpUtil.postEnter('/data_api/rankgame_ising', data, function(err, roomUrl) {
-        if (err) {
-            callback(null);
-            return;
-        }
-        callback(roomUrl);
-    });
-}
-
 
 //==============================================================================
 // private

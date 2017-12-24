@@ -138,14 +138,6 @@ function _prepare(data, cb) {
 
 }
 
-function getGiftDEBUGFromId(id) {
-    for (var idx in daily_dailypast_cfg) {
-        if (daily_dailypast_cfg[idx].id == id) {
-            return daily_dailypast_cfg[idx];
-        }
-    }
-}
-
 function _updateGetCard(req, data, cb, account) {
     var FUNC = TAG + "_updateGetCard() --- ";
 

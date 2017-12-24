@@ -225,10 +225,10 @@ function _prepare(data, cb) {
     var type = data['type'];
     var vip_weapon_id = data['vip_weapon_id'];
 
-    if (!_isParamExist(account_id, '接口调用请传参数account_id(玩家ID)')) return false;
-    if (!_isParamExist(token, "接口调用请传参数token")) return false;
-    if (!_isParamExist(level, '接口调用请传参数account_id(玩家ID)')) return false;
-    if (!_isParamExist(type, '接口调用请传参数account_id(玩家ID)')) return false;
+    if (!_isParamExist(account_id, '接口调用请传参数account_id(玩家ID)', cb)) return false;
+    if (!_isParamExist(token, "接口调用请传参数token", cb)) return false;
+    if (!_isParamExist(level, '接口调用请传参数account_id(玩家ID)', cb)) return false;
+    if (!_isParamExist(type, '接口调用请传参数account_id(玩家ID)', cb)) return false;
 
     if (parseInt(type) == 2 && vip_weapon_id == null) {
         cb(new Error('接口调用请传参数vip_weapon_id(type=2时此参数必传)'));
@@ -243,13 +243,13 @@ function _prepare(data, cb) {
  * @param param 待检测的参数.
  * @param err_info 如果检测失败，回调需要传回的信息.
  */
-function _isParamExist(param, err_info) {
+function _isParamExist(param, err_info, cb) {
     const FUNC = TAG + "_isParamExist() --- ";
 
     if (param == null) {
         if (ERROR) console.error(FUNC + "err_info:", err_info);
         var extraErrInfo = { debug_info: "dao_weapon.addWeaponLog()-" + err_info };
-        cb(ObjUtil.merge(extraErrInfo, ERROR_OBJ.PARAM_MISSING));
+        cb && cb(ObjUtil.merge(extraErrInfo, ERROR_OBJ.PARAM_MISSING));
         return false;
     }
     return true;
@@ -390,7 +390,7 @@ function _getWeaponVipIds(data) {
             vip_weapon_id = JSON.stringify(vip_weapon_id);
         }
         catch (err_parse) {
-            conssole.log("[dao_weapon] _getWeaponVipIds()", err_parse);
+            console.log("[dao_weapon] _getWeaponVipIds()", err_parse);
         }
     }
     else {

@@ -25,7 +25,7 @@ var	string_strings_cfg =
 		cn : "Cảnh x lần: ",    //--越南
 	},
 	'str_tip_quit_game' : {
-		cn : "Chơi thêm đi?",    //--越南
+		cn : "Bạn có chắc chắn muốn rời bàn?",    //--越南
 	},
 	'str_tip_waitting' : {
 		cn : "Đợi thêm người",    //--越南
@@ -82,13 +82,13 @@ var	string_strings_cfg =
 		cn : "Tương tác xa",    //--越南
 	},
 	'str_tip_broke_over' : {
-		cn : "Cứu tế đã hết, nạp thêm đi bạn! ",    //--越南
+		cn : "Viện trợ đã hết, nạp thêm đi bạn! ",    //--越南
 	},
 	'str_tip_borke_ing' : {
-		cn : "Thời gian nhận free còn lại:",    //--越南
+		cn : "Nhận sau: %s giây",    //--越南
 	},
 	'str_tip_broke_away' : {
-		cn : "vị trí, phá sản nên out!",    //--越南
+		cn : "vị trí, hết vàng nên out!",    //--越南
 	},
 	'str_new_password' : {
 		cn : "Mật mã mới",    //--越南
@@ -100,19 +100,19 @@ var	string_strings_cfg =
 		cn : "Sửa thành công!",    //--越南
 	},
 	'str_tip_pearl_skill' : {
-		cn : "Mua K.C, mở khóa kỹ năng!",    //--越南
+		cn : "Mua Vàng, mở khóa kỹ năng!",    //--越南
 	},
 	'str_tip_pearl_weapon' : {
-		cn : "Mua K.C, mở khóa ngay!",    //--越南
+		cn : "Mua Vàng, mở khóa ngay!",    //--越南
 	},
 	'str_tip_borke_done' : {
-		cn : "Chúc mừng bạn nhận đc %d tiền cứu tế!",    //--越南
+		cn : "Chúc mừng bạn vừa nhận viện trợ %d GOLD!",    //--越南
 	},
 	'str_tip_weapon_upgrade' : {
 		cn : "Chúc mừng đã mở khóa vũ khí %d lần! ",    //--越南
 	},
 	'str_tip_weapon_notsale' : {
-		cn : "Skin giới hạn, chỉ nhận được khi có event!",    //--越南
+		cn : "Súng giới hạn, chỉ nhận được khi có event!",    //--越南
 	},
 	'str_tip_broke_get' : {
 		cn : "Nhanh chân click nhận nào!",    //--越南
@@ -181,10 +181,10 @@ var	string_strings_cfg =
 		cn : "Chế độ Auto không thể chủ động bắn hoặc dùng kỹ năng! ",    //--越南
 	},
 	'str_pearl_not_enough' : {
-		cn : "Bạn không đủ K.C!",    //--越南
+		cn : "Bạn không đủ Ruby!",    //--越南
 	},
 	'str_nickname_invalid' : {
-		cn : "Tên user có từ nhạy cảm! ",    //--越南
+		cn : "Biệt danh User có từ nhạy cảm! ",    //--越南
 	},
 	'str_nickname_code_invalid' : {
 		cn : "Tên user  hoặc Mật mã không hợp lệ!",    //--越南
@@ -193,13 +193,13 @@ var	string_strings_cfg =
 		cn : "Tên user có ký tự đặc biệt!",    //--越南
 	},
 	'str_minigame_lack_pearl' : {
-		cn : "K.C không đủ, không mua đc!",    //--越南
+		cn : "Ruby không đủ, không mua được!",    //--越南
 	},
 	'str_weaponunlock_explain' : {
-		cn : "Mớ khóa vũ khí chỉ có thể mở từng cấp, phía dưới vũ khí hiển thị \n số K.C cần để mở cấp tiếp theo. ",    //--越南
+		cn : "Mớ khóa vũ khí chỉ có thể mở từng cấp, phía dưới vũ khí hiển thị \n số Ruby cần để mở cấp tiếp theo. ",    //--越南
 	},
 	'str_buyskill_describe' : {
-		cn : "Tốn %d K.C, mua %d kỹ năng. ",    //--越南
+		cn : "Tốn %d Ruby, mua %d kỹ năng. ",    //--越南
 	},
 	'str_weaponunlock_title' : {
 		cn : "Chỉ có thể mở khóa từng bước vũ khí!",    //--越南
@@ -208,7 +208,7 @@ var	string_strings_cfg =
 		cn : "Chúc mừng đã lên cấp %d hội viên!",    //--越南
 	},
 	'str_preloading_tip0' : {
-		cn : "Đang ra sức tải...",    //--越南
+		cn : "Đang tải…",    //--越南
 	},
 	'str_preloading_tip1' : {
 		cn : "Cá càng lớn, tiền càng nhiều!",    //--越南
@@ -235,7 +235,7 @@ var	string_strings_cfg =
 		cn : "Có thể bốc thăm cấp %d",    //--越南
 	},
 	'str_reward_fish_tip2' : {
-		cn : "Cá Vàng + %d",    //--越南
+		cn : "Cá vàng + %d",    //--越南
 	},
 	'str_reward_fish_tip3' : {
 		cn : "Thưởng + %d",    //--越南
@@ -247,10 +247,10 @@ var	string_strings_cfg =
 		cn : "Hôm nay đã bốc thăm, mai quay lại nhé!",    //--越南
 	},
 	'str_gold_not_enough' : {
-		cn : "Vàng không đủ!",    //--越南
+		cn : "vàng không đủ!",    //--越南
 	},
 	'str_weapon_not_enough' : {
-		cn : "Tỷ lệ trả thưởng Pháo của bạn không đủ!",    //--越南
+		cn : "Vui lòng nâng cấp Súng và thử lại !",    //--越南
 	},
 	'str_buy_chapter_tip' : {
 		cn : "Bạn muốn dùng %d để khiêu chiến?",    //--越南
@@ -271,7 +271,7 @@ var	string_strings_cfg =
 		cn : "%d Đồng",    //--越南
 	},
 	'str_daily_tip1' : {
-		cn : "%d Độ Active có thể nhận: %s!",    //--越南
+		cn : "%d điểm tích cực có thể nhận: %s!",    //--越南
 	},
 	'str_daily_tip2' : {
 		cn : "Đã nhận",    //--越南
@@ -283,16 +283,16 @@ var	string_strings_cfg =
 		cn : "%d lần ~%d lần ",    //--越南
 	},
 	'str_scene_limit2' : {
-		cn : "(%d Vàng trở lên )",    //--越南
+		cn : "(%d vàng trở lên )",    //--越南
 	},
 	'str_daily_register' : {
 		cn : "Click điểm danh ",    //--越南
 	},
 	'str_weapon_upgrade_desc' : {
-		cn : "Sau khi lên cấp khi bắn cá nhận x %d lần.",    //--越南
+		cn : "Sau khi thăng cấp, bắn cá nhận %d GOLD",    //--越南
 	},
 	'str_rank_gold' : {
-		cn : "Vàng: ",    //--越南
+		cn : "vàng: ",    //--越南
 	},
 	'str_Rank_achieve' : {
 		cn : "Thành tựu: ",    //--越南
@@ -328,7 +328,7 @@ var	string_strings_cfg =
 		cn : "Đang Kích Quang!, Không thể Khóa!",    //--越南
 	},
 	'str_getGold_by_diamond' : {
-		cn : "Chúc mừng, dùng %d Vàng, mua %s K.C!",    //--越南
+		cn : "Thành công dùng %d Gold mua %s Ruby!",    //--越南
 	},
 	'str_skill_failed_tip' : {
 		cn : "Kỹ năng này đang tiến hành, xin đừng lo lắng!",    //--越南
@@ -364,7 +364,7 @@ var	string_strings_cfg =
 		cn : "Tại Hồ Cá thả cá 30 lần.",    //--越南
 	},
 	'activequest_name_1003' : {
-		cn : "Mua 5 lần Vàng ",    //--越南
+		cn : "Mua vàng 5 lần",    //--越南
 	},
 	'activequest_name_1004' : {
 		cn : "Thu được BOSS Lồng đèn 5 con",    //--越南
@@ -397,31 +397,31 @@ var	string_strings_cfg =
 		cn : "Nạp tùy ý trong ngày.",    //--越南
 	},
 	'activequest_name_1091' : {
-		cn : "Trong Event nạp 100 K.C ",    //--越南
+		cn : "Trong Event nạp 100 Ruby ",    //--越南
 	},
 	'activequest_name_1092' : {
-		cn : "Trong Event nạp 200 K.C ",    //--越南
+		cn : "Trong Event nạp 200 Ruby ",    //--越南
 	},
 	'activequest_name_1093' : {
-		cn : "Trong Event nạp 400 K.C ",    //--越南
+		cn : "Trong Event nạp 400 Ruby ",    //--越南
 	},
 	'activequest_name_1094' : {
-		cn : "Trong Event nạp 600 K.C ",    //--越南
+		cn : "Trong Event nạp 600 Ruby ",    //--越南
 	},
 	'activequest_name_1095' : {
-		cn : "Trong Event nạp 1000 K.C ",    //--越南
+		cn : "Trong Event nạp 1000 Ruby ",    //--越南
 	},
 	'activequest_name_1096' : {
-		cn : "Trong Event nạp 2000 K.C ",    //--越南
+		cn : "Trong Event nạp 2000 Ruby ",    //--越南
 	},
 	'activequest_name_1097' : {
-		cn : "Trong Event nạp 3000 K.C ",    //--越南
+		cn : "Trong Event nạp 3000 Ruby ",    //--越南
 	},
 	'activequest_name_1098' : {
-		cn : "Trong Event nạp 5000 K.C ",    //--越南
+		cn : "Trong Event nạp 5000 Ruby ",    //--越南
 	},
 	'activequest_name_1099' : {
-		cn : "Trong Event nạp 10000 K.C ",    //--越南
+		cn : "Trong Event nạp 10000 Ruby ",    //--越南
 	},
 	'activequest_name_2001' : {
 		cn : "Thắng Xếp hạng 5 lần hôm nay.",    //--越南
@@ -445,7 +445,7 @@ var	string_strings_cfg =
 		cn : "Hôm nay dùng Kích Quang 10 lần ",    //--越南
 	},
 	'activequest_name_2008' : {
-		cn : "Hôm nay dùng 50 K.C ",    //--越南
+		cn : "Hôm nay dùng 50 Ruby ",    //--越南
 	},
 	'activequest_name_2009' : {
 		cn : "Thưởng Đ.nhập trong ngày",    //--越南
@@ -457,7 +457,7 @@ var	string_strings_cfg =
 		cn : "Tích lũy số lần thả cá tại Hồ Cá 50 lần.",    //--越南
 	},
 	'activequest_name_2012' : {
-		cn : "Mua tích lũy 20 lần Vàng ",    //--越南
+		cn : "Mua tích lũy vàng 20 lần",    //--越南
 	},
 	'activequest_name_2013' : {
 		cn : "Thu tích lũy được cá tùy ý 100K con ",    //--越南
@@ -511,37 +511,37 @@ var	string_strings_cfg =
 		cn : " ",    //--越南
 	},
 	'charmlevel_desc_1' : {
-		cn : "Điểm Hấp dẫn đạt 1000",    //--越南
+		cn : "Điểm Mị lực đạt 1000",    //--越南
 	},
 	'charmlevel_desc_2' : {
-		cn : "Điểm Hấp dẫn đạt 3000",    //--越南
+		cn : "Điểm Mị lực đạt 3000",    //--越南
 	},
 	'charmlevel_desc_3' : {
-		cn : "Điểm Hấp dẫn đạt 6000",    //--越南
+		cn : "Điểm Mị lực đạt 6000",    //--越南
 	},
 	'charmlevel_desc_4' : {
-		cn : "Điểm Hấp dẫn đạt 10000",    //--越南
+		cn : "Điểm Mị lực đạt 10000",    //--越南
 	},
 	'charmlevel_desc_5' : {
-		cn : "Điểm Hấp dẫn đạt 20000",    //--越南
+		cn : "Điểm Mị lực đạt 20000",    //--越南
 	},
 	'charmlevel_desc_6' : {
-		cn : "Điểm Hấp dẫn đạt 40000",    //--越南
+		cn : "Điểm Mị lực đạt 40000",    //--越南
 	},
 	'charmlevel_desc_7' : {
-		cn : "Điểm Hấp dẫn đạt 60000",    //--越南
+		cn : "Điểm Mị lực đạt 60000",    //--越南
 	},
 	'charmlevel_desc_8' : {
-		cn : "Điểm Hấp dẫn đạt 80000",    //--越南
+		cn : "Điểm Mị lực đạt 80000",    //--越南
 	},
 	'charmlevel_desc_9' : {
-		cn : "Điểm Hấp dẫn đạt 100000",    //--越南
+		cn : "Điểm Mị lực đạt 100000",    //--越南
 	},
 	'charmlevel_desc_10' : {
-		cn : "Xếp hạng Hấp dẫn từ 2-10",    //--越南
+		cn : "Xếp hạng Mị lực từ 2-10",    //--越南
 	},
 	'charmlevel_desc_11' : {
-		cn : "Hạng nhất xếp hạng Hấp dẫn ",    //--越南
+		cn : "Xếp hạng nhất Mị lực ",    //--越南
 	},
 	'dailypast_desc_0' : {
 		cn : " ",    //--越南
@@ -553,7 +553,7 @@ var	string_strings_cfg =
 		cn : "V2x 2 ",    //--越南
 	},
 	'dailypast_desc_6' : {
-		cn : "Đạn Đồng ",    //--越南
+		cn : "Bom Sơ Cấp",    //--越南
 	},
 	'dailypast_desc_8' : {
 		cn : "V3x 2 ",    //--越南
@@ -589,7 +589,7 @@ var	string_strings_cfg =
 		cn : "V10x 2 ",    //--越南
 	},
 	'dailypast_desc_30' : {
-		cn : "Đạn Đồng ",    //--越南
+		cn : "Bom Sơ Cấp",    //--越南
 	},
 	'quest_name_101000' : {
 		cn : "Thu được cá tùy ý 1000 con ",    //--越南
@@ -604,7 +604,7 @@ var	string_strings_cfg =
 		cn : "Bắn 1 lần thu được 10 con cá ",    //--越南
 	},
 	'quest_name_110000' : {
-		cn : "Tiêu hao 50 K.C ",    //--越南
+		cn : "Tiêu hao 100 Ruby ",    //--越南
 	},
 	'quest_name_120000' : {
 		cn : "Tham gia Bảo Vệ Nữ Thần 1 lần ",    //--越南
@@ -613,13 +613,13 @@ var	string_strings_cfg =
 		cn : "Tại Hồ Cá thả cá 3 lần.",    //--越南
 	},
 	'quest_name_118000' : {
-		cn : "Mua 1 lần Vàng ",    //--越南
+		cn : "Mua vàng 1 lần",    //--越南
 	},
 	'quest_name_119000' : {
-		cn : "Nạp tùy ý K.C ",    //--越南
+		cn : "Nạp ngẫu nhiên Vàng",    //--越南
 	},
 	'quest_name_111000' : {
-		cn : "Tiêu hao Vàng 100000",    //--越南
+		cn : "Tiêu hao 100000 vàng",    //--越南
 	},
 	'quest_name_217000' : {
 		cn : "Nhận 200 Điểm Thành Tựu ",    //--越南
@@ -1057,37 +1057,37 @@ var	string_strings_cfg =
 		cn : "Dùng Bom Hạt Nhân Bạc 100 lần ",    //--越南
 	},
 	'quest_name_202500' : {
-		cn : "Dùng Bom Hạt Nhân Vàng 1 lần ",    //--越南
+		cn : "Dùng Bom Hạt Nhân Cao Cấp 1 lần ",    //--越南
 	},
 	'quest_name_202501' : {
-		cn : "Dùng Bom Hạt Nhân Vàng 5 lần ",    //--越南
+		cn : "Dùng Bom Hạt Nhân Cao Cấp 5 lần ",    //--越南
 	},
 	'quest_name_202502' : {
-		cn : "Dùng Bom Hạt Nhân Vàng 10 lần ",    //--越南
+		cn : "Dùng Bom Hạt Nhân Cao Cấp 10 lần ",    //--越南
 	},
 	'quest_name_202503' : {
-		cn : "Dùng Bom Hạt Nhân Vàng 15 lần ",    //--越南
+		cn : "Dùng Bom Hạt Nhân Cao Cấp 15 lần ",    //--越南
 	},
 	'quest_name_202504' : {
-		cn : "Dùng Bom Hạt Nhân Vàng 20 lần ",    //--越南
+		cn : "Dùng Bom Hạt Nhân Cao Cấp 20 lần ",    //--越南
 	},
 	'quest_name_202505' : {
-		cn : "Dùng Bom Hạt Nhân Vàng 30 lần ",    //--越南
+		cn : "Dùng Bom Hạt Nhân Cao Cấp 30 lần ",    //--越南
 	},
 	'quest_name_202506' : {
-		cn : "Dùng Bom Hạt Nhân Vàng 40 lần ",    //--越南
+		cn : "Dùng Bom Hạt Nhân Cao Cấp 40 lần ",    //--越南
 	},
 	'quest_name_202507' : {
-		cn : "Dùng Bom Hạt Nhân Vàng 50 lần ",    //--越南
+		cn : "Dùng Bom Hạt Nhân Cao Cấp 50 lần ",    //--越南
 	},
 	'quest_name_202508' : {
-		cn : "Dùng Bom Hạt Nhân Vàng 60 lần ",    //--越南
+		cn : "Dùng Bom Hạt Nhân Cao Cấp 60 lần ",    //--越南
 	},
 	'quest_name_202509' : {
-		cn : "Dùng Bom Hạt Nhân Vàng 100 lần ",    //--越南
+		cn : "Dùng Bom Hạt Nhân Cao Cấp 100 lần ",    //--越南
 	},
 	'quest_name_202510' : {
-		cn : "Dùng Bom Hạt Nhân Vàng 1000 lần ",    //--越南
+		cn : "Dùng Bom Hạt Nhân Cao Cấp 1000 lần ",    //--越南
 	},
 	'quest_name_203000' : {
 		cn : "Cấp Nhân vật: 2",    //--越南
@@ -1411,49 +1411,49 @@ var	string_strings_cfg =
 		cn : "Lợi dụng Cá Mìn nổ chết 1000000 con cá khác ",    //--越南
 	},
 	'quest_name_206000' : {
-		cn : "Nhận Skin Pháo đài 1 cái ",    //--越南
+		cn : "Nhận Súng Lưới bạc",    //--越南
 	},
 	'quest_name_206001' : {
-		cn : "Nhận Skin Pháo đài 2 cái ",    //--越南
+		cn : "Nhận Súng Ác Ma",    //--越南
 	},
 	'quest_name_206002' : {
-		cn : "Nhận Skin Pháo đài 3 cái ",    //--越南
+		cn : "Nhận Súng Thiên Sứ",    //--越南
 	},
 	'quest_name_206003' : {
-		cn : "Nhận Skin Pháo đài 4 cái ",    //--越南
+		cn : "Nhận Súng Tia Chớp",    //--越南
 	},
 	'quest_name_206004' : {
-		cn : "Nhận Skin Pháo đài 5 cái ",    //--越南
+		cn : "Nhận Súng Hỗn Thiên",    //--越南
 	},
 	'quest_name_206005' : {
-		cn : "Nhận Skin Pháo đài 6 cái ",    //--越南
+		cn : "Nhận Súng Cáp Vương",    //--越南
 	},
 	'quest_name_206006' : {
-		cn : "Nhận Skin Pháo đài 7 cái ",    //--越南
+		cn : "Nhận Súng Thiên Hà",    //--越南
 	},
 	'quest_name_206007' : {
-		cn : "Nhận Skin Pháo đài 8 cái ",    //--越南
+		cn : "Nhận Súng Ngọc Hồn",    //--越南
 	},
 	'quest_name_206008' : {
-		cn : "Nhận Skin Pháo đài 9 cái ",    //--越南
+		cn : "Nhận Súng Huyền Kích",    //--越南
 	},
 	'quest_name_206009' : {
-		cn : "Nhận Skin Pháo đài 10 cái ",    //--越南
+		cn : "Nhận Súng Độc Lang",    //--越南
 	},
 	'quest_name_206010' : {
-		cn : "Nhận Skin Pháo đài 11 cái ",    //--越南
+		cn : "Nhận Súng Tinh Anh",    //--越南
 	},
 	'quest_name_206011' : {
-		cn : "Nhận Skin Pháo đài 12 cái ",    //--越南
+		cn : "Nhận Súng Băng Thiên Phách",    //--越南
 	},
 	'quest_name_206012' : {
-		cn : "Nhận Skin Pháo đài 13 cái ",    //--越南
+		cn : "Nhận Súng Thiên Hỏa Phụng",    //--越南
 	},
 	'quest_name_206013' : {
-		cn : "Nhận Skin Pháo đài 14 cái ",    //--越南
+		cn : "Nhận Súng Thố Yểm Nguyệt",    //--越南
 	},
 	'quest_name_206014' : {
-		cn : "Nhận Skin Pháo đài 15 cái ",    //--越南
+		cn : "Nhận Súng Vô Cực Chiến Thần",    //--越南
 	},
 	'quest_name_207000' : {
 		cn : "Bắn 1 lần được 6 con cá ",    //--越南
@@ -1483,136 +1483,136 @@ var	string_strings_cfg =
 		cn : "Bắn 1 lần được 30 con cá ",    //--越南
 	},
 	'quest_name_208000' : {
-		cn : "Bắn 1 lần được Vàng 6000",    //--越南
+		cn : "Bắn 1 lần được 6000 vàng",    //--越南
 	},
 	'quest_name_208001' : {
-		cn : "Bắn 1 lần được Vàng 10000",    //--越南
+		cn : "Bắn 1 lần được 10000 vàng ",    //--越南
 	},
 	'quest_name_208002' : {
-		cn : "Bắn 1 lần được Vàng 20000",    //--越南
+		cn : "Bắn 1 lần được 20000 vàng ",    //--越南
 	},
 	'quest_name_208003' : {
-		cn : "Bắn 1 lần được Vàng 40000",    //--越南
+		cn : "Bắn 1 lần được 40000 vàng ",    //--越南
 	},
 	'quest_name_208004' : {
-		cn : "Bắn 1 lần được Vàng 60000",    //--越南
+		cn : "Bắn 1 lần được 60000 vàng ",    //--越南
 	},
 	'quest_name_208005' : {
-		cn : "Bắn 1 lần được Vàng 80000",    //--越南
+		cn : "Bắn 1 lần được 80000 vàng ",    //--越南
 	},
 	'quest_name_208006' : {
-		cn : "Bắn 1 lần được Vàng 100000",    //--越南
+		cn : "Bắn 1 lần được 100000 vàng ",    //--越南
 	},
 	'quest_name_208007' : {
-		cn : "Bắn 1 lần được Vàng 200000",    //--越南
+		cn : "Bắn 1 lần được 200000 vàng ",    //--越南
 	},
 	'quest_name_208008' : {
-		cn : "Bắn 1 lần được Vàng 400000",    //--越南
+		cn : "Bắn 1 lần được 400000 vàng ",    //--越南
 	},
 	'quest_name_208009' : {
-		cn : "Bắn 1 lần được Vàng 600000",    //--越南
+		cn : "Bắn 1 lần được 600000 vàng ",    //--越南
 	},
 	'quest_name_208010' : {
-		cn : "Bắn 1 lần được Vàng 800000",    //--越南
+		cn : "Bắn 1 lần được 800000 vàng ",    //--越南
 	},
 	'quest_name_208011' : {
-		cn : "Bắn 1 lần được Vàng 1000000",    //--越南
+		cn : "Bắn 1 lần được 1000000 vàng ",    //--越南
 	},
 	'quest_name_208012' : {
-		cn : "Bắn 1 lần được Vàng 1500000",    //--越南
+		cn : "Bắn 1 lần được 1500000 vàng ",    //--越南
 	},
 	'quest_name_208013' : {
-		cn : "Bắn 1 lần được Vàng 3000000",    //--越南
+		cn : "Bắn 1 lần được 3000000 vàng ",    //--越南
 	},
 	'quest_name_208014' : {
-		cn : "Bắn 1 lần được Vàng 6000000",    //--越南
+		cn : "Bắn 1 lần được 6000000 vàng ",    //--越南
 	},
 	'quest_name_208015' : {
-		cn : "Bắn 1 lần được Vàng 10000000",    //--越南
+		cn : "Bắn 1 lần được 10000000 vàng ",    //--越南
 	},
 	'quest_name_209000' : {
-		cn : "Tích lũy nhận Vàng: 100000",    //--越南
+		cn : "Tích lũy nhận vàng: 100000",    //--越南
 	},
 	'quest_name_209001' : {
-		cn : "Tích lũy nhận Vàng: 200000",    //--越南
+		cn : "Tích lũy nhận vàng: 200000",    //--越南
 	},
 	'quest_name_209002' : {
-		cn : "Tích lũy nhận Vàng: 600000",    //--越南
+		cn : "Tích lũy nhận vàng: 600000",    //--越南
 	},
 	'quest_name_209003' : {
-		cn : "Tích lũy nhận Vàng: 1000000",    //--越南
+		cn : "Tích lũy nhận vàng: 1000000",    //--越南
 	},
 	'quest_name_209004' : {
-		cn : "Tích lũy nhận Vàng: 2000000",    //--越南
+		cn : "Tích lũy nhận vàng: 2000000",    //--越南
 	},
 	'quest_name_209005' : {
-		cn : "Tích lũy nhận Vàng: 6000000",    //--越南
+		cn : "Tích lũy nhận vàng: 6000000",    //--越南
 	},
 	'quest_name_209006' : {
-		cn : "Tích lũy nhận Vàng: 10000000",    //--越南
+		cn : "Tích lũy nhận vàng: 10000000",    //--越南
 	},
 	'quest_name_209007' : {
-		cn : "Tích lũy nhận Vàng: 20000000",    //--越南
+		cn : "Tích lũy nhận vàng: 20000000",    //--越南
 	},
 	'quest_name_209008' : {
-		cn : "Tích lũy nhận Vàng: 60000000",    //--越南
+		cn : "Tích lũy nhận vàng: 60000000",    //--越南
 	},
 	'quest_name_209009' : {
-		cn : "Tích lũy nhận Vàng: 100000000",    //--越南
+		cn : "Tích lũy nhận vàng: 100000000",    //--越南
 	},
 	'quest_name_209010' : {
-		cn : "Tích lũy nhận Vàng: 200000000",    //--越南
+		cn : "Tích lũy nhận vàng: 200000000",    //--越南
 	},
 	'quest_name_209011' : {
-		cn : "Tích lũy nhận Vàng: 600000000",    //--越南
+		cn : "Tích lũy nhận vàng: 600000000",    //--越南
 	},
 	'quest_name_209012' : {
-		cn : "Tích lũy nhận Vàng: 1000000000",    //--越南
+		cn : "Tích lũy nhận vàng: 1000000000",    //--越南
 	},
 	'quest_name_209013' : {
-		cn : "Tích lũy nhận Vàng: 2000000000",    //--越南
+		cn : "Tích lũy nhận vàng: 2000000000",    //--越南
 	},
 	'quest_name_209014' : {
-		cn : "Tích lũy nhận Vàng: 4000000000",    //--越南
+		cn : "Tích lũy nhận vàng: 4000000000",    //--越南
 	},
 	'quest_name_209015' : {
-		cn : "Tích lũy nhận Vàng: 6000000000",    //--越南
+		cn : "Tích lũy nhận vàng: 6000000000",    //--越南
 	},
 	'quest_name_209016' : {
-		cn : "Tích lũy nhận Vàng: 10000000000",    //--越南
+		cn : "Tích lũy nhận vàng: 10000000000",    //--越南
 	},
 	'quest_name_210000' : {
-		cn : "Tích lũy tiêu hao K.C: 100",    //--越南
+		cn : "Sử dụng đủ Ruby: 1000",    //--越南
 	},
 	'quest_name_210001' : {
-		cn : "Tích lũy tiêu hao K.C: 500",    //--越南
+		cn : "Sử dụng đủ Ruby: 5000",    //--越南
 	},
 	'quest_name_210002' : {
-		cn : "Tích lũy tiêu hao K.C: 2000",    //--越南
+		cn : "Sử dụng đủ Ruby: 20000",    //--越南
 	},
 	'quest_name_210003' : {
-		cn : "Tích lũy tiêu hao K.C: 5000",    //--越南
+		cn : "Sử dụng đủ Ruby: 50000",    //--越南
 	},
 	'quest_name_210004' : {
-		cn : "Tích lũy tiêu hao K.C: 10000",    //--越南
+		cn : "Sử dụng đủ Ruby: 100000",    //--越南
 	},
 	'quest_name_210005' : {
-		cn : "Tích lũy tiêu hao K.C: 20000",    //--越南
+		cn : "Sử dụng đủ Ruby: 200000",    //--越南
 	},
 	'quest_name_210006' : {
-		cn : "Tích lũy tiêu hao K.C: 50000",    //--越南
+		cn : "Sử dụng đủ Ruby: 500000",    //--越南
 	},
 	'quest_name_210007' : {
-		cn : "Tích lũy tiêu hao K.C: 100000",    //--越南
+		cn : "Sử dụng đủ Ruby: 1000000",    //--越南
 	},
 	'quest_name_210008' : {
-		cn : "Tích lũy tiêu hao K.C: 500000",    //--越南
+		cn : "Sử dụng đủ Ruby: 5000000",    //--越南
 	},
 	'quest_name_210009' : {
-		cn : "Tích lũy tiêu hao K.C: 1000000",    //--越南
+		cn : "Sử dụng đủ Ruby: 10000000",    //--越南
 	},
 	'quest_name_210010' : {
-		cn : "Tích lũy tiêu hao K.C: 5000000",    //--越南
+		cn : "Sử dụng đủ Ruby: 50000000",    //--越南
 	},
 	'quest_name_213000' : {
 		cn : "Đăng nhập tích lũy 2 ngày ",    //--越南
@@ -2011,19 +2011,19 @@ var	string_strings_cfg =
 		cn : "Đấu trường Xếp Hạng Vòng 1/2 hạng Bạch Kim 1",    //--越南
 	},
 	'quest_name_229015' : {
-		cn : "Đấu trường Xếp Hạng Vòng 1/2 đạt K.C 5",    //--越南
+		cn : "Đấu trường Xếp Hạng Vòng 1/2 đạt Ruby 5",    //--越南
 	},
 	'quest_name_229016' : {
-		cn : "Đấu trường Xếp Hạng Vòng 1/2 đạt K.C 4",    //--越南
+		cn : "Đấu trường Xếp Hạng Vòng 1/2 đạt Ruby 4",    //--越南
 	},
 	'quest_name_229017' : {
-		cn : "Đấu trường Xếp Hạng Vòng 1/2 đạt K.C 3",    //--越南
+		cn : "Đấu trường Xếp Hạng Vòng 1/2 đạt Ruby 3",    //--越南
 	},
 	'quest_name_229018' : {
-		cn : "Đấu trường Xếp Hạng Vòng 1/2 đạt K.C 2",    //--越南
+		cn : "Đấu trường Xếp Hạng Vòng 1/2 đạt Ruby 2",    //--越南
 	},
 	'quest_name_229019' : {
-		cn : "Đấu trường Xếp Hạng Vòng 1/2 đạt K.C 1",    //--越南
+		cn : "Đấu trường Xếp Hạng Vòng 1/2 đạt Ruby 1",    //--越南
 	},
 	'quest_name_229020' : {
 		cn : "Đấu trường Xếp Hạng Vòng 1/2 đạt Top 10 cao thủ ",    //--越南
@@ -2332,19 +2332,19 @@ var	string_strings_cfg =
 		cn : "Cá Thù Lù ",    //--越南
 	},
 	'fish_desc_dly' : {
-		cn : "Cá Lồng đèn, BOSS, rơi K.C, sống tại Eo biển Tân thủ ",    //--越南
+		cn : "BOSS Cá Lồng đèn, sống tại Eo biển Tân thủ, chứa nhiều phần thưởng",    //--越南
 	},
 	'fish_desc_zy' : {
-		cn : "Bạch Tuộc, BOSS, rơi K.C, sống tại Hải vực Thần Bí ",    //--越南
+		cn : "BOSS Bạch Tuộc, sống tại Hải vực Thần Bí, chứa nhiều phần thưởng",    //--越南
 	},
 	'fish_desc_lg' : {
-		cn : "Long Quy, BOSS, rơi K.C, sống tại Eo biển Bảo Tàng ",    //--越南
+		cn : "BOSS Long Quy, sống tại Eo biển Bảo Tàng, chứa nhiều phần thưởng",    //--越南
 	},
 	'fish_desc_bxy' : {
 		cn : "Cá Bảo rương, ẩn chứa bảo tàng quý giá, xuất hiện ở tất cả các vùng biển.",    //--越南
 	},
 	'fish_desc_hm' : {
-		cn : "Hải Mã, BOSS, rơi K.C, có ở mọi vùng biển ",    //--越南
+		cn : "BOSS Hải Mã, có ở mọi vùng biển, chứa nhiều phần thưởng",    //--越南
 	},
 	'fish_desc_jjdbs' : {
 		cn : "Thưởng Cá Mập Trắng, có ở mọi vùng biển ",    //--越南
@@ -2404,7 +2404,7 @@ var	string_strings_cfg =
 		cn : "Cá Ngừ, sống tại Eo biển Tân thủ, Eo biển Bảo Tàng ",    //--越南
 	},
 	'fish_desc_mry' : {
-		cn : "Mỹ Nhân Ngư, BOSS, rơi K.C, sống tại Lãnh địa Người Cá ",    //--越南
+		cn : "BOSS Mỹ Nhân Ngư, sống tại Lãnh địa Người Cá, chứa nhiều phần thưởng",    //--越南
 	},
 	'fish_desc_jjhg' : {
 		cn : "Thưởng Rùa Biển, sống tại Lãnh địa Người Cá, Hải vực Thần Bí ",    //--越南
@@ -2734,10 +2734,10 @@ var	string_strings_cfg =
 		cn : "Tốc độ tích lũy Kích Quang +5%",    //--越南
 	},
 	'goddessup_desc_12' : {
-		cn : "Số Vàng mua +10%",    //--越南
+		cn : "Số vàng mua +10%",    //--越南
 	},
 	'guerdon_name_1' : {
-		cn : "Vàng ",    //--越南
+		cn : "vàng ",    //--越南
 	},
 	'guerdon_name_2' : {
 		cn : "Bom Hạt Nhân ",    //--越南
@@ -2764,7 +2764,7 @@ var	string_strings_cfg =
 		cn : "Mỹ Nhân Ngư có sức mạnh <color=#fff553>Hộ Thuẫn </color> bảo bệ, dùng <color=#fff553>Kích Quang </color>đi! ",    //--越南
 	},
 	'defend_desc_5' : {
-		cn : "Bạch Tuộc sẽ <color=#fff553>Trộm </color>Vàng, phải kịp thời công kích <color=#fff553>Tay Trộm </color>này! ",    //--越南
+		cn : "Bạch Tuộc sẽ <color=#fff553>Trộm </color>vàng, phải kịp thời công kích <color=#fff553>Tay Trộm </color>này! ",    //--越南
 	},
 	'defend_desc_6' : {
 		cn : "Long Quy <color=#fff553>Tăng tốc </color> xong sẽ rất nhanh, nhớ phải <color=#fff553>Đóng băng </color>nha! ",    //--越南
@@ -2776,10 +2776,10 @@ var	string_strings_cfg =
 		cn : "Mã 9527",    //--越南
 	},
 	'item_name_i001' : {
-		cn : "Vàng ",    //--越南
+		cn : "vàng ",    //--越南
 	},
 	'item_name_i002' : {
-		cn : "K.C ",    //--越南
+		cn : "Ruby ",    //--越南
 	},
 	'item_name_i003' : {
 		cn : "Phiếu Thẻ Cào ",    //--越南
@@ -2806,13 +2806,13 @@ var	string_strings_cfg =
 		cn : "Kỹ năng dự bị",    //--越南
 	},
 	'item_name_i015' : {
-		cn : "Đạn Đồng ",    //--越南
+		cn : "Bom Sơ Cấp",    //--越南
 	},
 	'item_name_i016' : {
-		cn : "Đạn Bạc ",    //--越南
+		cn : "Bom Trung Cấp ",    //--越南
 	},
 	'item_name_i017' : {
-		cn : "Đạn Kim  ",    //--越南
+		cn : "Bom Cao Cấp  ",    //--越南
 	},
 	'item_name_i051' : {
 		cn : "Đây là 1 mảnh vỡ ",    //--越南
@@ -2836,22 +2836,22 @@ var	string_strings_cfg =
 		cn : "Phiếu đổi quà 1000",    //--越南
 	},
 	'item_name_i210' : {
-		cn : "Thẻ Vàng 10K ",    //--越南
+		cn : "Thẻ vàng 10K ",    //--越南
 	},
 	'item_name_i211' : {
-		cn : "Thẻ Vàng 100K ",    //--越南
+		cn : "Thẻ vàng 100K ",    //--越南
 	},
 	'item_name_i212' : {
-		cn : "Thẻ Vàng 1M ",    //--越南
+		cn : "Thẻ vàng 1M ",    //--越南
 	},
 	'item_name_i213' : {
-		cn : "Thẻ Vàng 10M",    //--越南
+		cn : "Thẻ vàng 10M",    //--越南
 	},
 	'item_name_i214' : {
-		cn : "Thẻ Vàng 100M ",    //--越南
+		cn : "Thẻ vàng 100M ",    //--越南
 	},
 	'item_name_i215' : {
-		cn : "Thẻ Vàng tùy ý",    //--越南
+		cn : "Thẻ vàng ngẫu nhiên",    //--越南
 	},
 	'item_name_i220' : {
 		cn : "Túi kỹ năng tùy ý ",    //--越南
@@ -2869,13 +2869,13 @@ var	string_strings_cfg =
 		cn : "Quà Season Bạc ",    //--越南
 	},
 	'item_name_i253' : {
-		cn : "Quà Season Vàng",    //--越南
+		cn : "Quà Vàng Mùa giải",    //--越南
 	},
 	'item_name_i254' : {
 		cn : "Quà Season Bạch Kim",    //--越南
 	},
 	'item_name_i255' : {
-		cn : "Quà Season Kim Cương",    //--越南
+		cn : "Quà Mùa giải Kim Cương",    //--越南
 	},
 	'item_name_i256' : {
 		cn : "Quà Season Top 10 Cao Thủ",    //--越南
@@ -2941,13 +2941,13 @@ var	string_strings_cfg =
 		cn : "Hoa tươi ",    //--越南
 	},
 	'item_name_i401' : {
-		cn : "Linh kiện Đạn Đồng ",    //--越南
+		cn : "Linh kiện Bom Sơ Cấp ",    //--越南
 	},
 	'item_name_i402' : {
-		cn : "Linh kiện Đạn Bạc  ",    //--越南
+		cn : "Linh kiện Bom Trung Cấp  ",    //--越南
 	},
 	'item_name_i403' : {
-		cn : "Linh kiện Đạn Kim ",    //--越南
+		cn : "Linh kiện Bom Cao Cấp ",    //--越南
 	},
 	'item_name_i410' : {
 		cn : "Hộp quà Hoa tươi ",    //--越南
@@ -3157,94 +3157,94 @@ var	string_strings_cfg =
 		cn : "iPhoneX",    //--越南
 	},
 	'item_name_w001' : {
-		cn : "Pháo Hỏa ",    //--越南
+		cn : "Lưới Bạc ",    //--越南
 	},
 	'item_name_w002' : {
-		cn : "Máu Ác Ma ",    //--越南
+		cn : "Ác Ma ",    //--越南
 	},
 	'item_name_w003' : {
-		cn : "Mắt Thiên Sứ ",    //--越南
+		cn : "Thiên Sứ ",    //--越南
 	},
 	'item_name_w004' : {
-		cn : "Pháo điện từ GX770 ",    //--越南
+		cn : "Tia Chớp ",    //--越南
 	},
 	'item_name_w005' : {
-		cn : "Pháo Lava ",    //--越南
+		cn : "Hỗn Thiên ",    //--越南
 	},
 	'item_name_w006' : {
-		cn : "Cóc Gamakichi ",    //--越南
+		cn : "Cáp Vương ",    //--越南
 	},
 	'item_name_w007' : {
-		cn : "Starcraft ·Bình Minh ",    //--越南
+		cn : "Thiên Hà",    //--越南
 	},
 	'item_name_w008' : {
-		cn : "Bong bóng ",    //--越南
+		cn : "Ngọc Hồn",    //--越南
 	},
 	'item_name_w009' : {
-		cn : "Gatling Vàng ",    //--越南
+		cn : "Huyền Kích",    //--越南
 	},
 	'item_name_w010' : {
-		cn : "Starcraft ·Độc Lang ",    //--越南
+		cn : "Độc Lang",    //--越南
 	},
 	'item_name_w011' : {
 		cn : "Tinh Anh ",    //--越南
 	},
 	'item_name_w012' : {
-		cn : "Sương mù ",    //--越南
+		cn : "Băng Thiên Phách ",    //--越南
 	},
 	'item_name_w013' : {
-		cn : "Lời nguyền Nữ thần Flame ",    //--越南
+		cn : "Thiên Hỏa Phụng ",    //--越南
 	},
 	'item_name_w014' : {
-		cn : "Thỏ Trăng【Trung Thu giới hạn】",    //--越南
+		cn : "Thố Yểm Nguyệt【giới hạn Trung Thu】",    //--越南
 	},
 	'item_name_w015' : {
-		cn : "Chiến cơ Hủy diệt 20【Quốc Khánh giới hạn】",    //--越南
+		cn : "Vô Cực Chiến Thần【giới hạn Quốc Khánh】",    //--越南
 	},
 	'item_name_w501' : {
-		cn : "Pháo Hỏa - Mảnh ",    //--越南
+		cn : "Mảnh Lưới Bạc ",    //--越南
 	},
 	'item_name_w502' : {
-		cn : "Máu Ác Ma - Mảnh ",    //--越南
+		cn : "Mảnh Ác Ma",    //--越南
 	},
 	'item_name_w503' : {
-		cn : "Mắt Thiên Sứ - Mảnh ",    //--越南
+		cn : "Mảnh Thiên Sứ",    //--越南
 	},
 	'item_name_w504' : {
-		cn : "Pháo điện từ GX770 - Mảnh ",    //--越南
+		cn : "Mảnh Tia Chớp ",    //--越南
 	},
 	'item_name_w505' : {
-		cn : "Pháo Lava - Mảnh ",    //--越南
+		cn : "Mảnh Hỗn Thiên ",    //--越南
 	},
 	'item_name_w506' : {
-		cn : "Cóc Gamakichi - Mảnh ",    //--越南
+		cn : "Mảnh Cáp Vương ",    //--越南
 	},
 	'item_name_w507' : {
-		cn : "Starcraft ·Bình Minh - Mảnh ",    //--越南
+		cn : "Mảnh Thiên Hà",    //--越南
 	},
 	'item_name_w508' : {
-		cn : "Bong bóng - Mảnh ",    //--越南
+		cn : "Mảnh Ngọc Hồn ",    //--越南
 	},
 	'item_name_w509' : {
-		cn : "Gatling Vàng - Mảnh ",    //--越南
+		cn : "Mảnh Huyền Kích",    //--越南
 	},
 	'item_name_w510' : {
-		cn : "Starcraft ·Độc Lang - Mảnh ",    //--越南
+		cn : "Mảnh Độc Lang",    //--越南
 	},
 	'item_name_w511' : {
-		cn : "Tinh Anh - Mảnh ",    //--越南
+		cn : "Mảnh Tinh Anh",    //--越南
 	},
 	'item_name_w512' : {
-		cn : "Sương mù - Mảnh ",    //--越南
+		cn : "Mảnh Băng Thiên Phách ",    //--越南
 	},
 	'item_name_w513' : {
-		cn : "Lời nguyền Nữ thần Flame - Mảnh ",    //--越南
+		cn : " Mảnh Thiên Hỏa Phụng ",    //--越南
 	},
 	'item_name_w514' : {
-		cn : "Thỏ Trăng - Mảnh ",    //--越南
+		cn : "Mảnh Thố Yểm Nguyệt ",    //--越南
 	},
 	'item_name_w515' : {
-		cn : "Chiến cơ Hủy diệt 20 - Mảnh ",    //--越南
+		cn : "Mảnh Vô Cực Chiến Thần",    //--越南
 	},
 	'item_desc_i000' : {
 		cn : "Nhãn hiệu thần bí, Mã 9527",    //--越南
@@ -3253,13 +3253,13 @@ var	string_strings_cfg =
 		cn : "Vàng Nặng ",    //--越南
 	},
 	'item_desc_i002' : {
-		cn : "K.C lấp lánh ",    //--越南
+		cn : "Ruby lấp lánh ",    //--越南
 	},
 	'item_desc_i003' : {
 		cn : "Có thể đến đổi Thẻ điện thoại, Thẻ Kinh Đông v.v, chủ yếu là thông qua thưởng Bảo Vệ Nữ Thần mỗi tuần, Thưởng Đấu loại mỗi ngày, và Thẻ cào từ cá rơi ra!",    //--越南
 	},
 	'item_desc_i004' : {
-		cn : "Sử dụng tại giao diện rút thăm Skin, có thể nhận được Mảnh Skin ",    //--越南
+		cn : "Sử dụng tại giao diện rút thăm Súng, có thể nhận được Mảnh Súng",    //--越南
 	},
 	'item_desc_i005' : {
 		cn : "VIP EXP ",    //--越南
@@ -3280,13 +3280,13 @@ var	string_strings_cfg =
 		cn : "Tùy ý Gọi 1 con Cá Thưởng ",    //--越南
 	},
 	'item_desc_i015' : {
-		cn : "Đạn Đồng, Hấp dẫn Trung, có hiệu quả với bầy cá, có thể nhận 50000 Vàng, ở cảnh Thấp càng tốt! ",    //--越南
+		cn : "Bom Sơ Cấp, lực công phá cỡ trung, nên dùng với bầy cá nhỏ ở Cảng tân thủ",    //--越南
 	},
 	'item_desc_i016' : {
-		cn : "Đạn Bạc, Hấp dẫn Đại, có hiệu quả với bầy cá, có thể nhận 150000 Vàng, ở cảnh Trung càng tốt!",    //--越南
+		cn : "Bom Trung Cấp, lực công phá cỡ lớn, nên dùng với bầy cá nhỏ/trung ở Lãnh địa người cá",    //--越南
 	},
 	'item_desc_i017' : {
-		cn : "Đạn Kim, Hấp dẫn cực đại, có hiệu quả với bầy cá, có thể nhận 500000 Vàng, ở cảnh Cao càng tốt! ",    //--越南
+		cn : "Bom Cao Cấp, lực công phá cực đại, nên dùng với bầy cá lớn ở Eo biển bảo tàng",    //--越南
 	},
 	'item_desc_i051' : {
 		cn : "Đây là 1 mảnh vỡ ",    //--越南
@@ -3307,25 +3307,25 @@ var	string_strings_cfg =
 		cn : "Cá Nóc Điên ",    //--越南
 	},
 	'item_desc_i200' : {
-		cn : "Dùng xong nhận 1M Vàng, cấp 30 trở lên có thể dùng.",    //--越南
+		cn : "Dùng xong nhận 1000 Ruby, cấp 30 trở lên có thể dùng.",    //--越南
 	},
 	'item_desc_i210' : {
-		cn : "Dùng xong nhận 【10K】Vàng ",    //--越南
+		cn : "Dùng xong nhận 【10K】vàng ",    //--越南
 	},
 	'item_desc_i211' : {
-		cn : "Dùng xong nhận 【100K】Vàng ",    //--越南
+		cn : "Dùng xong nhận 【100K】vàng ",    //--越南
 	},
 	'item_desc_i212' : {
-		cn : "Dùng xong nhận 【1M 】Vàng ",    //--越南
+		cn : "Dùng xong nhận 【1M 】vàng ",    //--越南
 	},
 	'item_desc_i213' : {
-		cn : "Dùng xong nhận 【10M 】Vàng ",    //--越南
+		cn : "Dùng xong nhận 【10M 】vàng ",    //--越南
 	},
 	'item_desc_i214' : {
-		cn : "Dùng xong nhận 【100M】Vàng ",    //--越南
+		cn : "Dùng xong nhận 【100M】vàng ",    //--越南
 	},
 	'item_desc_i215' : {
-		cn : "Dùng xong nhận tùy ý: 【100M】, 【10M 】, 【1M 】, 【100K】, 【10K】, 【1000】Vàng ",    //--越南
+		cn : "Dùng xong nhận ngẫu nhiên: 【100M】, 【10M 】, 【1M 】, 【100K】, 【10K】, 【1000】vàng ",    //--越南
 	},
 	'item_desc_i220' : {
 		cn : "Dùng xong nhận tùy ý: Khóa *1, Đóng băng *1, Gọi *1",    //--越南
@@ -3349,7 +3349,7 @@ var	string_strings_cfg =
 		cn : "Đấu trường Xếp Hạng nhận Quà Bạch Kim, tạm thời chưa dùng được, Xin hãy đợi ! ",    //--越南
 	},
 	'item_desc_i255' : {
-		cn : "Đấu trường Xếp Hạng nhận Quà K.C, tạm thời chưa dùng được, Xin hãy đợi ! ",    //--越南
+		cn : "Xếp hạng Đấu Trường nhận Quà Ruby, tạm thời chưa dùng được, Xin hãy đợi ! ",    //--越南
 	},
 	'item_desc_i256' : {
 		cn : "Đấu trường Xếp Hạng nhận Quà Top 10 cao thủ, tạm thời chưa dùng được, Xin hãy đợi ! ",    //--越南
@@ -3358,7 +3358,7 @@ var	string_strings_cfg =
 		cn : "Đấu trường Xếp Hạng nhận Quà Thợ giỏi nhất Season, tạm thời chưa dùng được, Xin hãy đợi ! ",    //--越南
 	},
 	'item_desc_i300' : {
-		cn : "Hộp quà event Chức nữ, bên trong có K.C, Bom Hạt Nhân, Thẻ Cào v.v, mỗi ngày 100 lần sẽ nhận  Phiếu Thẻ Cào 10k ! ",    //--越南
+		cn : "Hộp quà event Chức nữ, bên trong có Ruby, Bom Hạt Nhân, Thẻ Cào v.v, mỗi ngày 100 lần sẽ nhận  Phiếu Thẻ Cào 10K ! ",    //--越南
 	},
 	'item_desc_i301' : {
 		cn : "Đồng Tâm Kết, có thêu chữ cái——Vĩnh",    //--越南
@@ -3403,7 +3403,7 @@ var	string_strings_cfg =
 		cn : "Bánh Trung thu nhân sen, dùng khi Trung Thu, còn nhận được thêm niềm vui khác! ",    //--越南
 	},
 	'item_desc_i319' : {
-		cn : "Bánh Thập Cẩm Bách Hoa, dùng khi Trung Thu, mỗi ngày dùng 80 cái sẽ nhận 【Trung Thu giới hạn】Skin ",    //--越南
+		cn : "Bánh Thập Cẩm Bách Hoa, dùng khi Trung Thu, mỗi ngày dùng 80 cái sẽ nhận Súng【Trung Thu giới hạn】",    //--越南
 	},
 	'item_desc_i320' : {
 		cn : "WU.知道南瓜灯里面有什么吗？累计第50次打开获得【嫦娥女神魂石*50】、第100次打开获得【青铜弹头*100】！",    //--越南
@@ -3412,16 +3412,16 @@ var	string_strings_cfg =
 		cn : "WU.味道奇特的南瓜派！每天第20次打开获得【嫦娥女神魂石*2】、第60次打开获得【100万金币卡*1】！",    //--越南
 	},
 	'item_desc_i400' : {
-		cn : "Tặng cho người mình ngưỡng mộ, người được tặng còn có thể nhận Điểm Hấp dẫn! ",    //--越南
+		cn : "Tặng cho người mình ngưỡng mộ, người được tặng còn có thể nhận Điểm Mị Lực! ",    //--越南
 	},
 	'item_desc_i401' : {
-		cn : "Linh kiện Đạn Đồng, thu thập 10 cái có thể hợp thành Đạn Đồng ",    //--越南
+		cn : "Linh kiện Bom Sơ Cấp, thu thập 10 cái có thể hợp thành Bom Sơ Cấp ",    //--越南
 	},
 	'item_desc_i402' : {
-		cn : "Linh kiện Đạn Bạc , thu thập 30 cái có thể hợp thành Đạn Bạc ",    //--越南
+		cn : "Linh kiện Bom Trung Cấp , thu thập 30 cái có thể hợp thành Bom Trung Cấp ",    //--越南
 	},
 	'item_desc_i403' : {
-		cn : "Linh kiện Đạn Kim, thu thập 100 cái có thể hợp thành Đạn Kim ",    //--越南
+		cn : "Linh kiện Bom Cao Cấp, thu thập 100 cái có thể hợp thành Bom Cao Cấp ",    //--越南
 	},
 	'item_desc_i410' : {
 		cn : "Hoa tươi Boa chuyển thành Hộp quà Hoa tươi, không thể tặng, khi dùng nhận đạo cụ tùy ý, mỗi ngày  dùng 50 lần sẽ nhận quà thần bí!",    //--越南
@@ -3430,7 +3430,7 @@ var	string_strings_cfg =
 		cn : "WU.集齐10个可以合成一张【100万金币卡】",    //--越南
 	},
 	'item_desc_i500' : {
-		cn : "Đá Quý vũ trụ, rất là cứng, dùng khi rèn vũ khí, tăng tỷ lệ thành công, hoặc bán được 100K Vàng! ",    //--越南
+		cn : "Đá Quý vũ trụ, rất là cứng, dùng khi rèn súng, tăng tỷ lệ thành công, hoặc bán được 100 Ruby",    //--越南
 	},
 	'item_desc_i501' : {
 		cn : "Đá ngoài vũ trụ, vũ khí x1000 dùng để lên cấp, tại Hải vực Thần Bí, Eo biển Bảo Tàng bắn được Cá Thưởng và BOSS rơi ra! ",    //--越南
@@ -3547,22 +3547,22 @@ var	string_strings_cfg =
 		cn : "Hằng Nga Tỷ khi lên cấp dùng  ",    //--越南
 	},
 	'item_desc_i704' : {
-		cn : "Đạo cụ này đã bỏ phế, có thể trực tiếp bán lấy 1K Vàng ",    //--越南
+		cn : "Đạo cụ này đã bỏ phế, có thể trực tiếp bán lấy 1K vàng ",    //--越南
 	},
 	'item_desc_i705' : {
-		cn : "Đạo cụ này đã bỏ phế, có thể trực tiếp bán lấy 1K Vàng ",    //--越南
+		cn : "Đạo cụ này đã bỏ phế, có thể trực tiếp bán lấy 1K vàng ",    //--越南
 	},
 	'item_desc_i706' : {
-		cn : "Đạo cụ này đã bỏ phế, có thể trực tiếp bán lấy 1K Vàng ",    //--越南
+		cn : "Đạo cụ này đã bỏ phế, có thể trực tiếp bán lấy 1K vàng ",    //--越南
 	},
 	'item_desc_i707' : {
-		cn : "Đạo cụ này đã bỏ phế, có thể trực tiếp bán lấy 1K Vàng ",    //--越南
+		cn : "Đạo cụ này đã bỏ phế, có thể trực tiếp bán lấy 1K vàng ",    //--越南
 	},
 	'item_desc_i708' : {
-		cn : "Đạo cụ này đã bỏ phế, có thể trực tiếp bán lấy 1K Vàng ",    //--越南
+		cn : "Đạo cụ này đã bỏ phế, có thể trực tiếp bán lấy 1K vàng ",    //--越南
 	},
 	'item_desc_i709' : {
-		cn : "Đạo cụ này đã bỏ phế, có thể trực tiếp bán lấy 1K Vàng ",    //--越南
+		cn : "Đạo cụ này đã bỏ phế, có thể trực tiếp bán lấy 1K vàng ",    //--越南
 	},
 	'item_desc_i800' : {
 		cn : "Thẻ cào Viettel 10000",    //--越南
@@ -3631,97 +3631,97 @@ var	string_strings_cfg =
 		cn : "iPhoneX",    //--越南
 	},
 	'item_desc_w001' : {
-		cn : "Dùng xong nhận 【Pháo Hỏa】Skin, Nếu đã có Skin, sẽ đổi thành 10 cái 【Pháo Hỏa】Mảnh ",    //--越南
+		cn : "Dùng xong nhận Súng【Lưới Bạc】, Nếu đã có Súng, sẽ đổi thành 10 Mảnh【Lưới Bạc】",    //--越南
 	},
 	'item_desc_w002' : {
-		cn : "Dùng xong nhận 【Máu Ác Ma】Skin, Nếu đã có Skin, sẽ đổi thành 50 cái 【Máu Ác Ma】Mảnh ",    //--越南
+		cn : "Dùng xong nhận Súng【Ác Ma】, Nếu đã có Súng, sẽ đổi thành 50 Mảnh  【Ác Ma】",    //--越南
 	},
 	'item_desc_w003' : {
-		cn : "Dùng xong nhận 【Mắt Thiên Sứ】Skin, Nếu đã có Skin, sẽ đổi thành 90 cái 【Mắt Thiên Sứ】Mảnh ",    //--越南
+		cn : "Dùng xong nhận Súng【Thiên Sứ】, Nếu đã có Súng, sẽ đổi thành 90 Mảnh  【Thiên Sứ】",    //--越南
 	},
 	'item_desc_w004' : {
-		cn : "Dùng xong nhận 【Pháo điện từ GX770】Skin, Nếu đã có Skin, sẽ đổi thành 60 cái 【Pháo điện từ GX770】Mảnh ",    //--越南
+		cn : "Dùng xong nhận Súng【Tia Chớp】, Nếu đã có Súng, sẽ đổi thành 60 Mảnh 【Tia Chớp】",    //--越南
 	},
 	'item_desc_w005' : {
-		cn : "Dùng xong nhận 【Pháo Lava】Skin, Nếu đã có Skin, sẽ đổi thành 40 cái 【Pháo Lava】Mảnh ",    //--越南
+		cn : "Dùng xong nhận Súng【Hỗn Thiên】, Nếu đã có Súng, sẽ đổi thành 40 Mảnh 【Hỗn Thiên】",    //--越南
 	},
 	'item_desc_w006' : {
-		cn : "Dùng xong nhận 【Cóc Gamakichi】Skin, Nếu đã có Skin, sẽ đổi thành 90 cái 【Cóc Gamakichi】Mảnh ",    //--越南
+		cn : "Dùng xong nhận Súng【Cáp Vương】, Nếu đã có Súng, sẽ đổi thành 90 Mảnh 【Cáp Vương】",    //--越南
 	},
 	'item_desc_w007' : {
-		cn : "Dùng xong nhận 【Starcraft ·Bình Minh】Skin, Nếu đã có Skin, sẽ đổi thành 100 cái 【Starcraft ·Bình Minh】Mảnh ",    //--越南
+		cn : "Dùng xong nhận 【Thiên Hà】Súng, Nếu đã có Súng, sẽ đổi thành 100 Mảnh 【Thiên Hà】",    //--越南
 	},
 	'item_desc_w008' : {
-		cn : "Dùng xong nhận 【Bong bóng】Skin, Nếu đã có Skin, sẽ đổi thành 100 cái 【Bong bóng】Mảnh ",    //--越南
+		cn : "Dùng xong nhận Súng【Ngọc Hồn】, Nếu đã có Súng, sẽ đổi thành 100 Mảnh 【Ngọc Hồn】",    //--越南
 	},
 	'item_desc_w009' : {
-		cn : "Dùng xong nhận 【Gatling Vàng】Skin, Nếu đã có Skin, sẽ đổi thành 90 cái 【Gatling Vàng】Mảnh ",    //--越南
+		cn : "Dùng xong nhận Súng【Huyền Kích】, Nếu đã có Súng, sẽ đổi thành 90 Mảnh 【Huyền Kích】",    //--越南
 	},
 	'item_desc_w010' : {
-		cn : "Dùng xong nhận 【Starcraft ·Độc Lang】Skin, Nếu đã có Skin, sẽ đổi thành 80 cái 【Starcraft ·Độc Lang】Mảnh ",    //--越南
+		cn : "Dùng xong nhận Súng【Độc Lang】, Nếu đã có Súng, sẽ đổi thành 80 Mảnh  【Độc Lang】",    //--越南
 	},
 	'item_desc_w011' : {
-		cn : "Dùng xong nhận 【Tinh Anh】Skin, Nếu đã có Skin, sẽ đổi thành 100 cái 【Tinh Anh】Mảnh ",    //--越南
+		cn : "Dùng xong nhận Súng【Tinh Anh】, Nếu đã có Súng, sẽ đổi thành 100 Mảnh【Tinh Anh】",    //--越南
 	},
 	'item_desc_w012' : {
-		cn : "Dùng xong nhận 【Sương mù】Skin, Nếu đã có Skin, sẽ đổi thành 70 cái 【Sương mù】Mảnh ",    //--越南
+		cn : "Dùng xong nhận Súng【Băng Thiên Phách】, Nếu đã có Súng, sẽ đổi thành 70 Mảnh  【Băng Thiên Phách】",    //--越南
 	},
 	'item_desc_w013' : {
-		cn : "Dùng xong nhận 【Lời nguyền Nữ thần Flame】Skin, Nếu đã có Skin, sẽ đổi thành 120 cái 【Lời nguyền Nữ thần Flame】Mảnh ",    //--越南
+		cn : "Dùng xong nhận Súng【Thiên Hỏa Phụng】, Nếu đã có Súng, sẽ đổi thành 120 cái Mảnh 【Thiên Hỏa Phụng】",    //--越南
 	},
 	'item_desc_w014' : {
-		cn : "Chỉ có ở event Trung Thu, dùng xong nhận 【Thỏ Trăng】Skin, Nếu đã có Skin, sẽ đổi thành 150 cái 【Vũ khí Nguyệt Quang】Mảnh ",    //--越南
+		cn : "Chỉ có ở event Trung Thu, dùng xong nhận Súng【Thố Yểm Nguyệt】, Nếu đã có Súng, sẽ đổi thành 150 Mảnh 【Vũ khí Nguyệt Quang】",    //--越南
 	},
 	'item_desc_w015' : {
-		cn : "Trong event Quốc Khánh, dùng xong nhận 【Chiến cơ Hủy diệt 20】Skin, Nếu đã có Skin, sẽ đổi thành 150 cái 【Chiến cơ Hủy diệt 20】Mảnh ",    //--越南
+		cn : "Trong event Quốc Khánh, dùng xong nhận Súng【Vô Cực Chiến Thần】, Nếu đã có Súng, sẽ đổi thành 150 Mảnh  【Vô Cực Chiến Thần】",    //--越南
 	},
 	'item_desc_w501' : {
-		cn : "Pháo Hỏa - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : " Mảnh Lưới Bạc, dùng để lên cấp sao  ",    //--越南
 	},
 	'item_desc_w502' : {
-		cn : "Máu Ác Ma - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : "Mảnh Ác Ma, dùng để lên cấp sao  ",    //--越南
 	},
 	'item_desc_w503' : {
-		cn : "Mắt Thiên Sứ - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : "Mảnh Thiên Sứ , dùng để lên cấp sao  ",    //--越南
 	},
 	'item_desc_w504' : {
-		cn : "Pháo điện từ GX770 - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : "Mảnh Tia Chớp , dùng để lên cấp sao  ",    //--越南
 	},
 	'item_desc_w505' : {
-		cn : "Pháo Lava - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : "Mảnh Hỗn Thiên , dùng để lên cấp sao  ",    //--越南
 	},
 	'item_desc_w506' : {
-		cn : "Cóc Gamakichi - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : "Mảnh Cáp Vương , dùng để lên cấp sao  ",    //--越南
 	},
 	'item_desc_w507' : {
-		cn : "Starcraft ·Bình Minh - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : "Mảnh Thiên Hà , dùng để lên cấp sao  ",    //--越南
 	},
 	'item_desc_w508' : {
-		cn : "Bong bóng - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : "Mảnh Ngọc Hồn, dùng để lên cấp sao  ",    //--越南
 	},
 	'item_desc_w509' : {
-		cn : "Gatling Vàng - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : "Mảnh Huyền Kích, dùng để lên cấp sao  ",    //--越南
 	},
 	'item_desc_w510' : {
-		cn : "Starcraft ·Độc Lang - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : "Mảnh Độc Lang, dùng để lên cấp sao  ",    //--越南
 	},
 	'item_desc_w511' : {
-		cn : "Tinh Anh - Mảnh, dùng khi lên cấp sao ",    //--越南
+		cn : "Mảnh Tinh Anh , dùng để lên cấp sao ",    //--越南
 	},
 	'item_desc_w512' : {
-		cn : "Sương mù - Mảnh, dùng khi lên cấp sao ",    //--越南
+		cn : "Mảnh Băng Thiên Phách , dùng để lên cấp sao ",    //--越南
 	},
 	'item_desc_w513' : {
-		cn : "Lời nguyền Nữ thần Flame - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : "Mảnh Thiên Hỏa Phụng , dùng để lên cấp sao  ",    //--越南
 	},
 	'item_desc_w514' : {
-		cn : "Thỏ Trăng - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : " Mảnh Thố Yểm Nguyệt , dùng để lên cấp sao  ",    //--越南
 	},
 	'item_desc_w515' : {
-		cn : "Chiến cơ Hủy diệt 20 - Mảnh, dùng khi lên cấp sao  ",    //--越南
+		cn : "Mảnh Vô Cực Chiến Thần , dùng để lên cấp sao  ",    //--越南
 	},
 	'loadingtips_desc_1' : {
-		cn : "Nhắc nhỏ: 【Sương mù】có thể giảm tốc của cả Trận hình cá, nhưng hiệu quả giảm 1/2.",    //--越南
+		cn : "Nhắc nhở: 【Băng Thiên Phách】có thể giảm tốc của cả Trận hình cá, nhưng hiệu quả giảm 1/2.",    //--越南
 	},
 	'loadingtips_desc_2' : {
 		cn : "Nhắc nhỏ: Dùng【Kích Quang】,【Bom Hạt Nhân】có hiệu quả phá Hộ Thuẫn của BOSS.",    //--越南
@@ -3730,7 +3730,7 @@ var	string_strings_cfg =
 		cn : "Nhắc nhỏ: BXH Bảo Vệ Nữ Thần sẽ làm mới mỗi chủ nhật. ",    //--越南
 	},
 	'loadingtips_desc_4' : {
-		cn : "Nhắc nhỏ: 【Cá màu Vàng】và【Cá Dĩa lớn】đều là Cá Thưởng, nhận được thêm quà.",    //--越南
+		cn : "Nhắc nhở: 【Cá màu Vàng】và【Cá Dĩa lớn】đều là Cá Thưởng, nhận được thêm quà.",    //--越南
 	},
 	'loadingtips_desc_5' : {
 		cn : "Nhắc nhỏ: Xếp Hạng theo tổng level tất cả cá trong Hồ Cá.",    //--越南
@@ -3745,7 +3745,7 @@ var	string_strings_cfg =
 		cn : "Nhắc nhỏ: Bắn cá đều có thể nhận Mảnh cá, để nâng cấp cá trong Hồ Cá.",    //--越南
 	},
 	'loadingtips_desc_9' : {
-		cn : "Nhắc nhỏ: 【Cóc Gamakichi】là Skin có tỷ lệ cao, săn cá nhỏ không đáng đâu!",    //--越南
+		cn : "Nhắc nhở: 【Cáp Vương】là Súng có tỷ lệ cao, săn cá nhở không đáng đâu!",    //--越南
 	},
 	'loadingtips_desc_10' : {
 		cn : "Nhắc nhỏ: Tại【Hải vực Thần Bí】,【Eo biển Bảo Tàng】thu được Cá Thưởng và BOSS có thể rơi ra nguyên liệu rèn luyện vũ khí!",    //--越南
@@ -3754,52 +3754,52 @@ var	string_strings_cfg =
 		cn : "Nhắc nhỏ: Cá Thưởng do Gọi ra rất dễ bắn trúng.",    //--越南
 	},
 	'weapons_name_1' : {
-		cn : "Pháo Hỏa ",    //--越南
+		cn : "Lưới Bạc ",    //--越南
 	},
 	'weapons_name_2' : {
-		cn : "Máu Ác Ma ",    //--越南
+		cn : "Ác Ma ",    //--越南
 	},
 	'weapons_name_3' : {
-		cn : "Mắt Thiên Sứ ",    //--越南
+		cn : "Thiên Sứ ",    //--越南
 	},
 	'weapons_name_4' : {
-		cn : "Pháo điện từ GX770 ",    //--越南
+		cn : "Tia Chớp ",    //--越南
 	},
 	'weapons_name_5' : {
-		cn : "Pháo Lava ",    //--越南
+		cn : "Hỗn Thiên ",    //--越南
 	},
 	'weapons_name_6' : {
-		cn : "Cóc Gamakichi ",    //--越南
+		cn : "Cáp Vương ",    //--越南
 	},
 	'weapons_name_7' : {
-		cn : "Starcraft ·Bình Minh ",    //--越南
+		cn : "Thiên Hà",    //--越南
 	},
 	'weapons_name_8' : {
-		cn : "Bong bóng ",    //--越南
+		cn : "Ngọc Hồn",    //--越南
 	},
 	'weapons_name_9' : {
-		cn : "Gatling Vàng ",    //--越南
+		cn : "Huyền Kích",    //--越南
 	},
 	'weapons_name_10' : {
-		cn : "Starcraft ·Độc Lang ",    //--越南
+		cn : "Độc Lang",    //--越南
 	},
 	'weapons_name_11' : {
 		cn : "Tinh Anh ",    //--越南
 	},
 	'weapons_name_12' : {
-		cn : "Sương mù ",    //--越南
+		cn : "Băng Thiên Phách ",    //--越南
 	},
 	'weapons_name_13' : {
-		cn : "Lời nguyền Nữ thần Flame ",    //--越南
+		cn : "Thiên Hỏa Phụng ",    //--越南
 	},
 	'weapons_name_14' : {
-		cn : "Thỏ Trăng ",    //--越南
+		cn : "Thố Yểm Nguyệt ",    //--越南
 	},
 	'weapons_name_15' : {
-		cn : "Chiến cơ Hủy diệt 20 ",    //--越南
+		cn : "Vô Cực Chiến Thần ",    //--越南
 	},
 	'weapons_desc_1' : {
-		cn : "Pháo Hỏa \nPhản đạn 2 lần ",    //--越南
+		cn : "Lưới Bạc \nPhản đạn 2 lần ",    //--越南
 	},
 	'weapons_desc_2' : {
 		cn : "Phản đạn 4 lần \nHit +1%\nTốc độ bắn +25%",    //--越南
@@ -3808,7 +3808,7 @@ var	string_strings_cfg =
 		cn : "Phản đạn vô hạn \nHit +104%\nTiêu hao bắn +100%",    //--越南
 	},
 	'weapons_desc_4' : {
-		cn : "Phản đạn 3 lần \nNhận Vàng +102%\nTiêu hao bắn +100%\nTốc độ tích lũy Kích Quang +100%",    //--越南
+		cn : "Phản đạn 3 lần \nNhận vàng +102%\nTiêu hao bắn +100%\nTốc độ tích lũy Kích Quang +100%",    //--越南
 	},
 	'weapons_desc_5' : {
 		cn : "Phản đạn 5 lần \nHit +1%\nTốc độ đạn +100%",    //--越南
@@ -3832,7 +3832,7 @@ var	string_strings_cfg =
 		cn : "Phản đạn vô hạn \nTốc độ tích lũy Kích Quang +100%\nThu được Cá Thưởng Nhận Thưởng +15%\nHit , Tiêu hao bắn +100%",    //--越南
 	},
 	'weapons_desc_12' : {
-		cn : "Phản đạn vô hạn \nTốc độ bắn +70%\nGiảm tốc độ cá 80%\nHit , Nhận Vàng +1%",    //--越南
+		cn : "Phản đạn vô hạn \nTốc độ bắn +70%\nGiảm tốc độ cá 80%\nHit , Nhận vàng +1%",    //--越南
 	},
 	'weapons_desc_13' : {
 		cn : "Phản đạn vô hạn \nHit +2%\nMỗi lần Công kích giảm điểm cá 1\nNâng cao tỷ lệ bắn trúng cá ",    //--越南
@@ -3973,19 +3973,19 @@ var	string_strings_cfg =
 		cn : "Top 10 cao thủ ",    //--越南
 	},
 	'rankgame_name_3' : {
-		cn : "K.C Đoạn 1",    //--越南
+		cn : "Ruby Đoàn 1",    //--越南
 	},
 	'rankgame_name_4' : {
-		cn : "K.C Đoạn 2",    //--越南
+		cn : "Ruby Đoàn 2",    //--越南
 	},
 	'rankgame_name_5' : {
-		cn : "K.C Đoạn 3 ",    //--越南
+		cn : "Ruby Đoàn 3 ",    //--越南
 	},
 	'rankgame_name_6' : {
-		cn : "K.C Đoạn 4 ",    //--越南
+		cn : "Ruby Đoàn 4 ",    //--越南
 	},
 	'rankgame_name_7' : {
-		cn : "K.C Đoạn 5 ",    //--越南
+		cn : "Ruby Đoàn 5 ",    //--越南
 	},
 	'rankgame_name_8' : {
 		cn : "Bạch Kim Đoạn 1 ",    //--越南
@@ -4003,19 +4003,19 @@ var	string_strings_cfg =
 		cn : "Bạch Kim Đoạn 5 ",    //--越南
 	},
 	'rankgame_name_13' : {
-		cn : "Vàng Đoạn 1 ",    //--越南
+		cn : "Vàng Đoàn 1",    //--越南
 	},
 	'rankgame_name_14' : {
-		cn : "Vàng Đoạn 2 ",    //--越南
+		cn : "Vàng Đoàn 2",    //--越南
 	},
 	'rankgame_name_15' : {
-		cn : "Vàng Đoạn 3 ",    //--越南
+		cn : "Vàng Đoàn 3",    //--越南
 	},
 	'rankgame_name_16' : {
-		cn : "Vàng Đoạn 4 ",    //--越南
+		cn : "Vàng Đoàn 4",    //--越南
 	},
 	'rankgame_name_17' : {
-		cn : "Vàng Đoạn 5 ",    //--越南
+		cn : "Vàng Đoàn 5",    //--越南
 	},
 	'rankgame_name_18' : {
 		cn : "Bạc  Đoạn 1 ",    //--越南
@@ -4048,7 +4048,7 @@ var	string_strings_cfg =
 		cn : "Đồng  Đoạn 5 ",    //--越南
 	},
 	'rank_rule_tips1' : {
-		cn : "Theo Xếp Hạng Vàng , làm mới mỗi tuần ",    //--越南
+		cn : "Theo Xếp Hạng vàng , làm mới mỗi tuần ",    //--越南
 	},
 	'rank_rule_tips2' : {
 		cn : "Theo XH Điểm thành tựu , không làm mới ",    //--越南
@@ -4063,10 +4063,10 @@ var	string_strings_cfg =
 		cn : "Theo XH Tổng cấp của Cá Pet, không làm mới ",    //--越南
 	},
 	'rank_rule_tips6' : {
-		cn : "Theo XH Điểm Hấp dẫn, không làm mới ",    //--越南
+		cn : "Theo XH Điểm Mị lực, không làm mới ",    //--越南
 	},
 	'rank_rule_tips7' : {
-		cn : "Theo BXH Bắn cá nhận Vàng, làm mới mỗi tuần.",    //--越南
+		cn : "Theo BXH Bắn cá nhận vàng, làm mới mỗi tuần.",    //--越南
 	},
 	'rank_rule_tips8' : {
 		cn : "Theo BXH nhận Hoa tươi, làm mới mỗi tuần.",    //--越南
@@ -4090,19 +4090,19 @@ var	string_strings_cfg =
 		cn : "Long Cung (Giới hạn) ",    //--越南
 	},
 	'scenes_name_scene_single_3' : {
-		cn : "Xin hãy đợi ",    //--越南
+		cn : "Vui lòng đợi",    //--越南
 	},
 	'scenes_desc_scene_mutiple_1' : {
-		cn : "0",    //--越南
+		cn : " ",    //--越南
 	},
 	'scenes_desc_scene_mutiple_2' : {
-		cn : "0",    //--越南
+		cn : " ",    //--越南
 	},
 	'scenes_desc_scene_mutiple_3' : {
-		cn : "0",    //--越南
+		cn : " ",    //--越南
 	},
 	'scenes_desc_scene_mutiple_4' : {
-		cn : "0",    //--越南
+		cn : " ",    //--越南
 	},
 	'scenes_desc_scene_single_1' : {
 		cn : "1.Núi Lửa đó!!\n2.Núi Lửa đó!!Núi Lửa \n3.Núi Lửa đó!! Núi Lửa ",    //--越南
@@ -4111,7 +4111,7 @@ var	string_strings_cfg =
 		cn : "1.Long Cung đó!!\n2.Long Cung đó!!Long Cung \n3.Long Cung đó!! Long Cung ",    //--越南
 	},
 	'scenes_desc_scene_single_3' : {
-		cn : "0",    //--越南
+		cn : " ",    //--越南
 	},
 	'share_name_101' : {
 		cn : "Mỗi ngày Chia sẻ 1 lần nhận quà ",    //--越南
@@ -4120,7 +4120,7 @@ var	string_strings_cfg =
 		cn : "Vũ khí lên cấp x 1200",    //--越南
 	},
 	'share_name_103' : {
-		cn : "Nhận 5 Skin Vũ khí ",    //--越南
+		cn : "Nhận 5 Súng",    //--越南
 	},
 	'share_name_104' : {
 		cn : "Bảo Vệ Nữ Thần vượt 60 ải ",    //--越南
@@ -4129,7 +4129,7 @@ var	string_strings_cfg =
 		cn : "Trở thành VIP",    //--越南
 	},
 	'share_name_106' : {
-		cn : "Trở thành Đệ nhất Phú đồng thời Vàng không thấp hơn 5M ",    //--越南
+		cn : "Trở thành Đệ nhất Phú ông đồng thời vàng không thấp hơn 5M ",    //--越南
 	},
 	'share_name_107' : {
 		cn : "Đấu trường Xếp Hạng đạt giải Thợ giỏi nhất.",    //--越南
@@ -4168,13 +4168,13 @@ var	string_strings_cfg =
 		cn : "Kỹ năng Lỗ đen ",    //--越南
 	},
 	'skill_name_8' : {
-		cn : "Đạn Đồng ",    //--越南
+		cn : "Bom Sơ Cấp",    //--越南
 	},
 	'skill_name_9' : {
-		cn : "Đạn Bạc ",    //--越南
+		cn : "Bom Trung Cấp ",    //--越南
 	},
 	'skill_name_10' : {
-		cn : "Đạn Kim  ",    //--越南
+		cn : "Bom Cao Cấp  ",    //--越南
 	},
 	'skill_desc_1' : {
 		cn : "Đóng băng toàn bộ cá (trừ Cá Bảo rương), duy trì 5 s.",    //--越南
@@ -4198,19 +4198,19 @@ var	string_strings_cfg =
 		cn : "Kỹ năng Lỗ đen ",    //--越南
 	},
 	'skill_desc_8' : {
-		cn : "Đạn Đồng, Hấp dẫn Trung, có hiệu quả với bầy cá, có thể nhận 50000 Vàng, ở cảnh Thấp càng tốt! ",    //--越南
+		cn : "Bom Sơ Cấp, lực công phá cỡ trung, nên dùng với bầy cá nhỏ ở Cảng tân thủ",    //--越南
 	},
 	'skill_desc_9' : {
-		cn : "Đạn Bạc, Hấp dẫn Đại, có hiệu quả với bầy cá, có thể nhận 150000 Vàng, ở cảnh Trung càng tốt!",    //--越南
+		cn : "Bom Trung Cấp, lực công phá cỡ lớn, nên dùng với bầy cá nhỏ/trung ở Lãnh địa người cá",    //--越南
 	},
 	'skill_desc_10' : {
-		cn : "Đạn Kim, Hấp dẫn cực đại, có hiệu quả với bầy cá, có thể nhận 500000 Vàng, ở cảnh Cao càng tốt! ",    //--越南
+		cn : "Bom Cao Cấp, lực công phá cực đại, nên dùng với bầy cá lớn ở Eo biển bảo tàng",    //--越南
 	},
 	'treasure_name_1' : {
 		cn : "Rương Bạc ",    //--越南
 	},
 	'treasure_name_2' : {
-		cn : "Rương Vàng ",    //--越南
+		cn : "Rương Vàng",    //--越南
 	},
 	'treasure_name_3' : {
 		cn : "Rương Sử Thi ",    //--越南
@@ -4222,7 +4222,7 @@ var	string_strings_cfg =
 		cn : "Rương Bạc ",    //--越南
 	},
 	'treasure_desc_2' : {
-		cn : "Rương Vàng ",    //--越南
+		cn : "Rương Vàng",    //--越南
 	},
 	'treasure_desc_3' : {
 		cn : "Rương Sử Thi ",    //--越南
@@ -4231,67 +4231,67 @@ var	string_strings_cfg =
 		cn : "Rương Siêu cấp ",    //--越南
 	},
 	'treasure_desc_10' : {
-		cn : "Rướng Chiến thắng đầu, có thể mở 5 lần, mỗi lần nhận tùy ý Vàng *12000, K.C *3, kỹ năng tùy ý *2, Bom Hạt Nhân - Mảnh *3, Mảnh cá *3, Linh thạch Nữ thần *3",    //--越南
+		cn : "Rương Chiến thắng, có thể mở 5 lần, mỗi lần nhận ngẫu nhiên vàng *12000, Ruby *3, kỹ năng ngẫu nhiên *2, Bom Hạt Nhân - Mảnh *3, Mảnh cá *3, Linh thạch Nữ thần *3",    //--越南
 	},
 	'treasure_desc_11' : {
-		cn : "Rương Bạc, có thể mở 4 lần, mỗi lần nhận tùy ý Vàng *8000, K.C *2, kỹ năng tùy ý *1, Bom Hạt Nhân - Mảnh *2, Mảnh cá *2, Linh thạch Nữ thần *2",    //--越南
+		cn : "Rương Bạc, có thể mở 4 lần, mỗi lần nhận ngẫu nhiên vàng *8000, Ruby *2, kỹ năng ngẫu nhiên *1, Bom Hạt Nhân - Mảnh *2, Mảnh cá *2, Linh thạch Nữ thần *2",    //--越南
 	},
 	'treasure_desc_12' : {
-		cn : "Rương Vàng, có thể mở 6 lần, mỗi lần nhận tùy ý Vàng *12000, K.C *3, kỹ năng tùy ý *2, Bom Hạt Nhân - Mảnh *3, Mảnh cá *3, Linh thạch Nữ thần *3",    //--越南
+		cn : "Rương Vàng, có thể mở 6 lần, mỗi lần nhận ngẫu nhiên vàng *12000, Ruby *3, kỹ năng ngẫu nhiên *2, Bom Hạt Nhân - Mảnh *3, Mảnh cá *3, Linh thạch Nữ thần *3",    //--越南
 	},
 	'treasure_desc_13' : {
-		cn : "Rương Sử Thi, mở 8 lần, mỗi lần nhận tùy ý Vàng *20000, K.C *4, Tùy ý Kỹ năng *3, Bom Hạt Nhân Mảnh *4, cá Mảnh *4, Linh thạch Nữ thần *4",    //--越南
+		cn : "Rương Bạch Kim, mở 8 lần, mỗi lần nhận ngẫu nhiên vàng *20000, Ruby *4, ngẫu nhiên Kỹ năng *3, Bom Hạt Nhân Mảnh *4, cá Mảnh *4, Linh thạch Nữ thần *4",    //--越南
 	},
 	'treasure_desc_14' : {
-		cn : "Rương Siêu cấp, có thể mở 10 lần, mỗi lần nhận tùy ý Vàng *30000, K.C *6, kỹ năng tùy ý *4, Bom Hạt Nhân - Mảnh *6, Mảnh cá *6, Linh thạch Nữ thần *6",    //--越南
+		cn : "Rương Kim Cương, có thể mở 10 lần, mỗi lần nhận ngẫu nhiên vàng *30000, Ruby *6, kỹ năng ngẫu nhiên *4, Bom Hạt Nhân - Mảnh *6, Mảnh cá *6, Linh thạch Nữ thần *6",    //--越南
 	},
 	'vip_desc_0' : {
-		cn : "VIP0 đó!",    //--越南
+		cn : "Có thể mua Túi Quà V0 \nBạn giới hạn 15\nMỗi ngày mua Vàng 5 lần \nMỗi ngày có thể nhận Viện trợ 3 lần",    //--越南
 	},
 	'vip_desc_1' : {
-		cn : "Có thể mua V1 Túi Quà \nHấp dẫn 50\nGiới hạn Bạn 15\nEXP nhân vật +1%\nPhá sản có thể mua Vốn 1 đồng \nKích Quang Hấp dẫn +1%\nMỗi ngày mua Vàng 10 lần \nMỗi lần cứu tế nhận x 2 lần \nMỗi ngày có thể nhận Cứu tế 4 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V1 \n300 Mị Lực \nBạn giới hạn 15\nNhận hàng ngày khi còn dưới 20 Ruby (1 lần/ngày)\nEXP nhân vật +1%\nKích Quang Mị Lực +1%\nMỗi ngày mua Vàng 10 lần \nMỗi ngày có thể nhận Viện trợ 4 lần",    //--越南
 	},
 	'vip_desc_2' : {
-		cn : "Có thể mua V2 Túi Quà \nHấp dẫn 150\nGiới hạn Bạn 20\nEXP nhân vật +2%\nPhá sản có thể mua Vốn 1 đồng \nTổng Hit khi bắn cá +0.5%\nKích Quang Hấp dẫn +1%\nMỗi ngày mua Vàng 15 lần \nMỗi lần cứu tế nhận x 3 lần \nMỗi ngày có thể nhận Cứu tế 4 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V2 \n600 Mị Lực \nBạn giới hạn 20\nNhận hàng ngày khi còn dưới 30 Ruby (1 lần/ngày)\nEXP nhân vật +2%\nKích Quang Mị Lực +1%\nMỗi ngày mua Vàng 15 lần \nMỗi ngày có thể nhận Viện trợ 4 lần",    //--越南
 	},
 	'vip_desc_3' : {
-		cn : "Có thể mua V3 Túi Quà \nHấp dẫn 300\nGiới hạn Bạn 25\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 210K, bù cho đủ 210K \nEXP nhân vật +3%\nPhá sản có thể mua Vốn 1 đồng \nTổng Hit khi bắn cá +0.5%\nKích Quang Hấp dẫn +1%\nMỗi ngày mua Vàng 20 lần \nMỗi lần cứu tế nhận x 4 lần \nMỗi ngày có thể nhận Cứu tế 5 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V3 \n1000 Mị Lực \nBạn giới hạn 25\nNhận hàng ngày khi còn dưới 40 Ruby (1 lần/ngày)\nEXP nhân vật +3%\nKích Quang Mị Lực +1%\nMỗi ngày mua Vàng 20 lần \nMỗi ngày có thể nhận Viện trợ 5 lần",    //--越南
 	},
 	'vip_desc_4' : {
-		cn : "Có thể mua V4 Túi Quà \nHấp dẫn 500\nGiới hạn Bạn 30\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 410K, bù cho đủ 410K \nEXP nhân vật +4%\nPhá sản có thể mua Vốn 1 đồng \nTổng Hit khi bắn cá +0.5%\nKích Quang Hấp dẫn +1%\nMỗi ngày mua Vàng 30 lần \nMỗi lần cứu tế nhận x 5 lần \nMỗi ngày có thể nhận Cứu tế 5 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V4 \n2000 Mị Lực \nBạn giới hạn 30\nNhận hàng ngày khi còn dưới 50 Ruby (1 lần/ngày)\nEXP nhân vật +4%\nKích Quang Mị Lực +1%\nMỗi ngày mua Vàng 30 lần \nMỗi lần Viện trợ nhận x 1.5 vàng \nMỗi ngày có thể nhận Viện trợ 5 lần",    //--越南
 	},
 	'vip_desc_5' : {
-		cn : "Có thể mua V5 Túi Quà \nHấp dẫn 1000\nGiới hạn Bạn 35\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 610K, bù cho đủ 610K \nVàng Game mini Hứng Vàng +2%\nEXP nhân vật +5%\nPhá sản có thể mua Vốn 1 đồng \nPhá sản có thể mua Vốn 10 đồng \nTổng Hit khi bắn cá +1%\nKích Quang Hấp dẫn +4%\nMỗi ngày mua Vàng 40 lần \nMỗi lần cứu tế nhận x 6 lần \nMỗi ngày có thể nhận Cứu tế 6 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V5 \n3000 Mị Lực \nBạn giới hạn 35\nNhận hàng ngày khi còn dưới 60 Ruby (1 lần/ngày)\nEXP nhân vật +5%\nKích Quang Mị Lực +4%\nMỗi ngày mua Vàng 40 lần \nMỗi lần Viện trợ nhận x 1.5 vàng \nMỗi ngày có thể nhận Viện trợ 6 lần",    //--越南
 	},
 	'vip_desc_6' : {
-		cn : "Có thể mua V6 Túi Quà \nHấp dẫn 2000\nGiới hạn Bạn 40\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 810K, bù cho đủ 810K \nMỗi ngày đăng nhập lần đầu K.C không đủ 20, bù cho đủ 20\nVàng Game mini Hứng Vàng +4%\nEXP nhân vật +6%\nPhá sản có thể mua Vốn 1 đồng \nPhá sản có thể mua Vốn 10 đồng \nTổng Hit khi bắn cá +1%\nKích Quang Hấp dẫn +5%\nMỗi ngày mua Vàng 60 lần \nMỗi lần cứu tế nhận x 7 lần \nMỗi ngày có thể nhận Cứu tế 6 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V6 \n4000 Mị Lực \nBạn giới hạn 40\nNhận hàng ngày khi còn dưới 70 Ruby (1 lần/ngày)\nEXP nhân vật +6%\nKích Quang Mị Lực +5%\nMỗi ngày mua Vàng 60 lần \nMỗi lần Viện trợ nhận x 2 vàng \nMỗi ngày có thể nhận Viện trợ 6 lần",    //--越南
 	},
 	'vip_desc_7' : {
-		cn : "Có thể mua V7 Túi Quà \nHấp dẫn 3500\nGiới hạn Bạn 45\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 100K, bù cho đủ 100K\nMỗi ngày đăng nhập lần đầu K.C không đủ 30, bù cho đủ 30\nVàng Game mini Hứng Vàng +6%\nEXP nhân vật +7%\nPhá sản có thể mua Vốn 1 đồng \nPhá sản có thể mua Vốn 10 đồng \nTổng Hit khi bắn cá +1%\nKích Quang Hấp dẫn +5%\nĐồng Bom Hạt Nhân Hấp dẫn +1%\nMỗi ngày mua Vàng 80 lần \nMỗi lần cứu tế nhận x 8 lần \nMỗi ngày có thể nhận Cứu tế 7 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V7 \n7000 Mị Lực \nBạn giới hạn 45\nNhận hàng ngày khi còn dưới 80 Ruby (1 lần/ngày)\nEXP nhân vật +7%\nKích Quang Mị Lực +5%\nĐồng Bom Hạt Nhân Mị Lực +1%\nMỗi ngày mua Vàng 80 lần \nMỗi lần Viện trợ nhận x 2 vàng \nMỗi ngày có thể nhận Viện trợ 7 lần",    //--越南
 	},
 	'vip_desc_8' : {
-		cn : "Có thể mua V8 Túi Quà \nHấp dẫn 5000\nGiới hạn Bạn 50\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 1510K, bù cho đủ 1510K \nMỗi ngày đăng nhập lần đầu K.C không đủ 40, bù cho đủ 40\nVàng Game mini Hứng Vàng +6%\nVàng game mini Cá Nóc Điên +2%\nEXP nhân vật +8%\nPhá sản có thể mua Vốn 1 đồng \nPhá sản có thể mua Vốn 10 đồng \nTổng Hit khi bắn cá +1.5%\nKích Quang Hấp dẫn +5%\nĐồng Bom Hạt Nhân Hấp dẫn +2%\nMỗi ngày mua Vàng 100 lần \nMỗi lần cứu tế nhận x 9 lần \nMỗi ngày có thể nhận Cứu tế 7 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V8 \n10000 Mị Lực \nBạn giới hạn 50\nNhận hàng ngày khi còn dưới 90 Ruby (1 lần/ngày)\nEXP nhân vật +8%\nKích Quang Mị Lực +5%\nĐồng Bom Hạt Nhân Mị Lực +2%\nMỗi ngày mua Vàng 100 lần \nMỗi lần Viện trợ nhận x 2.5 vàng \nMỗi ngày có thể nhận Viện trợ 7 lần",    //--越南
 	},
 	'vip_desc_9' : {
-		cn : "Có thể mua V9 Túi Quà \nHấp dẫn 10000\nGiới hạn Bạn 55\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 2010K, bù cho đủ 2010K \nMỗi ngày đăng nhập lần đầu K.C không đủ 50, bù cho đủ 50\nVàng Game mini Hứng Vàng +6%\nVàng game mini Cá Nóc Điên +4%\nEXP nhân vật +9%\nPhá sản có thể mua Vốn 1 đồng \nPhá sản có thể mua Vốn 10 đồng \nTổng Hit khi bắn cá +1.5%\nKích Quang Hấp dẫn +5%\nĐồng Bom Hạt Nhân Hấp dẫn +2%\nBom Hạt Nhân Bạc Hấp dẫn +1%\nMỗi ngày mua Vàng 150 lần \nMỗi lần cứu tế nhận x 10\nMỗi ngày có thể nhận Cứu tế 8 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V9 \n20000 Mị Lực \nBạn giới hạn 55\nNhận hàng ngày khi còn dưới 100 Ruby (1 lần/ngày)\nEXP nhân vật +9%\nKích Quang Mị Lực +5%\nĐồng Bom Hạt Nhân Mị Lực +2%\nBom Hạt Nhân Bạc Mị Lực +1%\nMỗi ngày mua Vàng 150 lần \nMỗi lần Viện trợ nhận x 2.5 vàng \nMỗi ngày có thể nhận Viện trợ 8 lần",    //--越南
 	},
 	'vip_desc_10' : {
-		cn : "Có thể mua V10 Túi Quà \nHấp dẫn 15000\nGiới hạn Bạn 60\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 2510K, bù cho đủ 2510K \nMỗi ngày đăng nhập lần đầu K.C không đủ 60, bù cho đủ 60\nVàng Game mini Hứng Vàng +6%\nVàng game mini Cá Nóc Điên +4%\nVàng game mini Bong Bóng +2%\nEXP nhân vật +10%\nPhá sản có thể mua Vốn 1 đồng \nPhá sản có thể mua Vốn 10 đồng \nTổng Hit khi bắn cá +1.5%\nKích Quang Hấp dẫn +5%\nĐồng Bom Hạt Nhân Hấp dẫn +2%\nBom Hạt Nhân Bạc Hấp dẫn +2%\nMỗi ngày mua Vàng 200 lần \nMỗi lần cứu tế nhận x 11 lần \nMỗi ngày có thể nhận Cứu tế 8 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V10 \n40000 Mị Lực \nBạn giới hạn 60\nNhận hàng ngày khi còn dưới 110 Ruby (1 lần/ngày)\nEXP nhân vật +10%\nKích Quang Mị Lực +5%\nĐồng Bom Hạt Nhân Mị Lực +2%\nBom Hạt Nhân Bạc Mị Lực +2%\nMỗi ngày mua Vàng 200 lần \nMỗi lần Viện trợ nhận x 3 vàng \nMỗi ngày có thể nhận Viện trợ 8 lần",    //--越南
 	},
 	'vip_desc_11' : {
-		cn : "Có thể mua V11 Túi Quà \nHấp dẫn 20000\nGiới hạn Bạn 65\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 3010K, bù cho đủ 3010K \nMỗi ngày đăng nhập lần đầu K.C không đủ 70, bù cho đủ 70\nVàng Game mini Hứng Vàng +6%\nVàng game mini Cá Nóc Điên +6%\nVàng game mini Bong Bóng +2%\nEXP nhân vật +11%\nPhá sản có thể mua Vốn 1 đồng \nPhá sản có thể mua Vốn 10 đồng \nTổng Hit khi bắn cá +2%\nKích Quang Hấp dẫn +5%\nĐồng Bom Hạt Nhân Hấp dẫn +3%\nBom Hạt Nhân Bạc Hấp dẫn +2%\nMỗi ngày mua Vàng 300 lần \nMỗi lần cứu tế nhận x 12 lần \nMỗi ngày có thể nhận Cứu tế 9 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V11 \n60000 Mị Lực \nBạn giới hạn 65\nNhận hàng ngày khi còn dưới 120 Ruby (1 lần/ngày)\nEXP nhân vật +11%\nKích Quang Mị Lực +5%\nĐồng Bom Hạt Nhân Mị Lực +3%\nBom Hạt Nhân Bạc Mị Lực +2%\nMỗi ngày mua Vàng 300 lần \nMỗi lần Viện trợ nhận x 3 vàng \nMỗi ngày có thể nhận Viện trợ 9 lần",    //--越南
 	},
 	'vip_desc_12' : {
-		cn : "Có thể mua V12 Túi Quà \nHấp dẫn 30000\nGiới hạn Bạn 70\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 3510K, bù cho đủ 3510K \nMỗi ngày đăng nhập lần đầu K.C không đủ 70, bù cho đủ 70\nVàng Game mini Hứng Vàng +6%\nVàng game mini Cá Nóc Điên +6%\nVàng game mini Bong Bóng +4%\nEXP nhân vật +12%\nPhá sản có thể mua Vốn 1 đồng \nPhá sản có thể mua Vốn 10 đồng \nTổng Hit khi bắn cá +2%\nKích Quang Hấp dẫn +5%\nĐồng Bom Hạt Nhân Hấp dẫn +3%\nBom Hạt Nhân Bạc Hấp dẫn +3%\nMỗi ngày mua Vàng 400 lần \nMỗi lần cứu tế nhận x 13 lần \nMỗi ngày có thể nhận Cứu tế 9 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V12 \n80000 Mị Lực \nBạn giới hạn 70\nNhận hàng ngày khi còn dưới 130 Ruby (1 lần/ngày)\nEXP nhân vật +12%\nKích Quang Mị Lực +5%\nĐồng Bom Hạt Nhân Mị Lực +3%\nBom Hạt Nhân Bạc Mị Lực +3%\nMỗi ngày mua Vàng 400 lần \nMỗi lần Viện trợ nhận x 3.5 vàng \nMỗi ngày có thể nhận Viện trợ 9 lần",    //--越南
 	},
 	'vip_desc_13' : {
-		cn : "Có thể mua V13 Túi Quà \nHấp dẫn 40000\nGiới hạn Bạn 75\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 4010K, bù cho đủ 4010K \nMỗi ngày đăng nhập lần đầu K.C không đủ 90, bù cho đủ 90\nVàng Game mini Hứng Vàng +6%\nVàng game mini Cá Nóc Điên +6%\nVàng game mini Bong Bóng +6%\nEXP nhân vật +13%\nPhá sản có thể mua Vốn 1 đồng \nPhá sản có thể mua Vốn 10 đồng \nTổng Hit khi bắn cá +2%\nKích Quang Hấp dẫn +5%\nĐồng Bom Hạt Nhân Hấp dẫn +4%\nBom Hạt Nhân Bạc Hấp dẫn +3%\nMỗi ngày mua Vàng 600 lần \nMỗi lần cứu tế nhận x 14 lần \nMỗi ngày có thể nhận Cứu tế 10 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V13 \n100000 Mị Lực \nBạn giới hạn 75\nNhận hàng ngày khi còn dưới 140 Ruby (1 lần/ngày)\nEXP nhân vật +13%\nKích Quang Mị Lực +5%\nĐồng Bom Hạt Nhân Mị Lực +4%\nBom Hạt Nhân Bạc Mị Lực +3%\nMỗi ngày mua Vàng 600 lần \nMỗi lần Viện trợ nhận x 3.5 vàng \nMỗi ngày có thể nhận Viện trợ 10 lần",    //--越南
 	},
 	'vip_desc_14' : {
-		cn : "Có thể mua V14 Túi Quà \nHấp dẫn 60000\nGiới hạn Bạn 80\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 5010K, bù cho đủ 5010K \nMỗi ngày đăng nhập lần đầu K.C không đủ 100, bù cho đủ 100\nVàng Game mini Hứng Vàng +6%\nVàng game mini Cá Nóc Điên +6%\nVàng game mini Bong Bóng +6%\nEXP nhân vật +14%\nPhá sản có thể mua Vốn 1 đồng \nPhá sản có thể mua Vốn 10 đồng \nTổng Hit khi bắn cá +2.5%\nKích Quang Hấp dẫn +5%\nĐồng Bom Hạt Nhân Hấp dẫn +4%\nBom Hạt Nhân Bạc Hấp dẫn +4%\nMỗi ngày mua Vàng 800 lần \nMỗi lần cứu tế nhận x 15 lần \nMỗi ngày có thể nhận Cứu tế 10 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V14 \n150000 Mị Lực \nBạn giới hạn 80\nNhận hàng ngày khi còn dưới 150 Ruby (1 lần/ngày)\nEXP nhân vật +14%\nKích Quang Mị Lực +5%\nĐồng Bom Hạt Nhân Mị Lực +4%\nBom Hạt Nhân Bạc Mị Lực +4%\nMỗi ngày mua Vàng 800 lần \nMỗi lần Viện trợ nhận x 4 vàng \nMỗi ngày có thể nhận Viện trợ 10 lần",    //--越南
 	},
 	'vip_desc_15' : {
-		cn : "Có thể mua V15 Túi Quà \nHấp dẫn 100000\nGiới hạn Bạn 85\nMỗi ngày đăng nhập lần đầu nếu Vàng không đủ 6010K, bù cho đủ 6010K \nMỗi ngày đăng nhập lần đầu K.C không đủ 120, bù cho đủ 120\nVàng Game mini Hứng Vàng +6%\nVàng game mini Cá Nóc Điên +6%\nVàng game mini Bong Bóng +6%\nEXP nhân vật +15%\nPhá sản có thể mua Vốn 1 đồng \nPhá sản có thể mua Vốn 10 đồng \nTổng Hit khi bắn cá +2.5%\nKích Quang Hấp dẫn +5%\nĐồng Bom Hạt Nhân Hấp dẫn +5%\nBom Hạt Nhân Bạc Hấp dẫn +5%\nMỗi ngày mua Vàng 1000 lần \nMỗi lần cứu tế nhận x 16 lần \nMỗi ngày có thể nhận Cứu tế 15 lần ",    //--越南
+		cn : "Có thể mua Túi Quà V15 \n200000 Mị Lực \nBạn giới hạn 85\nNhận hàng ngày khi còn dưới 160 Ruby (1 lần/ngày)\nEXP nhân vật +15%\nKích Quang Mị Lực +5%\nĐồng Bom Hạt Nhân Mị Lực +5%\nBom Hạt Nhân Bạc Mị Lực +5%\nMỗi ngày mua vàng 1000 lần \nMỗi lần Viện trợ nhận x 5 vàng \nMỗi ngày có thể nhận Viện trợ 15 lần",    //--越南
 	},
 	'str_wp_tip' : {
 		cn : "%d lần ",    //--越南
@@ -4303,7 +4303,7 @@ var	string_strings_cfg =
 		cn : "Vũ khí đã đạt %d lần, có thể săn cá hồ cấp cao hơn, đi ngay chứ?",    //--越南
 	},
 	'str_quick_failed_tip1' : {
-		cn : "Vàng không đủ, không thể đổi cảnh! ",    //--越南
+		cn : "vàng không đủ, không thể đổi map săn! ",    //--越南
 	},
 	'str_laser_failed_tip' : {
 		cn : "Năng lượng Kích quang không đủ! ",    //--越南
@@ -4312,7 +4312,7 @@ var	string_strings_cfg =
 		cn : "Số lần mua đã dùng hết, lên cấp VIP để tăng số lần mua! ",    //--越南
 	},
 	'str_wait_please' : {
-		cn : "Xin hãy đợi!!",    //--越南
+		cn : "Vui lòng đợi!",    //--越南
 	},
 	'str_signed_tip3' : {
 		cn : "Hôm nay đã điểm danh!",    //--越南
@@ -4330,13 +4330,13 @@ var	string_strings_cfg =
 		cn : "Thưởng trả x lần! ",    //--越南
 	},
 	'str_guide_1_0' : {
-		cn : "Chào mừng đến vùng biển《Thợ Săn Cá 》\n mê hoặc, hãy cũng tập thao tác cơ bản nào!",    //--越南
+		cn : "Chào mừng đến vùng biển Thợ Săn Cá\nbạn đã sẵn sàng trải nghiệm cùng Alice?",    //--越南
 	},
 	'str_guide_2_0' : {
 		cn : "Click màn hình để bắn!",    //--越南
 	},
 	'str_guide_3_0' : {
-		cn : "Click vào màn hình có thể bắn liên tục!",    //--越南
+		cn : "Click và giữ để có thể bắn liên tục!",    //--越南
 	},
 	'str_guide_4_0' : {
 		cn : "Khá lắm, giờ hãy bắn thêm 1 con nữa đi~",    //--越南
@@ -4345,7 +4345,7 @@ var	string_strings_cfg =
 		cn : "Bắn được 1 con cá nhỏ %d/1",    //--越南
 	},
 	'str_guide_5_0' : {
-		cn : "Cá nhỏ này cho Thưởng x1, hãy thử cá lớn xem sao?",    //--越南
+		cn : "Cá nhỏ này cho Thưởng x1, hãy thử cá\nlớn xem sao?",    //--越南
 	},
 	'str_guide_5_1' : {
 		cn : "Bắn được 1 con cá lớn %d/1",    //--越南
@@ -4354,25 +4354,25 @@ var	string_strings_cfg =
 		cn : "Oh, cá lớn này có thưởng lớn!",    //--越南
 	},
 	'str_guide_7_0' : {
-		cn : "Lên cấp Vũ khí cũng có thể tăng cao x thưởng!",    //--越南
+		cn : "Thăng cấp vũ khí sẽ tăng tỷ lệ nhận\nthưởng",    //--越南
 	},
 	'str_guide_7_1' : {
-		cn : "Click Nút Vũ Khí %d/1",    //--越南
+		cn : "Chọn Vũ Khí %d/1",    //--越南
 	},
 	'str_guide_7_2' : {
-		cn : "Lên cấp Vũ khí  %d/1",    //--越南
+		cn : "Thăng cấp Vũ Khí  %d/1",    //--越南
 	},
 	'str_guide_8_0' : {
 		cn : "Bắt thêm được  1 con cá to   %d/1",    //--越南
 	},
 	'str_guide_8_1' : {
-		cn : "Lợi hại quá đi! Lên cấp Vũ khí sẽ trực tiếp x5 lần Thưởng nữa!",    //--越南
+		cn : "Lợi hại quá đi! Thăng cấp Vũ \nKhí tiếp theo sẽ tằng 5 gold thưởng!",    //--越南
 	},
 	'str_guide_9_0' : {
 		cn : "Thu được 3 con cá lớn %d/3",    //--越南
 	},
 	'str_guide_9_1' : {
-		cn : "Á hi hi! Bắn hụt cá lớn hả? Sao không thử chức năng Khóa?",    //--越南
+		cn : "Á hi hi! Bắn hụt cá lớn hả? Sao không \nthử chức năng Khóa?",    //--越南
 	},
 	'str_guide_10_0' : {
 		cn : "Dùng kỹ năng Khóa  %d/1",    //--越南
@@ -4423,13 +4423,13 @@ var	string_strings_cfg =
 		cn : "Đừng lo lắng, đang tiến hành rút thăm!",    //--越南
 	},
 	'str_pearl_not_enough2' : {
-		cn : "Vàng không đủ, nạp thêm?",    //--越南
+		cn : "vàng không đủ, nạp thêm?",    //--越南
 	},
 	'str_buy_times_not_enough' : {
 		cn : "Số lần không đủ, thử Mua 1 lần xem!",    //--越南
 	},
 	'str_gold_broke_get' : {
-		cn : "Chỉ có phá sản mới nhận Cứu tế",    //--越南
+		cn : "Chỉ khi hết vàng mới nhận Viện trợ",    //--越南
 	},
 	'str_month_card_get' : {
 		cn : "Nhận ",    //--越南
@@ -4444,7 +4444,7 @@ var	string_strings_cfg =
 		cn : "Hẹn mai quay lại, bé cá ở đây đợi bạn mà!",    //--越南
 	},
 	'str_mini_res_tip' : {
-		cn : "Vàng lần này tăng %f lần! ",    //--越南
+		cn : "vàng lần này tăng %f lần! ",    //--越南
 	},
 	'str_package_sell' : {
 		cn : "Có thể trực tiếp bán",    //--越南
@@ -4453,7 +4453,7 @@ var	string_strings_cfg =
 		cn : "Có thể dùng trực tiếp ",    //--越南
 	},
 	'str_broke_times_left' : {
-		cn : "Số lần phá sản còn: %d",    //--越南
+		cn : "Số lần hết vàng còn: %d",    //--越南
 	},
 	'str_active_tips' : {
 		cn : "%s Đang tiến hành...",    //--越南
@@ -4465,10 +4465,10 @@ var	string_strings_cfg =
 		cn : "*vip**charm*<color=#00ff00>xx</>Lên cấp x <color=#00ff00>xx</> Pháo rồi!",    //--越南
 	},
 	'notify_get_skin' : {
-		cn : "*vip**charm*<color=#00ff00>xx</>Nhận Skin <color=#00ff00>xx</> rồi!",    //--越南
+		cn : "*vip**charm*<color=#00ff00>xx</>Nhận Súng<color=#00ff00>xx</> rồi!",    //--越南
 	},
 	'notify_get_gold' : {
-		cn : "*vip**charm*<color=#00ff00>xx</>khi Rút thăm nhận <color=#00ff00>xx</> Vàng!!",    //--越南
+		cn : "*vip**charm*<color=#00ff00>xx</>khi quay nhận <color=#00ff00>xx</> vàng!!",    //--越南
 	},
 	'notify_gold_first' : {
 		cn : "Thế Giới Đệ nhất Phú *vip**charm*<color=#00ff00>xx</> online rồi! Mau đi kết bạn nào!",    //--越南
@@ -4486,7 +4486,7 @@ var	string_strings_cfg =
 		cn : "Người chơi *vip**charm*<color=#00ff00>xx</> tại Đấu trường Xếp Hạng nhận <color=#00ff00>xx</> lần Thắng liên tục, thật là lợi hại! ",    //--越南
 	},
 	'notify_skill_boss' : {
-		cn : "*vip**charm*<color=#00ff00>xx</> đánh <color=#0fffff>xx</>BOSS nhận <color=#00ff00>xx</>Vàng và rất nhiều <color=#00ff00>K.C </>! ",    //--越南
+		cn : "*vip**charm*<color=#00ff00>xx</> đánh <color=#0fffff>xx</>BOSS nhận <color=#00ff00>xx</>vàng và rất nhiều <color=#00ff00>Ruby </>! ",    //--越南
 	},
 	'notify_get_domb' : {
 		cn : "*vip**charm*<color=#00ff00>xx</> khi Rút thăm đã nhận <color=#00ff00>xx</> đạo cụ ",    //--越南
@@ -4519,7 +4519,7 @@ var	string_strings_cfg =
 		cn : "*vip**charm*<color=#00ff00>xx</> đã mua <color=#00ff00> Thẻ tháng </>, quà phong phú mỗi ngày, tự động bắn cá!",    //--越南
 	},
 	'notify_card_hao' : {
-		cn : "*vip**charm*<color=#00ff00>xx</> đã mua <color=#00ff00> Thẻ tháng. Hào </>, 5600 K.C và các phúc lợi!",    //--越南
+		cn : "*vip**charm*<color=#00ff00>xx</> đã mua <color=#00ff00> Thẻ tháng VIP </>, 5600 Ruby và các phúc lợi!",    //--越南
 	},
 	'notify_vip_gift' : {
 		cn : "*vip**charm*<color=#00ff00>xx</> đã mua <color=#00ff00>Vxx</> Quà Đặc quyền!",    //--越南
@@ -4555,7 +4555,7 @@ var	string_strings_cfg =
 		cn : "Hồ Cá ",    //--越南
 	},
 	'page_5' : {
-		cn : "Độ Hấp dẫn",    //--越南
+		cn : "Độ Mị lực",    //--越南
 	},
 	'page_6' : {
 		cn : "Tích điểm bắn cá ",    //--越南
@@ -4606,10 +4606,10 @@ var	string_strings_cfg =
 		cn : "Đang út thăm, xin đừng tắt!",    //--越南
 	},
 	'str_skill_cost' : {
-		cn : "Tiêu phí %d Vàng, thả【%s】",    //--越南
+		cn : "Tiêu phí %d vàng, thả【%s】",    //--越南
 	},
 	'str_launch_sure' : {
-		cn : "Tiêu hao %sVàng có thể mở kỹ năng này, ok chứ ?",    //--越南
+		cn : "Tiêu hao %svàng có thể mở kỹ năng này, ok chứ ?",    //--越南
 	},
 	'exchange_remain_count' : {
 		cn : "Còn lại ",    //--越南
@@ -4636,10 +4636,10 @@ var	string_strings_cfg =
 		cn : "Có thể trực tiếp hợp thành",    //--越南
 	},
 	'luckreward_gold_unenought' : {
-		cn : "Vàng không đủ, không thể Rút thăm! ",    //--越南
+		cn : "vàng không đủ, không thể quay! ",    //--越南
 	},
 	'luckreward_peal_unenought' : {
-		cn : "K.C không đủ , không thể Rút thăm! ",    //--越南
+		cn : "Ruby không đủ , không thể quay! ",    //--越南
 	},
 	'luckreward_per_cost' : {
 		cn : "Mỗi lần tiêu phí %s",    //--越南
@@ -4711,7 +4711,7 @@ var	string_strings_cfg =
 		cn : "Không có cá có thể thả",    //--越南
 	},
 	'pet_fish_gold_unenough' : {
-		cn : "Vàng không đủ ",    //--越南
+		cn : "vàng không đủ ",    //--越南
 	},
 	'pet_god_btn1' : {
 		cn : "Bắt đầu \n khiêu chiến ",    //--越南
@@ -4729,10 +4729,10 @@ var	string_strings_cfg =
 		cn : "%d ngày nữa mở!",    //--越南
 	},
 	'str_god_open_tip1' : {
-		cn : "Xin hãy đợi!!",    //--越南
+		cn : "Vui lòng đợi!",    //--越南
 	},
 	'str_god_sure' : {
-		cn : "Xác nhận tiêu hao %d K.C để Bảo Vệ Nữ Thần？",    //--越南
+		cn : "Xác nhận tiêu hao %d Ruby để Bảo Vệ Nữ Thần？",    //--越南
 	},
 	'str_god_treasure' : {
 		cn : "Làm mới mỗi thứ 2\nCăn cứ theo BXH tuần trước trao giải",    //--越南
@@ -4744,7 +4744,7 @@ var	string_strings_cfg =
 		cn : "Tuần này đã lãnh ",    //--越南
 	},
 	'str_gold_not_enough3' : {
-		cn : "Vàng không đủ, nạp thêm?",    //--越南
+		cn : "vàng không đủ, nạp thêm?",    //--越南
 	},
 	'str_reward_tip5' : {
 		cn : "Nhận ",    //--越南
@@ -4795,7 +4795,7 @@ var	string_strings_cfg =
 		cn : "Biểu cảm tặng bạn rồi, nhớ tương tác thường xuyên nhé! ",    //--越南
 	},
 	'rank_type_name_0' : {
-		cn : "Vàng ",    //--越南
+		cn : "vàng ",    //--越南
 	},
 	'rank_type_name_1' : {
 		cn : "Thành tựu ",    //--越南
@@ -4819,7 +4819,7 @@ var	string_strings_cfg =
 		cn : "Vượt ải tuần trước: ",    //--越南
 	},
 	'rank_my_charm' : {
-		cn : "Hấp dẫn: ",    //--越南
+		cn : "Mị lực: ",    //--越南
 	},
 	'rank_my_interal' : {
 		cn : "Tích điểm: ",    //--越南
@@ -4876,10 +4876,10 @@ var	string_strings_cfg =
 		cn : "Khoảng cách sản sinh  %d s   →  %d s ",    //--越南
 	},
 	'goddess_tips_free_times' : {
-		cn : "Có thể K.Chiến miễn phí rồi!",    //--越南
+		cn : "Có thể hiến miễn phí Ruby rồi!",    //--越南
 	},
 	'str_rank_rule' : {
-		cn : "BXH Bảo Vệ Nữ Thần mỗi tuần cập nhật 1 lần lưc 00:00, BXH khác không làm mới |Loại Xếp Hạng |Hạng 1 |2-3|4-10|11-100|101-1000|Top 10 cao thủ |Đạn Đồng *3,Phiếu Thẻ Cào *500|Đạn Đồng *2, Phiếu Thẻ Cào *250|Đạn Đồng *1,Phiếu Thẻ Cào *60|Vàng *10K,Phiếu Thẻ Cào *20|Vàng 5000,Nguyên liệu rèn *2|Top 10 Phú hộ|Vàng *510K, Nguyên liệu rèn *10|Vàng *410K, Nguyên liệu rèn *8|Vàng *210K, Nguyên liệu rèn *6|Vàng *10K,Nguyên liệu rèn *4|Vàng 5000,Nguyên liệu rèn *2|Bảo Vệ Nữ Thần|Vàng *50000,K.C *50|Vàng *40000,K.C *30|Vàng *20000,K.C *20|Vàng *10K,K.C *10|Vàng 5000,K.C *5",    //--越南
+		cn : "BXH Bảo Vệ Nữ Thần mỗi tuần cập nhật 1 lần lưc 00:00, BXH khác không làm mới |Loại Xếp Hạng |Hạng 1 |2-3|4-10|11-100|101-1000|Top 10 cao thủ |Bom Sơ Cấp *3,Phiếu Thẻ Cào *500|Bom Sơ Cấp *2, Phiếu Thẻ Cào *250|Bom Sơ Cấp *1,Phiếu Thẻ Cào *60|Vàng *10K,Phiếu Thẻ Cào *20|Vàng 5000,Nguyên liệu rèn *2|Top 10 Phú hộ|Vàng *510K, Nguyên liệu rèn *10|Vàng *410K, Nguyên liệu rèn *8|Vàng *210K, Nguyên liệu rèn *6|Vàng *10K,Nguyên liệu rèn *4|Vàng 5000,Nguyên liệu rèn *2|Bảo Vệ Nữ Thần|Vàng *50000,Ruby *50|Vàng *40000,Ruby *30|Vàng *20000,Ruby *20|Vàng *10K,Ruby *10|Vàng 5000,Ruby *5",    //--越南
 	},
 	'str_network_doing' : {
 		cn : "Mạng đang xử lý...",    //--越南
@@ -4891,7 +4891,7 @@ var	string_strings_cfg =
 		cn : "Bạn có muốn tiêu phí %d của %s để rút thăm?",    //--越南
 	},
 	'exchange_tip1' : {
-		cn : "Tiêu hao 【%s】để đổi 【%s】?",    //--越南
+		cn : "Dùng 【%s】đổi 【%s】?",    //--越南
 	},
 	'forge_to_times' : {
 		cn : "%d lần ",    //--越南
@@ -4933,7 +4933,7 @@ var	string_strings_cfg =
 		cn : "Trong Đấu trường Xếp Hạng không thể dùng Bom Hạt Nhân!",    //--越南
 	},
 	'rmatch_end_tip1' : {
-		cn : "Có thể tiêu phí %d Vàng phóng Bom Hạt Nhân kết liễu đối thủ.",    //--越南
+		cn : "Có thể tiêu phí %d vàng phóng Bom Hạt Nhân kết liễu đối thủ.",    //--越南
 	},
 	'rmatch_end_tip2' : {
 		cn : "Phóng ",    //--越南
@@ -4954,7 +4954,7 @@ var	string_strings_cfg =
 		cn : "Báo danh thành công, muốn vào thi đấu?",    //--越南
 	},
 	'weapon_tryused_time' : {
-		cn : "%s dùng thử đã hết, trước khi hết hạn mua tiếp được giảm %d off (Giá gốc %d K.C)",    //--越南
+		cn : "%s dùng thử đã hết, trước khi hết hạn mua tiếp được giảm %d off (Giá gốc %d Ruby)",    //--越南
 	},
 	'errorcode_token_error' : {
 		cn : "Kết nối server bất thường, xin đăng nhập lại! ",    //--越南
@@ -4963,7 +4963,7 @@ var	string_strings_cfg =
 		cn : "Kết nối server bất thường, xin đăng nhập lại! ",    //--越南
 	},
 	'luck_remain_count' : {
-		cn : "Hôm nay còn rút thêm %d lần ",    //--越南
+		cn : "Có thể quay thêm %d lần gày",    //--越南
 	},
 	'luck_remain_unenough' : {
 		cn : "Số lần rút thăm không đủ, lên cấp VIP hoặc hẹn mai quay lại!",    //--越南
@@ -4975,7 +4975,7 @@ var	string_strings_cfg =
 		cn : "Nếu bạn thấy thông tin này chứng tỏ bạn có năng lực xưng bá trong《Thợ Săn Cá 》! ",    //--越南
 	},
 	'wb_share_2' : {
-		cn : "Tặng Vàng miễn phí, thẻ cào rơi nhiều!",    //--越南
+		cn : "Tặng vàng miễn phí, thẻ cào rơi nhiều!",    //--越南
 	},
 	'wb_share_3' : {
 		cn : "Người người bắn cá, kiếm nhiều giải thưởng!",    //--越南
@@ -4984,13 +4984,13 @@ var	string_strings_cfg =
 		cn : "Làm vài ván nào!",    //--越南
 	},
 	'wb_share_101' : {
-		cn : "Tôi《Thợ Săn Cá 》đã nhận Skin mới, nơi này cần bạn tham gia!",    //--越南
+		cn : "Tôi《Thợ Săn Cá 》đã nhận Súng mới, nơi này cần bạn tham gia!",    //--越南
 	},
 	'wb_share_102' : {
 		cn : "Tôi《Thợ Săn Cá 》có Nữ thần lại lên cấp rồi, nơi này cần bạn tham gia!",    //--越南
 	},
 	'wb_share_103' : {
-		cn : "Tôi《Thợ Săn Cá 》có Skin đẹp hơn rồi, nơi này cần bạn tham gia!",    //--越南
+		cn : "Tôi《Thợ Săn Cá 》có Súng đẹp hơn rồi, nơi này cần bạn tham gia!",    //--越南
 	},
 	'wb_share_104' : {
 		cn : "Tôi《Thợ Săn Cá 》lại tăng VIP rồi, nơi này cần bạn tham gia!",    //--越南
@@ -5017,10 +5017,10 @@ var	string_strings_cfg =
 		cn : "Mời Bạn ",    //--越南
 	},
 	'friend_share_getreward' : {
-		cn : "Nhận Thưởng ",    //--越南
+		cn : "Nhận",    //--越南
 	},
 	'friend_count' : {
-		cn : "Bạn Game: %d/%d",    //--越南
+		cn : "Online: %d/%d",    //--越南
 	},
 	'create_desk_icon' : {
 		cn : "Thu thập ",    //--越南
@@ -5083,10 +5083,10 @@ var	string_strings_cfg =
 		cn : "Bạn thắng rồi, nhận được: ",    //--越南
 	},
 	'update_title' : {
-		cn : "2017.10.11 Nội dung update: ",    //--越南
+		cn : "2017.12.11 Nội dung update: ",    //--越南
 	},
 	'update_content' : {
-		cn : "【Chức năng mới】: \n1. Mở <color=#00ff00> Chat </> Hệ thống\n2. Mở <color=#00ff00>mới </>Hệ thống Bạn bè\n3. Mở <color=#00ff00>Boa </> chức năng\n4. Mở <color=#00ff00>Hấp dẫn </>hệ thống, theo Xếp hạng Hấp dẫn và tên gọi\n5. Thêm <color=#00ff00> tích điểm bắn cá </>, theo Xếp hạng vàng bắn cá tuần. \n6. Thêm <color=#00ff00>Vua Hot </>BXH, theo XH số hoa tươi được boa \n\n【Khác】: \n1. Mail sau khi nhận không thẻ <color=#00ff00>xóa </>, nhưng chỉ lưu lại 7 ngày.  \n2. Sửa Bug <color=#00ff00>Mở khóa Nữ thần </> thống kê thành tựu \n3. Mở <color=#00ff00> XH hệ thống mới </>, Thưởng XH sửa thành chủ động nhận.\n3. Sửa BUG BOSS không rớt vật phẩm.",    //--越南
+		cn : "Tạm thời không có nội dung.",    //--越南
 	},
 	'update_end' : {
 		cn : "Quản trị 《Thợ Săn Cá 》",    //--越南
@@ -5104,7 +5104,7 @@ var	string_strings_cfg =
 		cn : "Đã giúp bạn đổi đến cuộc thi có tỷ lệ thấp nhất!",    //--越南
 	},
 	'rmatch_season_tip' : {
-		cn : "Mỗi tháng có 1 Season, đầu tháng phát thưởng theo kết quả Season trước.|<color=#ff4e00>Thợ giỏi nhất </>: <color=#ff9b0b>Vàng *5M, K.C *1000, Quà Thợ giỏi nhất *1</>|<color=#ea3dff>Top 10 cao thủ </>: <color=#ff9b0b>Vàng *4M, K.C *800, Quà Top 10 cao thủ *1</>|<color=#01ff84>K.C đoạn 1</>: <color=#ff9b0b>Vàng *3M, K.C *600, K.C Quà*1</>|<color=#01ff84>K.C đoạn 2</>: <color=#ff9b0b>Vàng *2M8, K.C *560, K.C Quà *1</>|<color=#01ff84>K.C đoạn 3</>: <color=#ff9b0b>Vàng *2M6, K.C *520, K.C Quà*1</>|<color=#01ff84>K.C đoạn 4</>: <color=#ff9b0b>Vàng *2M4, K.C *480, K.C Quà*1</>|<color=#01ff84>K.C đoạn 5</>: <color=#ff9b0b>Vàng *2M2, K.C *440, K.C Quà*1</>|<color=#01ff84>Bạch Kim đoạn 1</>: <color=#ff9b0b>Vàng *2M, K.C *400, Bạch Kim Quà*1</>|<color=#01ff84>Bạch Kim đoạn 2</>: <color=#ff9b0b>Vàng *1M9, K.C *380, Bạch Kim Quà*1</>|<color=#01ff84>Bạch Kim đoạn 3</>: <color=#ff9b0b>Vàng *1M8, K.C *360, Bạch Kim Quà*1</>|<color=#01ff84>Bạch Kim đoạn 4</>: <color=#ff9b0b>Vàng *1M7, K.C *340, Bạch Kim Quà*1</>|<color=#01ff84>Bạch Kim đoạn 5</>: <color=#ff9b0b>Vàng *1M6, K.C *320, Bạch Kim Quà*1</>|<color=#01ff84>Vàng đoạn 1</>: <color=#ff9b0b>Vàng *1M5, K.C *300, Vàng Quà*1</>|<color=#01ff84>Vàng đoạn 2</>: <color=#ff9b0b>Vàng *1M4, K.C *280, Vàng Quà*1</>|<color=#01ff84>Vàng đoạn 3</>: <color=#ff9b0b>Vàng *1M3, K.C *260, Vàng Quà*1</>|<color=#01ff84>Vàng đoạn 4</>: <color=#ff9b0b>Vàng *1M2, K.C *240, Vàng Quà*1</>|<color=#01ff84>Vàng đoạn 5</>: <color=#ff9b0b>Vàng *1M1, K.C *220, Vàng Quà*1</>|<color=#01ff84>Bạc đoạn 1</>: <color=#ff9b0b>Vàng *1M, K.C *200, Bạc Quà*1</>|<color=#01ff84>Bạc đoạn 2</>: <color=#ff9b0b>Vàng *900K, K.C *180, Bạc Quà*1</>|<color=#01ff84>Bạc đoạn 3</>: <color=#ff9b0b>Vàng *800K, K.C *160, Bạc Quà*1</>|<color=#01ff84>Bạc đoạn 4</>: <color=#ff9b0b>Vàng *700K, K.C *140, Bạc Quà*1</>|<color=#01ff84>Bạc đoạn 5</>: <color=#ff9b0b>Vàng *600K, K.C *120, Bạc Quà*1</>|<color=#01ff84>Đồng đoạn 1</>: <color=#ff9b0b>Vàng *500K, K.C *100, Đồng Quà*1</>|<color=#01ff84>Đồng đoạn 2</>: <color=#ff9b0b>Vàng *400K, K.C *80, Đồng Quà*1</>|<color=#01ff84>Đồng đoạn 3</>: <color=#ff9b0b>Vàng *300K, K.C *60, Đồng Quà*1</>|<color=#01ff84>Đồng đoạn 4</>: <color=#ff9b0b>Vàng *200K, K.C *40, Đồng Quà*1</>|<color=#01ff84>Đồng đoạn 5</>: <color=#ff9b0b>Vàng *100K, K.C *20, Đồng Quà*1</>",    //--越南
+		cn : "Mỗi tháng có 1 Mùa, đầu tháng phát thưởng theo kết quả Mùa trước.|<color=#ff4e00>Thợ giỏi nhất </>: <color=#ff9b0b>vàng *5M, Ruby *1000, Quà Thợ giỏi nhất *1</>|<color=#ea3dff>Top 10 cao thủ </>: <color=#ff9b0b>vàng *4M, Ruby *800, Quà Top 10 cao thủ *1</>|<color=#01ff84>Ruby đoàn 1</>: <color=#ff9b0b>vàng *3M, Ruby *600, Ruby Quà*1</>|<color=#01ff84>Ruby đoàn 2</>: <color=#ff9b0b>vàng *2M8, Ruby *560, Ruby Quà *1</>|<color=#01ff84>Ruby đoàn 3</>: <color=#ff9b0b>vàng *2M6, Ruby *520, Ruby Quà*1</>|<color=#01ff84>Ruby đoàn 4</>: <color=#ff9b0b>vàng *2M4, Ruby *480, Ruby Quà*1</>|<color=#01ff84>Ruby đoàn 5</>: <color=#ff9b0b>vàng *2M2, Ruby *440, Ruby Quà*1</>|<color=#01ff84>Bạch Kim đoàn 1</>: <color=#ff9b0b>vàng *2M, Ruby *400, Bạch Kim Quà*1</>|<color=#01ff84>Bạch Kim đoàn 2</>: <color=#ff9b0b>vàng *1M9, Ruby *380, Bạch Kim Quà*1</>|<color=#01ff84>Bạch Kim đoàn 3</>: <color=#ff9b0b>vàng *1M8, Ruby *360, Bạch Kim Quà*1</>|<color=#01ff84>Bạch Kim đoàn 4</>: <color=#ff9b0b>vàng *1M7, Ruby *340, Bạch Kim Quà*1</>|<color=#01ff84>Bạch Kim đoàn 5</>: <color=#ff9b0b>vàng *1M6, Ruby *320, Bạch Kim Quà*1</>|<color=#01ff84>Vàng đoàn 1</>: <color=#ff9b0b>vàng *1M5, Ruby *300, vàng Quà*1</>|<color=#01ff84>Vàng đoàn 2</>: <color=#ff9b0b>vàng *1M4, Ruby *280, vàng Quà*1</>|<color=#01ff84>Vàng đoàn 3</>: <color=#ff9b0b>vàng *1M3, Ruby *260, vàng Quà*1</>|<color=#01ff84>Vàng đoàn 4</>: <color=#ff9b0b>vàng *1M2, Ruby *240, vàng Quà*1</>|<color=#01ff84>Vàng đoàn 5</>: <color=#ff9b0b>vàng *1M1, Ruby *220, vàng Quà*1</>|<color=#01ff84>Bạc đoàn 1</>: <color=#ff9b0b>vàng *1M, Ruby *200, Bạc Quà*1</>|<color=#01ff84>Bạc đoàn 2</>: <color=#ff9b0b>vàng *900K, Ruby *180, Bạc Quà*1</>|<color=#01ff84>Bạc đoàn 3</>: <color=#ff9b0b>vàng *800K, Ruby *160, Bạc Quà*1</>|<color=#01ff84>Bạc đoàn 4</>: <color=#ff9b0b>vàng *700K, Ruby *140, Bạc Quà*1</>|<color=#01ff84>Bạc đoàn 5</>: <color=#ff9b0b>vàng *600K, Ruby *120, Bạc Quà*1</>|<color=#01ff84>Đồng đoàn 1</>: <color=#ff9b0b>vàng *500K, Ruby *100, Đồng Quà*1</>|<color=#01ff84>Đồng đoàn 2</>: <color=#ff9b0b>vàng *400K, Ruby *80, Đồng Quà*1</>|<color=#01ff84>Đồng đoàn 3</>: <color=#ff9b0b>vàng *300K, Ruby *60, Đồng Quà*1</>|<color=#01ff84>Đồng đoàn 4</>: <color=#ff9b0b>vàng *200K, Ruby *40, Đồng Quà*1</>|<color=#01ff84>Đồng đoàn 5</>: <color=#ff9b0b>vàng *100K, Ruby *20, Đồng Quà*1</>",    //--越南
 	},
 	'change_huafei_unenough' : {
 		cn : "Phiếu Thẻ Cào không đủ , không thể đổi ",    //--越南
@@ -5131,10 +5131,10 @@ var	string_strings_cfg =
 		cn : "Phiếu thẻ cào có: %d",    //--越南
 	},
 	'change_goddess' : {
-		cn : "<color=#ff4e00>Hạng 1</>: <color=#ff9b0b>Phiếu Thẻ Cào *10000, Đạn Kim *1</>|<color=#ea3dff>Hạng 2</>: <color=#ff9b0b>Phiếu Thẻ Cào *5000, Đạn Bạc *1</>|<color=#01ff84>Hạng 3</>: <color=#ff9b0b>Phiếu Thẻ Cào *3000, Đạn Bạc *1</>|Hạng 4-10: <color=#ff9b0b>Phiếu Thẻ Cào *1500, Đạn Bạc *1</>|Hạng 11-30: <color=#ff9b0b>Phiếu Thẻ Cào *800, Đạn Đồng *1</>|Hạng 31-100: <color=#ff9b0b>Đạn Đồng *1</>|Hạng 101-1000: <color=#ff9b0b>Vàng *5000</>",    //--越南
+		cn : "<color=#ff4e00>Hạng 1</>: <color=#ff9b0b>Phiếu Thẻ Cào *10000, Bom Cao Cấp *1</>|<color=#ea3dff>Hạng 2</>: <color=#ff9b0b>Phiếu Thẻ Cào *5000, Bom Trung Cấp *1</>|<color=#01ff84>Hạng 3</>: <color=#ff9b0b>Phiếu Thẻ Cào *3000, Bom Trung Cấp *1</>|Hạng 4-10: <color=#ff9b0b>Phiếu Thẻ Cào *1500, Bom Trung Cấp *1</>|Hạng 11-30: <color=#ff9b0b>Phiếu Thẻ Cào *800, Bom Sơ Cấp *1</>|Hạng 31-100: <color=#ff9b0b>Bom Sơ Cấp *1</>|Hạng 101-1000: <color=#ff9b0b>vàng *5000</>",    //--越南
 	},
 	'sign_after' : {
-		cn : "Ký bù tiêu hao %dK.C, muốn thử không?",    //--越南
+		cn : "Điểm danh bù tiêu hao %dRuby, muốn thử không?",    //--越南
 	},
 	'str_signed_tip4' : {
 		cn : "Ngày đăng ký trước không thể điểm danh!",    //--越南
@@ -5191,7 +5191,7 @@ var	string_strings_cfg =
 		cn : "Chưa mở khóa Nữ Thần trước!",    //--越南
 	},
 	'vip_cost_tip' : {
-		cn : "Chỉ cần nạp <color=#00ff00>%s</>K.C có thể đạt 1 cấp VIP",    //--越南
+		cn : "Chỉ cần nạp <color=#00ff00>%s</>Vàng có thể nhận VIP",    //--越南
 	},
 	'vip_gift_free' : {
 		cn : "Phúc lợi mỗi ngày",    //--越南
@@ -5206,10 +5206,10 @@ var	string_strings_cfg =
 		cn : "Điện thoại CSKH: 18755756572 QQ：800170942",    //--越南
 	},
 	'msg_pearl_temp_laba' : {
-		cn : "%s không đủ, tiêu hao %d Vàng để mua?",    //--越南
+		cn : "%s không đủ, tiêu hao %d vàng để mua?",    //--越南
 	},
 	'msg_pearl_temp_laba_1' : {
-		cn : "K.C không đủ để mua %s, nạp thêm nào!",    //--越南
+		cn : "Vàng không đủ để mua %s, nạp thêm nào!",    //--越南
 	},
 	'msg_input_not_null' : {
 		cn : "Nội dung gửi không được để trống.",    //--越南
@@ -5254,28 +5254,28 @@ var	string_strings_cfg =
 		cn : "Số thứ tự của bạn: %d",    //--越南
 	},
 	'charm_rule_tips1' : {
-		cn : "Có thể tăng Điểm Hấp dẫn như sau: \n<color=#ff6000>★★★★★</> Nâng cấp sao Skin (Tạm thời chưa mở )\n<color=#ff6000>★★★★★</> Nâng cấp VIP\n<color=#ff6000>★★★★</><color=#000000>★</>Mở khóa nhiều Skin \n<color=#ff6000>★★★★</><color=#000000>★</>Mở khóa, lên cấp Nữ thần \n<color=#ff6000>★★★★</><color=#000000>★</>Mở khóa, lên cấp Cá Pet \n<color=#ff6000>★★★</><color=#000000>★★</> Nâng Đấu Xếp Hạng \n<color=#ff6000>★★★</><color=#000000>★★</> có Thẻ Tháng, Thẻ Tháng mất đi không tăng Điểm Hấp dẫn\n<color=#ff6000>★★</><color=#000000>★★★</>Lên cấp tỷ lệ Vũ khí \n<color=#ff6000>★★</><color=#000000>★★★</>Mỗi lần phát ngôn trên Thế Giới + 1 Điểm Hấp dẫn \n<color=#ff6000>★</><color=#000000>★★★★</>Mỗi lần được Boa 1 đóa Hoa tươi + 1 Điểm Hấp dẫn \n<color=#ff6000>★</><color=#000000>★★★★</> Mỗi người Bạn + 10 Điểm Hấp dẫn ",    //--越南
+		cn : "Có thể tăng Điểm Mị lực như sau: \n<color=#ff6000>★★★★★</> Nâng cấp sao Súng (Tạm thời chưa mở )\n<color=#ff6000>★★★★★</> Nâng cấp VIP\n<color=#ff6000>★★★★</><color=#000000>★</>Mở khóa nhiều Súng \n<color=#ff6000>★★★★</><color=#000000>★</>Mở khóa, lên cấp Hộ Vệ \n<color=#ff6000>★★★★</><color=#000000>★</>Mở khóa, lên cấp Hồ Cá \n<color=#ff6000>★★★</><color=#000000>★★</> Đấu Xếp Hạng \n<color=#ff6000>★★★</><color=#000000>★★</> có Thẻ Tháng, Thẻ Tháng mất đi không tăng Điểm Mị Lực dẫn\n<color=#ff6000>★★</><color=#000000>★★★</>Lên cấp tỷ lệ Vũ khí \n<color=#ff6000>★★</><color=#000000>★★★</>Mỗi lần phát ngôn trên Thế Giới + 1 Điểm Mị Lực \n<color=#ff6000>★</><color=#000000>★★★★</>Mỗi lần được tặng 1 đóa Hoa tươi + 1 Điểm Mị Lực \n<color=#ff6000>★</><color=#000000>★★★★</> Mỗi người Bạn + 10 Điểm Mị Lực",    //--越南
 	},
 	'charm_change_tips' : {
-		cn : "Điểm Hấp dẫn  %s %d",    //--越南
+		cn : "Điểm Mị lực  %s %d",    //--越南
 	},
 	'charm_rule_tips2' : {
-		cn : "Mở khóa tăng Điểm Hấp dẫn: %s",    //--越南
+		cn : "Mở khóa tăng Điểm Mị lực: %s",    //--越南
 	},
 	'charm_change_tips_1' : {
-		cn : "Chat Thế Giới, Hấp dẫn +%d",    //--越南
+		cn : "Chat Thế Giới, Mị lực +%d",    //--越南
 	},
 	'charm_change_tips_2' : {
-		cn : "Nhận Hoa tươi, Hấp dẫn +%d",    //--越南
+		cn : "Nhận Hoa tươi, Mị lực +%d",    //--越南
 	},
 	'charm_change_tips_3' : {
-		cn : "Boa Hoa tươi, Hấp dẫn +%d",    //--越南
+		cn : "Tặng Hoa tươi, Mị lực +%d",    //--越南
 	},
 	'charm_change_tips_4' : {
-		cn : "Tăng thêm bạn, Hấp dẫn +%d",    //--越南
+		cn : "Tăng thêm bạn, Mị lực +%d",    //--越南
 	},
 	'charm_change_tips_5' : {
-		cn : "Giảm bớt bạn, Hấp dẫn -%d",    //--越南
+		cn : "Giảm bớt bạn, Mị lực -%d",    //--越南
 	},
 	'rmatch_message_1' : {
 		cn : "Lẹ lẹ lên!",    //--越南
@@ -5326,7 +5326,7 @@ var	string_strings_cfg =
 		cn : "Nguyên liệu nâng cấp sao không đủ",    //--越南
 	},
 	'charm_add_tips' : {
-		cn : "Hấp dẫn %d",    //--越南
+		cn : "Mị lực %d",    //--越南
 	},
 	'vote_button' : {
 		cn : "Bỏ phiếu ",    //--越南
@@ -5338,7 +5338,7 @@ var	string_strings_cfg =
 		cn : "%d%% tỷ lệ hỗ trợ ",    //--越南
 	},
 	'goldfish_tips1' : {
-		cn : "Còn thiếu %d Vàng nữa là có thể đổi thẻ cào!",    //--越南
+		cn : "Còn thiếu %d vàng nữa là có thể đổi thẻ cào!",    //--越南
 	},
 	'goldfish_tips2' : {
 		cn : "Có thể đổi thẻ rồi!",    //--越南
@@ -5350,22 +5350,22 @@ var	string_strings_cfg =
 		cn : "Đã mua  ",    //--越南
 	},
 	'shop_vn_tips1' : {
-		cn : "Đế nạp gold bắng thẻ viettel Viettel\nBạn phải nhận vào sổ seri và mã thẻ:",    //--越南
+		cn : "Để nạp vàng bằng thẻ Viettel\n Bạn phải nhập vào serial và mã thẻ:",    //--越南
 	},
 	'shop_vn_tips2' : {
-		cn : "Đế nạp gold bắng thẻ viettel Mobifone\nBạn phải nhận vào sổ seri và mã thẻ:",    //--越南
+		cn : "Để nạp vàng bằng thẻ Viettel\n Bạn phải nhập vào serial và mã thẻ:",    //--越南
 	},
 	'shop_vn_tips3' : {
-		cn : "Đế nạp gold bắng thẻ viettel Vinaphone\nBạn phải nhận vào sổ seri và mã thẻ:",    //--越南
+		cn : "Để nạp vàng bằng thẻ Mobifone\n Bạn phải nhập vào serial và mã thẻ:",    //--越南
 	},
 	'shop_vn_tips4' : {
-		cn : "WU.卡号和密码不能为空！",    //--越南
+		cn : "Serial và PIN không được để trống!",    //--越南
 	},
 	'shop_vn_tips5' : {
-		cn : "WU.验证码错误！",    //--越南
+		cn : "Mã xác nhận",    //--越南
 	},
 	'fight_tips_mianyi' : {
-		cn : "Miễn dịch ",    //--越南
+		cn : "Trượt",    //--越南
 	},
 	'fight_tips_shanbi' : {
 		cn : "Né ",    //--越南
@@ -5548,7 +5548,7 @@ var	string_strings_cfg =
 		cn : "Cùng 1 tin nhắn không thể like nhiều lần!",    //--越南
 	},
 	'tip_1059' : {
-		cn : "Vàng không đủ, nạp thêm?",    //--越南
+		cn : "vàng không đủ, nạp thêm?",    //--越南
 	},
 	'tip_1060' : {
 		cn : "Thanh toán SDK, xác nhận muốn mua?",    //--越南
@@ -5566,7 +5566,7 @@ var	string_strings_cfg =
 		cn : "Chưa nhận Rương này, muốn thi đấu tiếp?",    //--越南
 	},
 	'tip_1065' : {
-		cn : "Đang ra sức tải...",    //--越南
+		cn : "Đang tải…",    //--越南
 	},
 	'tip_1066' : {
 		cn : "Đang tự động đăng nhập, vui lòng đợi...",    //--越南
@@ -5575,13 +5575,13 @@ var	string_strings_cfg =
 		cn : "Đang kiểm tra update:",    //--越南
 	},
 	'tip_1068' : {
-		cn : "Xin hãy đợi!!",    //--越南
+		cn : "Vui lòng đợi!",    //--越南
 	},
 	'tip_1069' : {
 		cn : "Gửi nhiều quá!",    //--越南
 	},
 	'tip_1070' : {
-		cn : "Ngư trường quá quyết liệt, dự kiến <color=#4ffe63>%d</c> người sau có thể đăng quang!",    //--越南
+		cn : "Ngư trường quá đông, dự kiến <color=#4ffe63>%d</c> người sau có thể đăng nhập!",    //--越南
 	},
 	'tip_1071' : {
 		cn : "Mạng đang xử lý...",    //--越南
@@ -5590,25 +5590,25 @@ var	string_strings_cfg =
 		cn : "Điểm danh ",    //--越南
 	},
 	'tip_1073' : {
-		cn : "Hôm nay đã làm",    //--越南
+		cn : "Đã Nhận",    //--越南
 	},
 	'tip_1074' : {
-		cn : "Mở khoá khi vũ khí x %s",    //--越南
+		cn : "Yêu cầu súng đạt cấp %s",    //--越南
 	},
 	'tip_1075' : {
 		cn : "Không có",    //--越南
 	},
 	'tip_1076' : {
-		cn : "WU.%d倍奖励",    //--越南
+		cn : "%d lần Thưởng",    //--越南
 	},
 	'tip_1077' : {
-		cn : "WU.触摸可得互动奖励哟！",    //--越南
+		cn : "Chạm để nhận quà tương tác!",    //--越南
 	},
 	'tip_1078' : {
 		cn : "HP",    //--越南
 	},
 	'tip_1079' : {
-		cn : "Hấp dẫn ",    //--越南
+		cn : "Mị lực ",    //--越南
 	},
 	'tip_1080' : {
 		cn : "Đã max cấp ",    //--越南
@@ -5617,16 +5617,16 @@ var	string_strings_cfg =
 		cn : "Lên cấp ",    //--越南
 	},
 	'tip_1082' : {
-		cn : "WU.您有正在进行的比赛，是否前往？",    //--越南
+		cn : "Bạn đang Thi đấu, tiếp tục chứ?",    //--越南
 	},
 	'tip_1083' : {
-		cn : "WU.已过期",    //--越南
+		cn : "Đã quá hạn",    //--越南
 	},
 	'tip_1084' : {
-		cn : "WU.后过期",    //--越南
+		cn : "Sau quá hạn",    //--越南
 	},
 	'tip_1085' : {
-		cn : "WU.没有匹配的段位",    //--越南
+		cn : "Không có Vòng để ghép",    //--越南
 	},
 	'tip_1086' : {
 		cn : "Bắt đầu mở khoá",    //--越南
@@ -5635,112 +5635,121 @@ var	string_strings_cfg =
 		cn : "Mở khoá cần",    //--越南
 	},
 	'tip_1088' : {
-		cn : "WU.立即打开",    //--越南
+		cn : "Mở ngay",    //--越南
 	},
 	'tip_1089' : {
-		cn : "WU.解锁倒计时",    //--越南
+		cn : "Đếm ngược mở khoá",    //--越南
 	},
 	'tip_1090' : {
-		cn : "WU.是否花费%d钻石立即打开？",    //--越南
+		cn : "Dùng %d Ruby để mở ngay?",    //--越南
 	},
 	'tip_1091' : {
-		cn : "WU.其他宝箱正在开启中",    //--越南
+		cn : "Đang mở những Rương khác",    //--越南
 	},
 	'tip_1092' : {
 		cn : "Click phía trên có thể chat",    //--越南
 	},
 	'tip_1093' : {
-		cn : "WU.胜率:",    //--越南
+		cn : "Tỷ lệ Thắng: ",    //--越南
 	},
 	'tip_1094' : {
-		cn : "WU.胜点 ",    //--越南
+		cn : "Điểm Thắng ",    //--越南
 	},
 	'tip_1095' : {
-		cn : "WU.获得胜利%d/%d次",    //--越南
+		cn : "Giành Thắng lợi %d/%d lần ",    //--越南
 	},
 	'tip_1096' : {
-		cn : "WU.开启宝箱%d/%d次",    //--越南
+		cn : "Mở Rương %d/%d lần ",    //--越南
 	},
 	'tip_1097' : {
-		cn : "WU.完成首胜%d/%d次",    //--越南
+		cn : "Hoàn thành Thắng lần đầu %d/%d lần ",    //--越南
 	},
 	'tip_1098' : {
-		cn : "WU.（女神特权加成： %d%%）",    //--越南
+		cn : "(Tăng đặc quyền Nữ Thần:  %d%%) ",    //--越南
 	},
 	'tip_1099' : {
-		cn : "WU.亲，您离%d话费券，只有 VIP 一步之遥，要继续吗？",    //--越南
+		cn : "Bạn còn cách %d phiếu, VIP không xa, tiếp tục chứ?",    //--越南
 	},
 	'tip_1100' : {
-		cn : "WU.匹配中",    //--越南
+		cn : "Đang Ghép ",    //--越南
 	},
 	'tip_1101' : {
-		cn : "WU.%d天后颁奖",    //--越南
+		cn : "%d ngày sau nhận ",    //--越南
 	},
 	'tip_1102' : {
-		cn : "WU.后颁奖",    //--越南
+		cn : "Sau nhận",    //--越南
 	},
 	'tip_1103' : {
-		cn : "WU.获得一次排位赛胜利可开启宝箱",    //--越南
+		cn : "Đạt 1 lần thắng lợi XH có thể mở Rương ",    //--越南
 	},
 	'tip_1104' : {
-		cn : "WU.后可用",    //--越南
+		cn : "Sau có thể dùng",    //--越南
 	},
 	'tip_1105' : {
-		cn : "WU.匹配中，预计需要%d秒钟",    //--越南
+		cn : "Đang Ghép, cần %d s",    //--越南
 	},
 	'tip_1106' : {
-		cn : "WU.为了您能正常完赛，拥有%d以上金币才能报名。前往购买？",    //--越南
+		cn : "Để có thể báo danh, phải có %d vàng trở lên. Nạp ngay chứ?",    //--越南
 	},
 	'tip_1107' : {
-		cn : "WU.恭喜您,",    //--越南
+		cn : "Chúc mừng!",    //--越南
 	},
 	'tip_1108' : {
 		cn : "Lên cấp ",    //--越南
 	},
 	'tip_1109' : {
-		cn : "WU.真遗憾,",    //--越南
+		cn : "Tiếc quá!",    //--越南
 	},
 	'tip_1110' : {
-		cn : "WU.降级",    //--越南
+		cn : "Xuống cấp",    //--越南
 	},
 	'tip_1111' : {
-		cn : "WU.胜率:%d%%",    //--越南
+		cn : "Tỷ lệ Thắng: %d%%",    //--越南
 	},
 	'tip_1112' : {
 		cn : "Huỷ bắn Bom hạt nhân ",    //--越南
 	},
 	'tip_1113' : {
-		cn : "WU.核弹捕获%d条鱼%d分",    //--越南
+		cn : "Bom bắn được %d cá %d điểm",    //--越南
 	},
 	'tip_1114' : {
-		cn : "WU.%d条%d分",    //--越南
+		cn : "%d con %d điểm",    //--越南
 	},
 	'tip_1115' : {
-		cn : "WU.胜点 +%d",    //--越南
+		cn : "Điểm Thắng +%d",    //--越南
 	},
 	'tip_1116' : {
-		cn : "WU.每天只能领取一次哦",    //--越南
+		cn : "Mỗi ngày đều được nhận 1 lần!",    //--越南
 	},
 	'tip_1117' : {
-		cn : "WU.今天您已领取过：",    //--越南
+		cn : "Hôm nay bạn đã nhận: ",    //--越南
 	},
 	'tip_1118' : {
-		cn : "Để nhận thành công.",    //--越南
+		cn : "Nhận thành công!",    //--越南
 	},
 	'tip_1119' : {
-		cn : "Chúc mừng bạn đạt được:",    //--越南
+		cn : "Bạn nhận được: ",    //--越南
 	},
 	'tip_1120' : {
-		cn : "WU.添加您为好友",    //--越南
+		cn : "Muốn kết bạn",    //--越南
 	},
 	'tip_1121' : {
-		cn : "WU.玩家等级不够，暂时无法使用此道具",    //--越南
+		cn : "Cấp User không đủ, tạm thời không thể sử dụng!",    //--越南
 	},
 	'tip_1122' : {
-		cn : "WU.排位赛匹配成功，是否前往？",    //--越南
+		cn : "Ghép thi đấu thành công, tiếp tục chứ?",    //--越南
 	},
 	'tip_1123' : {
-		cn : "WU.自获得后%d秒过期",    //--越南
+		cn : "Nhận xong sau %d s hết hạn!",    //--越南
+	},
+	'REWARD_SELF' : {
+		cn : "VN.不能打赏自己",    //--越南
+	},
+	'FRIEND_REWARD' : {
+		cn : "VN.好友打赏",    //--越南
+	},
+	'FRIEND_REWARD_TXT' : {
+		cn : "VN.玩家打赏了你",    //--越南
 	},
 	'TOKEN_INVALID' : {
 		cn : "Kết nối mạng không khớp, xin đăng nhập lại!",    //--越南
@@ -5770,10 +5779,10 @@ var	string_strings_cfg =
 		cn : "Hình thức token sai",    //--越南
 	},
 	'NEGATIVE_GOLD_ERR' : {
-		cn : "Lỗi âm số Vàng",    //--越南
+		cn : "Lỗi âm số vàng",    //--越南
 	},
 	'NEGATIVE_DIAMOND_ERR' : {
-		cn : "Lỗi âm K.C",    //--越南
+		cn : "Lỗi âm Ruby",    //--越南
 	},
 	'SERVER_UPDATE' : {
 		cn : "Server update số liệu game",    //--越南
@@ -5790,6 +5799,27 @@ var	string_strings_cfg =
 	'PLAYER_CHEAT' : {
 		cn : "Tài khoản bị khoá do hành vi hack, mọi thắc mắc liên hệ CSKH: ",    //--越南
 	},
+	'PHONE_EXIST' : {
+		cn : "Số điện thoại đã được đăng ký",    //--越南
+	},
+	'USERNAME_EXIST' : {
+		cn : "Tên người dùng đã tồn tại",    //--越南
+	},
+	'PASSWORD_ERROR' : {
+		cn : "Mật khẩu sai",    //--越南
+	},
+	'USERNAME_PASSWORD_ERROR' : {
+		cn : "Tên người dùng hoặc mật khẩu sai",    //--越南
+	},
+	'PHONE_CODE_ERROR' : {
+		cn : "Tin nhắn mã xác nhận sai lầm",    //--越南
+	},
+	'PHONE_CODE_EXPIRE' : {
+		cn : "Tin nhắn mã xác thực đã hết hạn",    //--越南
+	},
+	'USER_NOT_EXIST' : {
+		cn : "Người dùng không còn tồn tại",    //--越南
+	},
 	'REPEAT_OPERATION' : {
 		cn : "User đã thực hiện thao tác này, xin đừng lập lại",    //--越南
 	},
@@ -5797,16 +5827,16 @@ var	string_strings_cfg =
 		cn : "Cấp VIP user không đủ ",    //--越南
 	},
 	'DIAMOND_NOT_ENOUGH' : {
-		cn : "K.C user không đủ ",    //--越南
+		cn : "Ruby của bạn không đủ ",    //--越南
 	},
 	'GOLD_NOT_ENOUGH' : {
-		cn : "Vàng user không đủ ",    //--越南
+		cn : "vàng bạn không đủ ",    //--越南
 	},
 	'DIAMOND_MISSMATCH' : {
-		cn : "K.C user số lượng không phù hợp ",    //--越南
+		cn : "Số lượng Ruby của bạn không phù hợp ",    //--越南
 	},
 	'GOLD_MISSMATCH' : {
-		cn : "Vàng user số lượng không phù hợp ",    //--越南
+		cn : "Số lượng vàng của bạn không phù hợp",    //--越南
 	},
 	'ACTIVE_DISSATISFY' : {
 		cn : "Điều kiện nhận thưởng chưa đủ",    //--越南
@@ -5881,10 +5911,7 @@ var	string_strings_cfg =
 		cn : "Nguyên liệu hợp thành không đủ ",    //--越南
 	},
 	'MIX_GOLD_NOT_ENOUGH' : {
-		cn : "Vàng để hợp thành không đủ ",    //--越南
-	},
-	'CIK_GOLD_NOT_ENOUGH' : {
-		cn : "Sau khi nhắc đến 35 nghìn vàng không thể thấp hơn còn lại hiện đang",    //--越南
+		cn : "vàng hợp thành không đủ",    //--越南
 	},
 	'CIK_TOKEN_NOT_ENOUGH' : {
 		cn : "Phiếu đổi không đủ ",    //--越南
@@ -5914,7 +5941,7 @@ var	string_strings_cfg =
 		cn : "Xin đừng điểm danh sau ngày hôm nay",    //--越南
 	},
 	'SIGN_DIAMOND_NOT_ENOUGH' : {
-		cn : "K.C điểm danh bù không đủ",    //--越南
+		cn : "Không đủ Ruby để điểm danh bù",    //--越南
 	},
 	'SIGN_DAY_OUT_OF_RANGE' : {
 		cn : "Ngày điểm danh vượt phạm vi",    //--越南
@@ -5980,7 +6007,7 @@ var	string_strings_cfg =
 		cn : "Nữ thần số liệu lên cấp không tìm thấy",    //--越南
 	},
 	'GODDESS_UP_LACK_GOLD' : {
-		cn : "Nữ thần không đủ Vàng lên cấp",    //--越南
+		cn : "Nữ thần không đủ vàng lên cấp",    //--越南
 	},
 	'GODDESS_UP_LACK_DEBRIS' : {
 		cn : "Nữ thần không đủ Linh thạch lên cấp không đủ",    //--越南
@@ -6001,7 +6028,7 @@ var	string_strings_cfg =
 		cn : "Tra cứu thông tin lên cấp Vũ khí trống",    //--越南
 	},
 	'WEAPON_UNLOCK_DIAMOND_NOT_ENOUGH' : {
-		cn : "K.C cần để mở khoá Vũ khí không đủ ",    //--越南
+		cn : "Không đủ Ruby để mở khóa Súng",    //--越南
 	},
 	'WEAPON_UNLOCK_MATERIAL_NOT_ENOUGH' : {
 		cn : "Nguyên liệu cần để mở khoá Vũ khí không đủ ",    //--越南
@@ -6010,7 +6037,7 @@ var	string_strings_cfg =
 		cn : "Số Tinh hoa thiên thạch không đủ",    //--越南
 	},
 	'WEAPON_SKIN_DRAW_WRONG_SKIN_ID' : {
-		cn : "User không có Mảnh Skin",    //--越南
+		cn : "Bạn không có Mảnh Súng",    //--越南
 	},
 	'LEVELUP_EXP_NOT_ENOUGH' : {
 		cn : "EXP của user không đủ để lên cấp",    //--越南
@@ -6052,7 +6079,7 @@ var	string_strings_cfg =
 		cn : "Số liệu trống: ",    //--越南
 	},
 	'CHAT_COST_ERROR' : {
-		cn : "K.C Loa không đủ ",    //--越南
+		cn : "Không đủ Ruby",    //--越南
 	},
 	'CHAT_FRIEND_ERROR' : {
 		cn : "Đã gửi yêu cầu kết bạn rồi.",    //--越南
@@ -6069,41 +6096,77 @@ var	string_strings_cfg =
 	'CHAT_FRIEND_GAME_ERROR' : {
 		cn : "Chỉ có thể huỷ bạn trong game",    //--越南
 	},
+	'VIP_FREE_GIFT_ERRO' : {
+		cn : "Hôm nay đã nhận quà VIP rồi!",    //--越南
+	},
 	'ecode_1' : {
-		cn : "WU.正在建立连接，请稍候！",    //--越南
+		cn : "Đang kết nối mạng, vui lòng đợi…",    //--越南
 	},
 	'ecode_2' : {
-		cn : "WU.战斗网关地址解析有误！",    //--越南
+		cn : "Phân tích địa chỉ chiến đấu có sai sot!",    //--越南
 	},
 	'ecode_3' : {
-		cn : "WU.战斗网关地址有误！",    //--越南
+		cn : "Địa chỉ chiến đấu có sai sót!",    //--越南
 	},
 	'ecode_4' : {
-		cn : "WU.尚未建立连接，无法通信！",    //--越南
+		cn : "Chưa liên kết được!",    //--越南
 	},
 	'ecode_5' : {
-		cn : "WU.鱼数据有误",    //--越南
+		cn : "Số liệu Cá sai sót",    //--越南
 	},
 	'ecode_6' : {
-		cn : "WU.重连失败，连接已断开",    //--越南
+		cn : "Liên kết lại thất bại, mất kết nối...",    //--越南
 	},
 	'ecode_7' : {
-		cn : "WU.断线重连中。。。",    //--越南
+		cn : "Đang kết nối lại....",    //--越南
 	},
 	'ecode_8' : {
-		cn : "WU.重连成功",    //--越南
+		cn : "kết nối thành công",    //--越南
 	},
 	'ecode_9' : {
-		cn : "WU.网关初始化失败",    //--越南
+		cn : "Khởi tạo Gateway thất bại",    //--越南
 	},
 	'ecode_10' : {
-		cn : "WU.正在使用",    //--越南
+		cn : "Đang dụng",    //--越南
 	},
 	'ecode_11' : {
-		cn : "WU.网络异常，正在重连",    //--越南
+		cn : "Mạng không ổn định, đang kết nối lại…",    //--越南
 	},
 	'ecode_12' : {
-		cn : "WU.座位分配有误",    //--越南
+		cn : "Sắp xếp vị trí ngồi có sai sót!",    //--越南
+	},
+	'str_room_join' : {
+		cn : "Tham gia vào phòng",    //--越南
+	},
+	'str_room_out' : {
+		cn : "Ra khỏi phòng",    //--越南
+	},
+	'str_room_brok' : {
+		cn : "Đã phá sản",    //--越南
+	},
+	'wp_click_cancel' : {
+		cn : "Click hủy",    //--越南
+	},
+	'wp_go_auto_fire' : {
+		cn : "Tự động",    //--越南
+	},
+	'str_login_out' : {
+		cn : "Bạn có muốn thoát game không?",    //--越南
+	},
+	'str_phone_tips' : {
+		cn : "Click để cập nhật SĐT",    //--越南
+	},
+	'str_identify_code_tips' : {
+		cn : "%ds sau thử lại",    //--越南
+	},
+	'str_nickname_not_null' : {
+		cn : "Biệt danh không rỗng",    //--越南
+	},
+	'str_password_not_common' : {
+		cn : "Mật mã không phù hợp",    //--越南
+	},
+	'str_code_error' : {
+		cn : "WU.验证码非法",    //--越南
 	},
 };
 module.exports = string_strings_cfg;

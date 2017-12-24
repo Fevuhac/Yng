@@ -78,7 +78,7 @@ function _update(pool, data, cb, account) {
 /**
  * 校验武器激光能量(使用时间差校验)
  */
-function checkWeaponEnergy(new_weapon_energy, account, next) {
+function checkWeaponEnergy(new_weapon_energy, account, cb) {
     let uid = account.id;
     const FUNC = TAG + "checkWeaponEnergy() --- ";
     RedisUtil.hget(PAIR.UID_TIMESTAMP_UPDATE_LASER_ENERGY, uid, function(err, res) {
@@ -94,7 +94,7 @@ function checkWeaponEnergy(new_weapon_energy, account, next) {
             let weapon_info = newweapon_weapons_cfg[account.weapon_skin.equip];
             let power = weapon_info.power;
             let interval = weapon_info.interval;
-            max_delta_energy = power[1] / interval * delta_time;
+            let max_delta_energy = power[1] / interval * delta_time;
             
             //console.log(FUNC + "delta_time:", delta_time);
             //console.log(FUNC + "power[1]:", power[1]);
@@ -122,11 +122,11 @@ function checkWeaponEnergy(new_weapon_energy, account, next) {
             
             if ((client_delta_energy - max_delta_energy) > max_delta_energy * 0.2) {
                 console.error(FUNC + "玩家激光能量数据异常, 返回错误码");
-                next(new Error("玩家激光能量数据异常, 返回错误码"));
+                cb(new Error("玩家激光能量数据异常, 返回错误码"));
                 return;
             }
         }
-        next();
+        cb();
     });
 }
 

@@ -333,7 +333,7 @@ function returnWanbaFake(data, req_client, cb) {
 function _handleTencentApiGetMultiInfo(data, api, req_client, cb) {
     var data = ObjUtil.str2Data(data);
     data.userip = _getClientIp(req_client);
-
+    const FUNC = TAG + "_handleTencentApiGetMultiInfo() ---   ";
     if (!_checkOpenId(data, cb)) return;
 
     callHttp(api, data, function(err, chunk) {
@@ -389,6 +389,7 @@ function _handleTencentApiSendGamebarMsg(data, api, req_client, cb) {
  * @param chunk http调用后返回的数据块, 首次传入null.
  */
 function callHttpRecurrence(api, data, condition, cb, chunk) {
+    const FUNC = TAG + "callHttpRecurrence() ---   ";
     var param = condition.param;
     var list = condition.list;
     if (list.length > 0) {

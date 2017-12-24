@@ -75,7 +75,7 @@ function _getUserDetail(pool, data, cb) {
             console.log('result: ', result);
             if (result.length == 0) {
                 var not_found_err = "查询的管理账户不存在";
-                console, log(not_found_err);
+                console.log(not_found_err);
                 cb(new Error(not_found_err));
                 return;
             }

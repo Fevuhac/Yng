@@ -44,8 +44,10 @@ var	common_log_const_cfg =  {
 		ENSHRINE_REWARD : 43,    //--收藏奖励
 		CIK : 44,    //--话费券兑换
 		SELL : 45,    //--出售物品获取金币
-		USE : 46,    //--使用物品获取金币(金币券, 礼盒)
+		USE : 46,    //--使用物品获取金币
 		MAIL : 47,    //--邮件领取
-		BUY_CARD : 48,    //--购买月卡一次性获取游戏内货币
+		CARD : 48,    //--购买月卡消耗
+		NUCLER_COST : 49,    //--核弹消耗
+		ACTIVE_COST : 50,    //--抽奖消耗
 	};
 module.exports = common_log_const_cfg;

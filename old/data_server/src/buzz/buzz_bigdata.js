@@ -332,7 +332,7 @@ function clearGoldData() {
     }
 
     RedisUtil.multi(data, function (err, res) {
-        if (err) return cb && cb(err);
+        // if (err) return cb && cb(err);
         console.log(FUNC + "清空缓存数据成功");
     });
 }

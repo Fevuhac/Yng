@@ -145,11 +145,6 @@ exports.withDbPool = function (_pool) {
         },
         
         //!!!
-        bindAccountWithNickname: function (data, cb) {
-            DaoAccount.bindAccountWithNickname(pool, data, cb);
-        },
-        
-        //!!!
         logout: function (data, cb) {
             DaoAccount.logout(pool, data, cb);
         },
@@ -536,10 +531,6 @@ exports.withDbPool = function (_pool) {
             DaoRank.getGoddessTop1(pool, platform, cb);
         },
         
-        mailCharts: function (cb) {
-            DaoRank.mailCharts(pool, cb);
-        },
-        
         //---------------------Aquarium------------------------
         updateTableAquarium: function (account_id, aquarium, cb) {
             DaoAquarium.updateTableAquarium(pool, account_id, aquarium, cb);
@@ -556,10 +547,6 @@ exports.withDbPool = function (_pool) {
 
         rankgameBox: function (data, account, cb) {
             DaoRankgame.rankgameBox(pool, data, account, cb);
-        },
-
-        getSeasonReward: function (data, account, cb) {
-            DaoRankgame.getSeasonReward(pool, data, account, cb);
         },
 
         seasonEnd: function (cb) {

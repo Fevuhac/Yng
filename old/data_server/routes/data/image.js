@@ -38,7 +38,7 @@ exports.load = load;
  */
 function load(req, res) {
 
-    res.success({ type: 1, msg: '网络图片下载成功', data: '', aes: aes });
+    res.success({ type: 1, msg: '网络图片下载成功', data: '', aes: false });
     return;
     // const FUNC = TAG + "load() --- ";
 

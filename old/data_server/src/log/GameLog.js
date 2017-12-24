@@ -244,13 +244,14 @@ function addGameLog(item_list, account, scene, hint) {
         // yDONE: 话费券记录日志
         console.log(FUNC + uid + hint + '话费券');
         let total = account.package['9']['i003'];
+        let comment = hint + '话费券';
         logHuafei.push({
             uid: uid,
             gain: huafeiGain > 0 ? huafeiGain : 0,
             cost: huafeiGain < 0 ? -huafeiGain : 0,
             total: total,
             scene: scene,
-            comment: "'月卡发放话费券'",
+            comment: "'" + comment + "'",
             time: new Date(),
         });
     }   

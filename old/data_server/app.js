@@ -334,5 +334,9 @@ process.on('uncaughtException', function (err) {
     admin_server.shutdownWithCrash(myPool);
 });
 
+process.on('unhandledRejection', (reason, p) => {
+    console.log("Unhandled Rejection at: Promise ", p, " reason: ", reason);
+});
+
 
 module.exports = app;

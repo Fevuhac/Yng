@@ -44,14 +44,12 @@ function checkTest(test, server_token, uid) {
     const FUNC = TAG + "checkTest() --- ";
     if (server_token && StringUtil.endsWith(server_token, "cheat")) {
         if (ERROR) console.error(FUNC + "Token显示玩家作弊");
-        cb(ERROR_OBJ.TOKEN_INVALID);// 1001
         return false;
     }
     if (test == -1) {
         if (ERROR) console.error(FUNC + "玩家作弊被封号:" + uid);
         let token = uid + "_cheat";
         CacheAccount.setToken(uid, token);
-        cb(ERROR_OBJ.PLAYER_CHEAT);
         return false;
     }
     return true;

@@ -22,6 +22,7 @@ function _checkTokenPost(req, cb) {
     var token = req.body.token;
     if (token == null) {
         console.log("跳转到登录界面");
+        //todo err!!!
         res.render("admin/login", _makeVar());
     }
     else {

@@ -77,7 +77,6 @@ const SEASON_TARGET = {
 exports.getRankgame = getRankgame;
 exports.rankgameInfo = rankgameInfo;
 exports.rankgameBox = rankgameBox;
-exports.getSeasonReward = getSeasonReward;
 exports.seasonEnd = seasonEnd;
 exports.handleSeasonEnd = handleSeasonEnd;
 
@@ -211,63 +210,6 @@ function rankgameBox(pool, data, account, cb) {
                 opReward(pool, data, account, cb);
                 break;
         }
-    });
-}
-
-/**
- * 获取赛季奖励
- */
-function getSeasonReward(pool, data, account, cb) {
-    const FUNC = TAG + "getSeasonReward() --- ";
-
-    var uid = data.token.split("_")[0];
-
-    CacheAccount.getAccountById(uid, function (err, account) {
-        if (err) {
-            cb(err);
-            return;
-        }
-
-        var rank_id = result.rank;
-        var is_season_reward = result.is_season_reward;
-
-        if (is_season_reward) {
-            cb(new Error("赛季奖励已经领取, 请勿重复领取"));
-            return;
-        }
-
-        // 查表获取奖励, 获取奖励后返回当前的金币, 钻石, 背包, 技能数据
-        seasonreward = getSeasonRewardFromRankgameCfg(rank_id);
-        dao_reward.getReward(pool, account, seasonreward, function(err, result) {
-            if (err) {
-                cb(err);
-                return;
-            }
-            CacheAccount.getAccountById(uid, function (err, account) {
-                var ret = {
-                    gold: account.gold,
-                    pearl: account.pearl,
-                    skill: account.skill,
-                    package: account.package,
-                };
-                cb(null, ret);
-            });
-
-            // 更新is_season_reward字段
-            _updateTableRankgame(pool, uid, ['is_season_reward'], [1], function(err, result) {
-                // Do nothing
-            });
-        });
-
-    });
-
-    _queryTableRankgame(pool, uid, function(err, result) {
-        if (err) {
-            cb(err);
-            return;
-        }
-
-
     });
 }
 

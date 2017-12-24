@@ -87,7 +87,8 @@ function banUser(req, dataObj, cb) {
                 if (admin_account) {
                     nickname = admin_account.channel_account_name || admin_account.nickname;
                 }
-                logBanUser(admin_uid, nickname, uid_list, "fail, reason: not an admin");
+                //todo error uid_list未定义
+                logBanUser(admin_uid, nickname, dataObj.uid_list, "fail, reason: not an admin");
                 return;
             }
         });

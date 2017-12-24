@@ -1268,7 +1268,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "30hficon",    //--显示图标
+		icon : "10.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1280,7 +1280,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "100hficon",    //--显示图标
+		icon : "20.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1292,7 +1292,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "100jdicon",    //--显示图标
+		icon : "50.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1304,7 +1304,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "500jdicon",    //--显示图标
+		icon : "100.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1316,7 +1316,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "1000jdicon",    //--显示图标
+		icon : "200.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1328,7 +1328,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "xmcdbicon",    //--显示图标
+		icon : "500.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1340,7 +1340,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "30hficon",    //--显示图标
+		icon : "10.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1352,7 +1352,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "100hficon",    //--显示图标
+		icon : "20.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1364,7 +1364,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "100jdicon",    //--显示图标
+		icon : "50.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1376,7 +1376,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "500jdicon",    //--显示图标
+		icon : "100.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1388,7 +1388,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "1000jdicon",    //--显示图标
+		icon : "200.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1400,7 +1400,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "xmcdbicon",    //--显示图标
+		icon : "500.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1412,7 +1412,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "30hficon",    //--显示图标
+		icon : "10.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1424,7 +1424,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "100hficon",    //--显示图标
+		icon : "20.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1436,7 +1436,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "100jdicon",    //--显示图标
+		icon : "50.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1448,7 +1448,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "500jdicon",    //--显示图标
+		icon : "100.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1460,7 +1460,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "1000jdicon",    //--显示图标
+		icon : "200.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},
@@ -1472,7 +1472,7 @@ var	item_item_cfg =
 		saleprice : 0,    //--售价金币
 		dropid : "0",    //--奖励id
 		level : 0,    //--需要等级
-		icon : "xmcdbicon",    //--显示图标
+		icon : "500.000D",    //--显示图标
 		lengthtype : 0,    //--有效期类型
 		lengthtime : 0,    //--有效时长
 	},

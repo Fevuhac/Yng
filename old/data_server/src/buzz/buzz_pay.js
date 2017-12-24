@@ -117,7 +117,7 @@ function getCardTypeInfo(cardType_id) {
     return null;
 }
 
-const VietnamPay1 = require('./sdk/VietnamPay');
+const vietnamPay1 = require('./sdk/VietnamPay');
 
 /**
  * 越南卡支付
@@ -150,7 +150,7 @@ function VietnamPay(req_client, data, cb) {
                 return;
             }
             let game_order_id = game_order.game_order_id;
-            VietnamPay1.useCard(cardCode, cardSerial, cardType,account.id.toString() + account.nickname, function (err, amount) {
+            vietnamPay1.useCard(cardCode, cardSerial, cardType,account.id.toString() + account.nickname, function (err, amount) {
                 if (err) {
                     console.log('-----------------支付异常：', err);
                     cb(err);
@@ -175,7 +175,7 @@ function VietnamPay(req_client, data, cb) {
                         channel: payChannel.YUENAN_CARD,
                         channel_cb: succ_chunk,
                         game_order_id: game_order_id,
-                        goods_id: channelItemId, // 平台道具ID
+                        goods_id: 0, // 平台道具ID
                         goods_number: 1, // 购买数量总是为1
                         channel_account_id: data.openid,
                         money: shop_gold.item,

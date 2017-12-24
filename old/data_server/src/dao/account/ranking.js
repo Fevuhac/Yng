@@ -80,7 +80,6 @@ var TAG = "【src/dao/account/ranking】";
 exports.genCharts = genCharts;
 exports.getCharts = getCharts;
 exports.getAllMyRanking = getAllMyRanking;
-exports.mailCharts = mailCharts;
 exports.makeChartsMail = makeChartsMail;
 exports.getMyRankgameRanking = getMyRankgameRanking;
 exports.getGoddessTop1 = getGoddessTop1;
@@ -403,7 +402,7 @@ function genCharts(pool, cb) {
         ranking_count:1000,
         type: CHARTS_TYPE.ALL,
     };
-    test = 0;
+    let test = 0;
 
     _getGoldCharts(pool, data, test, function (err_gold, result_gold) {
         _getAchieveCharts(pool, data, test, function (err_achieve, result_achieve) {
@@ -583,19 +582,6 @@ function getAllMyRanking(pool, data, test, cb) {
             });
             
             // cb(null, { "gold" : result_gold[0], "achieve_point" : result_achieve[0] });
-        });
-    });
-}
-
-/**
- * 排行榜邮件发放(根据当前排行榜进行发放).
- */
-function mailCharts(pool, cb) {
-    const FUNC = TAG + "mailCharts() --- ";
-
-    makeChartsMail(pool, function(mail_list, insertId) {
-        _sendMail(pool, mail_list, insertId, function () {
-            cb(err, result);
         });
     });
 }
@@ -784,7 +770,7 @@ function _sendMailInAccount(pool, type, mail_list, start, end, next) {
     // 1. Android发奖励
     data.platform = PLATFORM.ANDROID;
     _getRank(pool, data, type, false, test, function (err, results) {
-        rank = _.pluck(results.rank, 'id');
+        let rank = _.pluck(results.rank, 'id');
         // console.log(FUNC + "rank:", rank);
         _executeSql(pool, rank, level_info, type, data.platform, function () {
 
@@ -814,7 +800,7 @@ function _sendMailSingle(pool, table, field, mail_list, start, end, next) {
     // 1. Android发奖励
     data.platform = PLATFORM.ANDROID;
     _getNewRank(pool, data, table, field, false, test, function (err, results) {
-        rank = _.pluck(results.rank, 'id');
+        let rank = _.pluck(results.rank, 'id');
         // console.log(FUNC + "rank:", rank);
         _executeSql(pool, rank, level_info, table, data.platform, function () {
             

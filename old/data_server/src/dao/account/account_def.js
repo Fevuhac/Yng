@@ -595,6 +595,11 @@ exports.AccountDef = {
         "type": "float",
         "name": "pump_pool",
         "inc":true
+    },
+    "phone":{
+        "def": '',
+        "type": "string",
+        "name": "phone" 
     }
 
 };

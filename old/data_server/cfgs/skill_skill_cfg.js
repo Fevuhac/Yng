@@ -25,7 +25,7 @@ var	skill_skill_cfg =
 		skill_sound : "skill_2",    //--技能音效
 		skill_duration : 10,    //--技能时间
 		skill_range : 0,    //--释放范围
-		cost : 500,    //--价格
+		cost : 300,    //--价格
 		ratio : 1,    //--倍率
 		hitrate : 1,    //--命中系数
 		skill_immune : [],    //--免疫列表,对应display_type
@@ -41,7 +41,7 @@ var	skill_skill_cfg =
 		skill_sound : "skill_3",    //--技能音效
 		skill_duration : 1,    //--技能时间
 		skill_range : 0,    //--释放范围
-		cost : 500,    //--价格
+		cost : 200,    //--价格
 		ratio : 1,    //--倍率
 		hitrate : 1,    //--命中系数
 		skill_immune : [],    //--免疫列表,对应display_type
@@ -74,7 +74,7 @@ var	skill_skill_cfg =
 		skill_duration : 2,    //--技能时间
 		skill_range : 200,    //--释放范围
 		cost : 25000,    //--价格
-		ratio : 190,    //--倍率
+		ratio : 200,    //--倍率
 		hitrate : 125,    //--命中系数
 		skill_immune : [2],    //--免疫列表,对应display_type
 		skill_unlock : 0,    //--需要等级
@@ -90,7 +90,7 @@ var	skill_skill_cfg =
 		skill_duration : 2,    //--技能时间
 		skill_range : 250,    //--释放范围
 		cost : 75000,    //--价格
-		ratio : 475,    //--倍率
+		ratio : 500,    //--倍率
 		hitrate : 150,    //--命中系数
 		skill_immune : [2],    //--免疫列表,对应display_type
 		skill_unlock : 0,    //--需要等级
@@ -106,7 +106,7 @@ var	skill_skill_cfg =
 		skill_duration : 2,    //--技能时间
 		skill_range : 300,    //--释放范围
 		cost : 250000,    //--价格
-		ratio : 1150,    //--倍率
+		ratio : 1250,    //--倍率
 		hitrate : 200,    //--命中系数
 		skill_immune : [2],    //--免疫列表,对应display_type
 		skill_unlock : 0,    //--需要等级

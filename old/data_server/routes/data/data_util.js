@@ -86,7 +86,7 @@ function handleReturn(res, aes, err, result, hint) {
  */
 function parseDataObj(req, hint) {
     var dataObj = {};
-
+    const FUNC = TAG + "parseDataObj";
     try {
         dataObj = buzz_cst_game.getDataObj(req.body.data, req.body.aes);
     }

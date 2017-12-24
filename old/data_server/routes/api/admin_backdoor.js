@@ -44,7 +44,6 @@ exports.getCacheAccountStatistics = getCacheAccountStatistics;
 exports.getCacheMail = getCacheMail;
 exports.queryCfgs = queryCfgs;
 exports.getGoldLog = getGoldLog;
-exports.mailCharts = mailCharts;
 exports.resetDaily = resetDaily;
 exports.resetWeekly = resetWeekly;
 exports.generateRetention = generateRetention;
@@ -430,22 +429,6 @@ function getGoldLog(req, res) {
 
     admin_common.response('获取用户' + account_id + '的金币记录', res, null, ret);
 
-}
-
-////////////////////////////////////////
-function mailCharts(req, res) {
-    const FUNC = TAG + "mailCharts()---";
-    
-    if (DEBUG) console.info(FUNC + "CALL...");
-
-    req.dao.mailCharts(function (err, results) {
-        if (err) {
-            if (ERROR) console.error(FUNC + "err:", err);
-            return;
-        }
-        if (DEBUG) console.log("排行榜邮件奖励已经补发");
-        admin_common.response('排行榜邮件奖励已经补发', res, null, results);
-    });
 }
 
 ////////////////////////////////////////

@@ -356,6 +356,7 @@ function getAccountByToken(pool, token, cb) {
  * 根据用户ID获取token.
  */
 function getTokenByUid(uid, cb) {
+    const FUNC = TAG + "getTokenByUid() ---";
     redisSync.getAccountById(uid, ['token'], function (err, account) {
         if (account) {
             cb && cb(null, account.token);

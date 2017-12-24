@@ -36,11 +36,11 @@ var	shop_shop_buy_type_cfg =
 		name : "pearl",    //--类别名
 		id : "i002",    //--购买金币
 	},
-	'REWARD_PEOPLE' : {
+	'CHAT_COST' : {
 		name : "gold",    //--类别名
 		id : "i001",    //--购买金币
 	},
-	'CHAT_COST' : {
+	'REWARD_PEOPLE' : {
 		name : "gold",    //--类别名
 		id : "i001",    //--购买金币
 	},

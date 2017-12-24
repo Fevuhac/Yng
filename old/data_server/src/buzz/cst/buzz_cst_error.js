@@ -21,6 +21,13 @@ var _errorCode = {
     UID_INVALID:        1014,//客户端传入的用户uid在数据库中没有找到
     UID_CANNOT_FIND:    1015,//用户ID无法找到
     PLAYER_CHEAT:       1016,//账号因为作弊行为被封禁，有疑问请联系客服微信：gamekefu01
+    PHONE_EXIST:        1017, //手机号已经被注册
+    USERNAME_EXIST:     1018, //用户名已经存在
+    PASSWORD_ERROR:     1019, //密码错误
+    USERNAME_PASSWORD_ERROR: 1020, //用户名或者密码错误
+    PHONE_CODE_ERROR: 1021, //短信验证码错误
+    PHONE_CODE_EXPIRE: 1022, //短信验证码过期
+    USER_NOT_EXIST: 1023, //用户不存在
     
     // 游戏逻辑错误(从1101开始)
     REPEAT_OPERATION:   1101,//重复操作(重复购买，重复领取)
@@ -175,6 +182,14 @@ var _errorObj = {
     UID_INVALID: { code: _errorCode.UID_INVALID, msg: i18n.UID_INVALID[lan] },
     UID_CANNOT_FIND: { code: _errorCode.UID_CANNOT_FIND, msg: i18n.UID_CANNOT_FIND[lan] },
     PLAYER_CHEAT: { code: _errorCode.PLAYER_CHEAT, msg: i18n.PLAYER_CHEAT[lan] },
+
+    PHONE_EXIST: { code: _errorCode.PHONE_EXIST, msg: i18n.PLAYER_CHEAT[lan] },
+    PHONE_CODE_ERROR: { code: _errorCode.PHONE_CODE_ERROR, msg: i18n.PLAYER_CHEAT[lan] },
+    PHONE_CODE_EXPIRE: { code: _errorCode.PHONE_CODE_EXPIRE, msg: i18n.PLAYER_CHEAT[lan] },
+    USERNAME_EXIST: { code: _errorCode.USERNAME_EXIST, msg: i18n.PLAYER_CHEAT[lan] },
+    PASSWORD_ERROR: { code: _errorCode.PASSWORD_ERROR, msg: i18n.PLAYER_CHEAT[lan] },
+    USERNAME_PASSWORD_ERROR: { code: _errorCode.USERNAME_PASSWORD_ERROR, msg: i18n.PLAYER_CHEAT[lan] },
+    USER_NOT_EXIST: { code: _errorCode.USER_NOT_EXIST, msg: i18n.PLAYER_CHEAT[lan] },
 
     //
     REPEAT_OPERATION: { code: _errorCode.REPEAT_OPERATION, msg: i18n.REPEAT_OPERATION[lan] },

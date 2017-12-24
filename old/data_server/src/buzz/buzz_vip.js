@@ -19,6 +19,7 @@ var ObjUtil = require('./ObjUtil');
 var DateUtil = require('../utils/DateUtil');
 var BuzzUtil = require('../utils/BuzzUtil');
 var RandomUtil = require('../utils/RandomUtil');
+var RedisUtil = require('../utils/RedisUtil');
 
 var ItemTypeC = require('./pojo/Item').ItemTypeC;
 
@@ -84,9 +85,9 @@ function _updateRmbAndVip(req, dataObj) {
     var diamond = dataObj.diamond;
     var pool = req.pool;
 
-    DaoCommon.checkAccount(pool, token, function(error, account) {
+    DaoCommon.checkAccount(pool, dataObj.token, function(error, account) {
         if (error) {
-            cb(error);
+            // cb(error);
             return;
         }
         doNextWithAccount(account);
@@ -97,11 +98,11 @@ function _updateRmbAndVip(req, dataObj) {
         var prev_vip = account.vip;
         var prev_rmb = account.rmb;
 
-        var curr_rmb = prev_rmb + diamond * 10;//1钻等于10分
+        var curr_rmb = prev_rmb + diamond/3;//1钻等于10分
         var curr_vip = prev_vip;
-        for (key in vip_vip_cfg) {
+        for (let key in vip_vip_cfg) {
             var value = vip_vip_cfg[key];
-            if (value.vip_unlock * 100 <= curr_rmb) {
+            if (value.vip_unlock <= curr_rmb) {
                 curr_vip = value.vip_level;
             }
         }

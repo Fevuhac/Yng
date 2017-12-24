@@ -8,6 +8,8 @@ var CstError = require('../buzz/cst/buzz_cst_error');
 var DaoUtil = require('./dao_utils');
 var _ = require('underscore');
 
+let AccountCommon = require('./account/common');
+
 // 具体的统计方法
 var fish_times = require('./ai/fish_times');
 var first_fire_seconds = require('./ai/first_fire_seconds');

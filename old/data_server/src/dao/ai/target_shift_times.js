@@ -66,7 +66,7 @@ function _cal(recent_logs, field_name) {
             keys = fish_keys;
         }
         else if (field_name == "wpTimes") {
-            if (DEBUG) console.log("weapon_keys: ", weapon_keys);
+            if (DEBUG) console.log("weapon_keys: ", weapon_keys);//todo err
             keys = weapon_keys;
         }
         if (DEBUG) console.log("keys: ", keys);

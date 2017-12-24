@@ -14,8 +14,8 @@ var	scene_scenes_cfg =
 		tide_circle : 1000,    //--鱼潮时长秒
 		pirate_time : 30,    //--海盗悬赏间隔
 		pirate_id : [1,2,3,4,5,6],    //--海盗悬赏任务
-		total : 30,    //--鱼数上限
-		fish_sort : ["denglongyu_boss","haima_boss","huafeiyu1","baoxiangyu","baozhay","dianman","dabaisha_jj","sanshengyu_jj","moguiyu_lan","shuangshengyu_jj","dabaisha","shuimu_jj","haitun","cheqiyu_jj","shuimu","baofangfu_lan","haigui","jianyu","jiaodie_huang","baoshiyu_lan","duanhuibiyu_huang","xiaochouyu_huang","shuijingyu","jinqiangyu"],    //--场景包含的鱼类
+		total : 32,    //--鱼数上限
+		fish_sort : ["denglongyu_boss","haima_boss","baoxiangyu","baozhay","dianman","dabaisha_jj","sanshengyu_jj","moguiyu_lan","shuangshengyu_jj","dabaisha","shuimu_jj","haitun","cheqiyu_jj","shuimu","baofangfu_lan","haigui","jianyu","jiaodie_huang","baoshiyu_lan","duanhuibiyu_huang","xiaochouyu_huang","shuijingyu","jinqiangyu"],    //--场景包含的鱼类
 		buttonimage : "xinshougangwan",    //--按钮匹配的图片
 		restraintlv_min : 1,    //--等级下限
 		restraintlv_max : 99,    //--等级上限
@@ -38,8 +38,8 @@ var	scene_scenes_cfg =
 		tide_circle : 600,    //--鱼潮时长秒
 		pirate_time : 500,    //--海盗悬赏间隔
 		pirate_id : [11,12,13,14,15,16],    //--海盗悬赏任务
-		total : 30,    //--鱼数上限
-		fish_sort : ["meirenyu_boss","haima_boss","huafeiyu2","baoxiangyu","baozhay","dianman","haigui_jj","dabaisha_jj","sanshengyu_jj","chuitousha","moguiyu_lan","shuangshengyu_jj","haitun_jj","dabaisha","shuimu_jj","haitun","shuimu","baofangfu_lan","dinianyu_zi","diaoyu","hetun_huang","jiaodie_lan","baoshiyu_zi","duanhuibiyu_lan","xiaochouyu_huang","feicuiyu","caomeiyu"],    //--场景包含的鱼类
+		total : 32,    //--鱼数上限
+		fish_sort : ["meirenyu_boss","haima_boss","baoxiangyu","baozhay","dianman","haigui_jj","dabaisha_jj","sanshengyu_jj","chuitousha","moguiyu_lan","shuangshengyu_jj","haitun_jj","dabaisha","shuimu_jj","haitun","shuimu","baofangfu_lan","dinianyu_zi","diaoyu","hetun_huang","jiaodie_lan","baoshiyu_zi","duanhuibiyu_lan","xiaochouyu_huang","feicuiyu","caomeiyu"],    //--场景包含的鱼类
 		buttonimage : "renyuzhidi",    //--按钮匹配的图片
 		restraintlv_min : 1,    //--等级下限
 		restraintlv_max : 99,    //--等级上限
@@ -62,8 +62,8 @@ var	scene_scenes_cfg =
 		tide_circle : 600,    //--鱼潮时长秒
 		pirate_time : 500,    //--海盗悬赏间隔
 		pirate_id : [21,22,23,24,25,26],    //--海盗悬赏任务
-		total : 30,    //--鱼数上限
-		fish_sort : ["zhangyu_boss","haima_boss","huafeiyu3","baoxiangyu","baozhay","dianman","moguiyu_jj","haigui_jj","suolianyu_jj","hujing","dabaisha_jj","chuitousha","moguiyu_hong","sanshengyu_jj","shuangshengyu_jj","haitun_jj","dabaisha","shuimu_jj","haitun","pipashuyu","shuimu_lan","baofangfu_zi","haigui","diaoyu","hetun_lan","jiaodie_huang","baoshiyu_zi","duanhuibiyu_huang","xiaochouyu_lan","cheqiyu","caomeiyu"],    //--场景包含的鱼类
+		total : 32,    //--鱼数上限
+		fish_sort : ["zhangyu_boss","haima_boss","baoxiangyu","baozhay","dianman","moguiyu_jj","haigui_jj","suolianyu_jj","hujing","dabaisha_jj","chuitousha","moguiyu_hong","sanshengyu_jj","shuangshengyu_jj","haitun_jj","dabaisha","shuimu_jj","haitun","pipashuyu","shuimu_lan","baofangfu_zi","haigui","diaoyu","hetun_lan","jiaodie_huang","baoshiyu_zi","duanhuibiyu_huang","xiaochouyu_lan","cheqiyu","caomeiyu"],    //--场景包含的鱼类
 		buttonimage : "shenmihaiyu",    //--按钮匹配的图片
 		restraintlv_min : 1,    //--等级下限
 		restraintlv_max : 99,    //--等级上限
@@ -86,8 +86,8 @@ var	scene_scenes_cfg =
 		tide_circle : 600,    //--鱼潮时长秒
 		pirate_time : 500,    //--海盗悬赏间隔
 		pirate_id : [31,32,33,34,35,36],    //--海盗悬赏任务
-		total : 30,    //--鱼数上限
-		fish_sort : ["longgui_boss","haima_boss","huafeiyu4","baoxiangyu","baozhay","dianman","hujing_jj","dapanyu_jj","moguiyu_jj","suolianyu_jj","hujing","dabaisha_jj","chuitousha","sanshengyu_jj","moguiyu_hong","moguiyu_lan","haitun_jj","shuimu_jj","haitun","pipashuyu","cheqiyu_jj","shuimu_lan","baofangfu_zi","dinianyu_lan","haigui","jianyu","hetun_huang","jiaodie_lan","baoshiyu_lan","duanhuibiyu_lan","cheqiyu","shuijingyu","jinqiangyu"],    //--场景包含的鱼类
+		total : 32,    //--鱼数上限
+		fish_sort : ["longgui_boss","haima_boss","baoxiangyu","baozhay","dianman","hujing_jj","dapanyu_jj","moguiyu_jj","suolianyu_jj","hujing","dabaisha_jj","chuitousha","sanshengyu_jj","moguiyu_hong","moguiyu_lan","haitun_jj","shuimu_jj","haitun","pipashuyu","cheqiyu_jj","shuimu_lan","baofangfu_zi","dinianyu_lan","haigui","jianyu","hetun_huang","jiaodie_lan","baoshiyu_lan","duanhuibiyu_lan","cheqiyu","shuijingyu","jinqiangyu"],    //--场景包含的鱼类
 		buttonimage : "cangbaohaiwan",    //--按钮匹配的图片
 		restraintlv_min : 1,    //--等级下限
 		restraintlv_max : 99,    //--等级上限

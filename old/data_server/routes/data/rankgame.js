@@ -49,7 +49,6 @@ exports.result = result;
 exports.info = info;
 exports.box = box;
 exports.get_ranking = get_ranking;
-exports.getSeasonReward = getSeasonReward;
 exports.ongoing = ongoing;
 
 //------------------------------------------------------------------------------
@@ -158,30 +157,6 @@ function get_ranking(req, res) {
         } else {
             // if (DEBUG) console.log("update_account results:", results);
             res.success({ type: 1, msg: '获取排行榜成功', data: results });
-        }
-    });
-}
-
-/**
- * 客户端领取赛季奖励的接口.
- */
-function getSeasonReward(req, res) {
-    const FUNC = TAG + "getSeasonReward()---";
-
-    data_util.request_info(req, "get_season_reward");
-    var aes = req.body.aes;
-    var dataObj = {};
-    if (!(dataObj = data_util.get_dao_data(req, res))) {
-        return;
-    }
-
-    buzz_rankgame.getSeasonReward(req, dataObj, function (err, results) {
-        if (err) {
-            res.success({ type: 1, msg: '获取赛季奖励失败', err: err });
-        } else {
-            if (DEBUG) console.log(FUNC + "results:\n", results);
-            var res_data = buzz_cst_game.getResData(results, aes);
-            res.success({ type: 1, msg: '获取赛季奖励成功', data: res_data, aes: aes });
         }
     });
 }

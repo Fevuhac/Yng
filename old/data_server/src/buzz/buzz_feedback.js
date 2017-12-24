@@ -16,6 +16,8 @@ var CachePropose = require('./cache/CachePropose');
 var CommonUtil = require('./CommonUtil');
 var async = require('async');
 var RedisUtil = require('../utils/RedisUtil');
+var REDIS_KEYS = require('./cst/buzz_cst_redis_keys').REDIS_KEYS,
+    PAIR = REDIS_KEYS.PAIR;
 //------------------------------------------------------------------------------
 // 业务
 //------------------------------------------------------------------------------

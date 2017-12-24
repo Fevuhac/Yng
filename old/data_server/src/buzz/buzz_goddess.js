@@ -454,7 +454,7 @@ function _didRewardTimes(req, data, account, cb) {
         ],
         function next(err, res) {
             if (err) return cb && cb(err);
-            crossover = res;
+            let crossover = res;
             calGodReward(crossover);
         }
     );

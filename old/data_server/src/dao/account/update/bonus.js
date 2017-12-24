@@ -101,7 +101,9 @@ function _update(pool, data, cb, my_account) {
     //--------------------------------------------------------------------------
     // 更新缓存中的数据(重要:数据库操作将会被删除)
     //--------------------------------------------------------------------------
-    CacheAccount.setBonus(account_id, ObjUtil.str2Data(bonus_new));
+    let bonusClient = ObjUtil.str2Data(bonus_new);
+    bonusClient.wintimes = bonus_old.wintimes;
+    CacheAccount.setBonus(account_id, bonusClient);
     CacheAccount.setGold(account_id, gold_new);
     CacheAccount.setAccountGoldCurrentTotal(account_id, gold_new);
     CacheAccount.addAccountGoldTotalGain(account_id, gold_gain);

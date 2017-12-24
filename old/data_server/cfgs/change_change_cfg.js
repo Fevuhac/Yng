@@ -7,7 +7,7 @@ var	change_change_cfg =
 		item : ["i800",1],    //--兑换道具
 		value : 10000,    //--面额
 		business : "viettel",    //--话费运营商
-		cost : 130000,    //--需要话费券
+		cost : 37500,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 1,    //--当前每日库存id
@@ -21,7 +21,7 @@ var	change_change_cfg =
 		item : ["i801",1],    //--兑换道具
 		value : 20000,    //--面额
 		business : "viettel",    //--话费运营商
-		cost : 260000,    //--需要话费券
+		cost : 75000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 3,    //--当前每日库存id
@@ -35,7 +35,7 @@ var	change_change_cfg =
 		item : ["i802",1],    //--兑换道具
 		value : 50000,    //--面额
 		business : "viettel",    //--话费运营商
-		cost : 650000,    //--需要话费券
+		cost : 187500,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 5,    //--当前每日库存id
@@ -49,7 +49,7 @@ var	change_change_cfg =
 		item : ["i803",1],    //--兑换道具
 		value : 100000,    //--面额
 		business : "viettel",    //--话费运营商
-		cost : 1300000,    //--需要话费券
+		cost : 375000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 7,    //--当前每日库存id
@@ -63,7 +63,7 @@ var	change_change_cfg =
 		item : ["i804",1],    //--兑换道具
 		value : 200000,    //--面额
 		business : "viettel",    //--话费运营商
-		cost : 2600000,    //--需要话费券
+		cost : 750000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 9,    //--当前每日库存id
@@ -77,7 +77,7 @@ var	change_change_cfg =
 		item : ["i805",1],    //--兑换道具
 		value : 500000,    //--面额
 		business : "viettel",    //--话费运营商
-		cost : 6500000,    //--需要话费券
+		cost : 1875000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 11,    //--当前每日库存id
@@ -91,7 +91,7 @@ var	change_change_cfg =
 		item : ["i800",1],    //--兑换道具
 		value : 10000,    //--面额
 		business : "vms",    //--话费运营商
-		cost : 130000,    //--需要话费券
+		cost : 37500,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 13,    //--当前每日库存id
@@ -105,7 +105,7 @@ var	change_change_cfg =
 		item : ["i801",1],    //--兑换道具
 		value : 20000,    //--面额
 		business : "vms",    //--话费运营商
-		cost : 260000,    //--需要话费券
+		cost : 75000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 15,    //--当前每日库存id
@@ -119,7 +119,7 @@ var	change_change_cfg =
 		item : ["i802",1],    //--兑换道具
 		value : 50000,    //--面额
 		business : "vms",    //--话费运营商
-		cost : 650000,    //--需要话费券
+		cost : 187500,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 17,    //--当前每日库存id
@@ -133,7 +133,7 @@ var	change_change_cfg =
 		item : ["i803",1],    //--兑换道具
 		value : 100000,    //--面额
 		business : "vms",    //--话费运营商
-		cost : 1300000,    //--需要话费券
+		cost : 375000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 19,    //--当前每日库存id
@@ -147,7 +147,7 @@ var	change_change_cfg =
 		item : ["i804",1],    //--兑换道具
 		value : 200000,    //--面额
 		business : "vms",    //--话费运营商
-		cost : 2600000,    //--需要话费券
+		cost : 750000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 21,    //--当前每日库存id
@@ -161,7 +161,7 @@ var	change_change_cfg =
 		item : ["i805",1],    //--兑换道具
 		value : 500000,    //--面额
 		business : "vms",    //--话费运营商
-		cost : 6500000,    //--需要话费券
+		cost : 1875000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 23,    //--当前每日库存id
@@ -175,7 +175,7 @@ var	change_change_cfg =
 		item : ["i800",1],    //--兑换道具
 		value : 10000,    //--面额
 		business : "vnp",    //--话费运营商
-		cost : 130000,    //--需要话费券
+		cost : 37500,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 25,    //--当前每日库存id
@@ -189,7 +189,7 @@ var	change_change_cfg =
 		item : ["i801",1],    //--兑换道具
 		value : 20000,    //--面额
 		business : "vnp",    //--话费运营商
-		cost : 260000,    //--需要话费券
+		cost : 75000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 27,    //--当前每日库存id
@@ -203,7 +203,7 @@ var	change_change_cfg =
 		item : ["i802",1],    //--兑换道具
 		value : 50000,    //--面额
 		business : "vnp",    //--话费运营商
-		cost : 650000,    //--需要话费券
+		cost : 187500,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 29,    //--当前每日库存id
@@ -217,7 +217,7 @@ var	change_change_cfg =
 		item : ["i803",1],    //--兑换道具
 		value : 100000,    //--面额
 		business : "vnp",    //--话费运营商
-		cost : 1300000,    //--需要话费券
+		cost : 375000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 31,    //--当前每日库存id
@@ -231,7 +231,7 @@ var	change_change_cfg =
 		item : ["i804",1],    //--兑换道具
 		value : 200000,    //--面额
 		business : "vnp",    //--话费运营商
-		cost : 2600000,    //--需要话费券
+		cost : 750000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 33,    //--当前每日库存id
@@ -245,7 +245,7 @@ var	change_change_cfg =
 		item : ["i805",1],    //--兑换道具
 		value : 500000,    //--面额
 		business : "vnp",    //--话费运营商
-		cost : 6500000,    //--需要话费券
+		cost : 1875000,    //--需要话费券
 		count : 99999999,    //--每日库存
 		total : 99999999,    //--总库存
 		scount : 35,    //--当前每日库存id
@@ -259,7 +259,7 @@ var	change_change_cfg =
 		item : ["i850",1],    //--兑换道具
 		value : 0,    //--面额
 		business : "",    //--话费运营商
-		cost : 840000,    //--需要话费券
+		cost : 99999999,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
 		scount : 37,    //--当前每日库存id
@@ -273,7 +273,7 @@ var	change_change_cfg =
 		item : ["i851",1],    //--兑换道具
 		value : 0,    //--面额
 		business : "",    //--话费运营商
-		cost : 396000,    //--需要话费券
+		cost : 99999999,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
 		scount : 39,    //--当前每日库存id
@@ -287,7 +287,7 @@ var	change_change_cfg =
 		item : ["i852",1],    //--兑换道具
 		value : 0,    //--面额
 		business : "",    //--话费运营商
-		cost : 8400,    //--需要话费券
+		cost : 99999999,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
 		scount : 41,    //--当前每日库存id
@@ -301,7 +301,7 @@ var	change_change_cfg =
 		item : ["i853",1],    //--兑换道具
 		value : 0,    //--面额
 		business : "",    //--话费运营商
-		cost : 31200,    //--需要话费券
+		cost : 99999999,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
 		scount : 43,    //--当前每日库存id
@@ -315,7 +315,7 @@ var	change_change_cfg =
 		item : ["i853",1],    //--兑换道具
 		value : 0,    //--面额
 		business : "",    //--话费运营商
-		cost : 108000,    //--需要话费券
+		cost : 99999999,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
 		scount : 45,    //--当前每日库存id
@@ -329,7 +329,7 @@ var	change_change_cfg =
 		item : ["i002",10],    //--兑换道具
 		value : 0,    //--面额
 		business : "",    //--话费运营商
-		cost : 120,    //--需要话费券
+		cost : 1000,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
 		scount : 47,    //--当前每日库存id
@@ -340,10 +340,10 @@ var	change_change_cfg =
 		id : 3002,    //--兑换ID
 		type : 3,    //--所属分页
 		type2 : 0,    //--子类型
-		item : ["i001",10000],    //--兑换道具
+		item : ["i006",1],    //--兑换道具
 		value : 0,    //--面额
 		business : "",    //--话费运营商
-		cost : 120,    //--需要话费券
+		cost : 500,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
 		scount : 49,    //--当前每日库存id
@@ -357,7 +357,7 @@ var	change_change_cfg =
 		item : ["i400",1],    //--兑换道具
 		value : 0,    //--面额
 		business : "",    //--话费运营商
-		cost : 120,    //--需要话费券
+		cost : 500,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
 		scount : 51,    //--当前每日库存id
@@ -371,7 +371,7 @@ var	change_change_cfg =
 		item : ["i002",100],    //--兑换道具
 		value : 0,    //--面额
 		business : "",    //--话费运营商
-		cost : 1200,    //--需要话费券
+		cost : 10000,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
 		scount : 53,    //--当前每日库存id
@@ -382,10 +382,10 @@ var	change_change_cfg =
 		id : 3005,    //--兑换ID
 		type : 3,    //--所属分页
 		type2 : 0,    //--子类型
-		item : ["i001",100000],    //--兑换道具
+		item : ["i006",10],    //--兑换道具
 		value : 0,    //--面额
 		business : "",    //--话费运营商
-		cost : 1200,    //--需要话费券
+		cost : 5000,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
 		scount : 55,    //--当前每日库存id
@@ -399,7 +399,7 @@ var	change_change_cfg =
 		item : ["i400",10],    //--兑换道具
 		value : 0,    //--面额
 		business : "",    //--话费运营商
-		cost : 1200,    //--需要话费券
+		cost : 5000,    //--需要话费券
 		count : 100,    //--每日库存
 		total : 1000,    //--总库存
 		scount : 57,    //--当前每日库存id

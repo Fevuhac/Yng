@@ -14,12 +14,14 @@ var CstError = require('./cst/buzz_cst_error');
 var ERROR_OBJ = CstError.ERROR_OBJ;
 var CommonUtil = require('./CommonUtil');
 var ObjUtil = require('./ObjUtil');
+var ArrayUtil = require('../utils/ArrayUtil');
 var BuzzUtil = require('../utils/BuzzUtil');
 var RedisUtil = require('../utils/RedisUtil');
 var RandomUtil = require('../utils/RandomUtil');
 var DateUtil = require('../utils/DateUtil');
 var HttpUtil = require('../utils/HttpUtil');
 var DaoUtil = require('../utils/DaoUtil');
+let GameLog = require('../log/GameLog');
 const cacheReader = require('../cache/cacheReader');
 const cacheWriter = require('../cache/cacheWriter');
 
@@ -254,7 +256,7 @@ function vipDailyReward(req, dataObj, cb) {
     function lPrepare(input) {
         return BuzzUtil.checkParams(input, ['token'], "buzz_recieve.vipDailyReward", cb);
     }
-
+    
 }
 
 //----------------------------------------------------------
@@ -293,7 +295,7 @@ function _openBox(req, dataObj, cb) {
     var bid = "" + dataObj.box_id;
     var pool = req.pool;
 
-    DaoCommon.checkAccount(pool, token, function (error, account) {
+    DaoCommon.checkAccount(pool, token, function(error, account) {
         if (error) {
             cb(error);
             return;
@@ -306,10 +308,10 @@ function _openBox(req, dataObj, cb) {
         // TODO: 宝箱验证
         var item_list = BuzzUtil.getItemListByTid(account, bid);
 
-        _putIntoPack(req, account, item_list, function (reward) {
+        BuzzUtil.putIntoPack(req, account, item_list, function(reward) {
 
 
-            var change = _getChange(account, reward);
+            var change = BuzzUtil.getChange(account, reward);
             var ret = {
                 item_list: item_list,
                 change: change,
@@ -317,11 +319,7 @@ function _openBox(req, dataObj, cb) {
             };
             cb(null, ret);
 
-            // yDONE: 钻石日志记录
-            addPearlLogWithScene(account, item_list, SCENE.BOX_REWARD);
-            // yDONE: 金币数据记录
-            addGoldLogWithScene(pool, account, item_list, SCENE.BOX_REWARD, '在开启宝箱时获得金币');
-
+            GameLog.addGameLog(item_list, account, SCENE.BOX_REWARD, "在开启宝箱时获得");
         });
     }
 
@@ -338,7 +336,7 @@ function _openBoxAsDrop(req, dataObj, cb) {
     var dropcount = "" + dataObj.dropcount;
     var pool = req.pool;
 
-    DaoCommon.checkAccount(pool, token, function (error, account) {
+    DaoCommon.checkAccount(pool, token, function(error, account) {
         if (error) {
             cb(error);
             return;
@@ -349,9 +347,9 @@ function _openBoxAsDrop(req, dataObj, cb) {
     function doNextWithAccount(account) {
         var item_list = BuzzUtil.getItemListFromDroplistId(account, droplist_key, dropcount, pool);
 
-        _putIntoPack(req, account, item_list, function (reward) {
+        BuzzUtil.putIntoPack(req, account, item_list, function(reward) {
 
-            var change = _getChange(account, reward);
+            var change = BuzzUtil.getChange(account, reward);
             var ret = {
                 item_list: item_list,
                 change: change,
@@ -359,72 +357,7 @@ function _openBoxAsDrop(req, dataObj, cb) {
             };
             cb(null, ret);
 
-            // yDONE: 钻石日志记录
-            addPearlLogWithScene(account, item_list, SCENE.FIGHT_DROP);
-        });
-    }
-
-}
-
-/**
- * 根据玩家的获取的item_list来推算可能插入的PEARL LOG.
- */
-function addPearlLogWithScene(account, item_list, scene) {
-    const FUNC = TAG + "addPearlLogWithScene() --- ";
-    // console.log(FUNC + "item_list:", item_list);
-    if (item_list.length > 0) {
-        for (var i = 0; i < item_list.length; i++) {
-            var item = item_list[i];
-            var item_id = item.item_id;
-            var item_num = item.item_num;
-            // 钻石则记录
-            if ("i002" == item_id) {
-                var list = [{
-                    account_id: account.id,
-                    log_at: DateUtil.getTime(),
-                    gain: item_num,
-                    cost: 0,
-                    total: account.pearl,
-                    scene: scene,
-                    nickname: 0,
-                }];
-                buzz_pearl.addPearlLog(list);
-            }
-        }
-    }
-}
-
-/**
- * 根据玩家的获取的item_list来推算可能插入的PEARL LOG.
- */
-function addGoldLogWithScene(pool, account, item_list, scene, HINT) {
-    const FUNC = TAG + "addGoldLogWithScene() --- ";
-
-    let uid = account.id;
-    var gain = 0;
-    for (var i = 0; i < item_list.length; i++) {
-        var item = item_list[i];
-        var item_id = item.item_id;
-        var item_num = item.item_num;
-        if ('i001' == item_id) {
-            gain += item_num;
-        }
-    }
-    if (gain > 0) {
-        console.log(FUNC + uid + ":" + HINT);
-        var data = {
-            account_id: account.id,
-            token: account.token,
-            total: account.gold,
-            duration: 0,
-            group: [{
-                "gain": gain,
-                "cost": 0,
-                "scene": scene,
-            }],
-        };
-        dao_gold.addGoldLogCache(pool, data, function (err, res) {
-            if (err) return console.error(FUNC + "err:", err);
+            GameLog.addGameLog(item_list, account, SCENE.FIGHT_DROP, "战斗中掉落");
         });
     }
 }
@@ -449,12 +382,30 @@ function _didTurntableDraw(req, dataObj, cb) {
 
     async function doNextWithAccount(account) {
         if (!_checkTurntableDraw(account, goldlevel, cb)) return;
+
+        // record wintimes
+        let bonus = account.bonus;
+        if (!bonus.wintimes) {
+            bonus.wintimes = [0,0,0,0,0,0];
+        }
+        bonus.wintimes[goldlevel - 1]++;
+        console.log(`这是等级${goldlevel}的奖金鱼第${bonus.wintimes[goldlevel - 1]}次抽奖`);
+        
         console.log('--开始抽奖，当前奖池 = ', cacheReader.bonuspool);
         var goldfish_info = _drawOnce(goldlevel, cacheReader.bonuspool);
         if (goldfish_info.item_id === 'i001' && goldfish_info.item_count > 0) {
             await cacheWriter.subReward(goldfish_info.item_count, account);
         }
         console.log('--结束抽奖，当前奖池 = ', cacheReader.bonuspool);
+        let reward_list = _getRewardList(goldlevel);
+        // handle wintimes
+        for (let i = 0; i < reward_list.length; i++) {
+            let wintimes = reward_list[i].wintimes;
+            if (ArrayUtil.contain(wintimes, bonus.wintimes[goldlevel - 1])) {
+                goldfish_info = reward_list[i];
+                break;
+            }
+        }
 
         var item_list = [{
             item_id: goldfish_info.item_id,
@@ -463,25 +414,21 @@ function _didTurntableDraw(req, dataObj, cb) {
 
         // 清除奖金鱼数据
         CacheAccount.setBonus(uid, {
-            fish_count: 0,
-            gold_count: 0,
-            got: false,
+            fish_count:0,
+            gold_count:0,
+            got:false,
+            wintimes: bonus.wintimes
         });
 
-        _putIntoPack(req, account, item_list, function (reward) {
-            var change = _getChange(account, reward);
+        BuzzUtil.putIntoPack(req, account, item_list, function(reward) {
+            var change = BuzzUtil.getChange(account, reward);
             var ret = {
                 item_list: item_list,
                 change: change,
-                item: goldfish_info.item, // goldfish_goldfish_cfg表中的item字段, 用于客户端旋转到转盘的指定位置
+                item: goldfish_info.item,// goldfish_goldfish_cfg表中的item字段, 用于客户端旋转到转盘的指定位置
             };
             cb(null, ret);
-
-            // yDONE: 金币数据记录
-            addGoldLogWithScene(pool, account, item_list, SCENE.GOLDFISH_GAIN, "奖金鱼抽奖抽到了金币");
-
-            // yDONE: 钻石日志记录(奖金鱼暂时无法抽取到钻石)
-            addPearlLogWithScene(account, item_list, SCENE.GOLDFISH_GAIN);
+            GameLog.addGameLog(item_list, account, SCENE.GOLDFISH_GAIN, "奖金鱼抽奖抽到");
         });
     }
 
@@ -521,6 +468,23 @@ function _checkTurntableDraw(account, goldlevel, cb) {
 }
 
 /**
+ * 获取当前抽奖等级对应的信息列表.
+ */
+function _getRewardList(goldlevel) {
+    var reward_list = [];
+    for (var idx in goldfish_goldfish_cfg) {
+        var reward = goldfish_goldfish_cfg[idx];
+        if (!reward.wintimes) {
+            reward.wintimes = [];
+        }
+        if (reward.goldlevel == goldlevel) {
+            reward_list.push(reward);
+        }
+    }
+    return reward_list;
+}
+
+/**
  * 奖金鱼抽奖算法
  * 注意奖池
  */
@@ -528,6 +492,9 @@ function _drawOnce(goldlevel, rewardPool) {
     let reward_list = [];
     for (var idx in goldfish_goldfish_cfg) {
         var reward = goldfish_goldfish_cfg[idx];
+        if (!reward.wintimes) {
+            reward.wintimes = [];
+        }
         if (reward.goldlevel == goldlevel) {
             reward_list.push(reward);
         }
@@ -608,10 +575,10 @@ function _didPackMix(req, dataObj, cb) {
         }
         ];
 
-        _putIntoPack(req, account, gain_item_list, function (reward_info) {
-            var reward_change = _getChange(account, reward_info);
-            _removeFromPack(req, account, cost_item_list, function (cost_info) {
-                var cost_change = _getChange(account, cost_info);
+        BuzzUtil.putIntoPack(req, account, gain_item_list, function(reward_info) {
+            var reward_change = BuzzUtil.getChange(account, reward_info);
+            BuzzUtil.removeFromPack(req, account, cost_item_list, function(cost_info){
+                var cost_change = BuzzUtil.getChange(account, cost_info);
                 var change = ObjUtil.merge(reward_change, cost_change);
                 var ret = {
                     item_list: gain_item_list,
@@ -674,7 +641,8 @@ function _checkMix(account, item_key, num, cb) {
             }
         }
         return true;
-    } else {
+    }
+    else {
         return false;
     }
 }
@@ -689,7 +657,7 @@ function _getItemType(item_name) {
     return 4;
 }
 
-const VietnamPay = require('./sdk/VietnamPay');
+const vietnamPay = require('./sdk/VietnamPay');
 const common_const_cfg = require('../../cfgs/common_const_cfg');
 
 const TODAY_PLATFORM_CASH = "fishjoy:platform:today_cash" //平台玩家今日兑现总额度
@@ -697,7 +665,7 @@ const TODAY_PLATFORM_CASH = "fishjoy:platform:today_cash" //平台玩家今日�
 //买卡
 function buyCard(change_info, account) {
     return new Promise(function (resolve, reject) {
-        VietnamPay.buyCard(change_info.business, change_info.value, 1, `${account.id}_${account.nickname}`,
+        vietnamPay.buyCard(change_info.business, change_info.value, 1, `${account.id}_${account.nickname}`,
             `${account.id}_${account.nickname}`,
             function (err, result) {
                 if (err) {
@@ -854,7 +822,8 @@ function _didChangeInKind(req, dataObj, cb) {
                             item_id: item_key,
                             item_num: item_num,
                         };
-                        addPearlLogWithScene(account, item_list, SCENE.CIK);
+                        //todo err
+                        // addPearlLogWithScene(account, item_list, SCENE.CIK);
                         break;
                     default:
                         // 兑换道具
@@ -1133,11 +1102,11 @@ function _didCancelCik(req, dataObj, cb) {
             uid: uid,
             orderid: orderid,
         };
-        HttpUtil.postBalance('/server_api/cacel_cik', data, function (ret) {
-            HttpUtil.handleReturn(ret, function (err, change) {
+        HttpUtil.postBalance('/server_api/cacel_cik', data, function(ret) {
+            HttpUtil.handleReturn(ret, function(err, change) {
                 if (change) {
 
-                    req.dao.cancelCik(orderid, function (err, result) {
+                    req.dao.cancelCik(orderid, function(err, result) {
 
                         // 返回兑换券
                         // var change = CacheChange.findChangeByUidAndOrderId(uid, orderid);
@@ -1149,7 +1118,7 @@ function _didCancelCik(req, dataObj, cb) {
                             item_num: cost,
                         }];
 
-                        BuzzUtil.putIntoPack(req, account, item_list, function (reward_info) {
+                        BuzzUtil.putIntoPack(req, account, item_list, function(reward_info) {
                             var change = BuzzUtil.getChange(account, reward_info);
                             var ret = {
                                 item_list: item_list,
@@ -1158,7 +1127,8 @@ function _didCancelCik(req, dataObj, cb) {
                             cb(null, ret);
                         })
                     });
-                } else {
+                }
+                else {
                     cb(ERROR_OBJ.CIK_CANCEL_FAIL);
                 }
             });
@@ -1175,7 +1145,7 @@ function _vipDailyReward(req, dataObj, cb) {
     let token = dataObj.token;
     let pool = req.pool;
 
-    DaoCommon.checkAccount(pool, token, function (error, account) {
+    DaoCommon.checkAccount(pool, token, function(error, account) {
         if (error) {
             cb(error);
             return;
@@ -1194,7 +1164,7 @@ function _vipDailyReward(req, dataObj, cb) {
         let gift_free = vip_vip_cfg[account.vip].gift_free;
         let item_list = transItemList(gift_free);
 
-        BuzzUtil.putIntoPack(req, account, item_list, function (reward_info) {
+        BuzzUtil.putIntoPack(req, account, item_list, function(reward_info) {
             var change = BuzzUtil.getChange(account, reward_info);
             account.vip_daily_reward = 1;
             var ret = {
@@ -1234,26 +1204,4 @@ function transItemList(input) {
 //----------------------------------------------------------
 // 通用
 
-/**
- * 将物品放到背包中.
- * @param uid
- * @param item_list 结构为[{item_id:?, item_num:?},{},...]
- */
-function _putIntoPack(req, account, item_list, cb) {
-    BuzzUtil.putIntoPack(req, account, item_list, cb);
-}
-
-function _removeFromPack(req, account, item_list, cb) {
-    BuzzUtil.removeFromPack(req, account, item_list, cb);
-};
-
 var ItemType = require('./pojo/Item').ItemType;
-
-/**
- * 获取改变量.
- * @param account 缓存中的用户信息.
- * @param item_list 玩家新获取的物品信息.
- */
-function _getChange(account, rewardInfo) {
-    return BuzzUtil.getChange(account, rewardInfo);
-}

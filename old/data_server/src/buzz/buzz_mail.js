@@ -90,7 +90,6 @@ var TAG = "【buzz_mail】";
 exports.sendMail = sendMail;
 exports.redisNotifyMail = redisNotifyMail;
 exports.reloadMail = reloadMail;
-exports.mailCharts = mailCharts;
 exports.addMail = _addMail;
 exports.addRankMail = _addRankMail;
 
@@ -139,15 +138,6 @@ function reloadMail(pool, channel, message) {
 
     DaoMail.loadMail(pool, function () {
     });
-}
-
-/**
- * 定时发放奖励邮件.
- */
-function mailCharts(pool, cb) {
-    const FUNC = TAG + "mailCharts() --- "; 
-
-    _mailCharts(pool, cb);
 }
 
 
@@ -250,90 +240,6 @@ function _addRankMail(mail_info) {
         CacheAccount.addSpecifyMail(mid, reciever_list);
     }
     DEBUG = 0;
-}
-
-function _mailCharts(pool, cb) {
-    const FUNC = TAG + "_mailCharts() --- ";
-
-    AccountRanking.makeChartsMail(pool, function(mail_list, insertId) {
-        console.log(FUNC + "新生成的邮件id——insertId:", insertId);
-        RedisUtil.publish(CHANNEL.MAIL_RELOAD, "hello");
-        for (var i = 0; i < mail_list.length; i++) {
-            mail_list[i].id = insertId + i;// 设置邮件id
-        }
-        _mailChartsAfterMakeMail(pool, mail_list, cb);
-    });
-}
-
-function _mailChartsAfterMakeMail(pool, mail_list, cb) {
-    const FUNC = TAG + "_mailChartsAfterMakeMail() --- ";
-    // 获取昨日排行榜奖励
-    var count_ret = 0;
-    const CHART_LIST = [
-        {name:"ACHIEVE", platform:1, desc:"成就", type: RANK_TYPE.ACHIEVE},
-        {name:"GODDESS", platform:1, desc:"女神", type: RANK_TYPE.GODDESS},
-        {name:"MATCH", platform:1, desc:"比赛", type: RANK_TYPE.MATCH},
-        {name:"AQUARIUM", platform:1, desc:"宠物鱼", type: RANK_TYPE.AQUARIUM},
-
-        {name:"ACHIEVE", platform:2, desc:"成就", type: RANK_TYPE.ACHIEVE},
-        {name:"GODDESS", platform:2, desc:"女神", type: RANK_TYPE.GODDESS},
-        {name:"MATCH", platform:2, desc:"比赛", type: RANK_TYPE.MATCH},
-        {name:"AQUARIUM", platform:2, desc:"宠物鱼", type: RANK_TYPE.AQUARIUM},
-    ];
-
-    for (var i = 0; i < CHART_LIST.length; i++) {
-        mailOneChart(i);
-    }
-
-    function mailOneChart(idx) {
-        setTimeout(function () {
-            var start = idx * 8;
-            var end = (idx + 1) * 8;
-            var name = CHART_LIST[idx].name;
-            var platform = CHART_LIST[idx].platform;
-            var desc = CHART_LIST[idx].desc;
-            var key = CHART[name + "_YD_STR"] + ":" + platform;
-            
-            var timeStr = "发放" + (platform == 1 ? "Android" : "iOS") + "平台的" + desc + "奖励邮件";
-            console.log(FUNC + "key:", key);
-            console.time(timeStr);
-            RedisUtil.get(key, function(err, res) {
-                console.log(FUNC + "res:", res);
-                if (res && StringUtil.strLen(res) > 0) {
-                    didMailOneChart(res, idx, start, end, function(err, res) {
-                        console.timeEnd(timeStr);
-                    });
-                }
-                else {
-                    console.error(FUNC + "没有发邮件奖励");
-                }
-            });
-        }, idx * 1000);
-    }
-
-    /**
-     * 完成对一个排行榜的邮件发放.
-     */
-    function didMailOneChart(res, idx, start, end, cb) {
-        var chart_arr = JSON.parse(res);
-        console.error(FUNC + "idx:", idx);
-        var type = CHART_LIST[idx].type;
-        var platform = CHART_LIST[idx].platform;
-
-        for (var i = 0; i < chart_arr.length; i++) {
-            console.error(FUNC + "用户数据:", chart_arr[i]);
-        }
-        
-        var level_info = [];
-        _getLevelInfo(level_info, mail_list, start, end);
-        console.log(FUNC + "level_info:", level_info);
-
-        rank = _.pluck(chart_arr, 'uid');
-        console.log(FUNC + "rank:", rank);
-        _executeSql(pool, rank, level_info, 2, platform, function() {
-            cb();
-        });
-    }
 }
 
 var LIMIT_10000 = 1;

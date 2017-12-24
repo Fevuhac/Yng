@@ -13,7 +13,7 @@ var	active_draw_cfg =
 		item : 2,    //--奖励编号
 		item_id : "i001",    //--道具ID
 		item_count : 10000,    //--道具数量
-		item_probability : 10500,    //--道具概率
+		item_probability : 3700,    //--道具概率
 		notice : 0,    //--是否公告
 	},
 	{
@@ -21,7 +21,7 @@ var	active_draw_cfg =
 		item : 3,    //--奖励编号
 		item_id : "i001",    //--道具ID
 		item_count : 1000,    //--道具数量
-		item_probability : 10000,    //--道具概率
+		item_probability : 13000,    //--道具概率
 		notice : 0,    //--是否公告
 	},
 	{
@@ -29,7 +29,7 @@ var	active_draw_cfg =
 		item : 4,    //--奖励编号
 		item_id : "i500",    //--道具ID
 		item_count : 1,    //--道具数量
-		item_probability : 11000,    //--道具概率
+		item_probability : 13000,    //--道具概率
 		notice : 0,    //--是否公告
 	},
 	{
@@ -37,7 +37,7 @@ var	active_draw_cfg =
 		item : 5,    //--奖励编号
 		item_id : "i002",    //--道具ID
 		item_count : 10,    //--道具数量
-		item_probability : 13000,    //--道具概率
+		item_probability : 15000,    //--道具概率
 		notice : 0,    //--是否公告
 	},
 	{
@@ -45,7 +45,7 @@ var	active_draw_cfg =
 		item : 6,    //--奖励编号
 		item_id : "i015",    //--道具ID
 		item_count : 1,    //--道具数量
-		item_probability : 8000,    //--道具概率
+		item_probability : 4000,    //--道具概率
 		notice : 1,    //--是否公告
 	},
 	{
@@ -53,7 +53,7 @@ var	active_draw_cfg =
 		item : 7,    //--奖励编号
 		item_id : "i002",    //--道具ID
 		item_count : 10,    //--道具数量
-		item_probability : 14000,    //--道具概率
+		item_probability : 16000,    //--道具概率
 		notice : 0,    //--是否公告
 	},
 	{
@@ -61,7 +61,7 @@ var	active_draw_cfg =
 		item : 8,    //--奖励编号
 		item_id : "i240",    //--道具ID
 		item_count : 10,    //--道具数量
-		item_probability : 13279,    //--道具概率
+		item_probability : 18379,    //--道具概率
 		notice : 0,    //--是否公告
 	},
 	{
@@ -69,7 +69,7 @@ var	active_draw_cfg =
 		item : 9,    //--奖励编号
 		item_id : "i001",    //--道具ID
 		item_count : 1000,    //--道具数量
-		item_probability : 10000,    //--道具概率
+		item_probability : 13000,    //--道具概率
 		notice : 0,    //--是否公告
 	},
 	{
@@ -77,7 +77,7 @@ var	active_draw_cfg =
 		item : 10,    //--奖励编号
 		item_id : "i001",    //--道具ID
 		item_count : 10000,    //--道具数量
-		item_probability : 10000,    //--道具概率
+		item_probability : 3700,    //--道具概率
 		notice : 0,    //--是否公告
 	},
 	{

@@ -402,7 +402,7 @@ function unforbid_player_world(req, dataObj, cb) {
     var forbiddenId = dataObj.forbiddenId;
     async.waterfall([
             function (cb) {
-                DaoCommon.checkAccount(req.pool, token, cb);
+                DaoCommon.checkAccount(req.pool, dataObj.token, cb);
             },
             function (res, cb) {
                 RedisUtil.hget(PAIR.UID_SWITCH_MSGBOARD_MGMT, id, cb);
@@ -418,7 +418,7 @@ function unforbid_player_world(req, dataObj, cb) {
             if (err == 1) {
                 //todo 非管理员调用此接口 直接封号
                 console.log(`非管理员${id}调用此接口,直接封号`);
-                cb(`非管理员${id}调用此接口`);
+                cb(`err`);
                 return;
             }
             cb(err, data);

@@ -69,7 +69,7 @@ function add_skill_log(req, res) {
                 res.success({ type: 1, msg: msg, data: 1 });
             }
             else {
-                result = msg[0];
+                let result = msg[0];
                 res.success({ type: 1, msg: '更新玩家技能数据成功', data: result });
             }
         }

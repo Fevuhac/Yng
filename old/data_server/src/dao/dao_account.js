@@ -28,7 +28,8 @@ var vip_vip_cfg = require('../../cfgs/vip_vip_cfg');
 var init_gold = player_users_cfg[0]['gold'];
 var init_pearl = player_users_cfg[0]['pearl'];
 
-var REDIS_KEYS = require('../buzz/cst/buzz_cst_redis_keys').REDIS_KEYS;
+var REDIS_KEYS = require('../buzz/cst/buzz_cst_redis_keys').REDIS_KEYS,
+    PAIR = REDIS_KEYS.PAIR;
 const account_def = require('./account/account_def');
 const cacheWriter = require('../cache/cacheWriter');
 
@@ -52,7 +53,6 @@ exports.channelLogin = channelLogin;
 exports.checkChannelAccountSignupStatus = checkChannelAccountSignupStatus;
 exports.createChannelAccount = _createChannelAccount;
 exports.loginChannelAccount = _loginChannelAccount;
-exports.bindAccountWithNickname = _bindAccountWithNickname;
 exports.createSessionToken = _createSessionToken;
 exports.logout = _logout;
 exports.getDayReward = _getDayReward;
@@ -146,7 +146,7 @@ function channelLogin(pool, data, cb) {
         }
         else {
             if (DEBUG) console.log("直接使用id进行插入");
-            channel_user = rows[0];
+            let channel_user = rows[0];
             _insertChannelLogin(pool, channel_user.id, cb);
         }
     });
@@ -262,7 +262,7 @@ function checkChannelAccountSignupStatus(pool, channel, chunk, cb) {
     var channel_account_id = chunk.data.id;
     if (chunk.zoneId != null) channel_account_id += "_" + chunk.zoneId;
 
-    RedisUtil.hget(REDIS_KEYS.PAIR.OPENID_UID, channel_account_id, function(err, value) {
+    RedisUtil.hget(PAIR.OPENID_UID, channel_account_id, function(err, value) {
         if (value) {
             chunk["already_signup"] = true;
             console.log("渠道账户存在:", chunk["already_signup"]);
@@ -329,14 +329,6 @@ function _addLogoutLog(pool, id, nickname) {
             return;
         }
     });
-}
-
-
-/**
- * 为临时账户绑定一个昵称并设置密码
- */
-function _bindAccountWithNickname(pool, data, cb) {
-    AccountTemp.bind(pool, data, cb);
 }
 
 
@@ -498,6 +490,8 @@ function _resetDayInfoForAll(pool, id_list, cb) {
 };
 
 function _resetGoddess(pool, id_list, cb) {
+    const FUNC = TAG + "_resetGoddess() --- ";
+    
     var sql = '';
     sql += 'UPDATE `tbl_account` ';
     sql += 'SET `goddess_free`=(';

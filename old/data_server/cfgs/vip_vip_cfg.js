@@ -6,7 +6,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 10,    //--游戏好友上限
 		vip_dailyDiamond : 0,    //--补足钻石
-		drawtimes : 6,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 0,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_01",    //--聊天底板
@@ -34,7 +34,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 15,    //--游戏好友上限
 		vip_dailyDiamond : 20,    //--补足钻石
-		drawtimes : 12,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 300,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_02",    //--聊天底板
@@ -62,7 +62,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 20,    //--游戏好友上限
 		vip_dailyDiamond : 30,    //--补足钻石
-		drawtimes : 18,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 600,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_02",    //--聊天底板
@@ -90,7 +90,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 25,    //--游戏好友上限
 		vip_dailyDiamond : 40,    //--补足钻石
-		drawtimes : 24,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 1000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_02",    //--聊天底板
@@ -118,7 +118,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 30,    //--游戏好友上限
 		vip_dailyDiamond : 50,    //--补足钻石
-		drawtimes : 32,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 2000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_03",    //--聊天底板
@@ -146,7 +146,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 35,    //--游戏好友上限
 		vip_dailyDiamond : 60,    //--补足钻石
-		drawtimes : 38,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 3000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_03",    //--聊天底板
@@ -174,7 +174,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 40,    //--游戏好友上限
 		vip_dailyDiamond : 70,    //--补足钻石
-		drawtimes : 44,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 4000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_04",    //--聊天底板
@@ -202,7 +202,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 45,    //--游戏好友上限
 		vip_dailyDiamond : 80,    //--补足钻石
-		drawtimes : 50,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 7000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_04",    //--聊天底板
@@ -230,7 +230,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 50,    //--游戏好友上限
 		vip_dailyDiamond : 90,    //--补足钻石
-		drawtimes : 60,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 10000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_05",    //--聊天底板
@@ -258,7 +258,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 55,    //--游戏好友上限
 		vip_dailyDiamond : 100,    //--补足钻石
-		drawtimes : 70,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 20000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_05",    //--聊天底板
@@ -286,7 +286,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 60,    //--游戏好友上限
 		vip_dailyDiamond : 110,    //--补足钻石
-		drawtimes : 80,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 40000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_06",    //--聊天底板
@@ -314,7 +314,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 65,    //--游戏好友上限
 		vip_dailyDiamond : 120,    //--补足钻石
-		drawtimes : 90,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 60000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_06",    //--聊天底板
@@ -342,7 +342,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 70,    //--游戏好友上限
 		vip_dailyDiamond : 130,    //--补足钻石
-		drawtimes : 100,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 80000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_07",    //--聊天底板
@@ -370,7 +370,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 75,    //--游戏好友上限
 		vip_dailyDiamond : 140,    //--补足钻石
-		drawtimes : 150,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 100000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_07",    //--聊天底板
@@ -398,7 +398,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 80,    //--游戏好友上限
 		vip_dailyDiamond : 150,    //--补足钻石
-		drawtimes : 200,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 150000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_07",    //--聊天底板
@@ -426,7 +426,7 @@ var	vip_vip_cfg =
 		vip_dailyGold : 0,    //--补足金币
 		friend : 85,    //--游戏好友上限
 		vip_dailyDiamond : 160,    //--补足钻石
-		drawtimes : 300,    //--每日金币抽奖次数
+		drawtimes : 99999,    //--每日金币抽奖次数
 		charm : 200000,    //--魅力值
 		vip_miniGameAdd : [],    //--小游戏加成
 		chatpic : "speak_07",    //--聊天底板

@@ -77,8 +77,8 @@ function _hasFile(path) {
     var file_list = fs.readdirSync(path);
     
     file_list.forEach(function (filename) {
-        var full_path = path + '/' + filename;
-        stats = fs.statSync(full_path);
+        let full_path = path + '/' + filename;
+        let stats = fs.statSync(full_path);
         console.log(full_path + ': ' + stats.isFile());
         if (stats.isFile()) {
             // 只要文件夹下存在一个文件就返回true.

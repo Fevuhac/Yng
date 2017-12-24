@@ -330,7 +330,7 @@ function getNextDay(d) {
  * 输出: 2017-09-05 19:00:00
  */
 function getLastHourStart() {
-    d = new Date();
+    let d = new Date();
     d = +d - 1000 * 60 * 60;
     d = Math.floor(d / (1000 * 60 * 60)) * 1000 * 60 * 60;
     d = new Date(d);
@@ -342,7 +342,7 @@ function getLastHourStart() {
  * 输出: 2017-09-05 20:00:00
  */
 function getLastHourEnd() {
-    d = new Date();
+    let d = new Date();
     d = +d;
     d = Math.floor(d / (1000 * 60 * 60)) * 1000 * 60 * 60;
     d = new Date(d);

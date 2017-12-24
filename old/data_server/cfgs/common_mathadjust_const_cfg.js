@@ -1,6 +1,6 @@
 var	common_mathadjust_const_cfg =  {
-		A : 7500,    //--roiPCT参数
-		ROIPCT : 0.75,    //--roiPCT倍率
+		A : 20000,    //--roiPCT参数
+		ROIPCT : 0.95,    //--roiPCT倍率
 		LONG : 300,    //--roiPCT时间秒
 		RMAX : 1,    //--参数
 		RMIN : 1,    //--参数1
@@ -12,12 +12,12 @@ var	common_mathadjust_const_cfg =  {
 		DRATIO : 1,    //--偏振系数
 		HEARTMAX : 180,    //--心跳上限
 		HRATIO : 5,    //--心跳+1需要金币系数
-		HVALUE : 0.4,    //--心跳参数
-		extract : 0.11,    //--抽水
-		time1 : 1800,    //--重置间隔
-		addvalue : 1.15,    //--出分加成
-		time2 : 450,    //--出分时长
-		reducevalue : 0.85,    //--吃分加成
-		time3 : 450,    //--吃分时长
+		HVALUE : 0.5,    //--心跳参数
+		extract : 0.05,    //--抽水
+		time1 : 900,    //--重置间隔
+		addvalue : 1.2,    //--出分加成
+		time2 : 300,    //--出分时长
+		reducevalue : 0.8,    //--吃分加成
+		time3 : 300,    //--吃分时长
 	};
 module.exports = common_mathadjust_const_cfg;

@@ -178,11 +178,6 @@ router.post('/get_gl', function (req, res) {
     admin_backdoor.getGoldLog(req, res);
 });
 
-// 补发排行榜奖励邮件
-router.post('/mail_rank', function (req, res) {
-    admin_backdoor.mailCharts(req, res);
-});
-
 // 重置每日数据
 router.post('/reset_daily', function (req, res) {
     admin_backdoor.resetDaily(req, res);

@@ -1,7 +1,7 @@
-const HOST_PORT = 1337;
+const HOST_PORT = 80;
 
 //网关服务器
-const BALANCE_SERVER_ADDRESS = '119.28.176.122';
+const BALANCE_SERVER_ADDRESS = '171.244.35.45';
 const BALANCE_SERVER_PORT = [1338, 11338];
 
 //排位赛报名服
@@ -25,16 +25,16 @@ const SERVER_CFG = {
 
     //mysql 地址
     DB: {
-        host: '172.16.1.11',
-        user: 'root',
-        pwd: 'Chufeng123456',
+        host: '10.16.99.28',
+        user: 'fishjoy',
+        pwd: 'TDYPxJYvdwEvwFkyVUZr',
         database: 'fishjoy',
     },
     //redis地址
     REDIS:{
         RDS_PORT : 6379,
-        RDS_HOST : '172.16.1.12',
-        RDS_PWD : 'Chufeng123456',
+        RDS_HOST : '10.16.99.36',
+        RDS_PWD : 'EvwFkyVYvdwUZrTDYPxJ',
     },
 
     ADDRESS: {

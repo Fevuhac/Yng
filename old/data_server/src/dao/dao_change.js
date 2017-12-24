@@ -156,6 +156,8 @@ function updateWay(pool, params, cb) {
 }
 
 function handleQuery(pool, sql, sql_data, cb) {
+    const FUNC = TAG + "handleQuery() --- ";
+    //----------------------------------
     if (DEBUG) console.log(FUNC + 'sql:\n', sql);
     if (DEBUG) console.log(FUNC + 'sql_data:\n', sql_data);
     

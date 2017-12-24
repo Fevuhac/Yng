@@ -91,10 +91,6 @@ function _give_reward(req, dataObj, cb) {
             });
         }, function (rows, account, cost_info, cb) {
 
-            
-            let lan = 'cn';
-            i18n.XXXXX[lan];
-
             var nick = account.channel_account_name;
             if (!nick || nick=="") nick = account.nickname;
             if (!nick || nick=="") nick = account.tempname;

@@ -178,21 +178,26 @@ router.post('/login_temp_account', function (req, res) {
 
 
 const userAccess = require('../src/loginAuth/userAccess');
+const phoneVerification = require('../src/loginAuth/phoneVerification');
+const loginConfig = require('../src/loginAuth/login.config');
 
-
-function testAA(req, res) {
+router.post('/facebook_callback', function(req, res){
     let FUNC = 'facebook_callback ---'
     DEBUG = 1;
+    let aes = req.body.aes;
+    let dataObj = {};
+    try {
+        dataObj = buzz_cst_game.getDataObj(req.body.data, req.body.aes);
+    }
+    catch (json_parse_err) {
+        res.success({ type: 1, msg: '登录渠道账户失败(json解析错误)', err: '' + json_parse_err });
+        return;
+    }
 
-    let dataObj = {
-        device:1,
-        sdkAuthResponse:{
-            access_token:'EAACEdEose0cBAJzuwOFpCpMxO1CokYGMtf7SNZA8sGbu72U5z13OdiIb90khDUgEXxlrYteZCwrkw2pfrHZBExhCEDgQfXp5AmlafZC7ciui5BIFZBAjKY92CC58ACjGgqSMkASGy3olioS7ZAqPzYC4haE6VZB15AnBZC9fl7U87ZAezlOUGupgTRSAKU8TZBRFFuCxuVpaGCaKVhiGlDfElNsIq1mSnZCk2kZD',
-        },
-        platformType:1003
-    };
+    dataObj.platformType = dataObj.channel;
 
-    let aes = true;
+    console.log('-----------facebook_callback dataObj:', dataObj);
+
     userAccess.enter(dataObj, function (err, account) {
         if(err){
             if (DEBUG) console.log(FUNC + "渠道账户授权失败:", err);
@@ -212,9 +217,11 @@ function testAA(req, res) {
 
         }
     });
-}
-router.post('/facebook_callback', function(req, res){
-    let FUNC = 'facebook_callback ---'
+});
+
+router.post('/register', function(req, res){
+
+    let FUNC = 'register ---'
     DEBUG = 1;
     let aes = req.body.aes;
     let dataObj = {};
@@ -222,31 +229,171 @@ router.post('/facebook_callback', function(req, res){
         dataObj = buzz_cst_game.getDataObj(req.body.data, req.body.aes);
     }
     catch (json_parse_err) {
-        res.success({ type: 1, msg: '登录渠道账户失败(json解析错误)', err: '' + json_parse_err });
+        res.success({ type: 1, msg: '平台自建账户失败(json解析错误)', err: '' + json_parse_err });
         return;
     }
 
-    dataObj.platformType = 1003;
-    userAccess.enter(dataObj, function (err, account) {
+    dataObj.platformType = loginConfig.PLATFORM_TYPE.INNER;
+    userAccess.registe(dataObj, function (err, account) {
         if(err){
-            if (DEBUG) console.log(FUNC + "渠道账户授权失败:", err);
-            res.success({ type: 1, msg: '渠道账户授权失败', err: '' + err });
+            if (DEBUG) console.log(FUNC + "平台自建账户授权失败:", err);
+            res.success({ type: 1, msg: '平台自建账户授权失败', err: '' + err });
         }
         else {
 
             let res_data = buzz_cst_game.getResData(account, aes);
+            res.success({ type: 1, msg: '平台自建账户注册成功', data: res_data, aes: aes });
+            sdk_egret.notifyLogin(account.channel_account_id);
 
-            // if (DEBUG) console.log(FUNC + "是否加密:", aes);
-            // if (DEBUG) console.log(FUNC + "用户信息:", account);
-            // if (DEBUG) console.log(FUNC + "加密数据:", res_data);
+        }
+    });
 
-            res.success({ type: 1, msg: '渠道账户授权成功', data: res_data, aes: aes });
+});
 
+
+function register_test(cb){
+    let dataObj = {};
+
+    let FUNC = 'register ---'
+    DEBUG = 1;
+    let aes = 'aes';
+    // dataObj.phone = '322222222222';
+    // dataObj.verifyCode = 1233,
+    dataObj.username = 'linyng10';
+    dataObj.password = '123456';
+    dataObj.nickname = '测试小哥'
+    dataObj.platformType = loginConfig.PLATFORM_TYPE.INNER;
+    userAccess.registe(dataObj, function (err, account) {
+        if(err){
+            if (DEBUG) console.log(FUNC + "平台自建账户注册失败:", err);
+        }
+        else {
+            if (DEBUG) console.log(FUNC + "平台自建账户注册成功", account);
+        }
+    });
+
+}
+
+function login_test(){
+
+    let dataObj = {};
+
+    let FUNC = 'register ---'
+    DEBUG = 1;
+    let aes = 'aes';
+    dataObj.username = '11111111111';
+    dataObj.password = '1234';
+    dataObj.platformType = loginConfig.PLATFORM_TYPE.INNER;
+    userAccess.login(dataObj, function (err, account) {
+        if(err){
+            if (DEBUG) console.log(FUNC + "平台自建账户登录失败:", err);
+        }
+        else {
+            if (DEBUG) console.log(FUNC + "平台自建账户登录成功", account.nickname);
+        }
+    });
+}
+
+function modifyPassword_test(cb){
+    let FUNC = 'login ---'
+    DEBUG = 1;
+    let dataObj = {};
+    dataObj.phone = '11111111111';
+    dataObj.verifyCode = 1233;
+    dataObj.newPassword = '1234';
+
+    dataObj.platformType = loginConfig.PLATFORM_TYPE.INNER;
+    userAccess.modifyPassword(dataObj, function (err, result) {
+        if(err){
+            if (DEBUG) console.log(FUNC + "修改密码失败:", err);
+        }
+        else {
+            cb();
+        }
+    }); 
+}
+
+
+//账号登录
+router.post('/login', function(req, res){
+    let FUNC = 'login ---'
+    DEBUG = 1;
+    let aes = req.body.aes;
+    let dataObj = {};
+    try {
+        dataObj = buzz_cst_game.getDataObj(req.body.data, req.body.aes);
+    }
+    catch (json_parse_err) {
+        res.success({ type: 1, msg: '平台自建账户失败(json解析错误)', err: '' + json_parse_err });
+        return;
+    }
+
+    dataObj.platformType = loginConfig.PLATFORM_TYPE.INNER;
+    userAccess.login(dataObj, function (err, account) {
+        if(err){
+            if (DEBUG) console.log(FUNC + "平台自建账户授权失败:", err);
+            res.success({ type: 1, msg: '平台自建账户授权失败', err: '' + err });
+        }
+        else {
+
+            let res_data = buzz_cst_game.getResData(account, aes);
+            res.success({ type: 1, msg: '渠道账户登录成功', data: res_data, aes: aes });
             sdk_egret.notifyLogin(account.channel_account_id);
 
         }
     });
 });
+
+
+router.post('/modifyPassword', function(req, res){
+    let FUNC = 'login ---'
+    DEBUG = 1;
+    let aes = req.body.aes;
+    let dataObj = {};
+    try {
+        dataObj = buzz_cst_game.getDataObj(req.body.data, req.body.aes);
+    }
+    catch (json_parse_err) {
+        res.success({ type: 1, msg: '修改密码失败(json解析错误)', err: '' + json_parse_err });
+        return;
+    }
+
+    dataObj.platformType = loginConfig.PLATFORM_TYPE.INNER;
+    userAccess.modifyPassword(dataObj, function (err, result) {
+        if(err){
+            if (DEBUG) console.log(FUNC + "修改密码失败:", err);
+            res.success({ type: 1, msg: '修改密码失败', err: '' + err });
+        }
+        else {
+            let res_data = buzz_cst_game.getResData(result, aes);
+            res.success({ type: 1, msg: '修改密码成功', data: res_data, aes: aes });
+        }
+    });
+});
+
+router.post('/getVerifyCode', async function(req, res){
+    let FUNC = 'getVerifyCode ---'
+    DEBUG = 1;
+    let aes = req.body.aes;
+    let dataObj = {};
+    try {
+        dataObj = buzz_cst_game.getDataObj(req.body.data, req.body.aes);
+    }
+    catch (json_parse_err) {
+        res.success({ type: 1, msg: '获取短信验证码失败(json解析错误)', err: '' + json_parse_err });
+        return;
+    }
+
+    let obj = await phoneVerification.sendPhoneCode(dataObj);
+    let res_data = buzz_cst_game.getResData(obj, aes);
+    res.success({ type: 1, msg: '获取短信验证码成功', data: res_data, aes: aes });
+
+});
+
+//账号注销
+router.post('/logout', function(req, res){
+
+})
 
 // API: signup_channel_account
 // 注册渠道账户

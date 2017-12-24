@@ -181,8 +181,8 @@ function _prepare(data, cb) {
     var token = data['token'];
     var skill_data = data['skill_data'];
     
-    if (!_isParamExist(token, "接口调用请传参数token")) return false;
-    if (!_isParamExist(skill_data, "接口调用请传参数skill_data(玩家技能数据)")) return false;
+    if (!_isParamExist(token, "接口调用请传参数token", cb)) return false;
+    if (!_isParamExist(skill_data, "接口调用请传参数skill_data(玩家技能数据)", cb)) return false;
     
     if (typeof skill_data == "string") {
         try {
@@ -206,11 +206,11 @@ function _prepare(data, cb) {
  * @param param 待检测的参数.
  * @param err_info 如果检测失败，回调需要传回的信息.
  */
-function _isParamExist(param, err_info) {
+function _isParamExist(param, err_info, cb) {
     if (param == null) {
         console.error(err_info);
         var extraErrInfo = { debug_info: "dao_skill.addSkillLog()-" + err_info };
-        cb(ObjUtil.merge(extraErrInfo, ERROR_OBJ.PARAM_MISSING));
+        cb && cb(ObjUtil.merge(extraErrInfo, ERROR_OBJ.PARAM_MISSING));
         return false;
     }
     return true;

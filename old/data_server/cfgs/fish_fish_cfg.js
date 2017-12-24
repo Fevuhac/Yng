@@ -103,7 +103,7 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [35,60],    //--刷新频率秒
+		in_interval : [25,40],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 4,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -132,7 +132,7 @@ var	fish_fish_cfg =
 		pendant : ["hetun_huang_gj", "baoshiyu_lan_gj", "baoshiyu_lan_gj"],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [30,40],    //--刷新频率秒
+		in_interval : [20,30],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 4,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -161,7 +161,7 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1.2,    //--体型缩放
-		in_interval : [15,20],    //--刷新频率秒
+		in_interval : [11,22],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -190,7 +190,7 @@ var	fish_fish_cfg =
 		pendant : ["baoshiyu_zi_gj", "baoshiyu_zi_gj"],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [25,40],    //--刷新频率秒
+		in_interval : [20,30],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -248,7 +248,7 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [20,35],    //--刷新频率秒
+		in_interval : [15,35],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -306,7 +306,7 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [15,25],    //--刷新频率秒
+		in_interval : [10,20],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -712,7 +712,7 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 0.8,    //--体型缩放
-		in_interval : [45,70],    //--刷新频率秒
+		in_interval : [35,50],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -741,7 +741,7 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [20,30],    //--刷新频率秒
+		in_interval : [12,24],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -770,7 +770,7 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [25,40],    //--刷新频率秒
+		in_interval : [20,30],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -1176,7 +1176,7 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [50,80],    //--刷新频率秒
+		in_interval : [40,60],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -1205,7 +1205,7 @@ var	fish_fish_cfg =
 		pendant : ["baoshiyu_lan_gj", "baoshiyu_lan_gj", "baoshiyu_lan_gj", "baoshiyu_lan_gj"],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [40,60],    //--刷新频率秒
+		in_interval : [30,45],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -1234,7 +1234,7 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1.2,    //--体型缩放
-		in_interval : [20,30],    //--刷新频率秒
+		in_interval : [13,26],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -1263,7 +1263,7 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1.2,    //--体型缩放
-		in_interval : [15,20],    //--刷新频率秒
+		in_interval : [11,22],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 2,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -1495,7 +1495,7 @@ var	fish_fish_cfg =
 		pendant : [],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1.2,    //--体型缩放
-		in_interval : [60,100],    //--刷新频率秒
+		in_interval : [50,70],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能
@@ -1524,7 +1524,7 @@ var	fish_fish_cfg =
 		pendant : ["chuitousha_gj", "hetun_huang_gj", "hetun_huang_gj", "hetun_huang_gj", "hetun_huang_gj"],    //--挂件，目前是鱼数组
 		pendant_param : [],    //--挂件参数
 		sharp_scale : 1,    //--体型缩放
-		in_interval : [55,90],    //--刷新频率秒
+		in_interval : [45,65],    //--刷新频率秒
 		in_percent : [100],    //--条数概率
 		in_path : 3,    //--路径ID
 		death_skill_id : [],    //--死亡技能

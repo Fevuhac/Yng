@@ -23,6 +23,7 @@ var RedisUtil = require('../../utils/RedisUtil');
 var CharmUtil = require('../../utils/CharmUtil');
 var CacheCharts = require('./CacheCharts');
 var active_activequest_cfg = require('../../../cfgs/active_activequest_cfg');
+const dao_utils = require('../../dao/dao_utils');
 const redisSync = require('../redisSync');
 const utils = require('../../utils/utils');
 const account_def = require('../../dao/account/account_def');
@@ -374,7 +375,8 @@ function setTest(pool, uid, value) {
         field_name: 'test',
         field_value: value,
     };
-    dao_account.setField(pool, data, function(err, result) {
+    //change at 2017/12/13 17:20 by dfc
+    dao_utils.setField(pool, data, function(err, result) {
         if (err) {
             console.error(FUNC + "设置玩家状态失败:", data);
         }
@@ -1118,7 +1120,7 @@ function setPack(uid, cur) {
 //----------------------------------------------------------
 // 金币相关
 //----------------------------------------------------------
-function getGold(uid) {
+function getGold(uid,cb) {
     getAccountFieldById(uid, [account_def.AccountDef.gold], function (err, account) {
         utils.invokeCallback(cb, null, account.gold);
     });
@@ -1238,6 +1240,7 @@ function addSpecifyMail(mail_obj, player_list) {
  * 添加一条系统邮件到CacheAccount.
  */
 function addSysMail(mail_obj) {
+    const FUNC = TAG + "addSysMail() --- ";
     redisSync.getUIDs(function (err, uids) {
         uids.forEach(function (id) {
             getAccountFieldById(id, [account_def.AccountDef.mail_box.name], function (err, account) {
@@ -1331,7 +1334,7 @@ function setMailBox(uid, cur) {
  */
 function getAllMailBox(cb) {
     redisSync.getUIDs(function (err, uids) {
-
+        const FUNC = TAG + "getAllMailBox() --- ";
         async.mapSeries(uids, function (uid, cb) {
             getAccountFieldById(uid, [account_def.AccountDef.mail_box.name], function (err, account) {
                 if (err) {
@@ -2062,7 +2065,7 @@ var cloneObj = function (obj) {
     var str, newobj = obj.constructor === Array ? [] : {};
     if (typeof obj !== 'object') {
         return;
-    } else if (window.JSON) {
+    } else if (JSON) {
         str = JSON.stringify(obj), //系列化对象
             newobj = JSON.parse(str); //还原
     } else {

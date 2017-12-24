@@ -561,11 +561,11 @@ function _getCost(level) {
 function _alreadyHave(account, id, level) {
     if (account.aquarium != null) {
         if (level == 0 && account.aquarium["" + id] != null) {
-            cb(new Error("玩家已经解锁了这条鱼"));
+            // cb(new Error("玩家已经解锁了这条鱼"));
             return true;
         }
         else if (level > 0 && account.aquarium["" + id] > level) {
-            cb(new Error("玩家已经将这条鱼升级到了" + (level + 1)));
+            // cb(new Error("玩家已经将这条鱼升级到了" + (level + 1)));
             return true;
         }
     }

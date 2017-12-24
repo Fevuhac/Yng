@@ -1,6 +1,7 @@
 const common_const_cfg = require('../../cfgs/common_const_cfg');
 const player_users_cfg = require('../../cfgs/player_users_cfg');
 const RedisUtil = require('../utils/RedisUtil');
+const ObjUtil = require('./ObjUtil');
 const utils = require('../utils/utils');
 const account_def = require('../dao/account/account_def');
 var allFields = [];
@@ -59,7 +60,7 @@ class RedisSync {
                 break;
             case 'object': {
                 if (value == null) {
-                    serialVal = typeInfo.def;
+                    serialVal = ObjUtil.clone(typeInfo.def);
                 }
                 else {
                     try {
@@ -1361,6 +1362,14 @@ class RedisSync {
 
     set pump_pool(value) {
         this._modify(account_def.AccountDef.pump_pool.name, value);
+    }
+
+    set phone(value){
+        this._modify(account_def.AccountDef.phone.name, value);
+    }
+
+    get phone(){
+        return this._value(account_def.AccountDef.phone.name);
     }
 
 }

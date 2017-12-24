@@ -15,7 +15,7 @@ var	common_const_cfg =  {
 		GODDESS_BREAK : 9,    //--女神碎片总数
 		GODDESS_TIME : 10800,    //--女神互动间隔秒
 		RANK_RESET : 800,    //--赛季重置积分
-		SKILL_COST_STANDER : 50,    //--技能钻石消耗提醒边界
+		SKILL_COST_STANDER : 5000,    //--技能钻石消耗提醒边界
 		GODDESS_SCALE : 0.7,    //--女神在场景缩放
 		FORGE_SPECAIL_MATERIAL : "i500",    //--陨石道具id
 		WEAPON_ADDRATE : 0.01,    //--陨石增加成功率
@@ -29,8 +29,8 @@ var	common_const_cfg =  {
 		RMATCH_VICTORSADD : 2,    //--连胜加成系数
 		RMATCH_ROLE_LV : 100,    //--比赛解锁角色等级
 		FIRST_PAY_LV : 9,    //--首充提醒等级
-		WORLD_LABA_PEARL : 10,    //--喇叭对应钻石
-		MISS_SIGN : 10,    //--补签消耗钻石
+		WORLD_LABA_PEARL : 500,    //--喇叭对应钻石
+		MISS_SIGN : 50,    //--补签消耗钻石
 		RMATCH_CHAT_COUNT : 6,    //--排位赛消息数量
 		HORN_CD : 1,    //--喇叭间隔
 		WEAPONS_DRAW_COST : 10,    //--皮肤抽奖钻石

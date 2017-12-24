@@ -517,12 +517,6 @@ router.post('/rankgame_box', function (req, res) {
     data_rankgame.box(req, res);
 });
 
-// 客户端领取赛季奖励的接口
-// TASK204
-router.post('/get_season_reward', function (req, res) {
-    data_rankgame.getSeasonReward(req, res);
-});
-
 // 是否有正在进行中的排位赛, 如果有, 则返回房间地址
 // TASK194, 198
 router.post('/rankgame_ising', function (req, res) {
@@ -990,6 +984,82 @@ req.body:
         res.success({ code: 1013 });
     }
 });
+
+const userAccess = require('../src/loginAuth/userAccess');
+const buzz_account = require('../src/buzz/buzz_account');
+const loginConfig = require('../src/loginAuth/login.config');
+
+router.post('/bindPhone', function(req, res){
+    let FUNC = 'login ---'
+    DEBUG = 1;
+    let aes = req.body.aes;
+    let dataObj = {};
+    try {
+        dataObj = buzz_cst_game.getDataObj(req.body.data, req.body.aes);
+    }
+    catch (json_parse_err) {
+        res.success({ type: 1, msg: '绑定手机号失败(json解析错误)', err: '' + json_parse_err });
+        return;
+    }
+
+    buzz_account.getAccountByToken(req, dataObj.token, function(err, account){
+        if(err){
+            res.success({ type: 1, msg: '绑定手机号获取用户信息失败', err: '' + json_parse_err });
+            return;
+        }
+
+        dataObj.platformType = loginConfig.PLATFORM_TYPE.INNER;
+        dataObj.uid = account.id;
+        userAccess.bindPhone(dataObj, function (err, result) {
+            if(err){
+                if (DEBUG) console.log(FUNC + "绑定手机号失败:", err);
+                res.success({ type: 1, msg: '绑定手机号失败', err: '' + err });
+            }
+            else {
+    
+                let res_data = buzz_cst_game.getResData(result, aes);
+                res.success({ type: 1, msg: '绑定手机号成功', data: res_data, aes: aes });
+    
+            }
+        });
+    })
+
+
+});
+
+function bindPhone_test(){
+    let FUNC = 'login ---'
+    DEBUG = 1;
+    let aes = 'aes';
+    let dataObj = {};
+    dataObj.phone = '222222222222',
+    dataObj.verifyCode = '1233',
+    dataObj.token = '211_werwerwerwerwerwe',
+    
+console.log('----------------bindPhone_test-----------------------');
+    buzz_account.getAccountByToken(null, dataObj.token, function(err, account){
+        if(err){
+            if (DEBUG) console.log(FUNC + "绑定手机号失败:", err);
+            return;
+        }
+
+        dataObj.platformType = loginConfig.PLATFORM_TYPE.INNER;
+        dataObj.uid = account.id;
+        userAccess.bindPhone(dataObj, function (err, result) {
+            if(err){
+                if (DEBUG) console.log(FUNC + "绑定手机号失败:", err);
+            }
+            else {
+                if (DEBUG) console.log(FUNC + "绑定手机号成功");
+
+            }
+        });
+    })
+}
+
+// setTimeout(function(){
+//     bindPhone_test();
+// }, 5000)
 
 /**
  * 更新玩家数据(包括但不限于经验值(exp),...)

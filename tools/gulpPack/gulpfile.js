@@ -37,7 +37,13 @@ gulp.task('checkout', ['commit'], function () {
 gulp.task('prod', function (cb) {
   // runSequence('clean', 'eslint', ['mix', 'copy'], 'zip', 'scp', cb);
   // runSequence('clean', ['mix', 'copy'], 'zip', 'scp', cb);
+  // runSequence('clean', ['mix', 'copy'],'copyCfg', 'zip','scp', cb);
+  // runSequence('mix', ['copy'], 'zip', cb);
+  // runSequence('copy', ['zip'], cb);
+  // runSequence('copyCfg', cb);
+  // runSequence('clean', ['mix', 'copy'], cb);
   runSequence('zip', 'scp', cb);
+  // runSequence('eslint', cb);
 });
 
 gulp.task('clean', function () {
@@ -47,6 +53,18 @@ gulp.task('clean', function () {
     //保留
     '!dist/**/*.json'
   ]);
+});
+
+gulp.task('copyCfg', function(){
+
+  let output_cfgs = config.output.cfgs;
+  let t = null;
+  output_cfgs.forEach(function(cfg){
+    t = gulp.src(config.input.cfgs)
+    .pipe(gulp.dest(cfg));
+  });
+
+  return t;
 });
 
 gulp.task('copy', function () {
@@ -75,7 +93,7 @@ gulp.task('zip', function () {
 });
 
 gulp.task('scp', function () {
-  return gulp.src(pkgName)
+  return gulp.src(config.output.zip + pkgName)
     .pipe(scp({
       host: config.scp.host,
       username: config.scp.username,

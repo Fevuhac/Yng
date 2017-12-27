@@ -12,4 +12,5 @@ data_server/test/
 106_online/
 node_modules/*
 /node_modules
+/dist
 

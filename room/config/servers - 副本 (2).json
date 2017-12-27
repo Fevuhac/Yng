@@ -1,0 +1,67 @@
+{
+  "development": {
+    "connector": [
+      {
+        "id": "connector-server-2",
+        "host": "127.0.0.1",
+        "port": 3100,
+        "clientHost": "127.0.0.1",
+        "clientPort": 3150,
+        "frontend": true,
+        "args": "--inspect=13100",
+        "maxLoad":10000
+      }
+    ],
+    "game": [
+      {
+        "id": "game-server-4",
+        "host": "127.0.0.1",
+        "port": 3400,
+        "args": "--inspect=13400",
+        "maxLoad":10000
+      },
+      {
+        "id": "game-server-2",
+        "host": "127.0.0.1",
+        "port": 3401,
+        "args": "--inspect=13401",
+        "maxLoad":10000
+      },
+      {
+        "id": "game-server-3",
+        "host": "127.0.0.1",
+        "port": 3402,
+        "args": "--inspect=13402",
+        "maxLoad":10000
+      }
+    ]
+  },
+
+  "production": {
+
+    "connector": [
+      {
+        "id": "connector-server-1",
+        "host": "127.0.0.1",
+        "port": 3150,
+        "clientHost": "127.0.0.1",
+        "clientPort": 3100,
+        "frontend": true
+      }
+    ],
+    "auth": [
+      {
+        "id": "auth-server-1",
+        "host": "127.0.0.1",
+        "port": 3200
+      }
+    ],
+    "game": [
+      {
+        "id": "game-server-1",
+        "host": "127.0.0.1",
+        "port": 3400
+      }
+    ]
+  }
+}

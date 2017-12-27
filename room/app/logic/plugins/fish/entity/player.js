@@ -148,6 +148,7 @@ class FishPlayer extends Player {
     static sBaseField() {
         const baseField = [
             ACCOUNTKEY.NICKNAME,
+            ACCOUNTKEY.SEX,
             ACCOUNTKEY.LEVEL,
             ACCOUNTKEY.WEAPON,
             ACCOUNTKEY.WEAPON_SKIN,
@@ -1027,6 +1028,12 @@ class FishPlayer extends Player {
      */
     checkPersonalGpctOut () {}
 
+    /**
+     * 个人捕获率充值修正
+     * @param {当前捕获的鱼的金币} catchGold 
+     */
+    rechargeRevise(catchGold){return 1;}
+    
     /**
      * 初始化海盗任务
      */

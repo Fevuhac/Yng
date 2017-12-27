@@ -5,6 +5,7 @@ const randomName = require("chinese-random-name");
 const redisClient = require('../../../../utils/import_db').redisClient;
 const redisAccountSync = require('../../../../utils/import_utils').redisAccountSync;
 const KEYTYPEDEF = require('../../../../utils/import_def').KEYTYPEDEF;
+const randomRobot = require('./randomRobot');
 
 class RobotBuilder {
     constructor() {
@@ -175,10 +176,13 @@ class RobotBuilder {
         let pearl = this._calcPearl(room.avgPearl);
         let exp = room.avgExp;
         let vip = room.avgVIP;
-        let randomInfo = await this.genBaseInfo();
+        let randomRobotInfo = randomRobot();
+        logger.error('分配机器人：', randomRobotInfo);
 
         let account = {
-            nickname: randomInfo.nickname,
+            figure_url: randomRobotInfo.head_url,
+            nickname: randomRobotInfo.nickname,
+            sex: randomRobotInfo.sex,
             level: robot_Level,
             weapon_skin: robot_weapon.skin,
             weapon: robot_weapon.level,
@@ -190,8 +194,7 @@ class RobotBuilder {
             heartbeat: 100,
             roipct_time: 100,
             skill: {1: 2, 2: 8, 3: 8, 4: -1, 8: 2, 9: 0, 10: 0},
-            exp: exp,
-            figure_url: randomInfo.figure_url,
+            exp: exp
         };
 
         return account;

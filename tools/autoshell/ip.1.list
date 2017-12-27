@@ -1,7 +1,10 @@
 4cpu02-node04.local,171.244.35.45,root,JYvdwVUZrEvwFkyTDYPx,balance_server
 4cpu01-node04.local,171.244.35.44,root,JYvdwVUZrEvwFkyTDYPx,chat_server
 4cpu03-node04.local,171.244.35.43,root,JYvdwVUZrEvwFkyTDYPx,fight_server
+4cpu01-node05.local,171.244.35.42,root,JYvdwVUZrEvwFkyTDYPx,fight_server
 4cpu02-node05.local,171.244.35.41,root,JYvdwVUZrEvwFkyTDYPx,playerSync
 4cpu03-node05.local,171.244.35.40,root,JYvdwVUZrEvwFkyTDYPx,data_server
+4cpu01-node06.local,171.244.35.39,root,JYvdwVUZrEvwFkyTDYPx,data_server
+4cpu02-node06.local,171.244.35.38,root,JYvdwVUZrEvwFkyTDYPx,data_server
 4cpu02-node06.local,171.244.35.38,root,JYvdwVUZrEvwFkyTDYPx,admin
 2cpu01-node06.local,171.244.35.37,root,JYvdwVUZrEvwFkyTDYPx,resource_server

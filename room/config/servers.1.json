@@ -1,0 +1,115 @@
+{
+  "development": {
+    "gate": [
+      {
+        "id": "gate-server-1",
+        "host": "127.0.0.1",
+        "clientPort": 3021,
+        "frontend": true,
+        "args": "--inspect=13010"
+      }
+    ],
+    "connector": [
+      {
+        "id": "connector-server-1",
+        "host": "127.0.0.1",
+        "port": 3100,
+        "clientHost": "171.244.35.43",
+        "clientPort": 3121,
+        "frontend": true,
+        "args": "--inspect=13100",
+        "maxLoad":10000
+      }
+    ],
+    "auth": [
+      {
+        "id": "auth-server-1",
+        "host": "127.0.0.1",
+        "port": 3200,
+        "args": "--inspect=13200"
+      }
+    ],
+    "game": [
+      {
+        "id": "game-server-1",
+        "host": "127.0.0.1",
+        "port": 3400,
+        "args": "--inspect=13400",
+        "maxLoad":10000
+      }
+    ],
+    "balance": [
+      {
+        "id": "balance-server-1",
+        "host": "127.0.0.1",
+        "port": 3500,
+        "args": "--inspect=13500"
+      }
+    ],
+    "dataSync": [
+      {
+        "id": "dataSync-server-1",
+        "host": "127.0.0.1",
+        "port": 3600,
+        "args": "--inspect=13600"
+      }
+    ]
+  },
+
+  "production": {
+    "gate": [
+      {
+        "id": "gate-server-1",
+        "host": "127.0.0.1",
+        "clientPort": 3021,
+        "frontend": true,
+        "args": "--inspect=13010"
+      }
+    ],
+    "connector": [
+      {
+        "id": "connector-server-1",
+        "host": "127.0.0.1",
+        "port": 3100,
+        "clientHost": "171.244.35.43",
+        "clientPort": 3121,
+        "frontend": true,
+        "args": "--inspect=13100",
+        "maxLoad":10000
+      }
+    ],
+    "auth": [
+      {
+        "id": "auth-server-1",
+        "host": "127.0.0.1",
+        "port": 3200,
+        "args": "--inspect=13200"
+      }
+    ],
+    "game": [
+      {
+        "id": "game-server-1",
+        "host": "127.0.0.1",
+        "port": 3400,
+        "args": "--inspect=13400",
+        "maxLoad":10000
+      }
+    ],
+    "balance": [
+      {
+        "id": "balance-server-1",
+        "host": "127.0.0.1",
+        "port": 3500,
+        "args": "--inspect=13500"
+      }
+    ],
+    "dataSync": [
+      {
+        "id": "dataSync-server-1",
+        "host": "127.0.0.1",
+        "port": 3600,
+        "args": "--inspect=13600"
+      }
+    ]
+  }
+}

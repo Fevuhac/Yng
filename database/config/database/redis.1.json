@@ -1,0 +1,13 @@
+{
+    "enable": true,
+    "server": {
+        "host": "10.16.99.36",
+        "port": 6379,
+        "auth":true,
+        "pwd": "EvwFkyVYvdwUZrTDYPxJ",
+        "database": 0,
+        "prefix":""
+    },
+    "ext": {
+    }
+}
